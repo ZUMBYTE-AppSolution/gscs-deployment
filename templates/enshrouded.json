@@ -1,0 +1,50 @@
+{
+  "id": "enshrouded",
+  "name": "Enshrouded",
+  "version": "1.0.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/enshrouded.json",
+  "sourceRef": "main",
+  "steamAppId": 2278520,
+  "steamGameAppId": 1203620,
+  "website": "https://enshrouded.com/",
+  "windowsOnly": true,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows"
+  ],
+  "executables": {
+    "windows": "enshrouded_server.exe"
+  },
+  "arguments": [],
+  "ports": [
+    {
+      "role": "query",
+      "default": 15637,
+      "protocol": "both",
+      "containerPort": 15637,
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "defaults": {
+    "SERVER_PASSWORD": "{RANDOM_SECRET}"
+  },
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "source",
+  "validationStatus": "metadata-validated",
+  "warnings": [
+    "Manifest checked; a live game launch on each supported runtime remains a separate verification."
+  ],
+  "licenseUrl": "",
+  "jsonConfigs": {
+    "enshrouded_server.json": {
+      "name": "{SERVER_NAME}",
+      "password": "{SERVER_PASSWORD}",
+      "slotCount": "{SLOTS}",
+      "queryPort": "{QUERY_PORT}",
+      "ip": "0.0.0.0"
+    }
+  }
+}

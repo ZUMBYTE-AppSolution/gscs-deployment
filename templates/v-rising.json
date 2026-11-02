@@ -1,0 +1,60 @@
+{
+  "id": "v-rising",
+  "name": "V Rising",
+  "version": "1.0.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/v-rising.json",
+  "sourceRef": "main",
+  "steamAppId": 1829350,
+  "steamGameAppId": 1604030,
+  "website": "https://playvrising.com/",
+  "windowsOnly": true,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows"
+  ],
+  "executables": {
+    "windows": "VRisingServer.exe"
+  },
+  "arguments": [
+    "-persistentDataPath",
+    "{SERVER_DIR}/UserData",
+    "-serverName",
+    "{SERVER_NAME}",
+    "-saveName",
+    "GSCS",
+    "-gamePort",
+    "{GAME_PORT}",
+    "-queryPort",
+    "{QUERY_PORT}"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 27015,
+      "protocol": "udp",
+      "containerPort": 27015,
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "query",
+      "default": 27016,
+      "protocol": "udp",
+      "containerPort": 27016,
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "defaults": {},
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "source",
+  "validationStatus": "metadata-validated",
+  "warnings": [
+    "Windows native only; Wine is a separate compatibility choice.",
+    "Based on Stunlock 1.1 dedicated server instructions: https://github.com/StunlockStudios/vrising-dedicated-server-instructions/tree/master/1.1.x-pc",
+    "Both configured UDP ports are reserved; optional RCON is not enabled. No live launch has been performed."
+  ],
+  "licenseUrl": ""
+}

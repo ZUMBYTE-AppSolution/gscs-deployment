@@ -1,0 +1,47 @@
+{
+  "id": "space-engineers",
+  "name": "Space Engineers",
+  "version": "1.0.0",
+  "approved": false,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/space-engineers.json",
+  "sourceRef": "main",
+  "steamAppId": 298740,
+  "steamGameAppId": 244850,
+  "website": "https://www.spaceengineersgame.com/",
+  "windowsOnly": true,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows"
+  ],
+  "executables": {
+    "windows": "DedicatedServer64/SpaceEngineersDedicated.exe"
+  },
+  "arguments": [
+    "-console",
+    "-path",
+    "{SERVER_DIR}/WorldData",
+    "-port",
+    "{GAME_PORT}"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 27016,
+      "protocol": "udp",
+      "containerPort": 27016,
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "defaults": {},
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "source",
+  "validationStatus": "configuration-required",
+  "warnings": [
+    "Original profile derived from https://www.spaceengineersgame.com/dedicated-servers/",
+    "Prepare a valid world/configuration and install .NET Framework 4.8 plus the required VC++ runtime before administrator approval. No native Linux support is claimed.",
+    "The optional REST interface is not enabled. No live game launch has been performed."
+  ],
+  "licenseUrl": ""
+}

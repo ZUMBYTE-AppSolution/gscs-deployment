@@ -1,0 +1,82 @@
+{
+  "id": "arma-3",
+  "name": "Arma 3",
+  "version": "1.0.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/arma-3.json",
+  "sourceRef": "main",
+  "steamAppId": 233780,
+  "steamGameAppId": 107410,
+  "website": "https://arma3.com/",
+  "windowsOnly": false,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "executables": {
+    "windows": "arma3server_x64.exe",
+    "linux": "arma3server_x64"
+  },
+  "arguments": [
+    "-config=server.cfg",
+    "-port={GAME_PORT}",
+    "-name=GSCS"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 2302,
+      "protocol": "udp",
+      "containerPort": 2302,
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "bundle1",
+      "default": 2303,
+      "protocol": "udp",
+      "containerPort": 2303,
+      "offsetFromRole": "game",
+      "offset": 1
+    },
+    {
+      "role": "bundle2",
+      "default": 2304,
+      "protocol": "udp",
+      "containerPort": 2304,
+      "offsetFromRole": "game",
+      "offset": 2
+    },
+    {
+      "role": "bundle3",
+      "default": 2305,
+      "protocol": "udp",
+      "containerPort": 2305,
+      "offsetFromRole": "game",
+      "offset": 3
+    },
+    {
+      "role": "bundle4",
+      "default": 2306,
+      "protocol": "udp",
+      "containerPort": 2306,
+      "offsetFromRole": "game",
+      "offset": 4
+    }
+  ],
+  "defaults": {},
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "source",
+  "validationStatus": "metadata-validated",
+  "warnings": [
+    "Five consecutive UDP ports are reserved as documented by Bohemia: https://community.bistudio.com/wiki/Arma_3:_Dedicated_Server",
+    "Steam authentication requirements vary by branch; secure Steam account credentials may be necessary.",
+    "Optional BattlEye RCON needs its own additional UDP port outside this bundle. No live game launch has been performed."
+  ],
+  "licenseUrl": "",
+  "textConfigs": {
+    "server.cfg": "hostname = {JSON_SERVER_NAME};\nmaxPlayers = {SLOTS};\npersistent = 1;\n"
+  }
+}

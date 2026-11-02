@@ -1,0 +1,113 @@
+{
+  "id": "project-zomboid",
+  "name": "Project Zomboid",
+  "version": "1.0.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/project-zomboid.json",
+  "sourceRef": "main",
+  "steamAppId": 380870,
+  "steamGameAppId": 108600,
+  "website": "https://projectzomboid.com/",
+  "windowsOnly": false,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "executables": {
+    "windows": "jre64/bin/java.exe",
+    "linux": "jre64/bin/java"
+  },
+  "arguments": [],
+  "ports": [
+    {
+      "role": "game",
+      "default": 16261,
+      "protocol": "udp",
+      "containerPort": 16261,
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "direct",
+      "default": 16262,
+      "protocol": "udp",
+      "containerPort": 16262,
+      "offsetFromRole": "game",
+      "offset": 1
+    },
+    {
+      "role": "rcon",
+      "default": 27015,
+      "protocol": "tcp",
+      "containerPort": 27015,
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "defaults": {
+    "RCON_PASSWORD": "{RANDOM_SECRET}"
+  },
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "source",
+  "validationStatus": "metadata-validated",
+  "warnings": [
+    "Manifest checked; a live game launch on each supported runtime remains a separate verification."
+  ],
+  "licenseUrl": "",
+  "platformArguments": {
+    "windows": [
+      "-Dfile.encoding=UTF-8",
+      "-Djava.awt.headless=true",
+      "-Dzomboid.steam=1",
+      "-Duser.home=./",
+      "-Xmx{MEMORY}m",
+      "-Djava.library.path=natives/;natives/win64/;.",
+      "-cp",
+      "java/*;java/",
+      "zombie.network.GameServer",
+      "-servername",
+      "GSCS",
+      "-cachedir",
+      "{SERVER_DIR}/Zomboid",
+      "-port",
+      "{GAME_PORT}",
+      "-udpport",
+      "{DIRECT_PORT}"
+    ],
+    "linux": [
+      "-Dfile.encoding=UTF-8",
+      "-Djava.awt.headless=true",
+      "-Dzomboid.steam=1",
+      "-Duser.home=./",
+      "-Xmx{MEMORY}m",
+      "-Djava.library.path=linux64/:natives/",
+      "-cp",
+      "java/:java/*",
+      "zombie.network.GameServer",
+      "-servername",
+      "GSCS",
+      "-cachedir",
+      "{SERVER_DIR}/Zomboid",
+      "-port",
+      "{GAME_PORT}",
+      "-udpport",
+      "{DIRECT_PORT}"
+    ]
+  },
+  "iniConfigs": {
+    "Zomboid/Server/GSCS.ini": {
+      "PublicName": "{SERVER_NAME}",
+      "MaxPlayers": "{SLOTS}",
+      "RCONPort": "{RCON_PORT}",
+      "RCONPassword": "{RCON_PASSWORD}",
+      "DefaultPort": "{GAME_PORT}",
+      "UDPPort": "{DIRECT_PORT}"
+    }
+  },
+  "stopCommand": "quit",
+  "saveCommand": "save",
+  "announcementCommand": "servermsg \"{MESSAGE}\"",
+  "workshopInstallDirectory": "Zomboid/Workshop"
+}

@@ -1,0 +1,65 @@
+{
+  "id": "valheim",
+  "name": "Valheim",
+  "version": "1.0.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/valheim.json",
+  "sourceRef": "main",
+  "steamAppId": 896660,
+  "steamGameAppId": 892970,
+  "website": "https://www.valheimgame.com/",
+  "windowsOnly": false,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "executables": {
+    "windows": "valheim_server.exe",
+    "linux": "valheim_server.x86_64"
+  },
+  "arguments": [
+    "-name",
+    "{SERVER_NAME}",
+    "-port",
+    "{GAME_PORT}",
+    "-world",
+    "GSCS",
+    "-password",
+    "{SERVER_PASSWORD}",
+    "-savedir",
+    "Saves",
+    "-public",
+    "1"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 2456,
+      "protocol": "udp",
+      "containerPort": 2456,
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "query",
+      "default": 2457,
+      "protocol": "udp",
+      "containerPort": 2457,
+      "offsetFromRole": "game",
+      "offset": 1
+    }
+  ],
+  "defaults": {
+    "SERVER_PASSWORD": "{RANDOM_SECRET}"
+  },
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "source",
+  "validationStatus": "metadata-validated",
+  "warnings": [
+    "Manifest checked; a live game launch on each supported runtime remains a separate verification."
+  ],
+  "licenseUrl": "",
+  "stopCommand": "stop"
+}

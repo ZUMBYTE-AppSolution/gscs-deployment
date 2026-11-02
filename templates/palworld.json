@@ -1,0 +1,46 @@
+{
+  "id": "palworld",
+  "name": "Palworld",
+  "version": "1.0.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/palworld.json",
+  "sourceRef": "main",
+  "steamAppId": 2394010,
+  "steamGameAppId": 1623730,
+  "website": "https://palworldgame.com/",
+  "windowsOnly": false,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "executables": {
+    "windows": "PalServer.exe",
+    "linux": "PalServer.sh"
+  },
+  "arguments": [
+    "-port={GAME_PORT}",
+    "-players={SLOTS}"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 8211,
+      "protocol": "udp",
+      "containerPort": 8211,
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "defaults": {},
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "none",
+  "validationStatus": "metadata-validated",
+  "warnings": [
+    "Original GSCS profile based on https://docs.palworldgame.com/getting-started/deploy-dedicated-server/",
+    "RCON is deprecated by the developer. REST management must be explicitly configured on a private port; no public RCON is enabled.",
+    "No live game launch has been performed."
+  ],
+  "licenseUrl": ""
+}

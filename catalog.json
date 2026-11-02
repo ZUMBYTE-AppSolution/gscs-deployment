@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "repository": "https://github.com/ZUMBYTE-AppSolution/gscs-deployment",
+  "wiki": "https://github.com/ZUMBYTE-AppSolution/gscs-deployment/wiki",
+  "profiles": [
+    {
+      "id": "minecraft-vanilla",
+      "name": "Minecraft Java · Vanilla",
+      "path": "templates/minecraft-vanilla.json",
+      "sha256": "f08a26ae4b4090841757b2d61dc032a0e0f52c184f8a2c2480cd5f0c45bdea49",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "rust",
+      "name": "Rust · Vanilla",
+      "path": "templates/rust.json",
+      "sha256": "798fc0b6be20d7bbac8ea73438f3cec753f54260dd46b615897871d584c837d2",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "project-zomboid",
+      "name": "Project Zomboid",
+      "path": "templates/project-zomboid.json",
+      "sha256": "1071e87c0d071a124768dc6a299218b614b2569381617b18041c7d2de4c7d94b",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "valheim",
+      "name": "Valheim",
+      "path": "templates/valheim.json",
+      "sha256": "283bd2a5d2936ed46e116dcc17e84bc954bdea89f1f9c88cc69b5b9e70a9293b",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "enshrouded",
+      "name": "Enshrouded",
+      "path": "templates/enshrouded.json",
+      "sha256": "518885cfd1cb13fa483c91334bacff41d6d6ce5ca9bfd8ba713a49a570612380",
+      "platforms": [
+        "windows"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "counter-strike-2",
+      "name": "Counter-Strike 2",
+      "path": "templates/counter-strike-2.json",
+      "sha256": "eac8582290485b7ea8bf815c83f52569c17666f8157c97b4b394a3467cc2c5dd",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "hytale",
+      "name": "Hytale",
+      "path": "templates/hytale.json",
+      "sha256": "575ce303ad94fe20d989103c69dd46af8b6ce0611944bc78c1b4385b5f172327",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "palworld",
+      "name": "Palworld",
+      "path": "templates/palworld.json",
+      "sha256": "034e28947ae9e9db701fdee726238e90ef716bdcc936f2b85140caf6f55e50f7",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "v-rising",
+      "name": "V Rising",
+      "path": "templates/v-rising.json",
+      "sha256": "303ec8ce2365e4e99ce6e4482bdae9bef3290377d21aa31a4894c9fcadc2534d",
+      "platforms": [
+        "windows"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "unturned",
+      "name": "Unturned",
+      "path": "templates/unturned.json",
+      "sha256": "bbcb6a8ea539bf6c7244e8500ca70b53688793a9d09253546e42160ac26a9058",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "arma-3",
+      "name": "Arma 3",
+      "path": "templates/arma-3.json",
+      "sha256": "8834880728dcca78492c55184102cefc19578c6973d6598591d584fc1872f0bb",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "space-engineers",
+      "name": "Space Engineers",
+      "path": "templates/space-engineers.json",
+      "sha256": "3581686eb6f08ed507639b4015abc81978f106f4733b21826731b0813c62a086",
+      "platforms": [
+        "windows"
+      ],
+      "status": "configuration-required"
+    },
+    {
+      "id": "sons-of-the-forest",
+      "name": "Sons of the Forest",
+      "path": "templates/sons-of-the-forest.json",
+      "sha256": "ce069ef02bcb624b8f2c114759fa2ed61bd14f819f3c9c9515f416549905c844",
+      "platforms": [
+        "windows"
+      ],
+      "status": "metadata-validated"
+    }
+  ]
+}

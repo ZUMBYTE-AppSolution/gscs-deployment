@@ -1,0 +1,80 @@
+{
+  "id": "rust",
+  "name": "Rust · Vanilla",
+  "version": "1.0.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/rust.json",
+  "sourceRef": "main",
+  "steamAppId": 258550,
+  "steamGameAppId": 252490,
+  "website": "https://rust.facepunch.com/",
+  "windowsOnly": false,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "executables": {
+    "windows": "RustDedicated.exe",
+    "linux": "RustDedicated"
+  },
+  "arguments": [
+    "-batchmode",
+    "-nographics",
+    "+server.identity",
+    "GSCS",
+    "+server.port",
+    "{GAME_PORT}",
+    "+server.queryport",
+    "{QUERY_PORT}",
+    "+rcon.port",
+    "{RCON_PORT}",
+    "+rcon.web",
+    "0",
+    "+server.maxplayers",
+    "{SLOTS}"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 28015,
+      "protocol": "udp",
+      "containerPort": 28015,
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "query",
+      "default": 28017,
+      "protocol": "udp",
+      "containerPort": 28017,
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "rcon",
+      "default": 28016,
+      "protocol": "tcp",
+      "containerPort": 28016,
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "defaults": {
+    "RCON_PASSWORD": "{RANDOM_SECRET}"
+  },
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "source",
+  "validationStatus": "metadata-validated",
+  "warnings": [
+    "Manifest checked; a live game launch on each supported runtime remains a separate verification."
+  ],
+  "licenseUrl": "",
+  "textConfigs": {
+    "server/GSCS/cfg/server.cfg": "server.hostname {JSON_SERVER_NAME}\nrcon.password {JSON_RCON_PASSWORD}\n"
+  },
+  "stopCommand": "quit",
+  "saveCommand": "server.save",
+  "announcementCommand": "say {MESSAGE}"
+}

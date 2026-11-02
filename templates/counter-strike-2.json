@@ -1,0 +1,54 @@
+{
+  "id": "counter-strike-2",
+  "name": "Counter-Strike 2",
+  "version": "1.0.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/counter-strike-2.json",
+  "sourceRef": "main",
+  "steamAppId": 730,
+  "steamGameAppId": 730,
+  "website": "https://www.counter-strike.net/cs2",
+  "windowsOnly": false,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "executables": {
+    "windows": "game/bin/win64/cs2.exe",
+    "linux": "game/bin/linuxsteamrt64/cs2"
+  },
+  "arguments": [
+    "-dedicated",
+    "-console",
+    "-usercon",
+    "-port",
+    "{GAME_PORT}",
+    "+maxplayers",
+    "{SLOTS}",
+    "+map",
+    "de_dust2"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 27015,
+      "protocol": "both",
+      "containerPort": 27015,
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "defaults": {
+    "GSLT_TOKEN": ""
+  },
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "source",
+  "validationStatus": "metadata-validated",
+  "warnings": [
+    "Manifest checked; a live game launch on each supported runtime remains a separate verification."
+  ],
+  "licenseUrl": "",
+  "stopCommand": "quit"
+}

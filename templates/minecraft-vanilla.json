@@ -1,0 +1,52 @@
+{
+  "id": "minecraft-vanilla",
+  "name": "Minecraft Java · Vanilla",
+  "version": "1.0.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/minecraft-vanilla.json",
+  "sourceRef": "main",
+  "steamAppId": null,
+  "steamGameAppId": null,
+  "website": "https://www.minecraft.net/en-us",
+  "windowsOnly": false,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "executables": {
+    "windows": "java",
+    "linux": "java"
+  },
+  "arguments": [
+    "-Xms512M",
+    "-Xmx{MEMORY}M",
+    "-jar",
+    "server.jar",
+    "nogui"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 25565,
+      "protocol": "tcp",
+      "containerPort": 25565,
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "defaults": {
+    "GAME_VERSION": "latest"
+  },
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "minecraft",
+  "validationStatus": "metadata-validated",
+  "warnings": [
+    "Manifest checked; a live game launch on each supported runtime remains a separate verification."
+  ],
+  "licenseUrl": "https://www.minecraft.net/eula",
+  "stopCommand": "stop",
+  "saveCommand": "save-all flush",
+  "announcementCommand": "say {MESSAGE}"
+}

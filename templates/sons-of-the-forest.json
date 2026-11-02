@@ -1,0 +1,70 @@
+{
+  "id": "sons-of-the-forest",
+  "name": "Sons of the Forest",
+  "version": "1.0.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/sons-of-the-forest.json",
+  "sourceRef": "main",
+  "steamAppId": 2465200,
+  "steamGameAppId": 1326470,
+  "website": "https://endnightgames.com/",
+  "windowsOnly": true,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows"
+  ],
+  "executables": {
+    "windows": "SonsOfTheForestDS.exe"
+  },
+  "arguments": [
+    "-userdatapath",
+    "{SERVER_DIR}/UserData"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 8766,
+      "protocol": "udp",
+      "containerPort": 8766,
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "query",
+      "default": 27016,
+      "protocol": "udp",
+      "containerPort": 27016,
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "blob",
+      "default": 9700,
+      "protocol": "udp",
+      "containerPort": 9700,
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "defaults": {},
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "source",
+  "validationStatus": "metadata-validated",
+  "warnings": [
+    "Developer guide: https://steamcommunity.com/sharedfiles/filedetails/?id=2992700419",
+    "Initial game configuration and owner whitelist may require operator completion. Game network self-tests must pass before startup.",
+    "Windows is the documented deployment platform. No live launch or Linux support is claimed."
+  ],
+  "licenseUrl": "",
+  "jsonConfigs": {
+    "UserData/dedicatedserver.cfg": {
+      "IpAddress": "0.0.0.0",
+      "GamePort": "{GAME_PORT}",
+      "QueryPort": "{QUERY_PORT}",
+      "BlobSyncPort": "{BLOB_PORT}",
+      "ServerName": "{SERVER_NAME}",
+      "MaxPlayers": "{SLOTS}"
+    }
+  }
+}

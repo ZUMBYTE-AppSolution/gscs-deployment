@@ -1,0 +1,41 @@
+{
+  "id": "mein-spiel",
+  "name": "Mein Gameserver",
+  "version": "1.0.0",
+  "approved": false,
+  "validationStatus": "requires-review",
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "website": "https://example.org/",
+  "executables": {
+    "windows": "MyServer.exe",
+    "linux": "my-server"
+  },
+  "arguments": [
+    "--name",
+    "{SERVER_NAME}",
+    "--port",
+    "{GAME_PORT}"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 27015,
+      "protocol": "udp",
+      "containerPort": 27015
+    }
+  ],
+  "defaults": {
+    "SERVER_PASSWORD": "{RANDOM_SECRET}"
+  },
+  "installScripts": {
+    "windows": "if (!(Test-Path -LiteralPath './MyServer.exe')) { throw 'Zuerst die offiziellen Serverdateien bereitstellen.' }",
+    "linux": "test -f ./my-server || { printf '%s\\n' 'Zuerst die offiziellen Serverdateien bereitstellen.' >&2; exit 1; }\nchmod +x ./my-server"
+  },
+  "query": "none",
+  "warnings": [
+    "Beispiel. Vor Freigabe auf einem getrennten Testnode prüfen."
+  ]
+}

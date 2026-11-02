@@ -1,0 +1,61 @@
+{
+  "id": "hytale",
+  "name": "Hytale",
+  "version": "1.0.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/hytale.json",
+  "sourceRef": "main",
+  "steamAppId": null,
+  "steamGameAppId": null,
+  "website": "https://hytale.com/",
+  "windowsOnly": false,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "executables": {
+    "windows": "java",
+    "linux": "java"
+  },
+  "arguments": [
+    "-Xms1G",
+    "-Xmx{MEMORY}M",
+    "-Dterminal.jline=false",
+    "-jar",
+    "HytaleServer.jar",
+    "--assets",
+    "../Assets.zip",
+    "--bind",
+    "0.0.0.0:{GAME_PORT}",
+    "--auth-mode",
+    "authenticated"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 5520,
+      "protocol": "udp",
+      "containerPort": 5520,
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "defaults": {
+    "JAVA_MAJOR": "25",
+    "HYTALE_PATCHLINE": "release"
+  },
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "hytale",
+  "validationStatus": "metadata-validated",
+  "warnings": [
+    "Uses the official Hytale Downloader CLI with device login. Server authentication is separate: /auth login device, then encrypted persistence.",
+    "Java 25; UDP/QUIC on allocated game port. The official downloader is currently x64; ARM64 can use operator-provided original server files.",
+    "No live account login or game handshake was performed by catalog generation."
+  ],
+  "licenseUrl": "https://www.hytale.com/legal/terms-of-service",
+  "workingDirectory": "Server",
+  "stopCommand": "stop",
+  "saveCommand": "save"
+}
