@@ -1,7 +1,7 @@
 {
   "id": "hytale",
   "name": "Hytale",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "approved": true,
   "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/hytale.json",
   "sourceRef": "main",
@@ -50,12 +50,13 @@
   "query": "hytale",
   "validationStatus": "metadata-validated",
   "warnings": [
-    "Uses the official Hytale Downloader CLI with device login. Server authentication is separate: /auth login device, then encrypted persistence.",
-    "Java 25; UDP/QUIC on allocated game port. The official downloader is currently x64; ARM64 can use operator-provided original server files.",
-    "No live account login or game handshake was performed by catalog generation."
+    "Vor dem ersten Start unter Hytale-Anmeldung ein Konto verbinden und ein Spielprofil auswählen. Die Erneuerung erfolgt automatisch.",
+    "Der offizielle Downloader benötigt eine separate Geräteanmeldung. Java 25 und UDP/QUIC sind erforderlich.",
+    "Der Downloader ist für x64 verfügbar. Auf ARM64 Original-Serverdateien manuell bereitstellen."
   ],
   "licenseUrl": "https://www.hytale.com/legal/terms-of-service",
   "workingDirectory": "Server",
   "stopCommand": "stop",
-  "saveCommand": "save"
+  "saveCommand": "save",
+  "authentication": "hytale"
 }
