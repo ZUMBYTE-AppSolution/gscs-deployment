@@ -1,0 +1,58 @@
+{
+  "id": "quake-live",
+  "name": "Quake Live",
+  "version": "1.0.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/quake-live.json",
+  "sourceRef": "main",
+  "steamAppId": 349090,
+  "steamGameAppId": 282440,
+  "website": "https://store.steampowered.com/app/282440/",
+  "windowsOnly": false,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "linux"
+  ],
+  "executables": {
+    "linux": "qzeroded.x64"
+  },
+  "arguments": [
+    "+set",
+    "net_port",
+    "{GAME_PORT}",
+    "+set",
+    "sv_hostname",
+    "{SERVER_NAME}",
+    "+set",
+    "sv_maxclients",
+    "{SLOTS}",
+    "+set",
+    "fs_homepath",
+    "{SERVER_DIR}",
+    "+map",
+    "campgrounds"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 27960,
+      "protocol": "udp",
+      "containerPort": 27960,
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "defaults": {},
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "none",
+  "validationStatus": "metadata-validated",
+  "warnings": [],
+  "licenseUrl": "",
+  "attribution": {
+    "source": "Valve SteamCMD app_info_print",
+    "steamAppId": 349090,
+    "checkedAt": "2026-11-02",
+    "documentation": "https://developer.valvesoftware.com/wiki/SteamCMD"
+  }
+}

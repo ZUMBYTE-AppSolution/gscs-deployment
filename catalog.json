@@ -7,7 +7,7 @@
       "id": "minecraft-vanilla",
       "name": "Minecraft Java · Vanilla",
       "path": "templates/minecraft-vanilla.json",
-      "sha256": "f08a26ae4b4090841757b2d61dc032a0e0f52c184f8a2c2480cd5f0c45bdea49",
+      "sha256": "60a02794920929c877105196f88eeb40d95ee7d3dc08a25b62a53b77e9ca8bb2",
       "platforms": [
         "windows",
         "linux"
@@ -18,7 +18,7 @@
       "id": "rust",
       "name": "Rust · Vanilla",
       "path": "templates/rust.json",
-      "sha256": "798fc0b6be20d7bbac8ea73438f3cec753f54260dd46b615897871d584c837d2",
+      "sha256": "f748b81182dc88e0472ceed11b48fe466edadab6b005ab9b32a8be5f1e3c3f07",
       "platforms": [
         "windows",
         "linux"
@@ -29,7 +29,7 @@
       "id": "project-zomboid",
       "name": "Project Zomboid",
       "path": "templates/project-zomboid.json",
-      "sha256": "1071e87c0d071a124768dc6a299218b614b2569381617b18041c7d2de4c7d94b",
+      "sha256": "d5be2fcb15e4c8d8de8efc810ae53773cb7d18e56ddeb95d884661613dd3e59b",
       "platforms": [
         "windows",
         "linux"
@@ -40,7 +40,7 @@
       "id": "valheim",
       "name": "Valheim",
       "path": "templates/valheim.json",
-      "sha256": "283bd2a5d2936ed46e116dcc17e84bc954bdea89f1f9c88cc69b5b9e70a9293b",
+      "sha256": "8e7d59a59377d6abd42c2b9627a58feb07f0dd99c6c4c3a249db3f31a06c1c32",
       "platforms": [
         "windows",
         "linux"
@@ -51,7 +51,7 @@
       "id": "enshrouded",
       "name": "Enshrouded",
       "path": "templates/enshrouded.json",
-      "sha256": "518885cfd1cb13fa483c91334bacff41d6d6ce5ca9bfd8ba713a49a570612380",
+      "sha256": "304c36ba0992e65d82e1281bf09e66ba6f3755016a027da89f6769074f611562",
       "platforms": [
         "windows"
       ],
@@ -61,7 +61,7 @@
       "id": "counter-strike-2",
       "name": "Counter-Strike 2",
       "path": "templates/counter-strike-2.json",
-      "sha256": "eac8582290485b7ea8bf815c83f52569c17666f8157c97b4b394a3467cc2c5dd",
+      "sha256": "0b6aaf8342733b0f1a31044d1ac79ed27e1bf3e93d2bab435ac6861764950bf7",
       "platforms": [
         "windows",
         "linux"
@@ -136,9 +136,525 @@
       "id": "sons-of-the-forest",
       "name": "Sons of the Forest",
       "path": "templates/sons-of-the-forest.json",
-      "sha256": "ce069ef02bcb624b8f2c114759fa2ed61bd14f819f3c9c9515f416549905c844",
+      "sha256": "f90b8db561c34a8e5559edd99e49fcbc0c97a621b937469754f00b4ad2b0db0a",
       "platforms": [
         "windows"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "team-fortress-2",
+      "name": "Team Fortress 2",
+      "path": "templates/team-fortress-2.json",
+      "sha256": "1ac952a04d178556a9345430bbc20544a7b2241d6f016c27257709b25e29c759",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "counter-strike-source",
+      "name": "Counter-Strike: Source",
+      "path": "templates/counter-strike-source.json",
+      "sha256": "524074c6e074fd60ebfdbeeff1f6e4b98e3e88b4364afae4835cb2464ebec4ec",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "day-of-defeat-source",
+      "name": "Day of Defeat: Source",
+      "path": "templates/day-of-defeat-source.json",
+      "sha256": "a124824cdd5ddd1f1c776b452191b01e065ccad66a09b122eeea8018631c43f3",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "half-life-2-deathmatch",
+      "name": "Half-Life 2: Deathmatch",
+      "path": "templates/half-life-2-deathmatch.json",
+      "sha256": "a9111d0004065c512360df3f7041b22bcd81788dce4894a1a786b7710c2bd403",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "left-4-dead-2",
+      "name": "Left 4 Dead 2",
+      "path": "templates/left-4-dead-2.json",
+      "sha256": "eefe9f18cc2c4ca9ab16db3fffa030e4208aff9a89503e403c15dc12e210c4ec",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "garrys-mod",
+      "name": "Garry's Mod",
+      "path": "templates/garrys-mod.json",
+      "sha256": "dd9ddadf2265f532a03f44c2d9bac89f12d3b55633f1078c880f46a5afbeb71e",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "insurgency",
+      "name": "Insurgency",
+      "path": "templates/insurgency.json",
+      "sha256": "43311cf877e5af7112720cdb2c7184ff0a947d3690b3f65723b0efdbf4891f73",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "day-of-infamy",
+      "name": "Day of Infamy",
+      "path": "templates/day-of-infamy.json",
+      "sha256": "41830702c0d0fb1b49a7df7137f93afd17c572284cfe0f8ad9ccb582b6da2aae",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "no-more-room-in-hell",
+      "name": "No More Room in Hell",
+      "path": "templates/no-more-room-in-hell.json",
+      "sha256": "696a2a8c42f75f3fff0e6c2d4855c33bbeda8e04f82642eb1df675a35bfdf183",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "fistful-of-frags",
+      "name": "Fistful of Frags",
+      "path": "templates/fistful-of-frags.json",
+      "sha256": "ee32196502d78f69c443f820d10f59780e412c05cd0769d58ecc5b67358ab4f9",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "black-mesa",
+      "name": "Black Mesa",
+      "path": "templates/black-mesa.json",
+      "sha256": "75db103166736bb807a593a6eb7dc230c79c6f644cfb22f84790906b3d2d5fe9",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "synergy",
+      "name": "Synergy",
+      "path": "templates/synergy.json",
+      "sha256": "fd41261f47318a1accdba4d341ab9cf4e60428f3b3772734dc7f36ce175d6ecb",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "configuration-required"
+    },
+    {
+      "id": "counter-strike-16",
+      "name": "Counter-Strike 1.6",
+      "path": "templates/counter-strike-16.json",
+      "sha256": "1b796f8063f98e3ded00b396558a38a267f2100e2a398853af2c63147531ece0",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "counter-strike-condition-zero",
+      "name": "Counter-Strike: Condition Zero",
+      "path": "templates/counter-strike-condition-zero.json",
+      "sha256": "415cc2fc020ca0e7dc246a501df04f7521ba686ebd809b339fd8cf87706fa96d",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "half-life",
+      "name": "Half-Life Deathmatch",
+      "path": "templates/half-life.json",
+      "sha256": "9ffaa405350252431d1b4b3c2d436fd97b2046ea7e46fe8b25f6e2f91fca42af",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "team-fortress-classic",
+      "name": "Team Fortress Classic",
+      "path": "templates/team-fortress-classic.json",
+      "sha256": "88539db7f0b4c73888ccaa46aea8fc68f28da05d05bdc5a3f3ba0c88eeb8b6ab",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "day-of-defeat-classic",
+      "name": "Day of Defeat",
+      "path": "templates/day-of-defeat-classic.json",
+      "sha256": "192dc3384e193227233d1c15c9d90ab72d5acb5dc352aedb2b1d2a903547b507",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "deathmatch-classic",
+      "name": "Deathmatch Classic",
+      "path": "templates/deathmatch-classic.json",
+      "sha256": "ccda7bedf1b5a3bbe7f0eed3aeda1807273d2b6e1a81a8368cd5adefd034908b",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "ricochet",
+      "name": "Ricochet",
+      "path": "templates/ricochet.json",
+      "sha256": "f396ba2091e2490ed0bd3bba5315421c35c454883ace2c05aa0095bb00524c7d",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "ark-survival-evolved",
+      "name": "ARK: Survival Evolved",
+      "path": "templates/ark-survival-evolved.json",
+      "sha256": "0150aae7e624aa3ac4ce78255755e7cb07ac40c485d18d71dab2319f4350cb16",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "ark-survival-ascended",
+      "name": "ARK: Survival Ascended",
+      "path": "templates/ark-survival-ascended.json",
+      "sha256": "1511798593c3d1db70a39ee38eb0aca20a8e74037d973481e47d6c8d46dfb3b1",
+      "platforms": [
+        "windows"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "dayz",
+      "name": "DayZ",
+      "path": "templates/dayz.json",
+      "sha256": "958f8e19548ebb21924b348f01dcaba595a24b1bd59eb94936267c913ba4a8b3",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "configuration-required"
+    },
+    {
+      "id": "killing-floor-2",
+      "name": "Killing Floor 2",
+      "path": "templates/killing-floor-2.json",
+      "sha256": "e3902e4b0f9a029720ae7768e5518f357eb3a1bfb461224eb5c9d3019e5e6280",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "configuration-required"
+    },
+    {
+      "id": "dont-starve-together",
+      "name": "Don't Starve Together",
+      "path": "templates/dont-starve-together.json",
+      "sha256": "05905e846a801207a91d30e146020a6158c212eef0ac5de222dedf18a98b8ede",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "configuration-required"
+    },
+    {
+      "id": "quake-live",
+      "name": "Quake Live",
+      "path": "templates/quake-live.json",
+      "sha256": "214b65687afa736ee936193d62660c7852f1d03916ec282b78233e19e2f5ae0a",
+      "platforms": [
+        "linux"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "just-cause-2-multiplayer",
+      "name": "Just Cause 2: Multiplayer",
+      "path": "templates/just-cause-2-multiplayer.json",
+      "sha256": "ffa8c60a4b13fb226adafa88c2c306751df0cec1d34b35e2fa8dbed9eca5c27e",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "configuration-required"
+    },
+    {
+      "id": "7-days-to-die",
+      "name": "7 Days to Die",
+      "path": "templates/7-days-to-die.json",
+      "sha256": "f516d2face433b40ae6d181b9975d00437a7f8b8fd8d73e84fe9f0c7e8e6e28f",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "metadata-validated"
+    },
+    {
+      "id": "avorion",
+      "name": "Avorion",
+      "path": "templates/avorion.json",
+      "sha256": "51939674eb2e8318c003bb6a295d169ff8d845424c906f7a7c8bb6eeab99f36c",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "configuration-required"
+    },
+    {
+      "id": "stationeers",
+      "name": "Stationeers",
+      "path": "templates/stationeers.json",
+      "sha256": "2641c54776939d8dc13758eb8c2d4db1c08d9bede12bd4cfb22d6bdfb4da0a4f",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "configuration-required"
+    },
+    {
+      "id": "astroneer",
+      "name": "ASTRONEER",
+      "path": "templates/astroneer.json",
+      "sha256": "c32e56973e042c039ddad68232261ad9aae1c4cd8ac04c59e4c051ca37bdc1a6",
+      "platforms": [
+        "windows"
+      ],
+      "status": "configuration-required"
+    },
+    {
+      "id": "barotrauma",
+      "name": "Barotrauma",
+      "path": "templates/barotrauma.json",
+      "sha256": "ab2e77e74ab9b91788eb2698651b98e5ad83a7bc1a4f36380f7fc38e938ee990",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "configuration-required"
+    },
+    {
+      "id": "core-keeper",
+      "name": "Core Keeper",
+      "path": "templates/core-keeper.json",
+      "sha256": "fffcb8b2b0f50bdf98ef4c6d77ba209cfa7d30895fba326cd32eb063ac73a621",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "configuration-required"
+    },
+    {
+      "id": "conan-exiles",
+      "name": "Conan Exiles",
+      "path": "templates/conan-exiles.json",
+      "sha256": "27ec5ddcf7d8465392a0f7d1b31b7377d581e014c7987499e3b07302fec1a03d",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "configuration-required"
+    },
+    {
+      "id": "neotokyo",
+      "name": "NEOTOKYO",
+      "path": "templates/neotokyo.json",
+      "sha256": "6e5992d1126100f1f0f205b671e27bef0b6be7dc236f4388745be25a98f6bce7",
+      "platforms": [
+        "windows"
+      ],
+      "status": "configuration-required"
+    },
+    {
+      "id": "empyrion",
+      "name": "Empyrion – Galactic Survival",
+      "path": "templates/empyrion.json",
+      "sha256": "165887b1265edeb4eb2330d46fb18d5e807e9722fedfca2c8e8a67bf88d4ac5d",
+      "platforms": [
+        "windows"
+      ],
+      "status": "configuration-required"
+    },
+    {
+      "id": "risk-of-rain-2",
+      "name": "Risk of Rain 2",
+      "path": "templates/risk-of-rain-2.json",
+      "sha256": "ddf14378b48c311839f232fbf5db8b669d2400e72566f4abc6e1cd72553bb4d9",
+      "platforms": [
+        "windows"
+      ],
+      "status": "configuration-required"
+    },
+    {
+      "id": "the-forest",
+      "name": "The Forest",
+      "path": "templates/the-forest.json",
+      "sha256": "4899183c6f5eae052af32caaf3160c7c2adf9b580150e33adb48b5470d141e78",
+      "platforms": [
+        "windows"
+      ],
+      "status": "configuration-required"
+    },
+    {
+      "id": "humanitz",
+      "name": "HumanitZ",
+      "path": "templates/humanitz.json",
+      "sha256": "ed004808786992019412d1fa02604198fe628d9f46c6ee18f11664de5e5c2516",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "configuration-required"
+    },
+    {
+      "id": "the-front",
+      "name": "The Front",
+      "path": "templates/the-front.json",
+      "sha256": "84e1abfcc40f242dc66ad25932d580df12ce0ce33750f31febc201ccb92fe8fc",
+      "platforms": [
+        "windows"
+      ],
+      "status": "configuration-required"
+    },
+    {
+      "id": "soulmask",
+      "name": "Soulmask",
+      "path": "templates/soulmask.json",
+      "sha256": "dfedbb53f56fe723aa49295cb3f5e10896cb1d96bd66a29834bc905c5fac59fc",
+      "platforms": [
+        "linux"
+      ],
+      "status": "configuration-required"
+    },
+    {
+      "id": "icarus",
+      "name": "ICARUS",
+      "path": "templates/icarus.json",
+      "sha256": "a495701355fd610fbd9ad659088a7bde2e3e56112e64a67df5c4feb035e1903a",
+      "platforms": [
+        "windows"
+      ],
+      "status": "configuration-required"
+    },
+    {
+      "id": "eco",
+      "name": "Eco",
+      "path": "templates/eco.json",
+      "sha256": "de508924aeb4030f5f92426b9a6e52cb7c65aad5d6b569fc35100d488bc6a9c2",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "configuration-required"
+    },
+    {
+      "id": "mordhau",
+      "name": "MORDHAU",
+      "path": "templates/mordhau.json",
+      "sha256": "8b40942891275f22e57c5b4e45fa6b188c548382ff8eccbfe2a23b46e82159c6",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "configuration-required"
+    },
+    {
+      "id": "mount-and-blade-bannerlord",
+      "name": "Mount & Blade II: Bannerlord",
+      "path": "templates/mount-and-blade-bannerlord.json",
+      "sha256": "a5d4c26daadeb81c2aa9835f1938d1509cdfc7453275057756f21d85643521c2",
+      "platforms": [
+        "windows"
+      ],
+      "status": "configuration-required"
+    },
+    {
+      "id": "myth-of-empires",
+      "name": "Myth of Empires",
+      "path": "templates/myth-of-empires.json",
+      "sha256": "a710a5451d4f863d6cc2d8d024606b550edb1d1d24072b8c7cc0edc9153ac378",
+      "platforms": [
+        "windows"
+      ],
+      "status": "configuration-required"
+    },
+    {
+      "id": "longvinter",
+      "name": "Longvinter",
+      "path": "templates/longvinter.json",
+      "sha256": "e69835a6cc7c96d2c17d96e23daa108bb817f8e37b7d5e98ee141d22cf7e5dd0",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "configuration-required"
+    },
+    {
+      "id": "necesse",
+      "name": "Necesse",
+      "path": "templates/necesse.json",
+      "sha256": "0c0bd91680bf24d2470117ac695909b360ba73a065560b489ae6e845137fdd69",
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "status": "configuration-required"
+    },
+    {
+      "id": "satisfactory",
+      "name": "Satisfactory",
+      "path": "templates/satisfactory.json",
+      "sha256": "8f879c1ff60fe918f1993f9b9a884c8c477f74ce373cb5af5c173678884bad2f",
+      "platforms": [
+        "windows",
+        "linux"
       ],
       "status": "metadata-validated"
     }

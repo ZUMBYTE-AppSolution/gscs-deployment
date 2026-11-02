@@ -1,0 +1,56 @@
+{
+  "id": "risk-of-rain-2",
+  "name": "Risk of Rain 2",
+  "version": "1.0.0",
+  "approved": false,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/risk-of-rain-2.json",
+  "sourceRef": "main",
+  "steamAppId": 1180760,
+  "steamGameAppId": 632360,
+  "website": "https://store.steampowered.com/app/632360/",
+  "windowsOnly": true,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows"
+  ],
+  "executables": {
+    "windows": "Risk of Rain 2.exe"
+  },
+  "arguments": [
+    "-batchmode",
+    "-nographics",
+    "+sv_port",
+    "{GAME_PORT}",
+    "+sv_hostname",
+    "{SERVER_NAME}",
+    "+sv_maxplayers",
+    "{SLOTS}",
+    "+host",
+    "1"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 27015,
+      "protocol": "udp",
+      "containerPort": 27015,
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "defaults": {},
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "none",
+  "validationStatus": "configuration-required",
+  "warnings": [
+    "Vor der Freigabe die mitgelieferte Spielkonfiguration, Zugangsdaten und Startparameter prüfen."
+  ],
+  "licenseUrl": "",
+  "attribution": {
+    "source": "Valve SteamCMD app_info_print",
+    "steamAppId": 1180760,
+    "checkedAt": "2026-11-02",
+    "documentation": "https://developer.valvesoftware.com/wiki/SteamCMD"
+  }
+}

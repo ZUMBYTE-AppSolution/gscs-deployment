@@ -1,0 +1,63 @@
+{
+  "id": "counter-strike-16",
+  "name": "Counter-Strike 1.6",
+  "version": "1.0.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/counter-strike-16.json",
+  "sourceRef": "main",
+  "steamAppId": 90,
+  "steamGameAppId": 10,
+  "website": "https://store.steampowered.com/app/10/",
+  "windowsOnly": false,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "executables": {
+    "windows": "hlds.exe",
+    "linux": "hlds_run"
+  },
+  "arguments": [
+    "-console",
+    "-game",
+    "cstrike",
+    "-port",
+    "{GAME_PORT}",
+    "+maxplayers",
+    "{SLOTS}",
+    "+map",
+    "{MAP}"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 27015,
+      "protocol": "both",
+      "containerPort": 27015,
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "defaults": {
+    "MAP": "de_dust2",
+    "STEAM_MOD": "cstrike",
+    "RCON_PASSWORD": "{RANDOM_SECRET}"
+  },
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "source",
+  "validationStatus": "metadata-validated",
+  "warnings": [],
+  "licenseUrl": "",
+  "textConfigs": {
+    "cstrike/server.cfg": "hostname {JSON_SERVER_NAME}\nrcon_password {JSON_RCON_PASSWORD}\n"
+  },
+  "stopCommand": "quit",
+  "attribution": {
+    "source": "Valve SteamCMD app_info_print",
+    "steamAppId": 90,
+    "checkedAt": "2026-11-02",
+    "documentation": "https://developer.valvesoftware.com/wiki/SteamCMD"
+  }
+}

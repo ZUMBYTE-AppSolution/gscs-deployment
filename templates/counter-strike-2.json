@@ -46,9 +46,7 @@
   "updateScripts": {},
   "query": "source",
   "validationStatus": "metadata-validated",
-  "warnings": [
-    "Manifest checked; a live game launch on each supported runtime remains a separate verification."
-  ],
+  "warnings": [],
   "licenseUrl": "",
   "stopCommand": "quit"
 }

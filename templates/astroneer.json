@@ -1,0 +1,48 @@
+{
+  "id": "astroneer",
+  "name": "ASTRONEER",
+  "version": "1.0.0",
+  "approved": false,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/astroneer.json",
+  "sourceRef": "main",
+  "steamAppId": 728470,
+  "steamGameAppId": 361420,
+  "website": "https://store.steampowered.com/app/361420/",
+  "windowsOnly": true,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows"
+  ],
+  "executables": {
+    "windows": "AstroServer.exe"
+  },
+  "arguments": [
+    "-log",
+    "-Port={GAME_PORT}"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 8777,
+      "protocol": "udp",
+      "containerPort": 8777,
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "defaults": {},
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "none",
+  "validationStatus": "configuration-required",
+  "warnings": [
+    "Engine.ini und AstroServerSettings.ini vor der Freigabe einrichten. Plattformfreigaben und öffentliche Erreichbarkeit des Servers prüfen."
+  ],
+  "licenseUrl": "",
+  "attribution": {
+    "source": "Valve SteamCMD app_info_print",
+    "steamAppId": 728470,
+    "checkedAt": "2026-11-02",
+    "documentation": "https://developer.valvesoftware.com/wiki/SteamCMD"
+  }
+}

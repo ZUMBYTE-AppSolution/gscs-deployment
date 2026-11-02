@@ -1,0 +1,63 @@
+{
+  "id": "counter-strike-condition-zero",
+  "name": "Counter-Strike: Condition Zero",
+  "version": "1.0.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/counter-strike-condition-zero.json",
+  "sourceRef": "main",
+  "steamAppId": 90,
+  "steamGameAppId": 80,
+  "website": "https://store.steampowered.com/app/80/",
+  "windowsOnly": false,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "executables": {
+    "windows": "hlds.exe",
+    "linux": "hlds_run"
+  },
+  "arguments": [
+    "-console",
+    "-game",
+    "czero",
+    "-port",
+    "{GAME_PORT}",
+    "+maxplayers",
+    "{SLOTS}",
+    "+map",
+    "{MAP}"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 27015,
+      "protocol": "both",
+      "containerPort": 27015,
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "defaults": {
+    "MAP": "de_dust2_cz",
+    "STEAM_MOD": "czero",
+    "RCON_PASSWORD": "{RANDOM_SECRET}"
+  },
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "source",
+  "validationStatus": "metadata-validated",
+  "warnings": [],
+  "licenseUrl": "",
+  "textConfigs": {
+    "czero/server.cfg": "hostname {JSON_SERVER_NAME}\nrcon_password {JSON_RCON_PASSWORD}\n"
+  },
+  "stopCommand": "quit",
+  "attribution": {
+    "source": "Valve SteamCMD app_info_print",
+    "steamAppId": 90,
+    "checkedAt": "2026-11-02",
+    "documentation": "https://developer.valvesoftware.com/wiki/SteamCMD"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "synergy",
+  "name": "Synergy",
+  "version": "1.0.0",
+  "approved": false,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/synergy.json",
+  "sourceRef": "main",
+  "steamAppId": 17525,
+  "steamGameAppId": 17520,
+  "website": "https://store.steampowered.com/app/17520/",
+  "windowsOnly": false,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "executables": {
+    "windows": "srcds.exe",
+    "linux": "srcds_run"
+  },
+  "arguments": [
+    "-console",
+    "-game",
+    "synergy",
+    "-port",
+    "{GAME_PORT}",
+    "+maxplayers",
+    "{SLOTS}",
+    "+map",
+    "{MAP}"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 27015,
+      "protocol": "both",
+      "containerPort": 27015,
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "defaults": {
+    "MAP": "d1_trainstation_01",
+    "RCON_PASSWORD": "{RANDOM_SECRET}",
+    "GSLT_TOKEN": ""
+  },
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "source",
+  "validationStatus": "configuration-required",
+  "warnings": [
+    "Vor der Freigabe die mitgelieferte Spielkonfiguration, Zugangsdaten und Startparameter prüfen."
+  ],
+  "licenseUrl": "",
+  "textConfigs": {
+    "synergy/cfg/server.cfg": "hostname {JSON_SERVER_NAME}\nrcon_password {JSON_RCON_PASSWORD}\nsv_lan 0\n"
+  },
+  "stopCommand": "quit",
+  "attribution": {
+    "source": "Valve SteamCMD app_info_print",
+    "steamAppId": 17525,
+    "checkedAt": "2026-11-02",
+    "documentation": "https://developer.valvesoftware.com/wiki/SteamCMD"
+  }
+}

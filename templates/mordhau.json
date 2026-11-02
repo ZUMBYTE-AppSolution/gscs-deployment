@@ -1,0 +1,68 @@
+{
+  "id": "mordhau",
+  "name": "MORDHAU",
+  "version": "1.0.0",
+  "approved": false,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/mordhau.json",
+  "sourceRef": "main",
+  "steamAppId": 629800,
+  "steamGameAppId": 629760,
+  "website": "https://store.steampowered.com/app/629760/",
+  "windowsOnly": false,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "executables": {
+    "windows": "MordhauServer.exe",
+    "linux": "MordhauServer.sh"
+  },
+  "arguments": [
+    "ThePit/FFA",
+    "-log",
+    "-Port={GAME_PORT}",
+    "-QueryPort={QUERY_PORT}"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 7777,
+      "protocol": "udp",
+      "containerPort": 7777,
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "query",
+      "default": 27015,
+      "protocol": "udp",
+      "containerPort": 27015,
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "beacon",
+      "default": 15000,
+      "protocol": "udp",
+      "containerPort": 15000,
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "defaults": {},
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "source",
+  "validationStatus": "configuration-required",
+  "warnings": [
+    "Vor der Freigabe die mitgelieferte Spielkonfiguration, Zugangsdaten und Startparameter prüfen."
+  ],
+  "licenseUrl": "",
+  "attribution": {
+    "source": "Valve SteamCMD app_info_print",
+    "steamAppId": 629800,
+    "checkedAt": "2026-11-02",
+    "documentation": "https://developer.valvesoftware.com/wiki/SteamCMD"
+  }
+}

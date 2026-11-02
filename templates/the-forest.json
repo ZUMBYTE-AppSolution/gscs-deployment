@@ -1,0 +1,66 @@
+{
+  "id": "the-forest",
+  "name": "The Forest",
+  "version": "1.0.0",
+  "approved": false,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/the-forest.json",
+  "sourceRef": "main",
+  "steamAppId": 556450,
+  "steamGameAppId": 242760,
+  "website": "https://store.steampowered.com/app/242760/",
+  "windowsOnly": true,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows"
+  ],
+  "executables": {
+    "windows": "TheForestDedicatedServer.exe"
+  },
+  "arguments": [
+    "-batchmode",
+    "-nographics",
+    "-dedicated",
+    "-nosteamclient"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 27015,
+      "protocol": "udp",
+      "containerPort": 27015,
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "query",
+      "default": 27016,
+      "protocol": "udp",
+      "containerPort": 27016,
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "steam",
+      "default": 8766,
+      "protocol": "udp",
+      "containerPort": 8766,
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "defaults": {},
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "none",
+  "validationStatus": "configuration-required",
+  "warnings": [
+    "Vor der Freigabe die mitgelieferte Spielkonfiguration, Zugangsdaten und Startparameter prüfen."
+  ],
+  "licenseUrl": "",
+  "attribution": {
+    "source": "Valve SteamCMD app_info_print",
+    "steamAppId": 556450,
+    "checkedAt": "2026-11-02",
+    "documentation": "https://developer.valvesoftware.com/wiki/SteamCMD"
+  }
+}

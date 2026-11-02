@@ -1,0 +1,55 @@
+{
+  "id": "eco",
+  "name": "Eco",
+  "version": "1.0.0",
+  "approved": false,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/eco.json",
+  "sourceRef": "main",
+  "steamAppId": 739590,
+  "steamGameAppId": 382310,
+  "website": "https://store.steampowered.com/app/382310/",
+  "windowsOnly": false,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "executables": {
+    "windows": "EcoServer.exe",
+    "linux": "EcoServer"
+  },
+  "arguments": [],
+  "ports": [
+    {
+      "role": "game",
+      "default": 3000,
+      "protocol": "both",
+      "containerPort": 3000,
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "web",
+      "default": 3001,
+      "protocol": "tcp",
+      "containerPort": 3001,
+      "offsetFromRole": "game",
+      "offset": 1
+    }
+  ],
+  "defaults": {},
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "none",
+  "validationStatus": "configuration-required",
+  "warnings": [
+    "Vor der Freigabe die mitgelieferte Spielkonfiguration, Zugangsdaten und Startparameter prüfen."
+  ],
+  "licenseUrl": "",
+  "attribution": {
+    "source": "Valve SteamCMD app_info_print",
+    "steamAppId": 739590,
+    "checkedAt": "2026-11-02",
+    "documentation": "https://developer.valvesoftware.com/wiki/SteamCMD"
+  }
+}

@@ -67,9 +67,7 @@
   "updateScripts": {},
   "query": "source",
   "validationStatus": "metadata-validated",
-  "warnings": [
-    "Manifest checked; a live game launch on each supported runtime remains a separate verification."
-  ],
+  "warnings": [],
   "licenseUrl": "",
   "textConfigs": {
     "server/GSCS/cfg/server.cfg": "server.hostname {JSON_SERVER_NAME}\nrcon.password {JSON_RCON_PASSWORD}\n"

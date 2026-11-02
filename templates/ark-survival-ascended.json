@@ -1,0 +1,64 @@
+{
+  "id": "ark-survival-ascended",
+  "name": "ARK: Survival Ascended",
+  "version": "1.0.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/ark-survival-ascended.json",
+  "sourceRef": "main",
+  "steamAppId": 2430930,
+  "steamGameAppId": 2399830,
+  "website": "https://store.steampowered.com/app/2399830/",
+  "windowsOnly": true,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows"
+  ],
+  "executables": {
+    "windows": "ShooterGame/Binaries/Win64/ArkAscendedServer.exe"
+  },
+  "arguments": [
+    "{MAP}?listen?SessionName={URL_SERVER_NAME}?Port={GAME_PORT}?QueryPort={QUERY_PORT}?MaxPlayers={SLOTS}",
+    "-log"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 7777,
+      "protocol": "udp",
+      "containerPort": 7777,
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "peer",
+      "default": 7778,
+      "protocol": "udp",
+      "containerPort": 7778,
+      "offsetFromRole": "game",
+      "offset": 1
+    },
+    {
+      "role": "query",
+      "default": 27015,
+      "protocol": "udp",
+      "containerPort": 27015,
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "defaults": {
+    "MAP": "TheIsland_WP"
+  },
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "source",
+  "validationStatus": "metadata-validated",
+  "warnings": [],
+  "licenseUrl": "",
+  "attribution": {
+    "source": "Valve SteamCMD app_info_print",
+    "steamAppId": 2430930,
+    "checkedAt": "2026-11-02",
+    "documentation": "https://developer.valvesoftware.com/wiki/SteamCMD"
+  }
+}

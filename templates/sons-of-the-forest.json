@@ -63,7 +63,7 @@
       "GamePort": "{GAME_PORT}",
       "QueryPort": "{QUERY_PORT}",
       "BlobSyncPort": "{BLOB_PORT}",
-      "ServerName": "{SERVER_NAME}",
+      "ServerName": "{JSON_SERVER_NAME}",
       "MaxPlayers": "{SLOTS}"
     }
   }

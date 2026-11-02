@@ -1,0 +1,60 @@
+{
+  "id": "humanitz",
+  "name": "HumanitZ",
+  "version": "1.0.0",
+  "approved": false,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/humanitz.json",
+  "sourceRef": "main",
+  "steamAppId": 2728330,
+  "steamGameAppId": 1766060,
+  "website": "https://store.steampowered.com/app/1766060/",
+  "windowsOnly": false,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "executables": {
+    "windows": "TSSGame/Binaries/Win64/TSSGameServer-Win64-Shipping.exe",
+    "linux": "TSSGameServer.sh"
+  },
+  "arguments": [
+    "-log",
+    "-port={GAME_PORT}",
+    "-QueryPort={QUERY_PORT}",
+    "-steamservername={SERVER_NAME}"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 7777,
+      "protocol": "udp",
+      "containerPort": 7777,
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "query",
+      "default": 27015,
+      "protocol": "udp",
+      "containerPort": 27015,
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "defaults": {},
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "source",
+  "validationStatus": "configuration-required",
+  "warnings": [
+    "Vor der Freigabe die mitgelieferte Spielkonfiguration, Zugangsdaten und Startparameter prüfen."
+  ],
+  "licenseUrl": "",
+  "attribution": {
+    "source": "Valve SteamCMD app_info_print",
+    "steamAppId": 2728330,
+    "checkedAt": "2026-11-02",
+    "documentation": "https://developer.valvesoftware.com/wiki/SteamCMD"
+  }
+}

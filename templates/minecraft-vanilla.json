@@ -42,9 +42,7 @@
   "updateScripts": {},
   "query": "minecraft",
   "validationStatus": "metadata-validated",
-  "warnings": [
-    "Manifest checked; a live game launch on each supported runtime remains a separate verification."
-  ],
+  "warnings": [],
   "licenseUrl": "https://www.minecraft.net/eula",
   "stopCommand": "stop",
   "saveCommand": "save-all flush",

@@ -1,0 +1,50 @@
+{
+  "id": "mount-and-blade-bannerlord",
+  "name": "Mount & Blade II: Bannerlord",
+  "version": "1.0.0",
+  "approved": false,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/mount-and-blade-bannerlord.json",
+  "sourceRef": "main",
+  "steamAppId": 1863440,
+  "steamGameAppId": 261550,
+  "website": "https://store.steampowered.com/app/261550/",
+  "windowsOnly": true,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows"
+  ],
+  "executables": {
+    "windows": "bin/Win64_Shipping_Server/DedicatedCustomServer.Starter.exe"
+  },
+  "arguments": [
+    "/dedicatedcustomserverconfigfile",
+    "serverconfig.txt",
+    "/port",
+    "{GAME_PORT}"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 7210,
+      "protocol": "udp",
+      "containerPort": 7210,
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "defaults": {},
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "none",
+  "validationStatus": "configuration-required",
+  "warnings": [
+    "Server-Token und serverconfig.txt vorbereiten. Die experimentelle Linux-Branch wird in diesem Profil nicht aktiviert."
+  ],
+  "licenseUrl": "",
+  "attribution": {
+    "source": "Valve SteamCMD app_info_print",
+    "steamAppId": 1863440,
+    "checkedAt": "2026-11-02",
+    "documentation": "https://developer.valvesoftware.com/wiki/SteamCMD"
+  }
+}

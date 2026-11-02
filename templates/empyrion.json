@@ -1,0 +1,82 @@
+{
+  "id": "empyrion",
+  "name": "Empyrion – Galactic Survival",
+  "version": "1.0.0",
+  "approved": false,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/empyrion.json",
+  "sourceRef": "main",
+  "steamAppId": 530870,
+  "steamGameAppId": 383120,
+  "website": "https://store.steampowered.com/app/383120/",
+  "windowsOnly": true,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows"
+  ],
+  "executables": {
+    "windows": "DedicatedServer/EmpyrionDedicated.exe"
+  },
+  "arguments": [
+    "-batchmode",
+    "-nographics",
+    "-dedicated",
+    "dedicated.yaml"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 30000,
+      "protocol": "udp",
+      "containerPort": 30000,
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "network1",
+      "default": 30001,
+      "protocol": "udp",
+      "containerPort": 30001,
+      "offsetFromRole": "game",
+      "offset": 1
+    },
+    {
+      "role": "network2",
+      "default": 30002,
+      "protocol": "udp",
+      "containerPort": 30002,
+      "offsetFromRole": "game",
+      "offset": 2
+    },
+    {
+      "role": "network3",
+      "default": 30003,
+      "protocol": "udp",
+      "containerPort": 30003,
+      "offsetFromRole": "game",
+      "offset": 3
+    },
+    {
+      "role": "network4",
+      "default": 30004,
+      "protocol": "udp",
+      "containerPort": 30004,
+      "offsetFromRole": "game",
+      "offset": 4
+    }
+  ],
+  "defaults": {},
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "none",
+  "validationStatus": "configuration-required",
+  "warnings": [
+    "Vor der Freigabe die mitgelieferte Spielkonfiguration, Zugangsdaten und Startparameter prüfen."
+  ],
+  "licenseUrl": "",
+  "attribution": {
+    "source": "Valve SteamCMD app_info_print",
+    "steamAppId": 530870,
+    "checkedAt": "2026-11-02",
+    "documentation": "https://developer.valvesoftware.com/wiki/SteamCMD"
+  }
+}

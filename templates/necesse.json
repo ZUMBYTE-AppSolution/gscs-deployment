@@ -1,0 +1,57 @@
+{
+  "id": "necesse",
+  "name": "Necesse",
+  "version": "1.0.0",
+  "approved": false,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/necesse.json",
+  "sourceRef": "main",
+  "steamAppId": 1169370,
+  "steamGameAppId": 1169040,
+  "website": "https://store.steampowered.com/app/1169040/",
+  "windowsOnly": false,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "executables": {
+    "windows": "jre/bin/java.exe",
+    "linux": "jre/bin/java"
+  },
+  "arguments": [
+    "-jar",
+    "Server.jar",
+    "-nogui",
+    "-port",
+    "{GAME_PORT}",
+    "-slots",
+    "{SLOTS}",
+    "-world",
+    "GSCS"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 14159,
+      "protocol": "udp",
+      "containerPort": 14159,
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "defaults": {},
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "none",
+  "validationStatus": "configuration-required",
+  "warnings": [
+    "Vor der Freigabe die mitgelieferte Spielkonfiguration, Zugangsdaten und Startparameter prüfen."
+  ],
+  "licenseUrl": "",
+  "attribution": {
+    "source": "Valve SteamCMD app_info_print",
+    "steamAppId": 1169370,
+    "checkedAt": "2026-11-02",
+    "documentation": "https://developer.valvesoftware.com/wiki/SteamCMD"
+  }
+}

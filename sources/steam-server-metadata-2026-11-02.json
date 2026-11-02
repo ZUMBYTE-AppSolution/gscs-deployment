@@ -1,0 +1,2226 @@
+{
+  "source": "Valve SteamCMD app_info_print",
+  "documentation": "https://developer.valvesoftware.com/wiki/SteamCMD",
+  "checkedAt": "2026-11-02",
+  "apps": {
+    "90": {
+      "name": "Half-Life Dedicated Server",
+      "os": "",
+      "installDir": "Half-Life",
+      "launch": {
+        "0": {
+          "executable": "hlds.exe",
+          "arguments": "-steam",
+          "config": {
+            "oslist": "windows"
+          }
+        }
+      },
+      "depots": {
+        "1": {
+          "language": ""
+        },
+        "11": {},
+        "4": {
+          "oslist": "linux"
+        },
+        "5": {
+          "oslist": "windows"
+        },
+        "71": {
+          "language": ""
+        },
+        "81": {
+          "mod": "czero"
+        },
+        "31": {
+          "mod": "dod"
+        },
+        "21": {
+          "mod": "tfc"
+        },
+        "41": {
+          "mod": "dmc"
+        },
+        "61": {
+          "mod": "ricochet"
+        },
+        "51": {
+          "mod": "gearbox"
+        },
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        }
+      }
+    },
+    "740": {
+      "name": "Counter-Strike Global Offensive - Dedicated Server",
+      "os": "windows,linux",
+      "installDir": "Counter-Strike Global Offensive Beta - Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "testapp.exe"
+        }
+      },
+      "depots": {
+        "731": {},
+        "740": {}
+      }
+    },
+    "4020": {
+      "name": "Garry's Mod Dedicated Server",
+      "os": null,
+      "installDir": "GarrysModDS",
+      "launch": {},
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "4021": {},
+        "4022": {
+          "oslist": "windows"
+        },
+        "4023": {
+          "oslist": "linux"
+        }
+      }
+    },
+    "17520": {
+      "name": "Synergy",
+      "os": "windows,linux",
+      "installDir": "Synergy",
+      "launch": {
+        "0": {
+          "executable": "synergy.exe",
+          "arguments": "-game synergy -steam -novid",
+          "type": "none",
+          "config": {
+            "oslist": "windows"
+          }
+        },
+        "1": {
+          "executable": "hl2.sh",
+          "arguments": "-game synergy -steam -novid",
+          "type": "none",
+          "config": {
+            "oslist": "linux"
+          }
+        },
+        "2": {
+          "executable": "hl2.sh",
+          "arguments": "-game synergy -steam -novid",
+          "type": "none",
+          "config": {
+            "oslist": "macos"
+          }
+        }
+      },
+      "depots": {
+        "17522": {},
+        "17521": {
+          "oslist": "windows"
+        },
+        "17523": {
+          "oslist": "linux"
+        },
+        "17524": {
+          "oslist": "macos"
+        },
+        "17525": {
+          "oslist": "windows"
+        }
+      }
+    },
+    "213140": {
+      "name": null,
+      "os": null,
+      "installDir": null,
+      "launch": {},
+      "depots": {}
+    },
+    "215360": {
+      "name": "Killing Floor Dedicated Server - Linux",
+      "os": "linux",
+      "installDir": "Killing Floor Dedicated Server - Linux",
+      "launch": {},
+      "depots": {
+        "1251": {},
+        "1254": {}
+      }
+    },
+    "222860": {
+      "name": "Left 4 Dead 2 Dedicated Server",
+      "os": null,
+      "installDir": "Left 4 Dead 2 Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "srcds.exe",
+          "config": {
+            "oslist": "windows"
+          }
+        }
+      },
+      "depots": {
+        "222861": {},
+        "222862": {
+          "oslist": "windows"
+        },
+        "222863": {
+          "oslist": "linux"
+        }
+      }
+    },
+    "223350": {
+      "name": "DayZ Server",
+      "os": "windows",
+      "installDir": "DayZServer",
+      "launch": {
+        "0": {
+          "executable": "DayZServer_x64.exe",
+          "description": "Launch Server",
+          "type": "server",
+          "config": {
+            "oslist": "windows",
+            "osarch": "64"
+          }
+        }
+      },
+      "depots": {
+        "228985": {
+          "oslist": "windows"
+        },
+        "228988": {
+          "oslist": "windows"
+        },
+        "229004": {
+          "oslist": "windows"
+        },
+        "223351": {},
+        "223352": {
+          "oslist": "linux",
+          "osarch": "64"
+        },
+        "223353": {
+          "oslist": "windows",
+          "osarch": "64"
+        },
+        "223354": {}
+      }
+    },
+    "232130": {
+      "name": "Killing Floor 2 - Dedicated Server",
+      "os": "windows,linux",
+      "installDir": "kf2server",
+      "launch": {
+        "0": {
+          "executable": "Binaries/Win64/KFServer.exe",
+          "config": {
+            "oslist": "windows",
+            "osarch": "64"
+          }
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "228983": {
+          "oslist": "windows"
+        },
+        "232131": {}
+      }
+    },
+    "232250": {
+      "name": "Team Fortress 2 Dedicated Server",
+      "os": "windows,linux",
+      "installDir": "Team Fortress 2 Dedicated Server",
+      "launch": {},
+      "depots": {
+        "232250": {},
+        "232255": {
+          "oslist": "windows"
+        },
+        "232256": {
+          "oslist": "linux"
+        },
+        "232257": {
+          "oslist": "linux"
+        }
+      }
+    },
+    "232290": {
+      "name": "Day of Defeat: Source Dedicated Server",
+      "os": "windows,linux",
+      "installDir": "Day of Defeat Source Dedicated Server",
+      "launch": {},
+      "depots": {
+        "232290": {},
+        "232295": {
+          "oslist": "windows"
+        },
+        "232296": {
+          "oslist": "linux"
+        }
+      }
+    },
+    "232330": {
+      "name": "Counter-Strike: Source Dedicated Server",
+      "os": "windows,linux",
+      "installDir": "Counter-Strike Source Dedicated Server",
+      "launch": {},
+      "depots": {
+        "232330": {},
+        "232335": {
+          "oslist": "windows"
+        },
+        "232336": {
+          "oslist": "linux"
+        }
+      }
+    },
+    "232370": {
+      "name": "Half-Life 2: Deathmatch Dedicated Server",
+      "os": "windows,linux",
+      "installDir": "Half-Life 2 Deathmatch Dedicated Server",
+      "launch": {},
+      "depots": {
+        "232370": {},
+        "232375": {
+          "oslist": "windows"
+        },
+        "232376": {
+          "oslist": "linux"
+        }
+      }
+    },
+    "237410": {
+      "name": "Insurgency Dedicated Server",
+      "os": "windows,macos,linux",
+      "installDir": "Insurgency Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "srcds.exe",
+          "description": "Launch",
+          "workingdir": "bin",
+          "config": {
+            "oslist": "windows"
+          }
+        },
+        "1": {
+          "executable": "srcds_osx",
+          "description": "Launch",
+          "workingdir": "bin",
+          "config": {
+            "oslist": "macos"
+          }
+        },
+        "2": {
+          "executable": "srcds_linux",
+          "description": "Launch",
+          "workingdir": "bin",
+          "config": {
+            "oslist": "linux"
+          }
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "228990": {
+          "oslist": "windows"
+        },
+        "237411": {}
+      }
+    },
+    "244310": {
+      "name": "Source SDK Base 2013 Dedicated Server",
+      "os": "windows,linux",
+      "installDir": "Source SDK Base 2013 Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "srcds.exe",
+          "arguments": "-game hl2mp"
+        }
+      },
+      "depots": {
+        "244311": {},
+        "244312": {
+          "oslist": "windows"
+        },
+        "244313": {
+          "oslist": "linux"
+        }
+      }
+    },
+    "258550": {
+      "name": "Rust Dedicated Server",
+      "os": "windows,linux",
+      "installDir": "rust_dedicated",
+      "launch": {},
+      "depots": {
+        "258551": {
+          "oslist": "windows"
+        },
+        "258552": {
+          "oslist": "linux"
+        },
+        "258554": {}
+      }
+    },
+    "261140": {
+      "name": "Just Cause 2: Multiplayer - Dedicated Server",
+      "os": "windows,linux",
+      "installDir": "Just Cause 2 - Multiplayer Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "JcmpServer.exe",
+          "description": "Launch",
+          "config": {
+            "oslist": "windows"
+          }
+        }
+      },
+      "depots": {
+        "228984": {
+          "oslist": "windows"
+        },
+        "261141": {
+          "oslist": "windows"
+        },
+        "261142": {
+          "oslist": "linux"
+        }
+      }
+    },
+    "294420": {
+      "name": "7 Days to Die Dedicated Server",
+      "os": "windows,linux",
+      "installDir": "7 Days to Die Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "startdedicated.bat",
+          "description": "Launch",
+          "config": {
+            "oslist": "windows"
+          }
+        }
+      },
+      "depots": {
+        "228983": {
+          "oslist": "windows"
+        },
+        "228988": {
+          "oslist": "windows"
+        },
+        "228989": {
+          "oslist": "windows"
+        },
+        "294421": {
+          "oslist": "windows"
+        },
+        "294422": {
+          "oslist": "linux"
+        }
+      }
+    },
+    "298740": {
+      "name": "Space Engineers Dedicated Server",
+      "os": "windows",
+      "installDir": "SpaceEngineersDedicatedServer",
+      "launch": {
+        "0": {
+          "executable": "DedicatedServer/SpaceEngineersDedicated.exe",
+          "description": "Launch",
+          "workingdir": "DedicatedServer",
+          "config": {
+            "oslist": "windows",
+            "osarch": "32"
+          }
+        },
+        "1": {
+          "executable": "DedicatedServer64/SpaceEngineersDedicated.exe",
+          "description": "Launch",
+          "workingdir": "DedicatedServer64",
+          "config": {
+            "oslist": "windows",
+            "osarch": "64"
+          }
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "228985": {
+          "oslist": "windows"
+        },
+        "228988": {
+          "oslist": "windows"
+        },
+        "229007": {
+          "oslist": "windows"
+        },
+        "298741": {}
+      }
+    },
+    "313600": {
+      "name": "NEOTOKYO Dedicated Server",
+      "os": "windows",
+      "installDir": "NEOTOKYO Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "srcds.exe",
+          "description": "Launch"
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "313601": {}
+      }
+    },
+    "343050": {
+      "name": "Don't Starve Together Dedicated Server",
+      "os": "windows,macos,linux",
+      "installDir": "Don't Starve Together Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "bin64/dontstarve_dedicated_server_nullrenderer_x64.exe",
+          "workingdir": "bin64",
+          "type": "default",
+          "config": {
+            "oslist": "windows",
+            "osarch": "64"
+          },
+          "description_loc": {
+            "english": "Play Don't Starve Together Dedicated Server"
+          },
+          "description": "Play Don't Starve Together Dedicated Server"
+        },
+        "1": {
+          "executable": "bin64/scripts/launch_dedicated_server.sh",
+          "workingdir": "bin64",
+          "type": "default",
+          "config": {
+            "oslist": "linux",
+            "osarch": "64"
+          },
+          "description_loc": {
+            "english": "Play Don't Starve Together Dedicated Server"
+          },
+          "description": "Play Don't Starve Together Dedicated Server"
+        },
+        "2": {
+          "executable": "dontstarve_dedicated_server_nullrenderer.app",
+          "type": "default",
+          "config": {
+            "oslist": "macos"
+          },
+          "description_loc": {
+            "english": "Play Don't Starve Together Dedicated Server"
+          },
+          "description": "Play Don't Starve Together Dedicated Server"
+        },
+        "3": {
+          "executable": "bin/dontstarve_dedicated_server_nullrenderer.exe",
+          "workingdir": "bin",
+          "type": "none",
+          "config": {
+            "oslist": "windows",
+            "osarch": "32"
+          },
+          "description_loc": {
+            "english": "Play Don't Starve Together Dedicated Server (32-Bit)"
+          },
+          "description": "Play Don't Starve Together Dedicated Server (32-Bit)"
+        },
+        "4": {
+          "executable": "bin/scripts/launch_dedicated_server.sh",
+          "workingdir": "bin",
+          "type": "none",
+          "config": {
+            "oslist": "linux",
+            "osarch": "32"
+          },
+          "description_loc": {
+            "english": "Play Don't Starve Together Dedicated Server (32-Bit)"
+          },
+          "description": "Play Don't Starve Together Dedicated Server (32-Bit)"
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "228982": {
+          "oslist": "windows"
+        },
+        "228988": {
+          "oslist": "windows"
+        },
+        "343051": {
+          "oslist": "windows"
+        },
+        "343052": {
+          "oslist": "linux"
+        },
+        "343053": {
+          "oslist": "macos"
+        }
+      }
+    },
+    "349090": {
+      "name": "Quake Live Dedicated Server",
+      "os": null,
+      "installDir": "Quake Live Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "qzeroded.x86",
+          "description": "Launch",
+          "config": {
+            "oslist": "linux",
+            "osarch": "32"
+          }
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "349091": {
+          "oslist": "linux"
+        }
+      }
+    },
+    "376030": {
+      "name": "ARK: Survival Evolved Dedicated Server",
+      "os": "windows,linux",
+      "installDir": "ARK Survival Evolved Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "ShooterGame\\Binaries\\Win64\\ShooterGameServer.exe",
+          "arguments": "TheIsland?listen ",
+          "description": "Launch (Map: TheIsland)",
+          "type": "none",
+          "config": {
+            "oslist": "windows"
+          }
+        },
+        "1": {
+          "executable": "ShooterGame\\Binaries\\Win64\\ShooterGameServer.exe",
+          "arguments": "TheIsland?listen -UseBattlEye",
+          "description": "Launch (Map: TheIsland, With BattlEye Anticheat)",
+          "type": "none",
+          "config": {
+            "oslist": "windows"
+          }
+        },
+        "2": {
+          "executable": "ShooterGame\\Binaries\\Win64\\ShooterGameServer.exe",
+          "arguments": "TheCenter?listen",
+          "description": "Launch (Map: TheCenter)",
+          "type": "none",
+          "config": {
+            "oslist": "windows"
+          }
+        },
+        "3": {
+          "executable": "ShooterGame\\Binaries\\Win64\\ShooterGameServer.exe",
+          "arguments": "TheCenter?listen -UseBattlEye",
+          "description": "Launch (Map: TheCenter, With BattlEye Anticheat)",
+          "type": "none",
+          "config": {
+            "oslist": "windows"
+          }
+        },
+        "4": {
+          "executable": "ShooterGame\\Binaries\\Win64\\ShooterGameServer.exe",
+          "arguments": "TheIsland?listen -TotalConversionMod=111111111",
+          "description": "Launch (Map: TheIsland, Total Conversion: Primitive+)",
+          "type": "none",
+          "config": {
+            "oslist": "windows"
+          }
+        },
+        "5": {
+          "executable": "ShooterGame\\Binaries\\Win64\\ShooterGameServer.exe",
+          "arguments": "TheIsland?listen -TotalConversionMod=111111111 -UseBattlEye",
+          "description": "Launch (Map: TheIsland, Primitive+, With BattlEye Anticheat)",
+          "type": "none",
+          "config": {
+            "oslist": "windows"
+          }
+        },
+        "6": {
+          "executable": "ShooterGame/Binaries/Linux/ShooterGame",
+          "arguments": "TheIsland?listen ",
+          "description": "Launch (Map: TheIsland)",
+          "type": "none",
+          "config": {
+            "oslist": "linux"
+          }
+        },
+        "7": {
+          "executable": "ShooterGame/Binaries/Linux/ShooterGame",
+          "arguments": "TheIsland?listen -UseBattlEye",
+          "description": "Launch (Map: TheIsland, With BattlEye Anticheat)",
+          "type": "none",
+          "config": {
+            "oslist": "linux"
+          }
+        },
+        "8": {
+          "executable": "ShooterGame/Binaries/Linux/ShooterGame",
+          "arguments": "TheCenter?listen",
+          "description": "Launch (Map: TheCenter)",
+          "type": "none",
+          "config": {
+            "oslist": "linux"
+          }
+        },
+        "9": {
+          "executable": "ShooterGame/Binaries/Linux/ShooterGame",
+          "arguments": "TheCenter?listen",
+          "description": "Launch (Map: TheCenter, With BattlEye Anticheat)",
+          "type": "none",
+          "config": {
+            "oslist": "linux"
+          }
+        },
+        "10": {
+          "executable": "ShooterGame/Binaries/Linux/ShooterGame",
+          "arguments": "TheCenter?listen -UseBattlEye",
+          "description": "Launch (Map: TheCenter, With BattlEye Anticheat)",
+          "type": "none",
+          "config": {
+            "oslist": "linux"
+          }
+        },
+        "11": {
+          "executable": "ShooterGame/Binaries/Linux/ShooterGame",
+          "arguments": "TheIsland?listen -TotalConversionMod=111111111",
+          "description": "Launch (Map: TheIsland, Total Conversion: Primitive+)",
+          "type": "none",
+          "config": {
+            "oslist": "linux"
+          }
+        },
+        "12": {
+          "executable": "ShooterGame/Binaries/Linux/ShooterGame",
+          "arguments": "TheIsland?listen -TotalConversionMod=111111111 -UseBattlEye",
+          "description": "Launch (Map: TheIsland, Primitive+, With BattlEye Anticheat)",
+          "type": "none",
+          "config": {
+            "oslist": "linux"
+          }
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "376031": {},
+        "376032": {}
+      }
+    },
+    "380870": {
+      "name": "Project Zomboid Dedicated Server",
+      "os": "windows,macos,linux",
+      "installDir": "Project Zomboid Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "StartServer64.bat",
+          "config": {
+            "oslist": "windows",
+            "osarch": "64"
+          },
+          "description_loc": {
+            "english": "Start Server"
+          },
+          "description": "Start Server"
+        },
+        "1": {
+          "executable": "StartServer32.bat",
+          "config": {
+            "oslist": "windows",
+            "osarch": "32"
+          },
+          "description_loc": {
+            "english": "Start Server"
+          },
+          "description": "Start Server"
+        },
+        "2": {
+          "executable": "start-server.sh",
+          "description": "Start Server",
+          "config": {
+            "oslist": "linux"
+          }
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "380871": {},
+        "380872": {
+          "oslist": "macos"
+        },
+        "380873": {
+          "oslist": "linux"
+        },
+        "380874": {
+          "oslist": "windows"
+        }
+      }
+    },
+    "443030": {
+      "name": "Conan Exiles Dedicated Server",
+      "os": "windows,linux",
+      "installDir": "Conan Exiles Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "ConanSandboxServer.exe",
+          "arguments": "-Messaging",
+          "description": "Launch Game server",
+          "type": "none",
+          "config": {
+            "oslist": "windows",
+            "osarch": "64"
+          }
+        },
+        "1": {
+          "executable": "ConanSandbox\\Binaries\\Linux\\ConanSandboxServer",
+          "type": "server",
+          "config": {
+            "oslist": "linux",
+            "osarch": "64"
+          }
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "228985": {
+          "oslist": "windows"
+        },
+        "228986": {
+          "oslist": "windows"
+        },
+        "228989": {
+          "oslist": "windows"
+        },
+        "228990": {
+          "oslist": "windows"
+        },
+        "443031": {
+          "oslist": "windows",
+          "osarch": "64"
+        },
+        "443032": {
+          "oslist": "linux",
+          "osarch": "64"
+        }
+      }
+    },
+    "462310": {
+      "name": "Day of Infamy Dedicated Server",
+      "os": "windows,linux",
+      "installDir": "Day of Infamy Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "srcds.exe",
+          "workingdir": "bin",
+          "description": "Launch",
+          "type": "none",
+          "config": {
+            "oslist": "windows"
+          }
+        },
+        "1": {
+          "executable": "srcds_linux",
+          "workingdir": "bin",
+          "description": "Launch",
+          "type": "none",
+          "config": {
+            "oslist": "linux"
+          }
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "228985": {
+          "oslist": "windows"
+        },
+        "228986": {
+          "oslist": "windows"
+        },
+        "228990": {
+          "oslist": "windows"
+        },
+        "462311": {}
+      }
+    },
+    "530870": {
+      "name": "Empyrion - Galactic Survival Dedicated Server",
+      "os": "windows",
+      "installDir": "Empyrion - Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "EmpyrionLauncher.exe",
+          "arguments": "-startDediWithGfx",
+          "type": "none",
+          "config": {
+            "oslist": "windows",
+            "osarch": "64"
+          }
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "228988": {
+          "oslist": "windows"
+        },
+        "530871": {}
+      }
+    },
+    "565060": {
+      "name": "Avorion Dedicated Server",
+      "os": "windows,linux",
+      "installDir": "AvorionServer",
+      "launch": {
+        "0": {
+          "executable": "bin/ServerRunner.exe",
+          "type": "default",
+          "config": {
+            "oslist": "windows",
+            "osarch": "64"
+          }
+        },
+        "2": {
+          "executable": "bin/ServerRunner",
+          "type": "default",
+          "config": {
+            "oslist": "linux",
+            "osarch": "64"
+          }
+        },
+        "3": {
+          "executable": "bin/ServerRunner",
+          "type": "default",
+          "config": {
+            "oslist": "macos"
+          }
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "565061": {},
+        "565062": {
+          "oslist": "windows",
+          "osarch": "64"
+        },
+        "565063": {
+          "oslist": "linux",
+          "osarch": "64"
+        },
+        "565064": {
+          "oslist": "macos",
+          "osarch": "64"
+        }
+      }
+    },
+    "581330": {
+      "name": "Insurgency: Sandstorm Dedicated Server",
+      "os": "linux",
+      "installDir": "sandstorm_server",
+      "launch": {
+        "0": {
+          "executable": "InsurgencyServer.exe",
+          "type": "none",
+          "config": {
+            "oslist": "windows"
+          }
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "228986": {
+          "oslist": "windows"
+        },
+        "228990": {
+          "oslist": "windows"
+        },
+        "581332": {
+          "oslist": "windows"
+        },
+        "581333": {
+          "oslist": "linux"
+        }
+      }
+    },
+    "600760": {
+      "name": "Stationeers Dedicated Server",
+      "os": "windows,linux",
+      "installDir": "Stationeers Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "rocketstation_DedicatedServer.exe",
+          "type": "server",
+          "config": {
+            "oslist": "windows",
+            "osarch": "64"
+          },
+          "description_loc": {
+            "english": "Dedicated Server"
+          },
+          "description": "Dedicated Server"
+        },
+        "2": {
+          "executable": "rocketstation_DedicatedServer.x86_64",
+          "arguments": "-autostart -worldtype Space -batchmode -nographics",
+          "type": "server",
+          "config": {
+            "oslist": "linux",
+            "osarch": "64"
+          }
+        }
+      },
+      "depots": {
+        "228988": {
+          "oslist": "windows"
+        },
+        "600761": {
+          "oslist": "windows",
+          "osarch": "64"
+        },
+        "600762": {
+          "oslist": "linux",
+          "osarch": "64"
+        }
+      }
+    },
+    "728470": {
+      "name": "ASTRONEER Dedicated Server",
+      "os": "windows",
+      "installDir": "ASTRONEER Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "AstroServer.exe",
+          "type": "default",
+          "config": {
+            "osarch": "64"
+          }
+        },
+        "1": {
+          "executable": "AstroServer.exe",
+          "description": "Accept connections",
+          "type": "server",
+          "config": {
+            "osarch": "64"
+          }
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "228986": {
+          "oslist": "windows"
+        },
+        "228990": {
+          "oslist": "windows"
+        },
+        "728471": {
+          "oslist": "windows"
+        }
+      }
+    },
+    "896660": {
+      "name": "Valheim Dedicated Server",
+      "os": "windows,macos,linux",
+      "installDir": "Valheim dedicated server",
+      "launch": {
+        "0": {
+          "executable": "start_server_xterm.sh",
+          "type": "server",
+          "config": {
+            "oslist": "linux"
+          }
+        },
+        "1": {
+          "executable": "start_headless_server.bat",
+          "type": "server",
+          "config": {
+            "oslist": "windows"
+          }
+        },
+        "2": {
+          "executable": "start_server.command",
+          "type": "server",
+          "config": {
+            "oslist": "macos"
+          }
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "896661": {
+          "oslist": "linux"
+        },
+        "896662": {
+          "oslist": "windows"
+        },
+        "896663": {
+          "oslist": "macos"
+        }
+      }
+    },
+    "1026340": {
+      "name": "Barotrauma Dedicated Server",
+      "os": "windows,linux",
+      "installDir": "Barotrauma Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "DedicatedServer.exe",
+          "type": "default",
+          "config": {
+            "oslist": "windows"
+          }
+        },
+        "1": {
+          "executable": "./DedicatedServer",
+          "type": "default",
+          "config": {
+            "oslist": "linux"
+          }
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "1026341": {
+          "oslist": "windows",
+          "osarch": "64"
+        },
+        "1026342": {
+          "oslist": "linux",
+          "osarch": "64"
+        }
+      }
+    },
+    "1110390": {
+      "name": "Unturned Dedicated Server",
+      "os": "windows,linux",
+      "installDir": "U3DS",
+      "launch": {
+        "0": {
+          "executable": "ServerHelper.bat",
+          "type": "server",
+          "config": {
+            "oslist": "windows"
+          }
+        },
+        "1": {
+          "executable": "ServerHelper.sh",
+          "type": "server",
+          "config": {
+            "oslist": "linux"
+          }
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "1110391": {
+          "oslist": "windows",
+          "osarch": "64"
+        },
+        "1110392": {
+          "oslist": "linux",
+          "osarch": "64"
+        },
+        "1110393": {},
+        "1110394": {}
+      }
+    },
+    "1180760": {
+      "name": "Risk of Rain 2 Dedicated Server",
+      "os": "windows",
+      "installDir": "Risk of Rain 2 Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "Risk of Rain 2.exe",
+          "type": "none",
+          "config": {
+            "oslist": "windows",
+            "osarch": "64"
+          }
+        }
+      },
+      "depots": {
+        "228986": {
+          "oslist": "windows"
+        },
+        "1180761": {
+          "oslist": "windows",
+          "osarch": "64",
+          "language": ""
+        }
+      }
+    },
+    "1690800": {
+      "name": "Satisfactory Dedicated Server",
+      "os": "windows,linux",
+      "installDir": "SatisfactoryDedicatedServer",
+      "launch": {
+        "0": {
+          "executable": "FactoryServer.exe",
+          "arguments": "-log -unattended",
+          "type": "default",
+          "config": {
+            "oslist": "windows",
+            "osarch": "64"
+          }
+        },
+        "1": {
+          "executable": "FactoryServer.sh",
+          "type": "default",
+          "config": {
+            "oslist": "linux"
+          }
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "1690801": {
+          "oslist": "windows"
+        },
+        "1690802": {
+          "oslist": "linux"
+        }
+      }
+    },
+    "1829350": {
+      "name": "V Rising Dedicated Server",
+      "os": "windows",
+      "installDir": "VRisingDedicatedServer",
+      "launch": {
+        "1": {
+          "executable": "README.txt",
+          "type": "manual"
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "1829351": {}
+      }
+    },
+    "1963720": {
+      "name": "Core Keeper Dedicated Server",
+      "os": "windows,linux",
+      "installDir": "Core Keeper Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "Launch.bat",
+          "type": "server",
+          "config": {
+            "oslist": "windows"
+          }
+        },
+        "1": {
+          "executable": "launch.sh",
+          "type": "server",
+          "config": {
+            "oslist": "linux"
+          }
+        },
+        "2": {
+          "executable": "README.txt",
+          "type": "manual",
+          "config": {
+            "oslist": "windows"
+          }
+        },
+        "3": {
+          "executable": "_readme.sh",
+          "type": "manual",
+          "config": {
+            "oslist": "linux"
+          }
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "1963721": {
+          "oslist": "windows"
+        },
+        "1963722": {
+          "oslist": "linux"
+        }
+      }
+    },
+    "2278520": {
+      "name": "Enshrouded Dedicated Server",
+      "os": "windows",
+      "installDir": "EnshroudedServer",
+      "launch": {
+        "0": {
+          "executable": "enshrouded_server.exe"
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "228989": {
+          "oslist": "windows"
+        },
+        "2278521": {
+          "oslist": "windows"
+        }
+      }
+    },
+    "2394010": {
+      "name": "Palworld Dedicated Server",
+      "os": "windows,linux",
+      "installDir": "PalServer",
+      "launch": {
+        "0": {
+          "executable": "PalServer.exe",
+          "arguments": "-useperfthreads -NoAsyncLoadingThread -UseMultithreadForDS",
+          "type": "default",
+          "config": {
+            "oslist": "windows"
+          }
+        },
+        "1": {
+          "executable": "PalServer.sh",
+          "arguments": "EpicApp=PalServer -useperfthreads -NoAsyncLoadingThread -UseMultithreadForDS -publiclobby",
+          "type": "default",
+          "config": {
+            "oslist": "linux"
+          }
+        },
+        "2": {
+          "executable": "PalServer.exe",
+          "arguments": "-publiclobby -useperfthreads -NoAsyncLoadingThread -UseMultithreadForDS -publiclobby",
+          "description_loc": {
+            "english": "Open and start as a community server"
+          },
+          "description": "Open and start as a community server"
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "228989": {
+          "oslist": "windows"
+        },
+        "228990": {
+          "oslist": "windows"
+        },
+        "2394011": {
+          "oslist": "windows",
+          "osarch": "64"
+        },
+        "2394012": {
+          "oslist": "linux",
+          "osarch": "64"
+        }
+      }
+    },
+    "2430930": {
+      "name": "ARK: Survival Ascended Dedicated Server",
+      "os": "windows",
+      "installDir": "ARK Survival Ascended Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "\\ShooterGame\\Binaries\\Win64\\ArkAscendedServer.exe",
+          "arguments": "TheIsland_WP?listen",
+          "config": {
+            "oslist": "windows"
+          },
+          "description_loc": {
+            "english": "Launch (Map: TheIsland)"
+          },
+          "description": "Launch (Map: TheIsland)"
+        },
+        "1": {
+          "executable": "\\ShooterGame\\Binaries\\Win64\\ArkAscendedServer.exe",
+          "arguments": "TheIsland_WP?listen -UseBattlEye",
+          "config": {
+            "oslist": "windows"
+          },
+          "description_loc": {
+            "english": "Launch (Map: TheIsland, With BattlEye Anticheat)"
+          },
+          "description": "Launch (Map: TheIsland, With BattlEye Anticheat)"
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "2430931": {}
+      }
+    },
+    "2465200": {
+      "name": "Sons Of The Forest Dedicated Server",
+      "os": "windows",
+      "installDir": "Sons Of The Forest Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "StartSOTFDedicated.bat",
+          "type": "server",
+          "config": {
+            "oslist": "windows"
+          }
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "2465201": {}
+      }
+    },
+    "276060": {
+      "name": "Sven Co-op Dedicated Server",
+      "os": "windows,linux",
+      "installDir": "Sven Co-op Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "svends.exe",
+          "description": "Launch Game Server",
+          "type": "server",
+          "config": {
+            "oslist": "windows"
+          }
+        },
+        "1": {
+          "executable": "svends_run",
+          "description": "Launch Game Server",
+          "type": "server",
+          "config": {
+            "oslist": "linux"
+          }
+        },
+        "3": {
+          "executable": "svencoop/manual/index.html",
+          "description": "Game Manual",
+          "type": "manual"
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "228983": {
+          "oslist": "windows"
+        },
+        "228988": {
+          "oslist": "windows"
+        },
+        "229001": {
+          "oslist": "windows"
+        },
+        "225841": {},
+        "276061": {
+          "oslist": "windows"
+        },
+        "276062": {
+          "oslist": "linux"
+        },
+        "276063": {
+          "oslist": "macos"
+        }
+      }
+    },
+    "317670": {
+      "name": "No More Room in Hell Dedicated Server",
+      "os": "windows,linux",
+      "installDir": "No More Room in Hell Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "srcds.exe",
+          "arguments": "-game nmrih +map nmo_broadway",
+          "type": "default",
+          "config": {
+            "oslist": "windows"
+          }
+        },
+        "1": {
+          "executable": "./srcds_run",
+          "arguments": "-game nmrih +map nmo_broadway",
+          "type": "default",
+          "config": {
+            "oslist": "linux"
+          }
+        }
+      },
+      "depots": {
+        "228989": {
+          "oslist": "windows"
+        },
+        "317671": {
+          "oslist": "windows"
+        },
+        "317672": {
+          "oslist": "linux"
+        },
+        "317673": {},
+        "317674": {
+          "oslist": "windows"
+        },
+        "317675": {
+          "oslist": "linux"
+        }
+      }
+    },
+    "295230": {
+      "name": "Fistful of Frags Dedicated Server",
+      "os": "windows,linux",
+      "installDir": "Fistful of Frags Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "srcds.exe",
+          "arguments": "-game fof",
+          "description": "Launch",
+          "config": {
+            "oslist": "windows"
+          }
+        },
+        "1": {
+          "executable": "./srcds_run",
+          "arguments": "-steam -game fof",
+          "description": "Launch",
+          "config": {
+            "oslist": "linux"
+          }
+        }
+      },
+      "depots": {
+        "295231": {},
+        "295232": {
+          "oslist": "windows"
+        },
+        "295233": {
+          "oslist": "linux"
+        }
+      }
+    },
+    "320300": {
+      "name": "Car Mechanic Simulator 2015",
+      "os": "windows,macos",
+      "installDir": "Car Mechanic Simulator 2015",
+      "launch": {
+        "0": {
+          "executable": "cms2015.exe",
+          "description": "Launch",
+          "config": {
+            "oslist": "windows"
+          }
+        },
+        "1": {
+          "executable": "cms2015.app",
+          "description": "Launch",
+          "config": {
+            "oslist": "macos"
+          }
+        }
+      },
+      "depots": {
+        "228990": {
+          "oslist": "windows"
+        },
+        "320301": {
+          "oslist": "windows"
+        },
+        "320302": {
+          "oslist": "windows"
+        },
+        "320303": {
+          "oslist": "macos"
+        },
+        "361820": {},
+        "361842": {},
+        "361843": {},
+        "361840": {},
+        "361841": {},
+        "372870": {}
+      }
+    },
+    "346680": {
+      "name": "Black Mesa Dedicated Server",
+      "os": "windows,linux",
+      "installDir": "Black Mesa Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "srcds.exe",
+          "arguments": "-steam -game bms",
+          "description": "Launch",
+          "config": {
+            "oslist": "windows"
+          }
+        }
+      },
+      "depots": {
+        "346682": {
+          "oslist": "windows"
+        },
+        "346683": {
+          "oslist": "linux"
+        },
+        "346681": {},
+        "221145": {
+          "language": "english"
+        }
+      }
+    },
+    "556450": {
+      "name": "The Forest Dedicated Server",
+      "os": "windows",
+      "installDir": "TheForestDedicatedServer",
+      "launch": {
+        "0": {
+          "executable": "TheForestDedicatedServer.exe",
+          "type": "server",
+          "config": {
+            "oslist": "windows"
+          }
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "556451": {
+          "oslist": "windows"
+        }
+      }
+    },
+    "2728330": {
+      "name": "HZ_SERVER",
+      "os": "windows,linux",
+      "installDir": "HZ_SERVER",
+      "launch": {
+        "1": {
+          "executable": "TSSGameServer.sh",
+          "arguments": "-steamservername=HumanitZ"
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "2728331": {}
+      }
+    },
+    "2612550": {
+      "name": "The Front Dedicated Server",
+      "os": "windows",
+      "installDir": "The Front Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "ProjectWar/Binaries/Win64/TheFrontServer.exe",
+          "type": "default",
+          "config": {
+            "oslist": "windows",
+            "osarch": "64"
+          }
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "228989": {
+          "oslist": "windows"
+        },
+        "228990": {
+          "oslist": "windows"
+        },
+        "229007": {
+          "oslist": "windows"
+        },
+        "2612551": {}
+      }
+    },
+    "3017300": {
+      "name": "Soulmask Dedicated Server For Linux",
+      "os": null,
+      "installDir": "Soulmask Dedicated Server For Linux",
+      "launch": {
+        "0": {
+          "executable": "WSServer.sh"
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "3017301": {}
+      }
+    },
+    "2089300": {
+      "name": "Icarus Dedicated Server",
+      "os": null,
+      "installDir": "Icarus Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "IcarusServer.exe"
+        }
+      },
+      "depots": {
+        "2089301": {}
+      }
+    },
+    "739590": {
+      "name": "Eco Server",
+      "os": "windows,macos,linux",
+      "installDir": "Eco Server",
+      "launch": {
+        "0": {
+          "executable": "EcoServer.exe",
+          "type": "server",
+          "config": {
+            "oslist": "windows"
+          }
+        },
+        "1": {
+          "executable": "EcoServer",
+          "type": "server",
+          "config": {
+            "oslist": "macos"
+          }
+        },
+        "2": {
+          "executable": "EcoServer",
+          "type": "server",
+          "config": {
+            "oslist": "linux",
+            "osarch": "64"
+          }
+        },
+        "3": {
+          "executable": "EcoServerInTerminal.sh",
+          "description": "Launch with Gnome terminal",
+          "type": "none",
+          "config": {
+            "oslist": "linux",
+            "osarch": "64"
+          }
+        },
+        "4": {
+          "executable": "install.sh",
+          "description": "Install prerequisites",
+          "type": "none",
+          "config": {
+            "oslist": "linux",
+            "osarch": "64"
+          }
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "228988": {
+          "oslist": "windows"
+        },
+        "229006": {
+          "oslist": "windows"
+        },
+        "739592": {
+          "oslist": "windows",
+          "osarch": "32",
+          "language": ""
+        },
+        "739593": {
+          "oslist": "windows",
+          "osarch": "64",
+          "language": ""
+        },
+        "739594": {
+          "oslist": "macos",
+          "osarch": "64",
+          "language": ""
+        },
+        "739595": {
+          "oslist": "linux",
+          "osarch": "64",
+          "language": ""
+        },
+        "739591": {
+          "language": ""
+        }
+      }
+    },
+    "629800": {
+      "name": "MORDHAU Dedicated Server",
+      "os": "windows,linux",
+      "installDir": "Mordhau Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "MordhauServer.exe",
+          "type": "default",
+          "config": {
+            "oslist": "windows",
+            "osarch": "64"
+          }
+        },
+        "1": {
+          "executable": "MordhauServer.sh",
+          "type": "default",
+          "config": {
+            "oslist": "linux",
+            "osarch": "64"
+          }
+        }
+      },
+      "depots": {
+        "629801": {
+          "oslist": "windows",
+          "osarch": "64"
+        },
+        "629802": {
+          "oslist": "linux",
+          "osarch": "64"
+        }
+      }
+    },
+    "1863440": {
+      "name": "Mount & Blade II: Dedicated Server",
+      "os": "windows,linux",
+      "installDir": "Mount & Blade II Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "bin/Win64_Shipping_Server/DedicatedCustomServer.Starter.exe",
+          "workingdir": "bin/Win64_Shipping_Server",
+          "type": "default",
+          "config": {
+            "oslist": "windows",
+            "osarch": "64"
+          },
+          "description_loc": {
+            "english": "Launch Server"
+          },
+          "description": "Launch Server"
+        },
+        "1": {
+          "executable": "./dotnet",
+          "arguments": "TaleWorlds.Starter.DotNetCore.Linux.dll",
+          "workingdir": "bin/Linux64_Shipping_Server",
+          "config": {
+            "oslist": "linux",
+            "osarch": "64",
+            "BetaKey": "linux_test"
+          },
+          "description_loc": {
+            "english": "Launch Linux Server"
+          },
+          "description": "Launch Linux Server"
+        }
+      },
+      "depots": {
+        "228988": {
+          "oslist": "windows"
+        },
+        "229006": {
+          "oslist": "windows"
+        },
+        "1863441": {}
+      }
+    },
+    "1794810": {
+      "name": "Myth of Empires Dedicated Server",
+      "os": "windows",
+      "installDir": "Myth of Empires Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "MOE/Binaries/Win64/MOEServer.exe"
+        }
+      },
+      "depots": {
+        "228988": {
+          "oslist": "windows"
+        },
+        "1794811": {}
+      }
+    },
+    "1639880": {
+      "name": "Longvinter Dedicated Server",
+      "os": "windows,linux",
+      "installDir": "Longvinter Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "Longvinter/Binaries/Win64/LongvinterServer-Win64-Shipping.exe",
+          "arguments": "-log",
+          "type": "server",
+          "config": {
+            "oslist": "windows",
+            "osarch": "64"
+          }
+        },
+        "1": {
+          "executable": "Longvinter/Binaries/Linux/LongvinterServer-Linux-Shipping",
+          "arguments": "-log",
+          "type": "server",
+          "config": {
+            "oslist": "linux",
+            "osarch": "64"
+          }
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "1639881": {
+          "oslist": "windows",
+          "osarch": "64"
+        },
+        "1639882": {
+          "oslist": "linux",
+          "osarch": "64"
+        }
+      }
+    },
+    "1169370": {
+      "name": "Necesse Dedicated Server",
+      "os": "windows,macos,linux",
+      "installDir": "Necesse Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "jre\\bin\\javaw.exe",
+          "arguments": "-jar Server.jar",
+          "type": "none",
+          "config": {
+            "oslist": "windows"
+          }
+        },
+        "1": {
+          "executable": "jre\\bin\\java.exe",
+          "arguments": "-jar Server.jar -nogui",
+          "description": "Launch server from terminal",
+          "type": "none",
+          "config": {
+            "oslist": "windows"
+          }
+        },
+        "2": {
+          "executable": "jre/Contents/Home/bin/java",
+          "arguments": "-jar Server.jar &",
+          "type": "none",
+          "config": {
+            "oslist": "macos"
+          }
+        },
+        "3": {
+          "executable": "jre/Contents/Home/bin/java",
+          "arguments": "-jar Server.jar -nogui",
+          "config": {
+            "oslist": "macos",
+            "BetaKey": "buildtest"
+          },
+          "description_loc": {
+            "english": "Launch server from terminal"
+          },
+          "description": "Launch server from terminal"
+        },
+        "4": {
+          "executable": "./jre/bin/java",
+          "arguments": "-jar Server.jar",
+          "type": "none",
+          "config": {
+            "oslist": "linux"
+          }
+        },
+        "5": {
+          "executable": "./jre/bin/java",
+          "arguments": "-jar Server.jar -nogui",
+          "config": {
+            "oslist": "linux",
+            "BetaKey": "buildtest"
+          },
+          "description_loc": {
+            "english": "Launch server from terminal"
+          },
+          "description": "Launch server from terminal"
+        }
+      },
+      "depots": {
+        "1004": {
+          "oslist": "windows"
+        },
+        "1005": {
+          "oslist": "macos"
+        },
+        "1006": {
+          "oslist": "linux"
+        },
+        "1169372": {
+          "oslist": "windows",
+          "osarch": "32"
+        },
+        "1169373": {
+          "oslist": "windows",
+          "osarch": "64"
+        },
+        "1169374": {
+          "oslist": "macos"
+        },
+        "1169375": {
+          "oslist": "linux"
+        }
+      }
+    },
+    "17525": {
+      "name": "Synergy Dedicated Server",
+      "os": null,
+      "installDir": "Synergy Dedicated Server",
+      "launch": {
+        "0": {
+          "executable": "srcds.exe",
+          "arguments": "-steam -synergy"
+        }
+      },
+      "depots": {
+        "208": {},
+        "207": {},
+        "206": {},
+        "307": {},
+        "306": {},
+        "305": {},
+        "310": {
+          "oslist": "windows"
+        },
+        "17522": {},
+        "1004": {
+          "oslist": "windows"
+        }
+      }
+    }
+  }
+}

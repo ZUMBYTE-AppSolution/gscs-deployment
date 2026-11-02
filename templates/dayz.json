@@ -1,0 +1,72 @@
+{
+  "id": "dayz",
+  "name": "DayZ",
+  "version": "1.0.0",
+  "approved": false,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/dayz.json",
+  "sourceRef": "main",
+  "steamAppId": 223350,
+  "steamGameAppId": 221100,
+  "website": "https://store.steampowered.com/app/221100/",
+  "windowsOnly": false,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "executables": {
+    "windows": "DayZServer_x64.exe",
+    "linux": "DayZServer"
+  },
+  "arguments": [
+    "-config=serverDZ.cfg",
+    "-port={GAME_PORT}",
+    "-profiles=profiles",
+    "-dologs",
+    "-adminlog"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 2302,
+      "protocol": "udp",
+      "containerPort": 2302,
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "steam",
+      "default": 2303,
+      "protocol": "udp",
+      "containerPort": 2303,
+      "offsetFromRole": "game",
+      "offset": 1
+    },
+    {
+      "role": "query",
+      "default": 27016,
+      "protocol": "udp",
+      "containerPort": 27016,
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "defaults": {},
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "source",
+  "validationStatus": "configuration-required",
+  "warnings": [
+    "Vor der Freigabe die mitgelieferte Spielkonfiguration, Zugangsdaten und Startparameter prüfen."
+  ],
+  "licenseUrl": "",
+  "textConfigs": {
+    "serverDZ.cfg": "hostname = {JSON_SERVER_NAME};\nmaxPlayers = {SLOTS};\nsteamQueryPort = {QUERY_PORT};\nclass Missions { class DayZ { template = \"dayzOffline.chernarusplus\"; }; };\n"
+  },
+  "attribution": {
+    "source": "Valve SteamCMD app_info_print",
+    "steamAppId": 223350,
+    "checkedAt": "2026-11-02",
+    "documentation": "https://developer.valvesoftware.com/wiki/SteamCMD"
+  }
+}

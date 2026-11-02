@@ -34,14 +34,12 @@
   "updateScripts": {},
   "query": "source",
   "validationStatus": "metadata-validated",
-  "warnings": [
-    "Manifest checked; a live game launch on each supported runtime remains a separate verification."
-  ],
+  "warnings": [],
   "licenseUrl": "",
   "jsonConfigs": {
     "enshrouded_server.json": {
-      "name": "{SERVER_NAME}",
-      "password": "{SERVER_PASSWORD}",
+      "name": "{JSON_SERVER_NAME}",
+      "password": "{JSON_SERVER_PASSWORD}",
       "slotCount": "{SLOTS}",
       "queryPort": "{QUERY_PORT}",
       "ip": "0.0.0.0"

@@ -1,6 +1,8 @@
 # GSCS Deployment-Katalog
 
-Eigene, auf GSCS abgestimmte Profile. Enthalten sind Minecraft Vanilla, Rust, Project Zomboid, Valheim, Enshrouded, Counter-Strike 2, Hytale, Palworld, V Rising, Unturned, Arma 3, Space Engineers und Sons of the Forest.
+61 eigene, auf GSCS abgestimmte Profile. 35 sind freigegeben; 26 benötigen zusätzliche Konfiguration und anschließende Administratorfreigabe. Enthalten sind unter anderem Minecraft, Hytale, Rust, Project Zomboid, Valheim, Satisfactory, 7 Days to Die, ARK, DayZ, Core Keeper, Palworld, V Rising sowie Source-/GoldSource-Spiele.
+
+Die vollständige Liste steht in [SPIELE.md](SPIELE.md). Steam-Server-App-IDs und Startmetadaten wurden mit Valve SteamCMD abgeglichen. Spielgrafiken werden anhand der Client-App-ID bzw. der offiziellen Website ermittelt.
 
 `catalog.json` enthält die SHA-256-Prüfsumme jeder Definition. Neue oder geänderte GitHub-Definitionen werden im Webinterface zur Prüfung vorgemerkt. Die Definitionen enthalten keine Spielserver-Binaries und keine Zugangsdaten. Eine Prüfung der Metadaten ist kein Nachweis eines erfolgreichen Starts auf allen Betriebssystemen. Space Engineers erfordert zunächst die manuelle Welt-/Serverkonfiguration. Containerimages und GSCS-Installpakete werden getrennt veröffentlicht.
 

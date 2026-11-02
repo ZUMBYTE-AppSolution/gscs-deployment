@@ -1,0 +1,58 @@
+{
+  "id": "dont-starve-together",
+  "name": "Don't Starve Together",
+  "version": "1.0.0",
+  "approved": false,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/dont-starve-together.json",
+  "sourceRef": "main",
+  "steamAppId": 343050,
+  "steamGameAppId": 322330,
+  "website": "https://store.steampowered.com/app/322330/",
+  "windowsOnly": false,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "executables": {
+    "windows": "bin64/dontstarve_dedicated_server_nullrenderer_x64.exe",
+    "linux": "bin64/dontstarve_dedicated_server_nullrenderer_x64"
+  },
+  "arguments": [
+    "-persistent_storage_root",
+    "{SERVER_DIR}",
+    "-conf_dir",
+    "config",
+    "-cluster",
+    "GSCS",
+    "-shard",
+    "Master",
+    "-port",
+    "{GAME_PORT}"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 11000,
+      "protocol": "udp",
+      "containerPort": 11000,
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "defaults": {},
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "none",
+  "validationStatus": "configuration-required",
+  "warnings": [
+    "Klei-Cluster-Token sowie config/GSCS/cluster.ini und Master/server.ini vor der Freigabe hinterlegen. Höhlen benötigen eine zusätzliche Shard-Instanz."
+  ],
+  "licenseUrl": "",
+  "attribution": {
+    "source": "Valve SteamCMD app_info_print",
+    "steamAppId": 343050,
+    "checkedAt": "2026-11-02",
+    "documentation": "https://developer.valvesoftware.com/wiki/SteamCMD"
+  }
+}

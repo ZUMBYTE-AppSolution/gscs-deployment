@@ -1,0 +1,57 @@
+{
+  "id": "icarus",
+  "name": "ICARUS",
+  "version": "1.0.0",
+  "approved": false,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/icarus.json",
+  "sourceRef": "main",
+  "steamAppId": 2089300,
+  "steamGameAppId": 1149460,
+  "website": "https://store.steampowered.com/app/1149460/",
+  "windowsOnly": true,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows"
+  ],
+  "executables": {
+    "windows": "IcarusServer.exe"
+  },
+  "arguments": [
+    "-log",
+    "-Port={GAME_PORT}",
+    "-QueryPort={QUERY_PORT}"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 17777,
+      "protocol": "udp",
+      "containerPort": 17777,
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "query",
+      "default": 27015,
+      "protocol": "udp",
+      "containerPort": 27015,
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "defaults": {},
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "source",
+  "validationStatus": "configuration-required",
+  "warnings": [
+    "Vor der Freigabe die mitgelieferte Spielkonfiguration, Zugangsdaten und Startparameter prüfen."
+  ],
+  "licenseUrl": "",
+  "attribution": {
+    "source": "Valve SteamCMD app_info_print",
+    "steamAppId": 2089300,
+    "checkedAt": "2026-11-02",
+    "documentation": "https://developer.valvesoftware.com/wiki/SteamCMD"
+  }
+}

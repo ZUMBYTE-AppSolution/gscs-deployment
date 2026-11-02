@@ -1,0 +1,80 @@
+{
+  "id": "avorion",
+  "name": "Avorion",
+  "version": "1.0.0",
+  "approved": false,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/avorion.json",
+  "sourceRef": "main",
+  "steamAppId": 565060,
+  "steamGameAppId": 445220,
+  "website": "https://store.steampowered.com/app/445220/",
+  "windowsOnly": false,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "executables": {
+    "windows": "bin/ServerRunner.exe",
+    "linux": "bin/ServerRunner"
+  },
+  "arguments": [
+    "--galaxy-name",
+    "GSCS",
+    "--datapath",
+    "{SERVER_DIR}/galaxies",
+    "--port",
+    "{GAME_PORT}",
+    "--max-players",
+    "{SLOTS}"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 27000,
+      "protocol": "both",
+      "containerPort": 27000,
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "query",
+      "default": 27003,
+      "protocol": "udp",
+      "containerPort": 27003,
+      "offsetFromRole": "game",
+      "offset": 3
+    },
+    {
+      "role": "steam",
+      "default": 27020,
+      "protocol": "udp",
+      "containerPort": 27020,
+      "offsetFromRole": "game",
+      "offset": 20
+    },
+    {
+      "role": "steamquery",
+      "default": 27021,
+      "protocol": "udp",
+      "containerPort": 27021,
+      "offsetFromRole": "game",
+      "offset": 21
+    }
+  ],
+  "defaults": {},
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "none",
+  "validationStatus": "configuration-required",
+  "warnings": [
+    "Vor der Freigabe die mitgelieferte Spielkonfiguration, Zugangsdaten und Startparameter prüfen."
+  ],
+  "licenseUrl": "",
+  "attribution": {
+    "source": "Valve SteamCMD app_info_print",
+    "steamAppId": 565060,
+    "checkedAt": "2026-11-02",
+    "documentation": "https://developer.valvesoftware.com/wiki/SteamCMD"
+  }
+}

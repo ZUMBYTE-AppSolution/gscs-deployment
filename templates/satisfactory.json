@@ -1,0 +1,60 @@
+{
+  "id": "satisfactory",
+  "name": "Satisfactory",
+  "version": "1.0.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/satisfactory.json",
+  "sourceRef": "main",
+  "steamAppId": 1690800,
+  "steamGameAppId": 526870,
+  "website": "https://store.steampowered.com/app/526870/",
+  "windowsOnly": false,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "executables": {
+    "windows": "FactoryServer.exe",
+    "linux": "FactoryServer.sh"
+  },
+  "arguments": [
+    "-unattended",
+    "-log",
+    "-Port={GAME_PORT}",
+    "-ReliablePort={RELIABLE_PORT}"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 7777,
+      "protocol": "both",
+      "containerPort": 7777,
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "reliable",
+      "default": 8888,
+      "protocol": "tcp",
+      "containerPort": 8888,
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "defaults": {},
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "none",
+  "validationStatus": "metadata-validated",
+  "warnings": [
+    "Nach der Installation im Satisfactory-Servermanager mit dem Server verbinden und ihn beanspruchen. Spielport benötigt TCP und UDP; der zusätzliche Reliable-Port benötigt TCP."
+  ],
+  "licenseUrl": "",
+  "attribution": {
+    "source": "Valve SteamCMD app_info_print",
+    "steamAppId": 1690800,
+    "checkedAt": "2026-11-02",
+    "documentation": "https://developer.valvesoftware.com/wiki/SteamCMD"
+  }
+}

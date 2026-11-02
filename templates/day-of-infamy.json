@@ -1,0 +1,63 @@
+{
+  "id": "day-of-infamy",
+  "name": "Day of Infamy",
+  "version": "1.0.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/day-of-infamy.json",
+  "sourceRef": "main",
+  "steamAppId": 462310,
+  "steamGameAppId": 447820,
+  "website": "https://store.steampowered.com/app/447820/",
+  "windowsOnly": false,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "executables": {
+    "windows": "srcds.exe",
+    "linux": "srcds_run"
+  },
+  "arguments": [
+    "-console",
+    "-game",
+    "doi",
+    "-port",
+    "{GAME_PORT}",
+    "+maxplayers",
+    "{SLOTS}",
+    "+map",
+    "{MAP}"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 27015,
+      "protocol": "both",
+      "containerPort": 27015,
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "defaults": {
+    "MAP": "doi_bastogne",
+    "RCON_PASSWORD": "{RANDOM_SECRET}",
+    "GSLT_TOKEN": ""
+  },
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "source",
+  "validationStatus": "metadata-validated",
+  "warnings": [],
+  "licenseUrl": "",
+  "textConfigs": {
+    "doi/cfg/server.cfg": "hostname {JSON_SERVER_NAME}\nrcon_password {JSON_RCON_PASSWORD}\nsv_lan 0\n"
+  },
+  "stopCommand": "quit",
+  "attribution": {
+    "source": "Valve SteamCMD app_info_print",
+    "steamAppId": 462310,
+    "checkedAt": "2026-11-02",
+    "documentation": "https://developer.valvesoftware.com/wiki/SteamCMD"
+  }
+}

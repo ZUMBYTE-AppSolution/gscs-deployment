@@ -1,0 +1,78 @@
+{
+  "id": "7-days-to-die",
+  "name": "7 Days to Die",
+  "version": "1.0.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/7-days-to-die.json",
+  "sourceRef": "main",
+  "steamAppId": 294420,
+  "steamGameAppId": 251570,
+  "website": "https://store.steampowered.com/app/251570/",
+  "windowsOnly": false,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "executables": {
+    "windows": "7DaysToDieServer.exe",
+    "linux": "7DaysToDieServer.x86_64"
+  },
+  "arguments": [
+    "-quit",
+    "-batchmode",
+    "-nographics",
+    "-dedicated",
+    "-configfile=gscs-serverconfig.xml"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 26900,
+      "protocol": "both",
+      "containerPort": 26900,
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "network1",
+      "default": 26901,
+      "protocol": "udp",
+      "containerPort": 26901,
+      "offsetFromRole": "game",
+      "offset": 1
+    },
+    {
+      "role": "network2",
+      "default": 26902,
+      "protocol": "udp",
+      "containerPort": 26902,
+      "offsetFromRole": "game",
+      "offset": 2
+    },
+    {
+      "role": "network3",
+      "default": 26903,
+      "protocol": "udp",
+      "containerPort": 26903,
+      "offsetFromRole": "game",
+      "offset": 3
+    }
+  ],
+  "defaults": {},
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "none",
+  "validationStatus": "metadata-validated",
+  "warnings": [],
+  "licenseUrl": "",
+  "textConfigs": {
+    "gscs-serverconfig.xml": "<?xml version=\"1.0\"?><ServerSettings><property name=\"ServerName\" value=\"{XML_SERVER_NAME}\"/><property name=\"ServerPort\" value=\"{GAME_PORT}\"/><property name=\"ServerMaxPlayerCount\" value=\"{SLOTS}\"/><property name=\"GameWorld\" value=\"Navezgane\"/><property name=\"GameName\" value=\"GSCS\"/><property name=\"ServerVisibility\" value=\"2\"/><property name=\"EACEnabled\" value=\"true\"/></ServerSettings>"
+  },
+  "attribution": {
+    "source": "Valve SteamCMD app_info_print",
+    "steamAppId": 294420,
+    "checkedAt": "2026-11-02",
+    "documentation": "https://developer.valvesoftware.com/wiki/SteamCMD"
+  }
+}

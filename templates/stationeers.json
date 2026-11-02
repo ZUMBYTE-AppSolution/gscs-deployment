@@ -1,0 +1,67 @@
+{
+  "id": "stationeers",
+  "name": "Stationeers",
+  "version": "1.0.0",
+  "approved": false,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/stationeers.json",
+  "sourceRef": "main",
+  "steamAppId": 600760,
+  "steamGameAppId": 544550,
+  "website": "https://store.steampowered.com/app/544550/",
+  "windowsOnly": false,
+  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "executables": {
+    "windows": "rocketstation_DedicatedServer.exe",
+    "linux": "rocketstation_DedicatedServer.x86_64"
+  },
+  "arguments": [
+    "-batchmode",
+    "-nographics",
+    "-autostart",
+    "-worldtype",
+    "Moon",
+    "-basedirectory",
+    "{SERVER_DIR}",
+    "-gameport",
+    "{GAME_PORT}",
+    "-updateport",
+    "{QUERY_PORT}"
+  ],
+  "ports": [
+    {
+      "role": "game",
+      "default": 27500,
+      "protocol": "udp",
+      "containerPort": 27500,
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "query",
+      "default": 27015,
+      "protocol": "udp",
+      "containerPort": 27015,
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "defaults": {},
+  "installScripts": {},
+  "updateScripts": {},
+  "query": "none",
+  "validationStatus": "configuration-required",
+  "warnings": [
+    "Vor der Freigabe die mitgelieferte Spielkonfiguration, Zugangsdaten und Startparameter prüfen."
+  ],
+  "licenseUrl": "",
+  "attribution": {
+    "source": "Valve SteamCMD app_info_print",
+    "steamAppId": 600760,
+    "checkedAt": "2026-11-02",
+    "documentation": "https://developer.valvesoftware.com/wiki/SteamCMD"
+  }
+}
