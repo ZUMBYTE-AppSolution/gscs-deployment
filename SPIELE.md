@@ -27,7 +27,6 @@
 | [Black Mesa](templates/black-mesa.json) | windows, linux | 55 | Keine zusätzliche Anmeldung im Profil |
 | [Blackwake](templates/blackwake.json) | windows | 28 | Keine zusätzliche Anmeldung im Profil |
 | [Broke Protocol](templates/broke-protocol.json) | windows, linux | 11 | Steam-Konto |
-| [Bun App Runner](templates/bun-app-runner.json) | windows, linux | 18 | Keine zusätzliche Anmeldung im Profil |
 | [Call of Duty 4: Modern Warfare](templates/call-of-duty4mw.json) | windows | 35 | Steam-Konto |
 | [Call of Duty: Black Ops (Plutonium Mod)](templates/call-of-dutybo1.json) | windows | 57 | Steam-Konto |
 | [Call of Duty: Black Ops II (Plutonium Mod)](templates/call-of-dutybo2.json) | windows | 47 | Steam-Konto |
@@ -62,12 +61,10 @@
 | [Dead Matter](templates/deadmatter.json) | windows | 9 | Keine zusätzliche Anmeldung im Profil |
 | [DeadPoly](templates/deadpoly.json) | windows | 8 | Keine zusätzliche Anmeldung im Profil |
 | [Deathmatch Classic](templates/deathmatch-classic.json) | windows, linux | 3 | Keine zusätzliche Anmeldung im Profil |
-| [Deno App Runner](templates/deno-app-runner.json) | windows, linux | 15 | Keine zusätzliche Anmeldung im Profil |
 | [Desynced](templates/desynced.json) | windows | 25 | Keine zusätzliche Anmeldung im Profil |
 | [Don't Starve Together](templates/dont-starve-together.json) | windows, linux | 27 | Keine zusätzliche Anmeldung im Profil |
 | [DOOM II (Zandronum Mod)](templates/doom2.json) | windows, linux | 93 | Steam-Konto |
 | [Dota 2](templates/dota2.json) | windows, linux | 21 | Steam-Konto |
-| [Dotnet App Runner](templates/dotnet-app-runner.json) | windows, linux | 17 | Keine zusätzliche Anmeldung im Profil |
 | [Dune Awakening](templates/duneawakening.json) | linux | 72 | Keine zusätzliche Anmeldung im Profil |
 | [E.Y.E: Divine Cybermancy](templates/eye-dc.json) | windows | 50 | Steam-Konto |
 | [Eco](templates/eco.json) | windows, linux | 23 | Keine zusätzliche Anmeldung im Profil |
@@ -80,12 +77,9 @@
 | [Fistful of Frags](templates/fistful-of-frags.json) | windows, linux | 77 | Keine zusätzliche Anmeldung im Profil |
 | [FiveM - Grand Theft Auto V Server](templates/fivem.json) | windows, linux | 25 | Keine zusätzliche Anmeldung im Profil |
 | [FOUNDRY](templates/foundry.json) | windows | 10 | Keine zusätzliche Anmeldung im Profil |
-| [Foundry Virtual Tabletop](templates/foundry-vtt.json) | windows, linux | 7 | Keine zusätzliche Anmeldung im Profil |
 | [Frozen Flame](templates/frozen-flame.json) | windows, linux | 42 | Keine zusätzliche Anmeldung im Profil |
 | [Garry's Mod](templates/garrys-mod.json) | windows, linux | 73 | Keine zusätzliche Anmeldung im Profil |
 | [Garry's Mod (64 Bit)](templates/garrys-mod64.json) | windows, linux | 72 | Keine zusätzliche Anmeldung im Profil |
-| [GatekeeperV2 Bot (Deprecated)](templates/gatekeeperv2.json) | windows, linux | 11 | Keine zusätzliche Anmeldung im Profil |
-| [Geyser](templates/geyser.json) | windows, linux | 4 | Keine zusätzliche Anmeldung im Profil |
 | [Ground Branch](templates/ground-branch.json) | windows | 45 | Keine zusätzliche Anmeldung im Profil |
 | [Half-Life](templates/half-life.json) | windows, linux | 42 | Keine zusätzliche Anmeldung im Profil |
 | [Half-Life 2: Deathmatch](templates/half-life-2-deathmatch.json) | windows, linux | 86 | Keine zusätzliche Anmeldung im Profil |
@@ -99,7 +93,6 @@
 | [Impostor - Among Us Server](templates/impostor.json) | windows, linux | 15 | Keine zusätzliche Anmeldung im Profil |
 | [Insurgency](templates/insurgency.json) | windows, linux | 3 | Keine zusätzliche Anmeldung im Profil |
 | [Insurgency Sandstorm](templates/insurgencysandstorm.json) | windows, linux | 70 | Keine zusätzliche Anmeldung im Profil |
-| [Java App Runner](templates/java-app-runner.json) | windows, linux | 14 | Keine zusätzliche Anmeldung im Profil |
 | [Just Cause 2: Multiplayer](templates/just-cause-2-multiplayer.json) | windows, linux | 0 | Keine zusätzliche Anmeldung im Profil |
 | [Just Cause 3 Multiplayer Mod](templates/jc3mp.json) | windows, linux | 12 | Keine zusätzliche Anmeldung im Profil |
 | [Kaboom!](templates/kaboom.json) | linux | 19 | Steam-Konto |
@@ -110,18 +103,15 @@
 | [Left 4 Dead 2](templates/left-4-dead-2.json) | windows, linux | 81 | Steam-Konto |
 | [Longvinter](templates/longvinter.json) | windows, linux | 18 | Keine zusätzliche Anmeldung im Profil |
 | [Luanti](templates/luanti.json) | windows, linux | 34 | Keine zusätzliche Anmeldung im Profil |
-| [MariaDB](templates/mariadb.json) | windows, linux | 7 | Keine zusätzliche Anmeldung im Profil |
 | [Mindustry](templates/mindustry.json) | windows, linux | 33 | Keine zusätzliche Anmeldung im Profil |
 | [Minecraft Bedrock](templates/minecraft-bedrock.json) | windows, linux | 68 | Keine zusätzliche Anmeldung im Profil |
 | [Minecraft Java · Vanilla](templates/minecraft-vanilla.json) | windows, linux | 11 | Keine zusätzliche Anmeldung im Profil |
 | [Minetest (Legacy)](templates/minetest.json) | windows, linux | 33 | Keine zusätzliche Anmeldung im Profil |
 | [Miscreated](templates/miscreated.json) | windows | 39 | Keine zusätzliche Anmeldung im Profil |
-| [MongoDB](templates/mongodb.json) | windows, linux | 6 | Keine zusätzliche Anmeldung im Profil |
 | [Mordhau](templates/mordhau.json) | windows, linux | 10 | Keine zusätzliche Anmeldung im Profil |
 | [Mount & Blade II: Bannerlord](templates/mount-and-blade-bannerlord.json) | windows, linux | 7 | Keine zusätzliche Anmeldung im Profil |
 | [Multi Theft Auto: San Andreas](templates/mta-sa.json) | windows, linux | 64 | Keine zusätzliche Anmeldung im Profil |
 | [MX Bikes](templates/mxbikes.json) | windows | 86 | Steam-Konto |
-| [MySQL](templates/mysql.json) | windows, linux | 8 | Keine zusätzliche Anmeldung im Profil |
 | [Myth of Empires](templates/myth-of-empires.json) | windows | 52 | Keine zusätzliche Anmeldung im Profil |
 | [NEBULOUS: Fleet Command](templates/nebulous-fleet-command.json) | linux | 19 | Keine zusätzliche Anmeldung im Profil |
 | [Necesse](templates/necesse.json) | windows, linux | 19 | Keine zusätzliche Anmeldung im Profil |
@@ -130,7 +120,6 @@
 | [Nightingale](templates/nightingale.json) | windows, linux | 6 | Keine zusätzliche Anmeldung im Profil |
 | [No More Room in Hell](templates/no-more-room-in-hell.json) | windows, linux | 55 | Keine zusätzliche Anmeldung im Profil |
 | [No One Survived](templates/no-one-survived.json) | windows | 27 | Keine zusätzliche Anmeldung im Profil |
-| [Node.js App Runner](templates/node.json) | windows, linux | 20 | Keine zusätzliche Anmeldung im Profil |
 | [Nuclear Option](templates/nuclear-option.json) | windows, linux | 13 | Keine zusätzliche Anmeldung im Profil |
 | [Nukkit](templates/nukkit.json) | windows, linux | 36 | Keine zusätzliche Anmeldung im Profil |
 | [Open World - RimWorld Server](templates/open-world.json) | windows, linux | 67 | Keine zusätzliche Anmeldung im Profil |
@@ -151,13 +140,11 @@
 | [Plains of Pain](templates/plains-of-pain.json) | windows, linux | 9 | Keine zusätzliche Anmeldung im Profil |
 | [PocketMine-MP](templates/pocketmine-mp.json) | windows, linux | 21 | Keine zusätzliche Anmeldung im Profil |
 | [Portal Knights](templates/portal-knights.json) | windows | 32 | Steam-Konto |
-| [PostgreSQL](templates/postgresql.json) | windows, linux | 6 | Keine zusätzliche Anmeldung im Profil |
 | [Pre-Fortress 2](templates/pre-fortress2.json) | windows, linux | 47 | Keine zusätzliche Anmeldung im Profil |
 | [Project 5: Sightseer](templates/project5-sightseer.json) | windows, linux | 7 | Steam-Konto |
 | [Project Zomboid](templates/project-zomboid.json) | windows, linux | 149 | Keine zusätzliche Anmeldung im Profil |
 | [Puck](templates/puck.json) | windows, linux | 12 | Keine zusätzliche Anmeldung im Profil |
 | [Pumpkin](templates/pumpkin.json) | windows, linux | 110 | Keine zusätzliche Anmeldung im Profil |
-| [Python App Runner](templates/python-app-runner.json) | windows, linux | 19 | Keine zusätzliche Anmeldung im Profil |
 | [Quake III Arena](templates/quake3-arena.json) | windows, linux | 46 | Steam-Konto |
 | [Quake Live](templates/quake-live.json) | linux | 41 | Keine zusätzliche Anmeldung im Profil |
 | [RAGE:MP - Grand Theft Auto V Server](templates/ragemp.json) | windows, linux | 37 | Keine zusätzliche Anmeldung im Profil |
@@ -178,7 +165,6 @@
 | [SCP: Secret Laboratory](templates/scp-secret-laboratory.json) | windows, linux | 98 | Keine zusätzliche Anmeldung im Profil |
 | [SCUM](templates/scum.json) | windows | 9 | Keine zusätzliche Anmeldung im Profil |
 | [Seven Days To Die](templates/7-days-to-die.json) | windows, linux | 124 | Keine zusätzliche Anmeldung im Profil |
-| [SinusBot](templates/sinusbot.json) | linux | 6 | Keine zusätzliche Anmeldung im Profil |
 | [Skyrim Together Reborn](templates/skyrim-together-reborn.json) | windows | 22 | Keine zusätzliche Anmeldung im Profil |
 | [Smalland: Survive the Wilds](templates/smalland.json) | windows, linux | 25 | Keine zusätzliche Anmeldung im Profil |
 | [Soldat](templates/soldat.json) | windows, linux | 10 | Keine zusätzliche Anmeldung im Profil |
@@ -212,9 +198,6 @@
 | [Team Fortress 2 (64 Bit)](templates/team-fortress2-64.json) | windows, linux | 61 | Keine zusätzliche Anmeldung im Profil |
 | [Team Fortress 2 Classified](templates/team-fortress2-classified.json) | windows, linux | 59 | Keine zusätzliche Anmeldung im Profil |
 | [Team Fortress Classic](templates/team-fortress-classic.json) | windows, linux | 42 | Keine zusätzliche Anmeldung im Profil |
-| [TeamSpeak 3](templates/teamspeak3.json) | windows, linux | 32 | Keine zusätzliche Anmeldung im Profil |
-| [TeamSpeak 6](templates/teamspeak6.json) | windows, linux | 53 | Keine zusätzliche Anmeldung im Profil |
-| [TeaSpeak](templates/teaspeak.json) | linux | 2 | Keine zusätzliche Anmeldung im Profil |
 | [Teeworlds](templates/teeworlds.json) | windows, linux | 56 | Keine zusätzliche Anmeldung im Profil |
 | [Terraria](templates/terraria.json) | windows, linux | 38 | Steam-Konto |
 | [TerraTech Worlds](templates/terratech-worlds.json) | windows | 27 | Keine zusätzliche Anmeldung im Profil |
@@ -230,7 +213,6 @@
 | [Tower Unite](templates/tower-unite.json) | windows, linux | 8 | Keine zusätzliche Anmeldung im Profil |
 | [TShock - Terraria Server](templates/tshock.json) | windows, linux | 150 | Keine zusätzliche Anmeldung im Profil |
 | [Turbo Sliders Unlimited](templates/turbo-sliders-unlimited.json) | windows, linux | 12 | Keine zusätzliche Anmeldung im Profil |
-| [txAdmin](templates/txadmin.json) | windows, linux | 2 | Keine zusätzliche Anmeldung im Profil |
 | [Unreal Tournament 2004](templates/ut2004.json) | windows, linux | 65 | Keine zusätzliche Anmeldung im Profil |
 | [Unreal Tournament 99](templates/ut99.json) | windows, linux | 49 | Keine zusätzliche Anmeldung im Profil |
 | [Unturned](templates/unturned.json) | windows, linux | 25 | Keine zusätzliche Anmeldung im Profil |

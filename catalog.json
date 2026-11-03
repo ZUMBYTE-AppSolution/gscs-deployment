@@ -250,16 +250,6 @@
       ]
     },
     {
-      "id": "bun-app-runner",
-      "name": "Bun App Runner",
-      "path": "templates/bun-app-runner.json",
-      "sha256": "a2435835da1a755b44f6ef62f6a89eb7d813fc4607c821783c6172a7a432489c",
-      "platforms": [
-        "windows",
-        "linux"
-      ]
-    },
-    {
       "id": "call-of-duty4mw",
       "name": "Call of Duty 4: Modern Warfare",
       "path": "templates/call-of-duty4mw.json",
@@ -584,16 +574,6 @@
       ]
     },
     {
-      "id": "deno-app-runner",
-      "name": "Deno App Runner",
-      "path": "templates/deno-app-runner.json",
-      "sha256": "bc7207b985df2535248e63fde4abedd6033a937d0b7db7b22aca8a6c897f5796",
-      "platforms": [
-        "windows",
-        "linux"
-      ]
-    },
-    {
       "id": "desynced",
       "name": "Desynced",
       "path": "templates/desynced.json",
@@ -627,16 +607,6 @@
       "name": "Dota 2",
       "path": "templates/dota2.json",
       "sha256": "5a4cf71d6cc16c68db0a74525f9daace7857e343376d1dd56546ba5d8321a19c",
-      "platforms": [
-        "windows",
-        "linux"
-      ]
-    },
-    {
-      "id": "dotnet-app-runner",
-      "name": "Dotnet App Runner",
-      "path": "templates/dotnet-app-runner.json",
-      "sha256": "82c7b4d3aada27a510db5b2ca8303db6526140b6e5352f1c9e8f99e7746f6a73",
       "platforms": [
         "windows",
         "linux"
@@ -748,16 +718,6 @@
       ]
     },
     {
-      "id": "foundry-vtt",
-      "name": "Foundry Virtual Tabletop",
-      "path": "templates/foundry-vtt.json",
-      "sha256": "a6e19134423c9c481dfb47129e8a9b3dee3460179e477b3026f8cbf635049f4f",
-      "platforms": [
-        "windows",
-        "linux"
-      ]
-    },
-    {
       "id": "foundry",
       "name": "FOUNDRY",
       "path": "templates/foundry.json",
@@ -791,26 +751,6 @@
       "name": "Garry's Mod (64 Bit)",
       "path": "templates/garrys-mod64.json",
       "sha256": "f1f31cf24126bf7649cc920a6457cba69768f708b09b9d6590ef2e3575c20c79",
-      "platforms": [
-        "windows",
-        "linux"
-      ]
-    },
-    {
-      "id": "gatekeeperv2",
-      "name": "GatekeeperV2 Bot (Deprecated)",
-      "path": "templates/gatekeeperv2.json",
-      "sha256": "85c960bb49e61a0590bdfd8a74d5e7187e44f2ba68baac3286d99371d1b50d56",
-      "platforms": [
-        "windows",
-        "linux"
-      ]
-    },
-    {
-      "id": "geyser",
-      "name": "Geyser",
-      "path": "templates/geyser.json",
-      "sha256": "2c1e022f9259949d869362b63eb9b5677290de32068c756ac2c640c0769d353d",
       "platforms": [
         "windows",
         "linux"
@@ -944,16 +884,6 @@
       ]
     },
     {
-      "id": "java-app-runner",
-      "name": "Java App Runner",
-      "path": "templates/java-app-runner.json",
-      "sha256": "cde2521dbad1ec645093e6bc96eaa81dabb3e4613a1aa6c3adce289da251a237",
-      "platforms": [
-        "windows",
-        "linux"
-      ]
-    },
-    {
       "id": "jc3mp",
       "name": "Just Cause 3 Multiplayer Mod",
       "path": "templates/jc3mp.json",
@@ -1072,16 +1002,6 @@
       ]
     },
     {
-      "id": "mariadb",
-      "name": "MariaDB",
-      "path": "templates/mariadb.json",
-      "sha256": "0a03c93eeb1cea2e51935e092d28be08762479b591b2d474817b84a3e4b0143f",
-      "platforms": [
-        "windows",
-        "linux"
-      ]
-    },
-    {
       "id": "mindustry",
       "name": "Mindustry",
       "path": "templates/mindustry.json",
@@ -1131,16 +1051,6 @@
       ]
     },
     {
-      "id": "mongodb",
-      "name": "MongoDB",
-      "path": "templates/mongodb.json",
-      "sha256": "61098caf4130fe15176de6cf3cfcfd411456ac0990273417ecbfa36211595164",
-      "platforms": [
-        "windows",
-        "linux"
-      ]
-    },
-    {
       "id": "mordhau",
       "name": "Mordhau",
       "path": "templates/mordhau.json",
@@ -1177,16 +1087,6 @@
       "sha256": "83c57da1cf7090430f8226f439d63955df6697d605b003962f69886f89d3f09b",
       "platforms": [
         "windows"
-      ]
-    },
-    {
-      "id": "mysql",
-      "name": "MySQL",
-      "path": "templates/mysql.json",
-      "sha256": "ae1261fc4e253c7c567e883bc9764bed0a497a28653b854e09749b630f929fdb",
-      "platforms": [
-        "windows",
-        "linux"
       ]
     },
     {
@@ -1262,16 +1162,6 @@
       "sha256": "0d9f2734ddf405e832fdeb8348298b6a6fdb96d81143192a1ccab20325255e52",
       "platforms": [
         "windows"
-      ]
-    },
-    {
-      "id": "node",
-      "name": "Node.js App Runner",
-      "path": "templates/node.json",
-      "sha256": "b46c3c4f8aef1fd64c1e456403025d6176074f15880e0db3f5cf905a925c9212",
-      "platforms": [
-        "windows",
-        "linux"
       ]
     },
     {
@@ -1481,16 +1371,6 @@
       ]
     },
     {
-      "id": "postgresql",
-      "name": "PostgreSQL",
-      "path": "templates/postgresql.json",
-      "sha256": "9fd411cbf77389c8443fbc88949a6f30127efaf62eb79092c78b2c9fe8ef1a75",
-      "platforms": [
-        "windows",
-        "linux"
-      ]
-    },
-    {
       "id": "pre-fortress2",
       "name": "Pre-Fortress 2",
       "path": "templates/pre-fortress2.json",
@@ -1535,16 +1415,6 @@
       "name": "Pumpkin",
       "path": "templates/pumpkin.json",
       "sha256": "5bc812f279c006098d1c51dc02121bda74203df0441dc6147bf1f64c89ae93a8",
-      "platforms": [
-        "windows",
-        "linux"
-      ]
-    },
-    {
-      "id": "python-app-runner",
-      "name": "Python App Runner",
-      "path": "templates/python-app-runner.json",
-      "sha256": "ca46dda0ab68648b3de63ae461165596c129c4f0e7aa1cb6aac817b44e0c3e29",
       "platforms": [
         "windows",
         "linux"
@@ -1733,15 +1603,6 @@
       "sha256": "9c710e561078185c632d07a740c4a4b78956ac627ec9eadd9f2d7fbcbefd71e8",
       "platforms": [
         "windows"
-      ]
-    },
-    {
-      "id": "sinusbot",
-      "name": "SinusBot",
-      "path": "templates/sinusbot.json",
-      "sha256": "7c70d279f47ef0d8218ae8552ed0afc5d7a3a1e22ad4def86302969257ff11c6",
-      "platforms": [
-        "linux"
       ]
     },
     {
@@ -2045,35 +1906,6 @@
       ]
     },
     {
-      "id": "teamspeak3",
-      "name": "TeamSpeak 3",
-      "path": "templates/teamspeak3.json",
-      "sha256": "99386c29d13d938235005764db75bd161869c0680ab8b113fda53f634ce5c312",
-      "platforms": [
-        "windows",
-        "linux"
-      ]
-    },
-    {
-      "id": "teamspeak6",
-      "name": "TeamSpeak 6",
-      "path": "templates/teamspeak6.json",
-      "sha256": "0ff39d5fed735973f19d78d5a80f2f4ccaee98fab20f60f85297e0885ae771b8",
-      "platforms": [
-        "windows",
-        "linux"
-      ]
-    },
-    {
-      "id": "teaspeak",
-      "name": "TeaSpeak",
-      "path": "templates/teaspeak.json",
-      "sha256": "df32429ad4694e09b552d7ee67959ca2f491d6260dd664b681af5707e1b21169",
-      "platforms": [
-        "linux"
-      ]
-    },
-    {
       "id": "teeworlds",
       "name": "Teeworlds",
       "path": "templates/teeworlds.json",
@@ -2205,16 +2037,6 @@
       "name": "Turbo Sliders Unlimited",
       "path": "templates/turbo-sliders-unlimited.json",
       "sha256": "db1ec5eb94e2351638a2fc62a9511fa55c5de3e4cd8ab4a036bc3ae61f8a4ae2",
-      "platforms": [
-        "windows",
-        "linux"
-      ]
-    },
-    {
-      "id": "txadmin",
-      "name": "txAdmin",
-      "path": "templates/txadmin.json",
-      "sha256": "f3344107667f326a5e62fb5a395dab9499608a37958379163e3729f0fab8c004",
       "platforms": [
         "windows",
         "linux"
