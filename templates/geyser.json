@@ -1,0 +1,198 @@
+{
+  "id": "geyser",
+  "name": "Geyser",
+  "version": "1.1.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/geyser.json",
+  "sourceRef": "main",
+  "steamAppId": null,
+  "steamGameAppId": null,
+  "website": "https://geysermc.org/",
+  "image": "ghcr.io/zumbyte-appsolution/gscs:0.1.0-alpha.2",
+  "defaults": {
+    "MINMEMORY": "1024",
+    "MAXMEMORY": "1024",
+    "JAVA_MAJOR": "21"
+  },
+  "ports": [
+    {
+      "role": "game",
+      "default": 19132,
+      "containerPort": 19132,
+      "protocol": "udp",
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "configurationTabs": [
+    {
+      "id": "java",
+      "label": "Java",
+      "icon": "settings",
+      "order": 0
+    },
+    {
+      "id": "runtime",
+      "label": "Laufzeit",
+      "order": 1
+    }
+  ],
+  "configurationFields": [
+    {
+      "id": "MINMEMORY",
+      "label": "Minimum Memory",
+      "description": "Java's minimum heap size",
+      "tab": "java",
+      "section": "Java",
+      "type": "number",
+      "default": "1024",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "MinMemory",
+      "parameterFormat": "--{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "MAXMEMORY",
+      "label": "Maximum Memory",
+      "description": "Java's maximum heap size",
+      "tab": "java",
+      "section": "Java",
+      "type": "number",
+      "default": "1024",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "MaxMemory",
+      "parameterFormat": "--{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "CUSTOMJAVAARGS",
+      "label": "Additional Java Startup Parameters",
+      "description": "Additional Java arguments (not server arguments) as startup parameters that are not otherwise set by GSCS. Use with care",
+      "tab": "java",
+      "section": "Java",
+      "type": "text",
+      "default": "",
+      "placeholder": "-XX:+UseG1GC",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "CustomJavaArgs",
+      "parameterFormat": "--{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "JAVA_MAJOR",
+      "label": "Java-Version",
+      "default": "21",
+      "tab": "runtime",
+      "type": "enum",
+      "options": {
+        "17": "Java 17",
+        "21": "Java 21",
+        "25": "Java 25"
+      },
+      "startupPermission": true
+    }
+  ],
+  "configurationFiles": [],
+  "deploymentSteps": [
+    {
+      "name": "Server Download",
+      "type": "download",
+      "phase": "install",
+      "platform": "all",
+      "source": "https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/standalone",
+      "target": "",
+      "arguments": "Geyser.jar",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": false
+    }
+  ],
+  "authenticationRequirements": [],
+  "environment": {},
+  "linuxPackages": [],
+  "warnings": [],
+  "validationStatus": "ready",
+  "preferredRuntime": "native",
+  "noCommercialUsage": false,
+  "workingDirectory": "",
+  "executables": {
+    "windows": "java",
+    "linux": "java"
+  },
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "windowsOnly": false,
+  "platformWorkingDirectories": {
+    "windows": "",
+    "linux": ""
+  },
+  "platformArguments": {
+    "windows": [
+      "-Xms{MINMEMORY}M",
+      "-Xmx{MAXMEMORY}M",
+      "{CUSTOMJAVAARGS}",
+      "-jar",
+      "Geyser.jar",
+      "--bedrock.port={GAME_PORT}",
+      "{FORMATTED_ARGS}",
+      "nogui"
+    ],
+    "linux": [
+      "-Xms{MINMEMORY}M",
+      "-Xmx{MAXMEMORY}M",
+      "{CUSTOMJAVAARGS}",
+      "-jar",
+      "Geyser.jar",
+      "--bedrock.port={GAME_PORT}",
+      "{FORMATTED_ARGS}",
+      "nogui"
+    ]
+  },
+  "arguments": [
+    "-Xms{MINMEMORY}M",
+    "-Xmx{MAXMEMORY}M",
+    "{CUSTOMJAVAARGS}",
+    "-jar",
+    "Geyser.jar",
+    "--bedrock.port={GAME_PORT}",
+    "{FORMATTED_ARGS}",
+    "nogui"
+  ],
+  "stopCommand": "geyser stop",
+  "query": "none"
+}

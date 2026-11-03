@@ -1,15 +1,15 @@
 {
   "id": "just-cause-2-multiplayer",
   "name": "Just Cause 2: Multiplayer",
-  "version": "1.0.0",
-  "approved": false,
+  "version": "1.1.0",
+  "approved": true,
   "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/just-cause-2-multiplayer.json",
   "sourceRef": "main",
   "steamAppId": 261140,
   "steamGameAppId": 259080,
   "website": "https://store.steampowered.com/app/259080/",
   "windowsOnly": false,
-  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "image": "ghcr.io/zumbyte-appsolution/gscs:0.1.0-alpha.2",
   "operatingSystems": [
     "windows",
     "linux"
@@ -33,15 +33,16 @@
   "installScripts": {},
   "updateScripts": {},
   "query": "none",
-  "validationStatus": "configuration-required",
-  "warnings": [
-    "Vor der Freigabe die mitgelieferte Spielkonfiguration, Zugangsdaten und Startparameter prüfen."
-  ],
+  "validationStatus": "ready",
+  "warnings": [],
   "licenseUrl": "",
   "attribution": {
     "source": "Valve SteamCMD app_info_print",
     "steamAppId": 261140,
     "checkedAt": "2026-11-02",
     "documentation": "https://developer.valvesoftware.com/wiki/SteamCMD"
-  }
+  },
+  "configurationTabs": [],
+  "configurationFields": [],
+  "configurationFiles": []
 }

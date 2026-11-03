@@ -1,0 +1,425 @@
+{
+  "id": "broke-protocol",
+  "name": "Broke Protocol",
+  "version": "1.1.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/broke-protocol.json",
+  "sourceRef": "main",
+  "steamAppId": 696370,
+  "steamGameAppId": 696370,
+  "website": "https://brokeprotocol.com/",
+  "image": "ghcr.io/zumbyte-appsolution/gscs:0.1.0-alpha.2",
+  "defaults": {
+    "MAP": "Default",
+    "WHITELIST": "false",
+    "IGNOREPLUGINS": "!WarSource#:Other:Plugins:Here"
+  },
+  "ports": [
+    {
+      "role": "game",
+      "default": 5557,
+      "containerPort": 5557,
+      "protocol": "udp",
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "query",
+      "default": 5558,
+      "containerPort": 5558,
+      "protocol": "udp",
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "configurationTabs": [
+    {
+      "id": "server",
+      "label": "Server",
+      "icon": "settings",
+      "order": 0
+    },
+    {
+      "id": "authentication",
+      "label": "Zugangsdaten",
+      "icon": "key",
+      "order": -1
+    }
+  ],
+  "configurationFields": [
+    {
+      "id": "GAME_PORT",
+      "label": "Game Port",
+      "description": "",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.port",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVER_NAME",
+      "label": "Servername",
+      "description": "Sets the server name visible in the server list (up to 48 characters). Color codes supported",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "{SERVER_NAME}",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.serverName",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "MAP",
+      "label": "Server Map",
+      "description": "Sets the map the server will load. Can be subscribed to on Steam or included in the \"Maps\" directory",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "Default",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.map",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "URL",
+      "label": "Server URL",
+      "description": "Sets the URL displayed in the server list (up to 48 characters)",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.URL",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SLOTS",
+      "label": "Spielerlimit",
+      "description": "Maximum number of players that may connect to the server at one time (up to 255)",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "32",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.players",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 1.0
+    },
+    {
+      "id": "WHITELIST",
+      "label": "Enable Whitelist",
+      "description": "If enabled, only whitelisted players can join",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.whitelist",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "WHITELISTEDPLAYERS",
+      "label": "Whitelisted Players",
+      "description": "List of account names for whitelisted players",
+      "tab": "server",
+      "section": "Server",
+      "type": "textarea",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "whitelistedPlayers",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "IGNOREPLUGINS",
+      "label": "Ignored Plugins",
+      "description": "Sets a list of plugins to ignore. WarSource is ignored by default",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "!WarSource#:Other:Plugins:Here",
+      "placeholder": "!WarSource#:Other:Plugins:Here",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "ignorePlugins",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "STEAM_USER",
+      "label": "Steam-Benutzername",
+      "type": "text",
+      "tab": "authentication",
+      "section": "Steam",
+      "default": "",
+      "required": true,
+      "secret": false,
+      "platform": "all"
+    },
+    {
+      "id": "STEAM_PASSWORD",
+      "label": "Steam-Passwort",
+      "type": "password",
+      "tab": "authentication",
+      "section": "Steam",
+      "default": "",
+      "required": true,
+      "secret": true,
+      "platform": "all"
+    },
+    {
+      "id": "STEAM_GUARD_CODE",
+      "label": "Steam-Guard-Code",
+      "type": "password",
+      "tab": "authentication",
+      "section": "Steam",
+      "default": "",
+      "required": false,
+      "secret": true,
+      "platform": "all"
+    }
+  ],
+  "configurationFiles": [
+    {
+      "path": "settings.json",
+      "format": "json",
+      "lineFormat": "",
+      "bindings": [
+        {
+          "key": "port",
+          "variable": "{GAME_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "serverName",
+          "variable": "{SERVER_NAME}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "map",
+          "variable": "{MAP}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "URL",
+          "variable": "{URL}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "players",
+          "variable": "{SLOTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "whitelist",
+          "variable": "{WHITELIST}",
+          "section": "",
+          "type": "checkbox"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": false,
+      "platform": "all"
+    }
+  ],
+  "deploymentSteps": [
+    {
+      "name": "SteamCMD Server Download",
+      "type": "steam",
+      "phase": "install",
+      "platform": "windows",
+      "source": "696370",
+      "target": "",
+      "arguments": "public",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "SteamCMD Component Download",
+      "type": "steam",
+      "phase": "install",
+      "platform": "linux",
+      "source": "1007",
+      "target": "",
+      "arguments": "public",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Server Download",
+      "type": "download-extract",
+      "phase": "install",
+      "platform": "linux",
+      "source": "https://drive.usercontent.google.com/download?id=1iS2gE_stqMcd8eqqtwXjOmWXUc-IkFLy&export=download&authuser=0&confirm=t",
+      "target": "",
+      "arguments": "game.tar.gz",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": false
+    }
+  ],
+  "authenticationRequirements": [
+    {
+      "id": "steam-account",
+      "label": "Steam-Konto",
+      "description": "Ein Steam-Konto mit Berechtigung für dieses Spiel hinterlegen. Steam Guard kann einmalig erforderlich sein.",
+      "url": "https://store.steampowered.com/login/",
+      "required": true,
+      "platform": "all"
+    }
+  ],
+  "environment": {
+    "LD_LIBRARY_PATH": "{SERVER_DIR}/linux64:%LD_LIBRARY_PATH%",
+    "SteamAppId": "696370"
+  },
+  "linuxPackages": [],
+  "warnings": [],
+  "validationStatus": "ready",
+  "preferredRuntime": "native",
+  "noCommercialUsage": false,
+  "workingDirectory": "",
+  "executables": {
+    "windows": "BrokeProtocol.exe",
+    "linux": "bpgameserver.x86_64"
+  },
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "windowsOnly": false,
+  "platformWorkingDirectories": {
+    "windows": "",
+    "linux": ""
+  },
+  "platformArguments": {
+    "windows": [
+      "-batchmode",
+      "-logfile",
+      "-",
+      "-ignorePlugins",
+      "{IGNOREPLUGINS}"
+    ],
+    "linux": [
+      "-batchmode",
+      "-logfile",
+      "-",
+      "-ignorePlugins",
+      "{IGNOREPLUGINS}"
+    ]
+  },
+  "arguments": [
+    "-batchmode",
+    "-logfile",
+    "-",
+    "-ignorePlugins",
+    "{IGNOREPLUGINS}"
+  ],
+  "stopCommand": "stop",
+  "query": "source"
+}

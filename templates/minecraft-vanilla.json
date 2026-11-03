@@ -1,7 +1,7 @@
 {
   "id": "minecraft-vanilla",
   "name": "Minecraft Java · Vanilla",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "approved": true,
   "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/minecraft-vanilla.json",
   "sourceRef": "main",
@@ -9,7 +9,7 @@
   "steamGameAppId": null,
   "website": "https://www.minecraft.net/en-us",
   "windowsOnly": false,
-  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "image": "ghcr.io/zumbyte-appsolution/gscs:0.1.0-alpha.2",
   "operatingSystems": [
     "windows",
     "linux"
@@ -36,15 +36,194 @@
     }
   ],
   "defaults": {
-    "GAME_VERSION": "latest"
+    "GAME_VERSION": "latest",
+    "JAVA_MAJOR": "21"
   },
   "installScripts": {},
   "updateScripts": {},
   "query": "minecraft",
-  "validationStatus": "metadata-validated",
+  "validationStatus": "ready",
   "warnings": [],
   "licenseUrl": "https://www.minecraft.net/eula",
   "stopCommand": "stop",
   "saveCommand": "save-all flush",
-  "announcementCommand": "say {MESSAGE}"
+  "announcementCommand": "say {MESSAGE}",
+  "configurationTabs": [
+    {
+      "id": "runtime",
+      "label": "Laufzeit",
+      "order": 0
+    },
+    {
+      "id": "world",
+      "label": "Welt",
+      "order": 1
+    },
+    {
+      "id": "security",
+      "label": "Sicherheit",
+      "order": 2
+    }
+  ],
+  "configurationFields": [
+    {
+      "id": "JAVA_MAJOR",
+      "label": "Java-Version",
+      "default": "21",
+      "tab": "runtime",
+      "type": "enum",
+      "options": {
+        "17": "Java 17",
+        "21": "Java 21",
+        "25": "Java 25"
+      },
+      "startupPermission": true
+    },
+    {
+      "id": "GAME_VERSION",
+      "label": "Spielversion",
+      "default": "latest",
+      "tab": "runtime",
+      "type": "text",
+      "secret": false,
+      "startupPermission": false
+    },
+    {
+      "id": "WORLD_NAME",
+      "label": "Weltname",
+      "default": "world",
+      "tab": "world",
+      "type": "text"
+    },
+    {
+      "id": "WORLD_SEED",
+      "label": "Welt-Seed",
+      "default": "",
+      "tab": "world",
+      "type": "text"
+    },
+    {
+      "id": "DIFFICULTY",
+      "label": "Schwierigkeit",
+      "default": "normal",
+      "tab": "world",
+      "type": "text"
+    },
+    {
+      "id": "GAMEMODE",
+      "label": "Spielmodus",
+      "default": "survival",
+      "tab": "world",
+      "type": "text"
+    },
+    {
+      "id": "VIEW_DISTANCE",
+      "label": "Sichtweite",
+      "default": "10",
+      "tab": "world",
+      "type": "number"
+    },
+    {
+      "id": "SIMULATION_DISTANCE",
+      "label": "Simulationsweite",
+      "default": "10",
+      "tab": "world",
+      "type": "number"
+    },
+    {
+      "id": "PVP",
+      "label": "PvP",
+      "default": "true",
+      "tab": "world",
+      "type": "checkbox",
+      "trueValue": "true",
+      "falseValue": "false"
+    },
+    {
+      "id": "ONLINE_MODE",
+      "label": "Online-Authentifizierung",
+      "default": "true",
+      "tab": "security",
+      "type": "checkbox",
+      "trueValue": "true",
+      "falseValue": "false"
+    },
+    {
+      "id": "WHITE_LIST",
+      "label": "Whitelist",
+      "default": "false",
+      "tab": "security",
+      "type": "checkbox",
+      "trueValue": "true",
+      "falseValue": "false"
+    }
+  ],
+  "configurationFiles": [
+    {
+      "path": "server.properties",
+      "format": "ini",
+      "bindings": [
+        {
+          "key": "server-port",
+          "variable": "{GAME_PORT}",
+          "type": "number"
+        },
+        {
+          "key": "max-players",
+          "variable": "{SLOTS}",
+          "type": "number"
+        },
+        {
+          "key": "motd",
+          "variable": "{SERVER_NAME}",
+          "type": "text"
+        },
+        {
+          "key": "level-name",
+          "variable": "{WORLD_NAME}",
+          "type": "text"
+        },
+        {
+          "key": "level-seed",
+          "variable": "{WORLD_SEED}",
+          "type": "text"
+        },
+        {
+          "key": "difficulty",
+          "variable": "{DIFFICULTY}",
+          "type": "text"
+        },
+        {
+          "key": "gamemode",
+          "variable": "{GAMEMODE}",
+          "type": "text"
+        },
+        {
+          "key": "view-distance",
+          "variable": "{VIEW_DISTANCE}",
+          "type": "number"
+        },
+        {
+          "key": "simulation-distance",
+          "variable": "{SIMULATION_DISTANCE}",
+          "type": "number"
+        },
+        {
+          "key": "pvp",
+          "variable": "{PVP}",
+          "type": "checkbox"
+        },
+        {
+          "key": "online-mode",
+          "variable": "{ONLINE_MODE}",
+          "type": "checkbox"
+        },
+        {
+          "key": "white-list",
+          "variable": "{WHITE_LIST}",
+          "type": "checkbox"
+        }
+      ]
+    }
+  ]
 }

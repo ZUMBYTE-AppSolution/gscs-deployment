@@ -1,0 +1,453 @@
+{
+  "id": "foundry",
+  "name": "FOUNDRY",
+  "version": "1.1.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/foundry.json",
+  "sourceRef": "main",
+  "steamAppId": 2915550,
+  "steamGameAppId": 983870,
+  "website": "https://www.paradoxinteractive.com/games/foundry/about",
+  "image": "ghcr.io/zumbyte-appsolution/gscs:0.1.0-alpha.2",
+  "defaults": {
+    "MAPSEED": "{RANDOMDIGITS_11_}",
+    "SERVER_WORLD_NAME": "MyFancyFactory",
+    "SERVER_IS_PUBLIC": "true",
+    "PAUSE_SERVER_WHEN_EMPTY": "true",
+    "MAX_TRANSFER_RATE": "1024",
+    "AUTOSAVE_INTERVAL": "300",
+    "SERVERBRANCH": "public"
+  },
+  "ports": [
+    {
+      "role": "game",
+      "default": 3724,
+      "containerPort": 3724,
+      "protocol": "both",
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "query",
+      "default": 27015,
+      "containerPort": 27015,
+      "protocol": "udp",
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "configurationTabs": [
+    {
+      "id": "server",
+      "label": "Server",
+      "icon": "settings",
+      "order": 0
+    },
+    {
+      "id": "steam-downloads",
+      "label": "Steam Downloads",
+      "icon": "settings",
+      "order": 1
+    }
+  ],
+  "configurationFields": [
+    {
+      "id": "SERVER_NAME",
+      "label": "Servername",
+      "description": "Sets the name of the server as shown in the Steam server browser",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "{SERVER_NAME}",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "server_name",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "MAPSEED",
+      "label": "Welt-Seed",
+      "description": "Sets the map seed for generating a new world",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "{RANDOMDIGITS_11_}",
+      "placeholder": "42938743982",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "mapseed",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVER_WORLD_NAME",
+      "label": "World Save Name",
+      "description": "Sets the name of the world save to load, or to create if it does not exist",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "MyFancyFactory",
+      "placeholder": "MyFancyFactory",
+      "required": true,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "server_world_name",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVER_IS_PUBLIC",
+      "label": "Make Server Public",
+      "description": "If set, the server will appear in the Steam server browser",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "server_is_public",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVER_PASSWORD",
+      "label": "Serverpasswort",
+      "description": "Sets the password for players to join the server. Default is no password",
+      "tab": "server",
+      "section": "Server",
+      "type": "password",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": true,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "server_password",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SLOTS",
+      "label": "Spielerlimit",
+      "description": "Sets the maximum number of players that may connect to the server at one time",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "32",
+      "placeholder": "32",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "server_max_players",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 1.0
+    },
+    {
+      "id": "PAUSE_SERVER_WHEN_EMPTY",
+      "label": "Pause Server When Empty",
+      "description": "If set, the server will pause when no players are logged in",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "pause_server_when_empty",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "MAX_TRANSFER_RATE",
+      "label": "Maximum Data Transfer Rate",
+      "description": "Sets the maximum rate for transfer of server data to clients. Higher values may be needed to avoid timeouts with larger world saves",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "1024",
+      "placeholder": "1024",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "max_transfer_rate",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0,
+      "max": 32000.0
+    },
+    {
+      "id": "AUTOSAVE_INTERVAL",
+      "label": "Autosave Interval",
+      "description": "Sets the interval between server autosaves",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "300",
+      "placeholder": "300",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "autosave_interval",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 1.0
+    },
+    {
+      "id": "SERVERBRANCH",
+      "label": "Serverversion",
+      "description": "Sets the server branch to install. Set any required password under \"Beta Password\". Update the server after switching branches",
+      "tab": "steam-downloads",
+      "section": "Steam Downloads",
+      "type": "enum",
+      "default": "public",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {
+        "public": "Public (default)",
+        "hotfixtesting": "Hotfix testing builds"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "ServerBranch",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    }
+  ],
+  "configurationFiles": [
+    {
+      "path": "app.cfg",
+      "format": "ini",
+      "lineFormat": "{0}={1}",
+      "bindings": [
+        {
+          "key": "server_name",
+          "variable": "{SERVER_NAME}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "server_password",
+          "variable": "{SERVER_PASSWORD}",
+          "section": "",
+          "type": "password"
+        },
+        {
+          "key": "server_world_name",
+          "variable": "{SERVER_WORLD_NAME}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "pause_server_when_empty",
+          "variable": "{PAUSE_SERVER_WHEN_EMPTY}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "autosave_interval",
+          "variable": "{AUTOSAVE_INTERVAL}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "server_max_players",
+          "variable": "{SLOTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "server_is_public",
+          "variable": "{SERVER_IS_PUBLIC}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "server_port",
+          "variable": "{GAME_PORT}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "server_query_port",
+          "variable": "{QUERY_PORT}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "mapseed",
+          "variable": "{MAPSEED}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "max_transfer_rate",
+          "variable": "{MAX_TRANSFER_RATE}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "server_persistent_data_override_folder",
+          "variable": ".",
+          "section": "",
+          "type": "text"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": false,
+      "platform": "all"
+    }
+  ],
+  "deploymentSteps": [
+    {
+      "name": "FOUNDRY Download",
+      "type": "steam",
+      "phase": "install",
+      "platform": "all",
+      "source": "2915550",
+      "target": "",
+      "arguments": "{SERVERBRANCH}",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Create Mods Directory",
+      "type": "directory",
+      "phase": "install",
+      "platform": "all",
+      "source": "",
+      "target": "Mods",
+      "arguments": "{SERVER_DIR}/Mods",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    }
+  ],
+  "authenticationRequirements": [],
+  "environment": {
+    "SteamAppId": "2915550",
+    "WINEPREFIX": "{SERVER_DIR}/.wine",
+    "WINEARCH": "win64",
+    "WINEDEBUG": "-all"
+  },
+  "linuxPackages": [],
+  "warnings": [],
+  "validationStatus": "ready",
+  "preferredRuntime": "wine",
+  "noCommercialUsage": false,
+  "workingDirectory": "",
+  "executables": {
+    "windows": "FoundryDedicatedServer.exe"
+  },
+  "operatingSystems": [
+    "windows"
+  ],
+  "windowsOnly": true,
+  "minimumRuntime": "wine",
+  "platformWorkingDirectories": {
+    "windows": "",
+    "linux": ""
+  },
+  "platformArguments": {
+    "windows": [
+      "{FORMATTED_ARGS}"
+    ],
+    "linux": [
+      "{FORMATTED_ARGS}"
+    ]
+  },
+  "arguments": [
+    "{FORMATTED_ARGS}"
+  ],
+  "stopCommand": "stop",
+  "query": "source"
+}

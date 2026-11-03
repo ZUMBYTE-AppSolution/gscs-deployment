@@ -1,68 +1,1017 @@
 {
   "id": "killing-floor-2",
   "name": "Killing Floor 2",
-  "version": "1.0.0",
-  "approved": false,
+  "version": "1.1.0",
+  "approved": true,
   "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/killing-floor-2.json",
   "sourceRef": "main",
   "steamAppId": 232130,
   "steamGameAppId": 232090,
-  "website": "https://store.steampowered.com/app/232090/",
-  "windowsOnly": false,
-  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
-  "operatingSystems": [
-    "windows",
-    "linux"
-  ],
-  "executables": {
-    "windows": "Binaries/Win64/KFServer.exe",
-    "linux": "Binaries/Win64/KFGameSteamServer.bin.x86_64"
+  "website": "https://store.steampowered.com/app/232090/Killing_Floor_2/",
+  "image": "ghcr.io/zumbyte-appsolution/gscs:0.1.0-alpha.2",
+  "defaults": {
+    "MAP": "KF-Bioticslab",
+    "GAME": "KFGameContent.KFGameInfo_Survival",
+    "BENABLED": "true",
+    "ADMINPASSWORD": "{RANDOM_SECRET}",
+    "MAXSPECTATORS": "2",
+    "GAMEDIFFICULTY": "0",
+    "BADMINCANPAUSE": "false",
+    "BCHANGELEVELS": "true",
+    "CLANMOTTO": "We are the GSCS clan!",
+    "SERVERMOTD": "Welcome to our server. \\n \\n Have fun and good luck!",
+    "BANNERLINK": "http://art.tripwirecdn.com/TestItemIcons/MOTDServer.png"
   },
-  "arguments": [
-    "KF-BioticsLab?MaxPlayers={SLOTS}",
-    "-Port={GAME_PORT}",
-    "-QueryPort={QUERY_PORT}",
-    "-log"
-  ],
   "ports": [
     {
       "role": "game",
       "default": 7777,
-      "protocol": "udp",
       "containerPort": 7777,
+      "protocol": "udp",
       "offsetFromRole": "",
       "offset": 0
     },
     {
       "role": "query",
       "default": 27015,
-      "protocol": "udp",
       "containerPort": 27015,
+      "protocol": "udp",
       "offsetFromRole": "",
       "offset": 0
     },
     {
-      "role": "steam",
-      "default": 20560,
-      "protocol": "udp",
-      "containerPort": 20560,
+      "role": "rcon",
+      "default": 9080,
+      "containerPort": 9080,
+      "protocol": "tcp",
       "offsetFromRole": "",
       "offset": 0
     }
   ],
-  "defaults": {},
-  "installScripts": {},
-  "updateScripts": {},
-  "query": "source",
-  "validationStatus": "configuration-required",
-  "warnings": [
-    "Vor der Freigabe die mitgelieferte Spielkonfiguration, Zugangsdaten und Startparameter prüfen."
+  "configurationTabs": [
+    {
+      "id": "server",
+      "label": "Server",
+      "icon": "settings",
+      "order": 0
+    }
   ],
-  "licenseUrl": "",
-  "attribution": {
-    "source": "Valve SteamCMD app_info_print",
-    "steamAppId": 232130,
-    "checkedAt": "2026-11-02",
-    "documentation": "https://developer.valvesoftware.com/wiki/SteamCMD"
-  }
+  "configurationFields": [
+    {
+      "id": "MAP",
+      "label": "Starting Map",
+      "description": "Set the server's starting map. Survival compatible maps denoted with \"*\". If \"Custom\" is selected, Custom Starting Map Name must also be set",
+      "tab": "server",
+      "section": "Server",
+      "type": "enum",
+      "default": "KF-Bioticslab",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {
+        "KF-Airship": "Airship",
+        "KF-AshwoodAsylum": "Ashwood Asylum",
+        "KF-Biolapse": "Biolapse",
+        "KF-Bioticslab": "Biotics Lab*",
+        "KF-BlackForest": "Black Forest",
+        "KF-BurningParis": "Burning Paris*",
+        "KF-CarillonHamlet": "Carillon Hamlet",
+        "KF-Catacombs": "Catacombs",
+        "KF-ContainmentStation": "Containment Station",
+        "KF-Desolation": "Desolation",
+        "KF-DieSector": "DieSector",
+        "KF-Dystopia2029": "Dystopia 2029",
+        "KF-Elysium": "Elysium",
+        "KF-EvacuationPoint": "Evacuation Point",
+        "KF-Farmhouse": "Farmhouse*",
+        "KF-HellmarkStation": "Hellmark Station",
+        "KF-HostileGrounds": "Hostile Grounds",
+        "KF-InfernalRealm": "Infernal Realm",
+        "KF-KrampusLair": "Krampus Lair",
+        "KF-Lockdown": "Lockdown",
+        "KF-MonsterBall": "Monster Ball",
+        "KF-Moonbase": "Moonbase",
+        "KF-Netherhold": "Netherhold",
+        "KF-Nightmare": "Nightmare",
+        "KF-Nuked": "Nuked",
+        "KF-Outpost": "Outpost",
+        "KF-PowerCore_Holdout": "Power Core Holdout",
+        "KF-Prison": "Prison*",
+        "KF-Sanitarium": "Sanitarium",
+        "KF-Santasworkshop": "Santa's Workshop",
+        "KF-ShoppingSpree": "Shopping Spree",
+        "KF-Spillway": "Spillway",
+        "KF-SteamFortress": "Steam Fortress",
+        "KF-TheDescent": "The Descent",
+        "KF-TragicKingdom": "Tragic Kingdom",
+        "KF-VolterManor": "Volter Manor*",
+        "KF-ZedLanding": "ZedLanding",
+        "{CUSTOMMAP}": "--Custom--"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "Map",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "CUSTOMMAP",
+      "label": "Custom Starting Map Name",
+      "description": "Sets a custom starting map for the server. \"Custom\" type must be selected under Starting Map",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "",
+      "placeholder": "KF-Hot_Here",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "CustomMap",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "GAME",
+      "label": "Starting Game Mode",
+      "description": "Set the server's starting game mode. Not all game modes work with all maps. If \"Custom\" is selected, Custom Starting Game Name must also be set",
+      "tab": "server",
+      "section": "Server",
+      "type": "enum",
+      "default": "KFGameContent.KFGameInfo_Survival",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {
+        "KFGameContent.KFGameInfo_Survival": "Survival",
+        "KFGameContent.KFGameInfo_WeeklySurvival": "Weekly",
+        "KFGameContent.KFGameInfo_VersusSurvival": "Versus",
+        "KFGameContent.KFGameInfo_Endless": "Endless",
+        "KFGameContent.KFGameInfo_Objective": "Objective",
+        "{CUSTOMGAME}": "--Custom--"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "Game",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "CUSTOMGAME",
+      "label": "Custom Starting Game Name",
+      "description": "Sets a custom starting game mode for the server. \"Custom\" type must be selected under Starting Game Mode",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "",
+      "placeholder": "ZedternalReborn.WMGameInfo_Endless",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "CustomGame",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "BENABLED",
+      "label": "Enable Web Admin",
+      "description": "Allows managing the server in a browser using the IP:RemoteAdminPort (from ADS Edit Ports menu).",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "IpDrv.WebServer.bEnabled",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ADMINPASSWORD",
+      "label": "Administratorpasswort",
+      "description": "Password to become admin in-game. Username is \"admin\". Change this after install.",
+      "tab": "server",
+      "section": "Server",
+      "type": "password",
+      "default": "{RANDOM_SECRET}",
+      "placeholder": "",
+      "required": false,
+      "secret": true,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "Engine.AccessControl.AdminPassword",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "GAMEPASSWORD",
+      "label": "Game Password",
+      "description": "Password to join the game. Change this after install.",
+      "tab": "server",
+      "section": "Server",
+      "type": "password",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": true,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "Engine.AccessControl.GamePassword",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVER_NAME",
+      "label": "Servername",
+      "description": "The name to be displayed in the server browser.",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "{SERVER_NAME}",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "Engine.GameReplicationInfo.ServerName",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SLOTS",
+      "label": "Spielerlimit",
+      "description": "Set server maximum amount of players.",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "6",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "maxplayers",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 1.0
+    },
+    {
+      "id": "MAXSPECTATORS",
+      "label": "Max Spectators",
+      "description": "Set server maximum amount of spectators.",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "2",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "Engine.GameInfo.MaxSpectators",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "GAMEDIFFICULTY",
+      "label": "Difficulty",
+      "description": "Sets the difficulty level.",
+      "tab": "server",
+      "section": "Server",
+      "type": "enum",
+      "default": "0",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {
+        "0": "Normal",
+        "1": "Hard",
+        "2": "Suicidal",
+        "3": "Hell on Earth"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "Engine.GameInfo.GameDifficulty",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "BADMINCANPAUSE",
+      "label": "Admin Can Pause?",
+      "description": "Allows the admin to pause the game.",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "Engine.GameInfo.bAdminCanPause",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "BCHANGELEVELS",
+      "label": "Change Levels?",
+      "description": "Whether or not the game will change levels or loop the same.",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "Engine.GameInfo.bChangeLevels",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "CLANMOTTO",
+      "label": "Clan Motto",
+      "description": "Clan motto displayed when a user joins.",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "We are the GSCS clan!",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "KFGame.KFGameInfo.ClanMotto",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVERMOTD",
+      "label": "MOTD",
+      "description": "MOTD when a user joins.",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "Welcome to our server. \\n \\n Have fun and good luck!",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "KFGame.KFGameInfo.ServerMOTD",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "BANNERLINK",
+      "label": "MOTD Banner Link",
+      "description": "Image location for MOTD banner.",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "http://art.tripwirecdn.com/TestItemIcons/MOTDServer.png",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "KFGame.KFGameInfo.BannerLink",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "WEBSITELINK",
+      "label": "MOTD Website Link",
+      "description": "Link displayed on MOTD.",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "KFGame.KFGameInfo.WebsiteLink",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "CUSTOMURLARGS",
+      "label": "Additional Command Line URL Arguments",
+      "description": "Sets additional [command line URL arguments](https://wiki.killingfloor2.com/index.php?title=Dedicated_Server_(Killing_Floor_2%29#Command_Line_Launch_Options) for the server (those that start with a ? (question mark)). Include the question mark but do not separate with a space. Don't use options already in GSCS's settings!",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "",
+      "placeholder": "?Mutator=KFMutator.MyMutator",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "CustomUrlArgs",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "CUSTOMSWITCHES",
+      "label": "Additional Command Line Switches",
+      "description": "Sets additional [command line switches](https://wiki.killingfloor2.com/index.php?title=Dedicated_Server_(Killing_Floor_2%29#Command_Line_Launch_Options) for the server (those that start with a - (dash)). Include the dash and separate with a space. Don't use switches already in GSCS's settings!",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "",
+      "placeholder": "-NoSteamClient -PreferredProcessor=2",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "CustomSwitches",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    }
+  ],
+  "configurationFiles": [
+    {
+      "path": "KFGame/Config/PCServer-KFGame.ini",
+      "format": "ini",
+      "lineFormat": "",
+      "bindings": [
+        {
+          "key": "Map",
+          "variable": "{MAP}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "CustomMap",
+          "variable": "{CUSTOMMAP}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "Game",
+          "variable": "{GAME}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "CustomGame",
+          "variable": "{CUSTOMGAME}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "bEnabled",
+          "variable": "{BENABLED}",
+          "section": "IpDrv.WebServer",
+          "type": "checkbox"
+        },
+        {
+          "key": "AdminPassword",
+          "variable": "{ADMINPASSWORD}",
+          "section": "Engine.AccessControl",
+          "type": "password"
+        },
+        {
+          "key": "GamePassword",
+          "variable": "{GAMEPASSWORD}",
+          "section": "Engine.AccessControl",
+          "type": "password"
+        },
+        {
+          "key": "ServerName",
+          "variable": "{SERVER_NAME}",
+          "section": "Engine.GameReplicationInfo",
+          "type": "text"
+        },
+        {
+          "key": "maxplayers",
+          "variable": "{SLOTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "MaxSpectators",
+          "variable": "{MAXSPECTATORS}",
+          "section": "Engine.GameInfo",
+          "type": "number"
+        },
+        {
+          "key": "GameDifficulty",
+          "variable": "{GAMEDIFFICULTY}",
+          "section": "Engine.GameInfo",
+          "type": "enum"
+        },
+        {
+          "key": "bAdminCanPause",
+          "variable": "{BADMINCANPAUSE}",
+          "section": "Engine.GameInfo",
+          "type": "checkbox"
+        },
+        {
+          "key": "bChangeLevels",
+          "variable": "{BCHANGELEVELS}",
+          "section": "Engine.GameInfo",
+          "type": "checkbox"
+        },
+        {
+          "key": "ClanMotto",
+          "variable": "{CLANMOTTO}",
+          "section": "KFGame.KFGameInfo",
+          "type": "text"
+        },
+        {
+          "key": "ServerMOTD",
+          "variable": "{SERVERMOTD}",
+          "section": "KFGame.KFGameInfo",
+          "type": "text"
+        },
+        {
+          "key": "BannerLink",
+          "variable": "{BANNERLINK}",
+          "section": "KFGame.KFGameInfo",
+          "type": "text"
+        },
+        {
+          "key": "WebsiteLink",
+          "variable": "{WEBSITELINK}",
+          "section": "KFGame.KFGameInfo",
+          "type": "text"
+        },
+        {
+          "key": "CustomUrlArgs",
+          "variable": "{CUSTOMURLARGS}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "CustomSwitches",
+          "variable": "{CUSTOMSWITCHES}",
+          "section": "",
+          "type": "text"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    },
+    {
+      "path": "KFGame/Config/LinuxServer-KFGame.ini",
+      "format": "ini",
+      "lineFormat": "",
+      "bindings": [
+        {
+          "key": "Map",
+          "variable": "{MAP}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "CustomMap",
+          "variable": "{CUSTOMMAP}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "Game",
+          "variable": "{GAME}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "CustomGame",
+          "variable": "{CUSTOMGAME}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "bEnabled",
+          "variable": "{BENABLED}",
+          "section": "IpDrv.WebServer",
+          "type": "checkbox"
+        },
+        {
+          "key": "AdminPassword",
+          "variable": "{ADMINPASSWORD}",
+          "section": "Engine.AccessControl",
+          "type": "password"
+        },
+        {
+          "key": "GamePassword",
+          "variable": "{GAMEPASSWORD}",
+          "section": "Engine.AccessControl",
+          "type": "password"
+        },
+        {
+          "key": "ServerName",
+          "variable": "{SERVER_NAME}",
+          "section": "Engine.GameReplicationInfo",
+          "type": "text"
+        },
+        {
+          "key": "maxplayers",
+          "variable": "{SLOTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "MaxSpectators",
+          "variable": "{MAXSPECTATORS}",
+          "section": "Engine.GameInfo",
+          "type": "number"
+        },
+        {
+          "key": "GameDifficulty",
+          "variable": "{GAMEDIFFICULTY}",
+          "section": "Engine.GameInfo",
+          "type": "enum"
+        },
+        {
+          "key": "bAdminCanPause",
+          "variable": "{BADMINCANPAUSE}",
+          "section": "Engine.GameInfo",
+          "type": "checkbox"
+        },
+        {
+          "key": "bChangeLevels",
+          "variable": "{BCHANGELEVELS}",
+          "section": "Engine.GameInfo",
+          "type": "checkbox"
+        },
+        {
+          "key": "ClanMotto",
+          "variable": "{CLANMOTTO}",
+          "section": "KFGame.KFGameInfo",
+          "type": "text"
+        },
+        {
+          "key": "ServerMOTD",
+          "variable": "{SERVERMOTD}",
+          "section": "KFGame.KFGameInfo",
+          "type": "text"
+        },
+        {
+          "key": "BannerLink",
+          "variable": "{BANNERLINK}",
+          "section": "KFGame.KFGameInfo",
+          "type": "text"
+        },
+        {
+          "key": "WebsiteLink",
+          "variable": "{WEBSITELINK}",
+          "section": "KFGame.KFGameInfo",
+          "type": "text"
+        },
+        {
+          "key": "CustomUrlArgs",
+          "variable": "{CUSTOMURLARGS}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "CustomSwitches",
+          "variable": "{CUSTOMSWITCHES}",
+          "section": "",
+          "type": "text"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    },
+    {
+      "path": "KFGame/Config/KFWeb.ini",
+      "format": "ini",
+      "lineFormat": "",
+      "bindings": [
+        {
+          "key": "Map",
+          "variable": "{MAP}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "CustomMap",
+          "variable": "{CUSTOMMAP}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "Game",
+          "variable": "{GAME}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "CustomGame",
+          "variable": "{CUSTOMGAME}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "bEnabled",
+          "variable": "{BENABLED}",
+          "section": "IpDrv.WebServer",
+          "type": "checkbox"
+        },
+        {
+          "key": "AdminPassword",
+          "variable": "{ADMINPASSWORD}",
+          "section": "Engine.AccessControl",
+          "type": "password"
+        },
+        {
+          "key": "GamePassword",
+          "variable": "{GAMEPASSWORD}",
+          "section": "Engine.AccessControl",
+          "type": "password"
+        },
+        {
+          "key": "ServerName",
+          "variable": "{SERVER_NAME}",
+          "section": "Engine.GameReplicationInfo",
+          "type": "text"
+        },
+        {
+          "key": "maxplayers",
+          "variable": "{SLOTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "MaxSpectators",
+          "variable": "{MAXSPECTATORS}",
+          "section": "Engine.GameInfo",
+          "type": "number"
+        },
+        {
+          "key": "GameDifficulty",
+          "variable": "{GAMEDIFFICULTY}",
+          "section": "Engine.GameInfo",
+          "type": "enum"
+        },
+        {
+          "key": "bAdminCanPause",
+          "variable": "{BADMINCANPAUSE}",
+          "section": "Engine.GameInfo",
+          "type": "checkbox"
+        },
+        {
+          "key": "bChangeLevels",
+          "variable": "{BCHANGELEVELS}",
+          "section": "Engine.GameInfo",
+          "type": "checkbox"
+        },
+        {
+          "key": "ClanMotto",
+          "variable": "{CLANMOTTO}",
+          "section": "KFGame.KFGameInfo",
+          "type": "text"
+        },
+        {
+          "key": "ServerMOTD",
+          "variable": "{SERVERMOTD}",
+          "section": "KFGame.KFGameInfo",
+          "type": "text"
+        },
+        {
+          "key": "BannerLink",
+          "variable": "{BANNERLINK}",
+          "section": "KFGame.KFGameInfo",
+          "type": "text"
+        },
+        {
+          "key": "WebsiteLink",
+          "variable": "{WEBSITELINK}",
+          "section": "KFGame.KFGameInfo",
+          "type": "text"
+        },
+        {
+          "key": "CustomUrlArgs",
+          "variable": "{CUSTOMURLARGS}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "CustomSwitches",
+          "variable": "{CUSTOMSWITCHES}",
+          "section": "",
+          "type": "text"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    }
+  ],
+  "deploymentSteps": [
+    {
+      "name": "SteamCMD Download",
+      "type": "steam",
+      "phase": "install",
+      "platform": "all",
+      "source": "232130",
+      "target": "",
+      "arguments": "public",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    }
+  ],
+  "authenticationRequirements": [],
+  "environment": {
+    "LD_LIBRARY_PATH": "{SERVER_DIR}/linux64:{SERVER_DIR}/linux64:%LD_LIBRARY_PATH%",
+    "SteamAppId": "232130"
+  },
+  "linuxPackages": [],
+  "warnings": [],
+  "validationStatus": "ready",
+  "preferredRuntime": "native",
+  "noCommercialUsage": false,
+  "workingDirectory": "",
+  "executables": {
+    "windows": "Binaries/Win64/KFServer.exe",
+    "linux": "Binaries/Win64/KFGameSteamServer.bin.x86_64"
+  },
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "windowsOnly": false,
+  "platformWorkingDirectories": {
+    "windows": "",
+    "linux": ""
+  },
+  "platformArguments": {
+    "windows": [
+      "{MAP}{CUSTOMURLARGS}?Game={GAME}?MaxPlayers={SLOTS}",
+      "-Port={GAME_PORT}",
+      "-QueryPort={QUERY_PORT}",
+      "-WebAdminPort={RCON_PORT}",
+      "-Multihome={GAME_BIND}",
+      "{FORMATTED_ARGS}",
+      "{CUSTOMSWITCHES}"
+    ],
+    "linux": [
+      "{MAP}{CUSTOMURLARGS}?Game={GAME}?MaxPlayers={SLOTS}",
+      "-Port={GAME_PORT}",
+      "-QueryPort={QUERY_PORT}",
+      "-WebAdminPort={RCON_PORT}",
+      "-Multihome={GAME_BIND}",
+      "{FORMATTED_ARGS}",
+      "{CUSTOMSWITCHES}"
+    ]
+  },
+  "arguments": [
+    "{MAP}{CUSTOMURLARGS}?Game={GAME}?MaxPlayers={SLOTS}",
+    "-Port={GAME_PORT}",
+    "-QueryPort={QUERY_PORT}",
+    "-WebAdminPort={RCON_PORT}",
+    "-Multihome={GAME_BIND}",
+    "{FORMATTED_ARGS}",
+    "{CUSTOMSWITCHES}"
+  ],
+  "stopCommand": "stop",
+  "query": "source",
+  "licenseUrl": ""
 }

@@ -1,0 +1,447 @@
+{
+  "id": "romestead",
+  "name": "Romestead",
+  "version": "1.1.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/romestead.json",
+  "sourceRef": "main",
+  "steamAppId": 4763510,
+  "steamGameAppId": 1805320,
+  "website": "https://romestead.com",
+  "image": "ghcr.io/zumbyte-appsolution/gscs:0.1.0-alpha.2",
+  "defaults": {
+    "AUTOCREATEANDLOADWORLD": "true",
+    "AUTOSTARTWORLDNAME": "world",
+    "AUTOCREATEWORLDSIZE": "1",
+    "ENABLECHEATS": "false"
+  },
+  "ports": [
+    {
+      "role": "game",
+      "default": 8050,
+      "containerPort": 8050,
+      "protocol": "udp",
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "configurationTabs": [
+    {
+      "id": "server",
+      "label": "Server",
+      "icon": "settings",
+      "order": 0
+    },
+    {
+      "id": "laufzeit",
+      "label": "Laufzeit",
+      "icon": "settings",
+      "order": 1
+    }
+  ],
+  "configurationFields": [
+    {
+      "id": "GAME_PORT",
+      "label": "Game Port",
+      "description": "",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.Port",
+      "parameterFormat": "+{0} {1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "AUTOCREATEANDLOADWORLD",
+      "label": "Create New World",
+      "description": "",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.AutoCreateAndLoadWorld",
+      "parameterFormat": "+{0} {1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "AUTOSTARTWORLDNAME",
+      "label": "Weltname",
+      "description": "Sets the name of the world to load when the server starts. A new world will be generated if it does not already exist",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "world",
+      "placeholder": "world",
+      "required": true,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.AutoStartWorldName",
+      "parameterFormat": "+{0} {1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "AUTOCREATEWORLDSIZE",
+      "label": "World Size",
+      "description": "Sets the size for generation of a new world. A large world requires at least 8GB of RAM to generate",
+      "tab": "server",
+      "section": "Server",
+      "type": "enum",
+      "default": "1",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {
+        "0": "Small",
+        "1": "Standard",
+        "2": "Large"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.AutoCreateWorldSize",
+      "parameterFormat": "+{0} {1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "AUTOCREATEWORLDSEED",
+      "label": "Welt-Seed",
+      "description": "Sets the seed for generation of a new world. Empty = random seed",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.AutoCreateWorldSeed",
+      "parameterFormat": "+{0} {1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "PASSWORD",
+      "label": "Serverpasswort",
+      "description": "Sets the password required to join the server. Empty = no password",
+      "tab": "server",
+      "section": "Server",
+      "type": "password",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": true,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.Password",
+      "parameterFormat": "+{0} {1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SLOTS",
+      "label": "Spielerlimit",
+      "description": "Sets the maximum number of players allowed on the server at one time",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "8",
+      "placeholder": "8",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.MaxPlayers",
+      "parameterFormat": "+{0} {1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 1.0,
+      "max": 8.0
+    },
+    {
+      "id": "ENABLECHEATS",
+      "label": "Enable Cheats",
+      "description": "If set, cheats will be enabled on the server. Not currently used",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.EnableCheats",
+      "parameterFormat": "+{0} {1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "DOTNETVERSION",
+      "label": "Dotnet Version",
+      "description": "Sets the [.NET Runtime 8.0 version](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) to install. Empty = latest. Update the server after changing this setting",
+      "tab": "laufzeit",
+      "section": "Laufzeit",
+      "type": "text",
+      "default": "",
+      "placeholder": "8.0.27",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "DotnetVersion",
+      "parameterFormat": "+{0} {1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    }
+  ],
+  "configurationFiles": [
+    {
+      "path": "config.json",
+      "format": "json",
+      "lineFormat": "",
+      "bindings": [
+        {
+          "key": "Port",
+          "variable": "{GAME_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AutoCreateAndLoadWorld",
+          "variable": "{AUTOCREATEANDLOADWORLD}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "AutoStartWorldName",
+          "variable": "{AUTOSTARTWORLDNAME}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "AutoCreateWorldSize",
+          "variable": "{AUTOCREATEWORLDSIZE}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "AutoCreateWorldSeed",
+          "variable": "{AUTOCREATEWORLDSEED}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "Password",
+          "variable": "{PASSWORD}",
+          "section": "",
+          "type": "password"
+        },
+        {
+          "key": "MaxPlayers",
+          "variable": "{SLOTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "EnableCheats",
+          "variable": "{ENABLECHEATS}",
+          "section": "",
+          "type": "checkbox"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": false,
+      "platform": "all"
+    }
+  ],
+  "deploymentSteps": [
+    {
+      "name": "Server Download",
+      "type": "steam",
+      "phase": "install",
+      "platform": "all",
+      "source": "4763510",
+      "target": "",
+      "arguments": "public",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Config.json Download",
+      "type": "file",
+      "phase": "install",
+      "platform": "all",
+      "source": "{\n  \"AutoStartWorldName\": \"world\",\n  \"AutoCreateAndLoadWorld\": true,\n  \"AutoCreateWorldSize\": 1,\n  \"AutoCreateWorldSeed\": \"\",\n  \"Password\": \"\",\n  \"Port\": 8050,\n  \"MaxPlayers\": 8,\n  \"EnableCheats\": false\n}",
+      "target": "config.json",
+      "arguments": "config.json",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": false
+    },
+    {
+      "name": "Dotnet Directory Creation",
+      "type": "directory",
+      "phase": "install",
+      "platform": "all",
+      "source": "",
+      "target": "Dotnet",
+      "arguments": "{SERVER_DIR}/Dotnet",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": ".NET Runtime Download",
+      "type": "archive",
+      "phase": "install",
+      "platform": "linux",
+      "source": "dotnet.tar.gz",
+      "target": "",
+      "arguments": "0",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": ".NET Runtime Download",
+      "type": "archive",
+      "phase": "install",
+      "platform": "linux",
+      "source": "dotnet.tar.gz",
+      "target": "",
+      "arguments": "0",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": ".NET Runtime Download",
+      "type": "command",
+      "phase": "install",
+      "platform": "windows",
+      "source": "powershell.exe",
+      "target": "",
+      "arguments": "-NoProfile -Command \"$ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; $DotnetVersion='{DOTNETVERSION}'; Set-Location -Path '{SERVER_DIR}/'; if (Test-Path 'Dotnet/dotnet.exe') { $InstalledVersion = (& Dotnet/dotnet.exe --list-runtimes | Where-Object { $_ -like 'Microsoft.NETCore.App*' } | Select-Object -First 1).Split()[1] } else { $InstalledVersion = '' }; if ( [string]::IsNullOrWhiteSpace($DotnetVersion) ) { $DotnetVersion=(Invoke-RestMethod -UseBasicParsing -Uri https://builds.dotnet.microsoft.com/dotnet/release-metadata/8.0/releases.json).\\\"latest-runtime\\\" }; if ($DotnetVersion -notmatch '^\\d+\\.\\d+\\.\\d+$') { Write-Output \\\"Invalid .NET Runtime version format specified\\\"; exit 1 } elseif ( $InstalledVersion -eq $DotnetVersion ) { Write-Output \\\".NET Runtime v$DotnetVersion already installed. Skipping\\\"; exit 0 } else { if ( Test-Path dotnet.zip ) { Remove-Item dotnet.zip -Force -ErrorAction SilentlyContinue *> $null }; try { Invoke-WebRequest -UseBasicParsing -Uri https://builds.dotnet.microsoft.com/dotnet/Runtime/$DotnetVersion/dotnet-runtime-$DotnetVersion-win-x64.zip -OutFile dotnet.zip -ErrorAction Stop } catch { Write-Output \\\"Download failed from the Microsoft CDN. This is a fault with the CDN, not GSCS. Aborting\\\"; exit 1; }; Remove-Item -Path 'Dotnet/*' -Recurse -Force -ErrorAction SilentlyContinue; Expand-Archive -Path \\\"dotnet.zip\\\" -DestinationPath \\\"Dotnet\\\" -Force *> $null; if ( Test-Path dotnet.zip ) { Remove-Item dotnet.zip -Force -ErrorAction SilentlyContinue *> $null }; Write-Output \\\".NET Runtime v$DotnetVersion downloaded\\\" }\"",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    }
+  ],
+  "authenticationRequirements": [],
+  "environment": {
+    "SteamAppId": "4763510",
+    "DOTNET_ROOT": "{SERVER_DIR}/Dotnet",
+    "XDG_DATA_HOME": "{SERVER_DIR}/"
+  },
+  "linuxPackages": [],
+  "warnings": [],
+  "validationStatus": "ready",
+  "preferredRuntime": "native",
+  "noCommercialUsage": false,
+  "workingDirectory": "",
+  "executables": {
+    "windows": "Server.exe",
+    "linux": "Dotnet/dotnet"
+  },
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "windowsOnly": false,
+  "platformWorkingDirectories": {
+    "windows": "",
+    "linux": ""
+  },
+  "platformArguments": {
+    "windows": [
+      "{FORMATTED_ARGS}"
+    ],
+    "linux": [
+      "Server.dll",
+      "{FORMATTED_ARGS}"
+    ]
+  },
+  "arguments": [
+    "Server.dll",
+    "{FORMATTED_ARGS}"
+  ],
+  "stopCommand": "stop",
+  "query": "source"
+}

@@ -1,0 +1,651 @@
+{
+  "id": "astro-colony",
+  "name": "Astro Colony",
+  "version": "1.1.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/astro-colony.json",
+  "sourceRef": "main",
+  "steamAppId": 2662210,
+  "steamGameAppId": 1614550,
+  "website": "https://astrocolony.com/",
+  "image": "ghcr.io/zumbyte-appsolution/gscs:0.1.0-alpha.2",
+  "defaults": {
+    "MAPNAME": "MyAstroColony",
+    "SEED": "{RANDOMDIGITS_8_}",
+    "SHOULDLOADLATESTSAVEGAME": "True",
+    "SHAREDTECHNOLOGIES": "True",
+    "OXYGENCONSUMPTION": "True",
+    "FREECONSTRUCTION": "False",
+    "UNLIMITEDRESOURCESTACK": "False",
+    "SANDBOX": "False",
+    "AUTOSAVEINTERVAL": "5.0",
+    "AUTOSAVESCOUNT": "10"
+  },
+  "ports": [
+    {
+      "role": "game",
+      "default": 27015,
+      "containerPort": 27015,
+      "protocol": "udp",
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "configurationTabs": [
+    {
+      "id": "server",
+      "label": "Server",
+      "icon": "settings",
+      "order": 0
+    }
+  ],
+  "configurationFields": [
+    {
+      "id": "SERVER_NAME",
+      "label": "Servername",
+      "description": "Sets the name of the server to be displayed in the server list. Maximum 45 characters, no more than 30 recommended. If the maximum is exceeded, the server password will be disabled",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "{SERVER_NAME}",
+      "placeholder": "GSCS Astro Colony Server",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "ServerName",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVER_PASSWORD",
+      "label": "Serverpasswort",
+      "description": "Sets the password required to connect to the server. Default is no password",
+      "tab": "server",
+      "section": "Server",
+      "type": "password",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": true,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "ServerPassword",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "MAPNAME",
+      "label": "Map Name",
+      "description": "Sets the map name to be displayed in the server list",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "MyAstroColony",
+      "placeholder": "MyAstroColony",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "MapName",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SLOTS",
+      "label": "Spielerlimit",
+      "description": "Sets the maximum number of players that may connect to the server at one time",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "5",
+      "placeholder": "5",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "MaxPlayers",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 1.0
+    },
+    {
+      "id": "ADMINLIST",
+      "label": "Server Admins",
+      "description": "Comma separated list of [Steam64 IDs](https://steamid.io/) of server admins",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "AdminList",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SEED",
+      "label": "Seed",
+      "description": "Sets a seed to create a new savegame with. Default is a random seed",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "{RANDOMDIGITS_8_}",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "Seed",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 1.0,
+      "max": 2147483647.0
+    },
+    {
+      "id": "SHOULDLOADLATESTSAVEGAME",
+      "label": "Load Latest Savegame",
+      "description": "If enabled, the latest savegame will be loaded on server start",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "True",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "True",
+      "falseValue": "False",
+      "parameter": "ShouldLoadLatestSavegame",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SHAREDTECHNOLOGIES",
+      "label": "Enable Shared Technologies",
+      "description": "If enabled, technologies will be shared between players, so that research is not duplicated",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "True",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "True",
+      "falseValue": "False",
+      "parameter": "SharedTechnologies",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "OXYGENCONSUMPTION",
+      "label": "Enable Oxygen Consumption",
+      "description": "If enabled, players will consume oxygen. If disabled, oxygen will not be required by players",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "True",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "True",
+      "falseValue": "False",
+      "parameter": "OxygenConsumption",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "FREECONSTRUCTION",
+      "label": "Enable Free Construction",
+      "description": "If enabled, construction will be allowed without cost or spending of resources",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "False",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "True",
+      "falseValue": "False",
+      "parameter": "FreeConstruction",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "UNLIMITEDRESOURCESTACK",
+      "label": "Enable Unlimited Resource Stack",
+      "description": "If enabled, resource stack sizes will be unlimited",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "False",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "True",
+      "falseValue": "False",
+      "parameter": "UnlimitedResourceStack",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SANDBOX",
+      "label": "Enable Sandbox Mode",
+      "description": "If set, sanbox mode will be enabled, allowing all technologies",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "False",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "True",
+      "falseValue": "False",
+      "parameter": "Sandbox",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "AUTOSAVEINTERVAL",
+      "label": "Autosave Interval",
+      "description": "Sets the server autosave interval. 0 = disabled",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "5.0",
+      "placeholder": "5.0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "AutosaveInterval",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "AUTOSAVESCOUNT",
+      "label": "Autosave Count",
+      "description": "Sets the limit on the number of autosaves that are retained",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "10",
+      "placeholder": "10",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "AutosavesCount",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    }
+  ],
+  "configurationFiles": [
+    {
+      "path": "AstroColony/Saved/Config/WindowsServer/ServerSettings.ini",
+      "format": "ini",
+      "lineFormat": "{0}={1}",
+      "bindings": [
+        {
+          "key": "ServerPassword",
+          "variable": "{SERVER_PASSWORD}",
+          "section": "/Script/ACFeature.EHServerSubsystem",
+          "type": "password"
+        },
+        {
+          "key": "Seed",
+          "variable": "{SEED}",
+          "section": "/Script/ACFeature.EHServerSubsystem",
+          "type": "number"
+        },
+        {
+          "key": "MapName",
+          "variable": "{MAPNAME}",
+          "section": "/Script/ACFeature.EHServerSubsystem",
+          "type": "text"
+        },
+        {
+          "key": "MaxPlayers",
+          "variable": "{SLOTS}",
+          "section": "/Script/ACFeature.EHServerSubsystem",
+          "type": "number"
+        },
+        {
+          "key": "ShouldLoadLatestSavegame",
+          "variable": "{SHOULDLOADLATESTSAVEGAME}",
+          "section": "/Script/ACFeature.EHServerSubsystem",
+          "type": "checkbox"
+        },
+        {
+          "key": "AdminList",
+          "variable": "{ADMINLIST}",
+          "section": "/Script/ACFeature.EHServerSubsystem",
+          "type": "text"
+        },
+        {
+          "key": "SharedTechnologies",
+          "variable": "{SHAREDTECHNOLOGIES}",
+          "section": "/Script/ACFeature.EHServerSubsystem",
+          "type": "checkbox"
+        },
+        {
+          "key": "OxygenConsumption",
+          "variable": "{OXYGENCONSUMPTION}",
+          "section": "/Script/ACFeature.EHServerSubsystem",
+          "type": "checkbox"
+        },
+        {
+          "key": "FreeConstruction",
+          "variable": "{FREECONSTRUCTION}",
+          "section": "/Script/ACFeature.EHServerSubsystem",
+          "type": "checkbox"
+        },
+        {
+          "key": "Sandbox",
+          "variable": "{SANDBOX}",
+          "section": "/Script/ACFeature.EHServerSubsystem",
+          "type": "checkbox"
+        },
+        {
+          "key": "UnlimitedResourceStack",
+          "variable": "{UNLIMITEDRESOURCESTACK}",
+          "section": "/Script/ACFeature.EHServerSubsystem",
+          "type": "checkbox"
+        },
+        {
+          "key": "AutosaveInterval",
+          "variable": "{AUTOSAVEINTERVAL}",
+          "section": "/Script/ACFeature.EHServerSubsystem",
+          "type": "number"
+        },
+        {
+          "key": "AutosavesCount",
+          "variable": "{AUTOSAVESCOUNT}",
+          "section": "/Script/ACFeature.EHServerSubsystem",
+          "type": "number"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": false,
+      "platform": "windows"
+    },
+    {
+      "path": "AstroColony/Saved/Config/LinuxServer/ServerSettings.ini",
+      "format": "ini",
+      "lineFormat": "{0}={1}",
+      "bindings": [
+        {
+          "key": "ServerPassword",
+          "variable": "{SERVER_PASSWORD}",
+          "section": "/Script/ACFeature.EHServerSubsystem",
+          "type": "password"
+        },
+        {
+          "key": "Seed",
+          "variable": "{SEED}",
+          "section": "/Script/ACFeature.EHServerSubsystem",
+          "type": "number"
+        },
+        {
+          "key": "MapName",
+          "variable": "{MAPNAME}",
+          "section": "/Script/ACFeature.EHServerSubsystem",
+          "type": "text"
+        },
+        {
+          "key": "MaxPlayers",
+          "variable": "{SLOTS}",
+          "section": "/Script/ACFeature.EHServerSubsystem",
+          "type": "number"
+        },
+        {
+          "key": "ShouldLoadLatestSavegame",
+          "variable": "{SHOULDLOADLATESTSAVEGAME}",
+          "section": "/Script/ACFeature.EHServerSubsystem",
+          "type": "checkbox"
+        },
+        {
+          "key": "AdminList",
+          "variable": "{ADMINLIST}",
+          "section": "/Script/ACFeature.EHServerSubsystem",
+          "type": "text"
+        },
+        {
+          "key": "SharedTechnologies",
+          "variable": "{SHAREDTECHNOLOGIES}",
+          "section": "/Script/ACFeature.EHServerSubsystem",
+          "type": "checkbox"
+        },
+        {
+          "key": "OxygenConsumption",
+          "variable": "{OXYGENCONSUMPTION}",
+          "section": "/Script/ACFeature.EHServerSubsystem",
+          "type": "checkbox"
+        },
+        {
+          "key": "FreeConstruction",
+          "variable": "{FREECONSTRUCTION}",
+          "section": "/Script/ACFeature.EHServerSubsystem",
+          "type": "checkbox"
+        },
+        {
+          "key": "Sandbox",
+          "variable": "{SANDBOX}",
+          "section": "/Script/ACFeature.EHServerSubsystem",
+          "type": "checkbox"
+        },
+        {
+          "key": "UnlimitedResourceStack",
+          "variable": "{UNLIMITEDRESOURCESTACK}",
+          "section": "/Script/ACFeature.EHServerSubsystem",
+          "type": "checkbox"
+        },
+        {
+          "key": "AutosaveInterval",
+          "variable": "{AUTOSAVEINTERVAL}",
+          "section": "/Script/ACFeature.EHServerSubsystem",
+          "type": "number"
+        },
+        {
+          "key": "AutosavesCount",
+          "variable": "{AUTOSAVESCOUNT}",
+          "section": "/Script/ACFeature.EHServerSubsystem",
+          "type": "number"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": false,
+      "platform": "linux"
+    }
+  ],
+  "deploymentSteps": [
+    {
+      "name": "SteamCMD Server Download",
+      "type": "steam",
+      "phase": "install",
+      "platform": "windows",
+      "source": "2662210",
+      "target": "",
+      "arguments": "public",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "SteamCMD Server Download",
+      "type": "steam",
+      "phase": "install",
+      "platform": "linux",
+      "source": "2934900",
+      "target": "",
+      "arguments": "public",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "SteamCMD Component Download",
+      "type": "steam",
+      "phase": "install",
+      "platform": "windows",
+      "source": "1007",
+      "target": "AstroColony/Binaries/Win64",
+      "arguments": "public",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    }
+  ],
+  "authenticationRequirements": [],
+  "environment": {
+    "LD_LIBRARY_PATH": "{SERVER_DIR}/linux64:%LD_LIBRARY_PATH%",
+    "SteamAppId": "2662210"
+  },
+  "linuxPackages": [],
+  "warnings": [],
+  "validationStatus": "ready",
+  "preferredRuntime": "native",
+  "noCommercialUsage": false,
+  "workingDirectory": "",
+  "executables": {
+    "windows": "AstroColony/Binaries/Win64/AstroColonyServer.exe",
+    "linux": "AstroColony/Binaries/Linux/AstroColonyServer"
+  },
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "windowsOnly": false,
+  "platformWorkingDirectories": {
+    "windows": "",
+    "linux": ""
+  },
+  "platformArguments": {
+    "windows": [
+      "AstroColony",
+      "-QueryPort={GAME_PORT}",
+      "{FORMATTED_ARGS}",
+      "-stdout",
+      "-FullStdOutLogOutput"
+    ],
+    "linux": [
+      "AstroColony",
+      "-QueryPort={GAME_PORT}",
+      "{FORMATTED_ARGS}"
+    ]
+  },
+  "arguments": [
+    "AstroColony",
+    "-QueryPort={GAME_PORT}",
+    "{FORMATTED_ARGS}"
+  ],
+  "stopCommand": "stop",
+  "query": "source"
+}

@@ -1,7 +1,7 @@
 {
   "id": "rust",
   "name": "Rust · Vanilla",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "approved": true,
   "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/rust.json",
   "sourceRef": "main",
@@ -9,7 +9,7 @@
   "steamGameAppId": 252490,
   "website": "https://rust.facepunch.com/",
   "windowsOnly": false,
-  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "image": "ghcr.io/zumbyte-appsolution/gscs:0.1.0-alpha.2",
   "operatingSystems": [
     "windows",
     "linux"
@@ -66,13 +66,130 @@
   "installScripts": {},
   "updateScripts": {},
   "query": "source",
-  "validationStatus": "metadata-validated",
+  "validationStatus": "ready",
   "warnings": [],
   "licenseUrl": "",
-  "textConfigs": {
-    "server/GSCS/cfg/server.cfg": "server.hostname {JSON_SERVER_NAME}\nrcon.password {JSON_RCON_PASSWORD}\n"
-  },
   "stopCommand": "quit",
   "saveCommand": "server.save",
-  "announcementCommand": "say {MESSAGE}"
+  "announcementCommand": "say {MESSAGE}",
+  "configurationTabs": [
+    {
+      "id": "security",
+      "label": "Sicherheit",
+      "order": 0
+    },
+    {
+      "id": "world",
+      "label": "Welt",
+      "order": 1
+    },
+    {
+      "id": "server",
+      "label": "Server",
+      "order": 2
+    }
+  ],
+  "configurationFields": [
+    {
+      "id": "RCON_PASSWORD",
+      "label": "RCON-Passwort",
+      "default": "{RANDOM_SECRET}",
+      "tab": "security",
+      "type": "text",
+      "secret": true,
+      "startupPermission": false
+    },
+    {
+      "id": "WORLD_SEED",
+      "label": "Welt-Seed",
+      "default": "12345",
+      "tab": "world",
+      "type": "number"
+    },
+    {
+      "id": "WORLD_SIZE",
+      "label": "Weltgröße",
+      "default": "3500",
+      "tab": "world",
+      "type": "number"
+    },
+    {
+      "id": "SAVE_INTERVAL",
+      "label": "Speicherintervall in Sekunden",
+      "default": "600",
+      "tab": "world",
+      "type": "number"
+    },
+    {
+      "id": "SERVER_DESCRIPTION",
+      "label": "Beschreibung",
+      "default": "",
+      "tab": "server",
+      "type": "text"
+    },
+    {
+      "id": "SERVER_URL",
+      "label": "Serverwebsite",
+      "default": "",
+      "tab": "server",
+      "type": "url"
+    },
+    {
+      "id": "SERVER_PVE",
+      "label": "PvE",
+      "default": "false",
+      "tab": "world",
+      "type": "checkbox",
+      "trueValue": "true",
+      "falseValue": "false"
+    }
+  ],
+  "configurationFiles": [
+    {
+      "path": "server/GSCS/cfg/server.cfg",
+      "format": "space",
+      "bindings": [
+        {
+          "key": "server.hostname",
+          "variable": "{JSON_SERVER_NAME}",
+          "type": "text"
+        },
+        {
+          "key": "rcon.password",
+          "variable": "{JSON_RCON_PASSWORD}",
+          "type": "text"
+        },
+        {
+          "key": "server.seed",
+          "variable": "{WORLD_SEED}",
+          "type": "number"
+        },
+        {
+          "key": "server.worldsize",
+          "variable": "{WORLD_SIZE}",
+          "type": "number"
+        },
+        {
+          "key": "server.saveinterval",
+          "variable": "{SAVE_INTERVAL}",
+          "type": "number"
+        },
+        {
+          "key": "server.description",
+          "variable": "{JSON_SERVER_DESCRIPTION}",
+          "type": "text"
+        },
+        {
+          "key": "server.url",
+          "variable": "{JSON_SERVER_URL}",
+          "type": "text"
+        },
+        {
+          "key": "server.pve",
+          "variable": "{SERVER_PVE}",
+          "type": "checkbox"
+        }
+      ]
+    }
+  ]
 }

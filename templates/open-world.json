@@ -1,0 +1,3527 @@
+{
+  "id": "open-world",
+  "name": "Open World - RimWorld Server",
+  "version": "1.1.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/open-world.json",
+  "sourceRef": "main",
+  "steamAppId": null,
+  "steamGameAppId": 294100,
+  "website": "https://github.com/D12-Dev/OpenWorld",
+  "image": "ghcr.io/zumbyte-appsolution/gscs:0.1.0-alpha.2",
+  "defaults": {
+    "PLAYERVERSION": "1.3",
+    "USEWHITELIST": "false",
+    "ENFORCEMODS": "false",
+    "USEMODBLACKLIST": "false",
+    "ALLOWCUSTOMSCENARIOS": "false",
+    "BACKUPINTERVALINHOURS": "6.0",
+    "DEVCONSOLE": "false",
+    "BANKCASHPERTICK": "50",
+    "MAXIMUMCASHINBANKFORTICK": "10000",
+    "RAIDCOST": "0",
+    "INFESTATIONCOST": "0",
+    "MECHCLUSTERCOST": "0",
+    "TOXICFALLOUTCOST": "0",
+    "MANHUNTERCOST": "0",
+    "WANDERERCOST": "0",
+    "FARMANIMALSCOST": "0",
+    "SHIPCHUNKCOST": "0",
+    "GIVEQUESTCOST": "0",
+    "TRADERCARAVANCOST": "0",
+    "SILOCOST": "0",
+    "MARKETPLACECOST": "0",
+    "PRODUCTIONSITECOST": "0",
+    "WONDERCOST": "0",
+    "BANKCOST": "0",
+    "AEROPORTCOST": "0",
+    "AEROPORTUSAGECOST": "0",
+    "COURIERCOST": "0",
+    "COURIERUSAGECOST": "0",
+    "AIDUSAGECOST": "0",
+    "USECUSTOMDIFFICULTY": "false",
+    "THREATSCALE": "0.0",
+    "ALLOWBIGTHREATS": "false",
+    "ALLOWVIOLENTQUESTS": "false",
+    "ALLOWINTROTHREATS": "false",
+    "PREDATORSHUNTHUMANLIKES": "false",
+    "ALLOWEXTREMEWEATHERINCIDENTS": "false",
+    "CROPYIELDFACTOR": "0.0",
+    "MINEYIELDFACTOR": "0.0",
+    "BUTCHERYIELDFACTOR": "0.0",
+    "RESEARCHSPEEDFACTOR": "0.0",
+    "QUESTREWARDVALUEFACTOR": "0.0",
+    "RAIDLOOTPOINTSFACTOR": "0.0",
+    "TRADEPRICEFACTORLOSS": "0.0",
+    "MAINTENANCECOSTFACTOR": "1.0",
+    "SCARIAROTCHANCE": "0.6",
+    "ENEMYDEATHONDOWNEDCHANCEFACTOR": "1.0",
+    "COLONISTMOODOFFSET": "0.0",
+    "FOODPOISONCHANCEFACTOR": "0.0",
+    "MANHUNTERCHANCEONDAMAGEFACTOR": "0.0",
+    "PLAYERPAWNINFECTIONCHANCEFACTOR": "0.0",
+    "DISEASEINTERVALFACTOR": "0.0",
+    "DEEPDRILLINFESTATIONCHANCEFACTOR": "0.0",
+    "FRIENDLYFIRECHANCEFACTOR": "0.0",
+    "ALLOWINSTANTKILLCHANCE": "0.0",
+    "ALLOWTRAPS": "false",
+    "ALLOWTURRETS": "false",
+    "ALLOWMORTARS": "false",
+    "ADAPTATIONEFFECTFACTOR": "0.0",
+    "ADAPTATIONGROWTHRATEFACTOROVERZERO": "0.0",
+    "FIXEDWEALTHMODE": "false"
+  },
+  "ports": [
+    {
+      "role": "game",
+      "default": 25555,
+      "containerPort": 25555,
+      "protocol": "tcp",
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "configurationTabs": [
+    {
+      "id": "server",
+      "label": "Server",
+      "icon": "settings",
+      "order": 0
+    },
+    {
+      "id": "spielregeln",
+      "label": "Spielregeln",
+      "icon": "settings",
+      "order": 1
+    },
+    {
+      "id": "difficulty",
+      "label": "Difficulty",
+      "icon": "settings",
+      "order": 2
+    }
+  ],
+  "configurationFields": [
+    {
+      "id": "GAME_PORT",
+      "label": "Server Port",
+      "description": "",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.ServerPort",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "GAME_BIND",
+      "label": "Server IP Binding",
+      "description": "",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.LocalAddress",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "WORLD",
+      "label": "World Generation",
+      "description": "Follow [these instructions](https://openworldhelp.fandom.com/wiki/Creating_a_server#Generating_the_world) to generate a world for the server after it is first run",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "World",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVER_PASSWORD",
+      "label": "Serverpasswort",
+      "description": "Sets the password for players to join the server. Default is no password",
+      "tab": "server",
+      "section": "Server",
+      "type": "password",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": true,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.ServerPassword",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "PLAYERVERSION",
+      "label": "Player Version",
+      "description": "Sets the mod version players will use. Find this in the Open World [discord channel](https://discord.com/channels/992806266109964319/992881103071354890)",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "1.3",
+      "placeholder": "1.3",
+      "required": true,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.PlayerVersion",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SLOTS",
+      "label": "Spielerlimit",
+      "description": "Sets the maximum number of players that may connect to the server at one time",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "10",
+      "placeholder": "10",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.MaxPlayers",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "USEWHITELIST",
+      "label": "Enable Whitelist",
+      "description": "If enabled, allows only the usernames listed in Data/Whitelist.json to join the server",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.UseWhitelist",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ENFORCEMODS",
+      "label": "Enforce Mods",
+      "description": "If enabled, players will be forced to use the mods that have their DLLs in the \"Mods enforced\" directory. Otherwise, players can join with any mods they like",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.EnforceMods",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "USEMODBLACKLIST",
+      "label": "Use Mod Blacklist",
+      "description": "If enabled, mods that have their DLLs in the \"Mods blacklisted\" directory cannot be used. This setting is usually used when Enforce Mods is disabled",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.UseModBlacklist",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ALLOWCUSTOMSCENARIOS",
+      "label": "Allow Custom Scenarios",
+      "description": "If enabled, players will be allowed to create custom scenarios when creating their save on the server",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.AllowCustomScenarios",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "BACKUPINTERVALINHOURS",
+      "label": "Backup Interval",
+      "description": "Sets the time period between automatic backups",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "6.0",
+      "placeholder": "6.0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.BackUpIntervalInHours",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "DEVCONSOLE",
+      "label": "Enable Extra Console Logging",
+      "description": "If enabled, the server console will include additional logging output for developer or debugging purposes. Not recommended for normal use",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.DevConsole",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "RELEASEVERSION",
+      "label": "Server Release Version",
+      "description": "Sets the [server release version] (https://github.com/D12-Dev/OpenWorld/releases) to install. Empty = latest. Back up configuration and update the server!",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "",
+      "placeholder": "v1.0.4",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "ReleaseVersion",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "DOTNETVERSION",
+      "label": "Dotnet Version",
+      "description": "Sets the [ASP.NET Core Runtime 3.1 version](https://dotnet.microsoft.com/en-us/download/dotnet/3.1) to install. Empty = latest. Update the server after changing this setting",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "",
+      "placeholder": "3.1.32",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "DotnetVersion",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "BANKCASHPERTICK",
+      "label": "Bank Cash Per Tick",
+      "description": "Sets how much banks make every tick (banks tick every 10 minutes)",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "number",
+      "default": "50",
+      "placeholder": "50",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.BankCashPerTick",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "MAXIMUMCASHINBANKFORTICK",
+      "label": "Maximum Cash In Bank For Tick",
+      "description": "Sets the maximum amount of money that can be in the bank",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "number",
+      "default": "10000",
+      "placeholder": "10000",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.MaximumCashInBankForTick",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "RAIDCOST",
+      "label": "Raid Cost",
+      "description": "Sets the cost of initiating a raid event",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "number",
+      "default": "0",
+      "placeholder": "0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.RaidCost",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "INFESTATIONCOST",
+      "label": "Infestation Cost",
+      "description": "Sets the cost of triggering an infestation event",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "number",
+      "default": "0",
+      "placeholder": "0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.InfestationCost",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "MECHCLUSTERCOST",
+      "label": "Mech Cluster Cost",
+      "description": "Sets the cost of spawning a mech cluster",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "number",
+      "default": "0",
+      "placeholder": "0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.MechClusterCost",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "TOXICFALLOUTCOST",
+      "label": "Toxic Fallout Cost",
+      "description": "Sets the cost of initiating a toxic fallout event",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "number",
+      "default": "0",
+      "placeholder": "0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.ToxicFalloutCost",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "MANHUNTERCOST",
+      "label": "Manhunter Cost",
+      "description": "Sets the cost of triggering a manhunter pack event",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "number",
+      "default": "0",
+      "placeholder": "0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.ManhunterCost",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "WANDERERCOST",
+      "label": "Wanderer Cost",
+      "description": "Sets the cost of welcoming a wanderer",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "number",
+      "default": "0",
+      "placeholder": "0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.WandererCost",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "FARMANIMALSCOST",
+      "label": "Farm Animals Cost",
+      "description": "Sets the cost of receiving farm animals",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "number",
+      "default": "0",
+      "placeholder": "0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.FarmAnimalsCost",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "SHIPCHUNKCOST",
+      "label": "Ship Chunk Cost",
+      "description": "Sets the cost of sending a ship chunk",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "number",
+      "default": "0",
+      "placeholder": "0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.ShipChunkCost",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "GIVEQUESTCOST",
+      "label": "Give Quest Cost",
+      "description": "Sets the cost of giving a quest",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "number",
+      "default": "0",
+      "placeholder": "0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.GiveQuestCost",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "TRADERCARAVANCOST",
+      "label": "Trader Caravan Cost",
+      "description": "Sets the cost of sending a trader caravan",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "number",
+      "default": "0",
+      "placeholder": "0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.TraderCaravanCost",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "SILOCOST",
+      "label": "Silo Cost",
+      "description": "Sets the cost of building a silo",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "number",
+      "default": "0",
+      "placeholder": "0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.SiloCost",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "MARKETPLACECOST",
+      "label": "Marketplace Cost",
+      "description": "Sets the cost of establishing a marketplace",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "number",
+      "default": "0",
+      "placeholder": "0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.MarketplaceCost",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "PRODUCTIONSITECOST",
+      "label": "Production Site Cost",
+      "description": "Sets the cost of setting up a production site",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "number",
+      "default": "0",
+      "placeholder": "0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.ProductionSiteCost",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "WONDERCOST",
+      "label": "Wonder Structure Cost",
+      "description": "Sets the cost of constructing a wonder",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "number",
+      "default": "0",
+      "placeholder": "0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.WonderCost",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "BANKCOST",
+      "label": "Bank Cost",
+      "description": "Sets the cost of building a bank",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "number",
+      "default": "0",
+      "placeholder": "0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.BankCost",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "AEROPORTCOST",
+      "label": "Airport Cost",
+      "description": "Sets the cost of constructing an airport",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "number",
+      "default": "0",
+      "placeholder": "0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.AeroportCost",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "AEROPORTUSAGECOST",
+      "label": "Airport Usage Cost",
+      "description": "Sets the cost of using an airport",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "number",
+      "default": "0",
+      "placeholder": "0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.AeroportUsageCost",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "COURIERCOST",
+      "label": "Courier Cost",
+      "description": "Sets the cost of establishing a courier station",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "number",
+      "default": "0",
+      "placeholder": "0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.CourierCost",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "COURIERUSAGECOST",
+      "label": "Courier Usage Cost",
+      "description": "Sets the cost of using a courier service",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "number",
+      "default": "0",
+      "placeholder": "0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.CourierUsageCost",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "AIDUSAGECOST",
+      "label": "Aid Usage Cost",
+      "description": "Sets the cost of using aid",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "number",
+      "default": "0",
+      "placeholder": "0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.AidUsageCost",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "USECUSTOMDIFFICULTY",
+      "label": "Use Custom Difficulty",
+      "description": "If enabled, all players will be forced to use the following difficulty settings. Make sure you give a value to every setting, or it will be at 0%",
+      "tab": "difficulty",
+      "section": "Difficulty",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.UseCustomDifficulty",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "THREATSCALE",
+      "label": "Threat Scale",
+      "description": "Adjusts the size of threats like raids and infestations, and the difficulty of quests",
+      "tab": "difficulty",
+      "section": "Difficulty",
+      "type": "number",
+      "default": "0.0",
+      "placeholder": "0.0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.ThreatScale",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0,
+      "max": 5.0
+    },
+    {
+      "id": "ALLOWBIGTHREATS",
+      "label": "Allow Major Threats",
+      "description": "If set, allows major threats such as raids, infestations, manhunter packs, crashed mechanoid ships and more",
+      "tab": "difficulty",
+      "section": "Difficulty",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.AllowBigThreats",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ALLOWVIOLENTQUESTS",
+      "label": "Allow Quest Threats",
+      "description": "If set, allows quests to present with violent threats and challenges. Otherwise quests will be non-violent",
+      "tab": "difficulty",
+      "section": "Difficulty",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.AllowViolentQuests",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ALLOWINTROTHREATS",
+      "label": "Enable Intro Threats",
+      "description": "If set, enables the fixed intro threats that appear near game start",
+      "tab": "difficulty",
+      "section": "Difficulty",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.AllowIntroThreats",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "PREDATORSHUNTHUMANLIKES",
+      "label": "Allow Predators To Hunt Humans",
+      "description": "If set, allows wild predators to hunt humans",
+      "tab": "difficulty",
+      "section": "Difficulty",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.PredatorsHuntHumanlikes",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ALLOWEXTREMEWEATHERINCIDENTS",
+      "label": "Allow Extreme Weather Incidents",
+      "description": "If set, allows extreme weather incidents, such as toxic fallout, volcanic winters and flashstorms",
+      "tab": "difficulty",
+      "section": "Difficulty",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.AllowExtremeWeatherIncidents",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "CROPYIELDFACTOR",
+      "label": "Harvest Yield Factor",
+      "description": "Adjusts the amount of materials produced when harvesting plants and crops, including cutting trees",
+      "tab": "difficulty",
+      "section": "Difficulty",
+      "type": "number",
+      "default": "0.0",
+      "placeholder": "0.0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.CropYieldFactor",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0,
+      "max": 5.0
+    },
+    {
+      "id": "MINEYIELDFACTOR",
+      "label": "Mining Yield Factor",
+      "description": "Adjusts the amount of materials produced when mining",
+      "tab": "difficulty",
+      "section": "Difficulty",
+      "type": "number",
+      "default": "0.0",
+      "placeholder": "0.0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.MineYieldFactor",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0,
+      "max": 5.0
+    },
+    {
+      "id": "BUTCHERYIELDFACTOR",
+      "label": "Butchering Yield Factor",
+      "description": "Adjusts the amount of materials produced when butchering, including meat, leather, and yield from shredding mechanoids",
+      "tab": "difficulty",
+      "section": "Difficulty",
+      "type": "number",
+      "default": "0.0",
+      "placeholder": "0.0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.ButcherYieldFactor",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0,
+      "max": 5.0
+    },
+    {
+      "id": "RESEARCHSPEEDFACTOR",
+      "label": "Research Speed Factor",
+      "description": "Adjusts the speed of research",
+      "tab": "difficulty",
+      "section": "Difficulty",
+      "type": "number",
+      "default": "0.0",
+      "placeholder": "0.0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.ResearchSpeedFactor",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0,
+      "max": 5.0
+    },
+    {
+      "id": "QUESTREWARDVALUEFACTOR",
+      "label": "Quest Reward Factor",
+      "description": "Adjusts the value of rewards given for quests. Note that the quest reward value is also automatically scaled to compensate for the threat scale, and so this setting adds an additional multiplier",
+      "tab": "difficulty",
+      "section": "Difficulty",
+      "type": "number",
+      "default": "0.0",
+      "placeholder": "0.0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.QuestRewardValueFactor",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0,
+      "max": 5.0
+    },
+    {
+      "id": "RAIDLOOTPOINTSFACTOR",
+      "label": "Raid Loot Points Factor",
+      "description": "Adjusts the value of loot carried by raiders. Note that the raid loot value is also automatically scaled to compensate for the threat scale, and so this setting adds an additional multiplier",
+      "tab": "difficulty",
+      "section": "Difficulty",
+      "type": "number",
+      "default": "0.0",
+      "placeholder": "0.0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.RaidLootPointsFactor",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0,
+      "max": 5.0
+    },
+    {
+      "id": "TRADEPRICEFACTORLOSS",
+      "label": "Trade Price Factor Loss",
+      "description": "When trading, buy prices are increased by this amount while sell prices are reduced by this amount. Maximum 0.5",
+      "tab": "difficulty",
+      "section": "Difficulty",
+      "type": "number",
+      "default": "0.0",
+      "placeholder": "0.0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.TradePriceFactorLoss",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0,
+      "max": 1.0
+    },
+    {
+      "id": "MAINTENANCECOSTFACTOR",
+      "label": "Maintenance Cost Factor",
+      "description": "Adjusts the cost of rearming turrets. Minimum 0.01",
+      "tab": "difficulty",
+      "section": "Difficulty",
+      "type": "number",
+      "default": "1.0",
+      "placeholder": "1.0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.MaintenanceCostFactor",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0,
+      "max": 1.0
+    },
+    {
+      "id": "SCARIAROTCHANCE",
+      "label": "Scaria Rot Chance",
+      "description": "Sets the probability that a corpse will rot upon death, if the creature has the scaria disease",
+      "tab": "difficulty",
+      "section": "Difficulty",
+      "type": "number",
+      "default": "0.6",
+      "placeholder": "0.6",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.ScariaRotChance",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0,
+      "max": 1.0
+    },
+    {
+      "id": "ENEMYDEATHONDOWNEDCHANCEFACTOR",
+      "label": "Enemy Death On Downed Chance",
+      "description": "Adjusts the extra chance that an enemy will immediately die when downed. This affects the chances to take prisoners, and thus colony population growth rates",
+      "tab": "difficulty",
+      "section": "Difficulty",
+      "type": "number",
+      "default": "1.0",
+      "placeholder": "1.0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.EnemyDeathOnDownedChanceFactor",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0,
+      "max": 1.0
+    },
+    {
+      "id": "COLONISTMOODOFFSET",
+      "label": "Colonist Mood Offset",
+      "description": "Sets a permanent mood offset applied to every colonist and prisoner. Colonists have a base mood of 50%",
+      "tab": "difficulty",
+      "section": "Difficulty",
+      "type": "number",
+      "default": "0.0",
+      "placeholder": "0.0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.ColonistMoodOffset",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": -20.0,
+      "max": 20.0
+    },
+    {
+      "id": "FOODPOISONCHANCEFACTOR",
+      "label": "Food Poison Chance Factor",
+      "description": "Adjusts the chance that a person will get food poisoning from eating a potentially-poisoned meal",
+      "tab": "difficulty",
+      "section": "Difficulty",
+      "type": "number",
+      "default": "0.0",
+      "placeholder": "0.0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.FoodPoisonChanceFactor",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0,
+      "max": 5.0
+    },
+    {
+      "id": "MANHUNTERCHANCEONDAMAGEFACTOR",
+      "label": "Manhunter Chance On Damage Factor",
+      "description": "Adjusts the chance that injuring a wild animal will cause it to attack",
+      "tab": "difficulty",
+      "section": "Difficulty",
+      "type": "number",
+      "default": "0.0",
+      "placeholder": "0.0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.ManhunterChanceOnDamageFactor",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0,
+      "max": 5.0
+    },
+    {
+      "id": "PLAYERPAWNINFECTIONCHANCEFACTOR",
+      "label": "Player Pawn Infection Chance Factor",
+      "description": "Adjusts the chance that a wound will become infected",
+      "tab": "difficulty",
+      "section": "Difficulty",
+      "type": "number",
+      "default": "0.0",
+      "placeholder": "0.0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.PlayerPawnInfectionChanceFactor",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0,
+      "max": 5.0
+    },
+    {
+      "id": "DISEASEINTERVALFACTOR",
+      "label": "Disease Interval Factor",
+      "description": "Adjust the frequency of random disease events",
+      "tab": "difficulty",
+      "section": "Difficulty",
+      "type": "number",
+      "default": "0.0",
+      "placeholder": "0.0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.DiseaseIntervalFactor",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0,
+      "max": 5.0
+    },
+    {
+      "id": "DEEPDRILLINFESTATIONCHANCEFACTOR",
+      "label": "Deep Drill Infestation Chance Factor",
+      "description": "Adjust the chance of triggering an infestation when deep drilling",
+      "tab": "difficulty",
+      "section": "Difficulty",
+      "type": "number",
+      "default": "0.0",
+      "placeholder": "0.0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.DeepDrillInfestationChanceFactor",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0,
+      "max": 5.0
+    },
+    {
+      "id": "FRIENDLYFIRECHANCEFACTOR",
+      "label": "Friendly Fire Chance Factor",
+      "description": "Adjusts the chance of friendly fire. Only affects direct shots that were going to hit their target",
+      "tab": "difficulty",
+      "section": "Difficulty",
+      "type": "number",
+      "default": "0.0",
+      "placeholder": "0.0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.FriendlyFireChanceFactor",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0,
+      "max": 1.0
+    },
+    {
+      "id": "ALLOWINSTANTKILLCHANCE",
+      "label": "Allow Instant Kill Chance",
+      "description": "Adjusts the chance that a colonist can die instantly due to an attack, with the colonist being downed instead. Only prevents some kinds of instant kills",
+      "tab": "difficulty",
+      "section": "Difficulty",
+      "type": "number",
+      "default": "0.0",
+      "placeholder": "0.0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.AllowInstantKillChance",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0,
+      "max": 1.0
+    },
+    {
+      "id": "ALLOWTRAPS",
+      "label": "Allow Traps",
+      "description": "If set, players can build traps like spike traps and IED traps",
+      "tab": "difficulty",
+      "section": "Difficulty",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.AllowTraps",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ALLOWTURRETS",
+      "label": "Allow Turrets",
+      "description": "If set, players can build static turrets like mini-turrets, autocannon turrets, and uranium slug turrets",
+      "tab": "difficulty",
+      "section": "Difficulty",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.AllowTurrets",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ALLOWMORTARS",
+      "label": "Allow Mortars",
+      "description": "If set, players can build mortars",
+      "tab": "difficulty",
+      "section": "Difficulty",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.AllowMortars",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ADAPTATIONEFFECTFACTOR",
+      "label": "Adaptation Effect Factor",
+      "description": "Adjusts how much the adaptation score affects difficulty",
+      "tab": "difficulty",
+      "section": "Difficulty",
+      "type": "number",
+      "default": "0.0",
+      "placeholder": "0.0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.AdaptationEffectFactor",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0,
+      "max": 1.0
+    },
+    {
+      "id": "ADAPTATIONGROWTHRATEFACTOROVERZERO",
+      "label": "Adaptation Growth Rate Over Zero",
+      "description": "Adjusts how fast the adaptation score grows over time",
+      "tab": "difficulty",
+      "section": "Difficulty",
+      "type": "number",
+      "default": "0.0",
+      "placeholder": "0.0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.AdaptationGrowthRateFactorOverZero",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0,
+      "max": 1.0
+    },
+    {
+      "id": "FIXEDWEALTHMODE",
+      "label": "Fixed Wealth Mode",
+      "description": "If set, the server will operate in a wealth-independent progress mode, replacing the wealth factor with a fixed progress curve based on time",
+      "tab": "difficulty",
+      "section": "Difficulty",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.FixedWealthMode",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    }
+  ],
+  "configurationFiles": [
+    {
+      "path": "Data/Config.json",
+      "format": "json",
+      "lineFormat": "",
+      "bindings": [
+        {
+          "key": "ServerPort",
+          "variable": "{GAME_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "LocalAddress",
+          "variable": "{GAME_BIND}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "ServerPassword",
+          "variable": "{SERVER_PASSWORD}",
+          "section": "",
+          "type": "password"
+        },
+        {
+          "key": "PlayerVersion",
+          "variable": "{PLAYERVERSION}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "MaxPlayers",
+          "variable": "{SLOTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "UseWhitelist",
+          "variable": "{USEWHITELIST}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnforceMods",
+          "variable": "{ENFORCEMODS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "UseModBlacklist",
+          "variable": "{USEMODBLACKLIST}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowCustomScenarios",
+          "variable": "{ALLOWCUSTOMSCENARIOS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "BackUpIntervalInHours",
+          "variable": "{BACKUPINTERVALINHOURS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "DevConsole",
+          "variable": "{DEVCONSOLE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "BankCashPerTick",
+          "variable": "{BANKCASHPERTICK}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "MaximumCashInBankForTick",
+          "variable": "{MAXIMUMCASHINBANKFORTICK}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "RaidCost",
+          "variable": "{RAIDCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "InfestationCost",
+          "variable": "{INFESTATIONCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "MechClusterCost",
+          "variable": "{MECHCLUSTERCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ToxicFalloutCost",
+          "variable": "{TOXICFALLOUTCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ManhunterCost",
+          "variable": "{MANHUNTERCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "WandererCost",
+          "variable": "{WANDERERCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "FarmAnimalsCost",
+          "variable": "{FARMANIMALSCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ShipChunkCost",
+          "variable": "{SHIPCHUNKCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "GiveQuestCost",
+          "variable": "{GIVEQUESTCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "TraderCaravanCost",
+          "variable": "{TRADERCARAVANCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "SiloCost",
+          "variable": "{SILOCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "MarketplaceCost",
+          "variable": "{MARKETPLACECOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ProductionSiteCost",
+          "variable": "{PRODUCTIONSITECOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "WonderCost",
+          "variable": "{WONDERCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "BankCost",
+          "variable": "{BANKCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AeroportCost",
+          "variable": "{AEROPORTCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AeroportUsageCost",
+          "variable": "{AEROPORTUSAGECOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "CourierCost",
+          "variable": "{COURIERCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "CourierUsageCost",
+          "variable": "{COURIERUSAGECOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AidUsageCost",
+          "variable": "{AIDUSAGECOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "UseCustomDifficulty",
+          "variable": "{USECUSTOMDIFFICULTY}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "ThreatScale",
+          "variable": "{THREATSCALE}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AllowBigThreats",
+          "variable": "{ALLOWBIGTHREATS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowViolentQuests",
+          "variable": "{ALLOWVIOLENTQUESTS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowIntroThreats",
+          "variable": "{ALLOWINTROTHREATS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "PredatorsHuntHumanlikes",
+          "variable": "{PREDATORSHUNTHUMANLIKES}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowExtremeWeatherIncidents",
+          "variable": "{ALLOWEXTREMEWEATHERINCIDENTS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "CropYieldFactor",
+          "variable": "{CROPYIELDFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "MineYieldFactor",
+          "variable": "{MINEYIELDFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ButcherYieldFactor",
+          "variable": "{BUTCHERYIELDFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ResearchSpeedFactor",
+          "variable": "{RESEARCHSPEEDFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "QuestRewardValueFactor",
+          "variable": "{QUESTREWARDVALUEFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "RaidLootPointsFactor",
+          "variable": "{RAIDLOOTPOINTSFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "TradePriceFactorLoss",
+          "variable": "{TRADEPRICEFACTORLOSS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "MaintenanceCostFactor",
+          "variable": "{MAINTENANCECOSTFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ScariaRotChance",
+          "variable": "{SCARIAROTCHANCE}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "EnemyDeathOnDownedChanceFactor",
+          "variable": "{ENEMYDEATHONDOWNEDCHANCEFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ColonistMoodOffset",
+          "variable": "{COLONISTMOODOFFSET}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "FoodPoisonChanceFactor",
+          "variable": "{FOODPOISONCHANCEFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ManhunterChanceOnDamageFactor",
+          "variable": "{MANHUNTERCHANCEONDAMAGEFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "PlayerPawnInfectionChanceFactor",
+          "variable": "{PLAYERPAWNINFECTIONCHANCEFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "DiseaseIntervalFactor",
+          "variable": "{DISEASEINTERVALFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "DeepDrillInfestationChanceFactor",
+          "variable": "{DEEPDRILLINFESTATIONCHANCEFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "FriendlyFireChanceFactor",
+          "variable": "{FRIENDLYFIRECHANCEFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AllowInstantKillChance",
+          "variable": "{ALLOWINSTANTKILLCHANCE}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AllowTraps",
+          "variable": "{ALLOWTRAPS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowTurrets",
+          "variable": "{ALLOWTURRETS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowMortars",
+          "variable": "{ALLOWMORTARS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AdaptationEffectFactor",
+          "variable": "{ADAPTATIONEFFECTFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AdaptationGrowthRateFactorOverZero",
+          "variable": "{ADAPTATIONGROWTHRATEFACTOROVERZERO}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "FixedWealthMode",
+          "variable": "{FIXEDWEALTHMODE}",
+          "section": "",
+          "type": "checkbox"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    },
+    {
+      "path": "Data/Deep Config.json",
+      "format": "json",
+      "lineFormat": "",
+      "bindings": [
+        {
+          "key": "ServerPort",
+          "variable": "{GAME_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "LocalAddress",
+          "variable": "{GAME_BIND}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "ServerPassword",
+          "variable": "{SERVER_PASSWORD}",
+          "section": "",
+          "type": "password"
+        },
+        {
+          "key": "PlayerVersion",
+          "variable": "{PLAYERVERSION}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "MaxPlayers",
+          "variable": "{SLOTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "UseWhitelist",
+          "variable": "{USEWHITELIST}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnforceMods",
+          "variable": "{ENFORCEMODS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "UseModBlacklist",
+          "variable": "{USEMODBLACKLIST}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowCustomScenarios",
+          "variable": "{ALLOWCUSTOMSCENARIOS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "BackUpIntervalInHours",
+          "variable": "{BACKUPINTERVALINHOURS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "DevConsole",
+          "variable": "{DEVCONSOLE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "BankCashPerTick",
+          "variable": "{BANKCASHPERTICK}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "MaximumCashInBankForTick",
+          "variable": "{MAXIMUMCASHINBANKFORTICK}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "RaidCost",
+          "variable": "{RAIDCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "InfestationCost",
+          "variable": "{INFESTATIONCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "MechClusterCost",
+          "variable": "{MECHCLUSTERCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ToxicFalloutCost",
+          "variable": "{TOXICFALLOUTCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ManhunterCost",
+          "variable": "{MANHUNTERCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "WandererCost",
+          "variable": "{WANDERERCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "FarmAnimalsCost",
+          "variable": "{FARMANIMALSCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ShipChunkCost",
+          "variable": "{SHIPCHUNKCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "GiveQuestCost",
+          "variable": "{GIVEQUESTCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "TraderCaravanCost",
+          "variable": "{TRADERCARAVANCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "SiloCost",
+          "variable": "{SILOCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "MarketplaceCost",
+          "variable": "{MARKETPLACECOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ProductionSiteCost",
+          "variable": "{PRODUCTIONSITECOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "WonderCost",
+          "variable": "{WONDERCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "BankCost",
+          "variable": "{BANKCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AeroportCost",
+          "variable": "{AEROPORTCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AeroportUsageCost",
+          "variable": "{AEROPORTUSAGECOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "CourierCost",
+          "variable": "{COURIERCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "CourierUsageCost",
+          "variable": "{COURIERUSAGECOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AidUsageCost",
+          "variable": "{AIDUSAGECOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "UseCustomDifficulty",
+          "variable": "{USECUSTOMDIFFICULTY}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "ThreatScale",
+          "variable": "{THREATSCALE}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AllowBigThreats",
+          "variable": "{ALLOWBIGTHREATS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowViolentQuests",
+          "variable": "{ALLOWVIOLENTQUESTS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowIntroThreats",
+          "variable": "{ALLOWINTROTHREATS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "PredatorsHuntHumanlikes",
+          "variable": "{PREDATORSHUNTHUMANLIKES}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowExtremeWeatherIncidents",
+          "variable": "{ALLOWEXTREMEWEATHERINCIDENTS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "CropYieldFactor",
+          "variable": "{CROPYIELDFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "MineYieldFactor",
+          "variable": "{MINEYIELDFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ButcherYieldFactor",
+          "variable": "{BUTCHERYIELDFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ResearchSpeedFactor",
+          "variable": "{RESEARCHSPEEDFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "QuestRewardValueFactor",
+          "variable": "{QUESTREWARDVALUEFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "RaidLootPointsFactor",
+          "variable": "{RAIDLOOTPOINTSFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "TradePriceFactorLoss",
+          "variable": "{TRADEPRICEFACTORLOSS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "MaintenanceCostFactor",
+          "variable": "{MAINTENANCECOSTFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ScariaRotChance",
+          "variable": "{SCARIAROTCHANCE}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "EnemyDeathOnDownedChanceFactor",
+          "variable": "{ENEMYDEATHONDOWNEDCHANCEFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ColonistMoodOffset",
+          "variable": "{COLONISTMOODOFFSET}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "FoodPoisonChanceFactor",
+          "variable": "{FOODPOISONCHANCEFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ManhunterChanceOnDamageFactor",
+          "variable": "{MANHUNTERCHANCEONDAMAGEFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "PlayerPawnInfectionChanceFactor",
+          "variable": "{PLAYERPAWNINFECTIONCHANCEFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "DiseaseIntervalFactor",
+          "variable": "{DISEASEINTERVALFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "DeepDrillInfestationChanceFactor",
+          "variable": "{DEEPDRILLINFESTATIONCHANCEFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "FriendlyFireChanceFactor",
+          "variable": "{FRIENDLYFIRECHANCEFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AllowInstantKillChance",
+          "variable": "{ALLOWINSTANTKILLCHANCE}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AllowTraps",
+          "variable": "{ALLOWTRAPS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowTurrets",
+          "variable": "{ALLOWTURRETS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowMortars",
+          "variable": "{ALLOWMORTARS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AdaptationEffectFactor",
+          "variable": "{ADAPTATIONEFFECTFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AdaptationGrowthRateFactorOverZero",
+          "variable": "{ADAPTATIONGROWTHRATEFACTOROVERZERO}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "FixedWealthMode",
+          "variable": "{FIXEDWEALTHMODE}",
+          "section": "",
+          "type": "checkbox"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    },
+    {
+      "path": "Data/Values.json",
+      "format": "json",
+      "lineFormat": "",
+      "bindings": [
+        {
+          "key": "ServerPort",
+          "variable": "{GAME_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "LocalAddress",
+          "variable": "{GAME_BIND}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "ServerPassword",
+          "variable": "{SERVER_PASSWORD}",
+          "section": "",
+          "type": "password"
+        },
+        {
+          "key": "PlayerVersion",
+          "variable": "{PLAYERVERSION}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "MaxPlayers",
+          "variable": "{SLOTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "UseWhitelist",
+          "variable": "{USEWHITELIST}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnforceMods",
+          "variable": "{ENFORCEMODS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "UseModBlacklist",
+          "variable": "{USEMODBLACKLIST}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowCustomScenarios",
+          "variable": "{ALLOWCUSTOMSCENARIOS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "BackUpIntervalInHours",
+          "variable": "{BACKUPINTERVALINHOURS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "DevConsole",
+          "variable": "{DEVCONSOLE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "BankCashPerTick",
+          "variable": "{BANKCASHPERTICK}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "MaximumCashInBankForTick",
+          "variable": "{MAXIMUMCASHINBANKFORTICK}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "RaidCost",
+          "variable": "{RAIDCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "InfestationCost",
+          "variable": "{INFESTATIONCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "MechClusterCost",
+          "variable": "{MECHCLUSTERCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ToxicFalloutCost",
+          "variable": "{TOXICFALLOUTCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ManhunterCost",
+          "variable": "{MANHUNTERCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "WandererCost",
+          "variable": "{WANDERERCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "FarmAnimalsCost",
+          "variable": "{FARMANIMALSCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ShipChunkCost",
+          "variable": "{SHIPCHUNKCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "GiveQuestCost",
+          "variable": "{GIVEQUESTCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "TraderCaravanCost",
+          "variable": "{TRADERCARAVANCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "SiloCost",
+          "variable": "{SILOCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "MarketplaceCost",
+          "variable": "{MARKETPLACECOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ProductionSiteCost",
+          "variable": "{PRODUCTIONSITECOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "WonderCost",
+          "variable": "{WONDERCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "BankCost",
+          "variable": "{BANKCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AeroportCost",
+          "variable": "{AEROPORTCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AeroportUsageCost",
+          "variable": "{AEROPORTUSAGECOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "CourierCost",
+          "variable": "{COURIERCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "CourierUsageCost",
+          "variable": "{COURIERUSAGECOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AidUsageCost",
+          "variable": "{AIDUSAGECOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "UseCustomDifficulty",
+          "variable": "{USECUSTOMDIFFICULTY}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "ThreatScale",
+          "variable": "{THREATSCALE}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AllowBigThreats",
+          "variable": "{ALLOWBIGTHREATS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowViolentQuests",
+          "variable": "{ALLOWVIOLENTQUESTS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowIntroThreats",
+          "variable": "{ALLOWINTROTHREATS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "PredatorsHuntHumanlikes",
+          "variable": "{PREDATORSHUNTHUMANLIKES}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowExtremeWeatherIncidents",
+          "variable": "{ALLOWEXTREMEWEATHERINCIDENTS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "CropYieldFactor",
+          "variable": "{CROPYIELDFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "MineYieldFactor",
+          "variable": "{MINEYIELDFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ButcherYieldFactor",
+          "variable": "{BUTCHERYIELDFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ResearchSpeedFactor",
+          "variable": "{RESEARCHSPEEDFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "QuestRewardValueFactor",
+          "variable": "{QUESTREWARDVALUEFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "RaidLootPointsFactor",
+          "variable": "{RAIDLOOTPOINTSFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "TradePriceFactorLoss",
+          "variable": "{TRADEPRICEFACTORLOSS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "MaintenanceCostFactor",
+          "variable": "{MAINTENANCECOSTFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ScariaRotChance",
+          "variable": "{SCARIAROTCHANCE}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "EnemyDeathOnDownedChanceFactor",
+          "variable": "{ENEMYDEATHONDOWNEDCHANCEFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ColonistMoodOffset",
+          "variable": "{COLONISTMOODOFFSET}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "FoodPoisonChanceFactor",
+          "variable": "{FOODPOISONCHANCEFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ManhunterChanceOnDamageFactor",
+          "variable": "{MANHUNTERCHANCEONDAMAGEFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "PlayerPawnInfectionChanceFactor",
+          "variable": "{PLAYERPAWNINFECTIONCHANCEFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "DiseaseIntervalFactor",
+          "variable": "{DISEASEINTERVALFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "DeepDrillInfestationChanceFactor",
+          "variable": "{DEEPDRILLINFESTATIONCHANCEFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "FriendlyFireChanceFactor",
+          "variable": "{FRIENDLYFIRECHANCEFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AllowInstantKillChance",
+          "variable": "{ALLOWINSTANTKILLCHANCE}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AllowTraps",
+          "variable": "{ALLOWTRAPS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowTurrets",
+          "variable": "{ALLOWTURRETS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowMortars",
+          "variable": "{ALLOWMORTARS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AdaptationEffectFactor",
+          "variable": "{ADAPTATIONEFFECTFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AdaptationGrowthRateFactorOverZero",
+          "variable": "{ADAPTATIONGROWTHRATEFACTOROVERZERO}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "FixedWealthMode",
+          "variable": "{FIXEDWEALTHMODE}",
+          "section": "",
+          "type": "checkbox"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    },
+    {
+      "path": "Data/Difficulty.json",
+      "format": "json",
+      "lineFormat": "",
+      "bindings": [
+        {
+          "key": "ServerPort",
+          "variable": "{GAME_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "LocalAddress",
+          "variable": "{GAME_BIND}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "ServerPassword",
+          "variable": "{SERVER_PASSWORD}",
+          "section": "",
+          "type": "password"
+        },
+        {
+          "key": "PlayerVersion",
+          "variable": "{PLAYERVERSION}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "MaxPlayers",
+          "variable": "{SLOTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "UseWhitelist",
+          "variable": "{USEWHITELIST}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnforceMods",
+          "variable": "{ENFORCEMODS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "UseModBlacklist",
+          "variable": "{USEMODBLACKLIST}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowCustomScenarios",
+          "variable": "{ALLOWCUSTOMSCENARIOS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "BackUpIntervalInHours",
+          "variable": "{BACKUPINTERVALINHOURS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "DevConsole",
+          "variable": "{DEVCONSOLE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "BankCashPerTick",
+          "variable": "{BANKCASHPERTICK}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "MaximumCashInBankForTick",
+          "variable": "{MAXIMUMCASHINBANKFORTICK}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "RaidCost",
+          "variable": "{RAIDCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "InfestationCost",
+          "variable": "{INFESTATIONCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "MechClusterCost",
+          "variable": "{MECHCLUSTERCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ToxicFalloutCost",
+          "variable": "{TOXICFALLOUTCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ManhunterCost",
+          "variable": "{MANHUNTERCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "WandererCost",
+          "variable": "{WANDERERCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "FarmAnimalsCost",
+          "variable": "{FARMANIMALSCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ShipChunkCost",
+          "variable": "{SHIPCHUNKCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "GiveQuestCost",
+          "variable": "{GIVEQUESTCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "TraderCaravanCost",
+          "variable": "{TRADERCARAVANCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "SiloCost",
+          "variable": "{SILOCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "MarketplaceCost",
+          "variable": "{MARKETPLACECOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ProductionSiteCost",
+          "variable": "{PRODUCTIONSITECOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "WonderCost",
+          "variable": "{WONDERCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "BankCost",
+          "variable": "{BANKCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AeroportCost",
+          "variable": "{AEROPORTCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AeroportUsageCost",
+          "variable": "{AEROPORTUSAGECOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "CourierCost",
+          "variable": "{COURIERCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "CourierUsageCost",
+          "variable": "{COURIERUSAGECOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AidUsageCost",
+          "variable": "{AIDUSAGECOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "UseCustomDifficulty",
+          "variable": "{USECUSTOMDIFFICULTY}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "ThreatScale",
+          "variable": "{THREATSCALE}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AllowBigThreats",
+          "variable": "{ALLOWBIGTHREATS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowViolentQuests",
+          "variable": "{ALLOWVIOLENTQUESTS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowIntroThreats",
+          "variable": "{ALLOWINTROTHREATS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "PredatorsHuntHumanlikes",
+          "variable": "{PREDATORSHUNTHUMANLIKES}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowExtremeWeatherIncidents",
+          "variable": "{ALLOWEXTREMEWEATHERINCIDENTS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "CropYieldFactor",
+          "variable": "{CROPYIELDFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "MineYieldFactor",
+          "variable": "{MINEYIELDFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ButcherYieldFactor",
+          "variable": "{BUTCHERYIELDFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ResearchSpeedFactor",
+          "variable": "{RESEARCHSPEEDFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "QuestRewardValueFactor",
+          "variable": "{QUESTREWARDVALUEFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "RaidLootPointsFactor",
+          "variable": "{RAIDLOOTPOINTSFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "TradePriceFactorLoss",
+          "variable": "{TRADEPRICEFACTORLOSS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "MaintenanceCostFactor",
+          "variable": "{MAINTENANCECOSTFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ScariaRotChance",
+          "variable": "{SCARIAROTCHANCE}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "EnemyDeathOnDownedChanceFactor",
+          "variable": "{ENEMYDEATHONDOWNEDCHANCEFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ColonistMoodOffset",
+          "variable": "{COLONISTMOODOFFSET}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "FoodPoisonChanceFactor",
+          "variable": "{FOODPOISONCHANCEFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ManhunterChanceOnDamageFactor",
+          "variable": "{MANHUNTERCHANCEONDAMAGEFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "PlayerPawnInfectionChanceFactor",
+          "variable": "{PLAYERPAWNINFECTIONCHANCEFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "DiseaseIntervalFactor",
+          "variable": "{DISEASEINTERVALFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "DeepDrillInfestationChanceFactor",
+          "variable": "{DEEPDRILLINFESTATIONCHANCEFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "FriendlyFireChanceFactor",
+          "variable": "{FRIENDLYFIRECHANCEFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AllowInstantKillChance",
+          "variable": "{ALLOWINSTANTKILLCHANCE}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AllowTraps",
+          "variable": "{ALLOWTRAPS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowTurrets",
+          "variable": "{ALLOWTURRETS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowMortars",
+          "variable": "{ALLOWMORTARS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AdaptationEffectFactor",
+          "variable": "{ADAPTATIONEFFECTFACTOR}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AdaptationGrowthRateFactorOverZero",
+          "variable": "{ADAPTATIONGROWTHRATEFACTOROVERZERO}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "FixedWealthMode",
+          "variable": "{FIXEDWEALTHMODE}",
+          "section": "",
+          "type": "checkbox"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    }
+  ],
+  "deploymentSteps": [
+    {
+      "name": "Create Dotnet Directory",
+      "type": "directory",
+      "phase": "install",
+      "platform": "all",
+      "source": "",
+      "target": "dotnet",
+      "arguments": "{SERVER_DIR}/dotnet",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Create Data Directory",
+      "type": "directory",
+      "phase": "install",
+      "platform": "all",
+      "source": "",
+      "target": "Data",
+      "arguments": "{SERVER_DIR}/Data",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "ASP.NET Core Runtime Download",
+      "type": "archive",
+      "phase": "install",
+      "platform": "linux",
+      "source": "dotnet.tar.gz",
+      "target": "",
+      "arguments": "0",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "ASP.NET Core Runtime Download",
+      "type": "archive",
+      "phase": "install",
+      "platform": "linux",
+      "source": "dotnet.tar.gz",
+      "target": "",
+      "arguments": "0",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "ASP.NET Core Runtime Download",
+      "type": "command",
+      "phase": "install",
+      "platform": "windows",
+      "source": "powershell.exe",
+      "target": "",
+      "arguments": "-NoProfile -Command \"$ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; $DotnetVersion='{DOTNETVERSION}'; Set-Location -Path '{SERVER_DIR}/'; if (Test-Path 'dotnet/dotnet.exe') { $InstalledVersion = (& dotnet/dotnet.exe --list-runtimes | Where-Object { $_ -like 'Microsoft.AspNetCore.App*' } | Select-Object -First 1).Split()[1] } else { $InstalledVersion = '' }; if ( [string]::IsNullOrWhiteSpace($DotnetVersion) ) { $DotnetVersion=(Invoke-RestMethod -UseBasicParsing -Uri https://builds.dotnet.microsoft.com/dotnet/release-metadata/3.1/releases.json).\\\"latest-runtime\\\" }; if ($DotnetVersion -notmatch '^\\d+\\.\\d+\\.\\d+$') { Write-Output \\\"Invalid ASP.NET Core Runtime version format specified\\\"; exit 1 } elseif ( $InstalledVersion -eq $DotnetVersion ) { Write-Output \\\"ASP.NET Core Runtime v$DotnetVersion already installed. Skipping\\\"; exit 0 } else { if ( Test-Path dotnet.zip ) { Remove-Item dotnet.zip -Force -ErrorAction SilentlyContinue *> $null }; try { Invoke-WebRequest -UseBasicParsing -Uri https://builds.dotnet.microsoft.com/dotnet/aspnetcore/Runtime/$DotnetVersion/aspnetcore-runtime-$DotnetVersion-win-x64.zip -OutFile dotnet.zip -ErrorAction Stop } catch { Write-Output \\\"Download failed from the Microsoft CDN. This is a fault with the CDN, not GSCS. Aborting\\\"; exit 1; }; Remove-Item -Path 'dotnet/*' -Recurse -Force -ErrorAction SilentlyContinue; Expand-Archive -Path \\\"dotnet.zip\\\" -DestinationPath \\\"dotnet\\\" -Force *> $null; if ( Test-Path dotnet.zip ) { Remove-Item dotnet.zip -Force -ErrorAction SilentlyContinue *> $null }; Write-Output \\\"ASP.NET Core Runtime v$DotnetVersion downloaded\\\" }\"",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Open World Download",
+      "type": "github-extract",
+      "phase": "install",
+      "platform": "windows",
+      "source": "D12-Dev/OpenWorld",
+      "target": "",
+      "arguments": "win-x64.zip",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": false
+    },
+    {
+      "name": "Open World Download",
+      "type": "github-extract",
+      "phase": "install",
+      "platform": "linux",
+      "source": "D12-Dev/OpenWorld",
+      "target": "",
+      "arguments": "linux-x64.zip",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": false
+    },
+    {
+      "name": "Open World Download",
+      "type": "github-extract",
+      "phase": "install",
+      "platform": "linux",
+      "source": "D12-Dev/OpenWorld",
+      "target": "",
+      "arguments": "linux-arm64.zip",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": false
+    },
+    {
+      "name": "Move Server Files",
+      "type": "command",
+      "phase": "install",
+      "platform": "windows",
+      "source": "cmd.exe",
+      "target": "",
+      "arguments": "/C xcopy /E /Y /I win-x64\\*  > NUL 2>&1 && rmdir /Q /S win-x64\\ > NUL 2>&1",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Config.json File Download",
+      "type": "file",
+      "phase": "install",
+      "platform": "all",
+      "source": "{\n  \"LocalAddress\": \"0.0.0.0\",\n  \"ServerPort\": 25555,\n  \"ServerPassword\": \"\",\n  \"MaxPlayers\": 10,\n  \"PlayerVersion\": \"1.3\",\n  \"BackUpIntervalInHours\": 6.0,\n  \"EnforceMods\": false,\n  \"DevConsole\": false,\n  \"UseModBlacklist\": false,\n  \"UseCustomDifficulty\": false,\n  \"UseWhitelist\": false,\n  \"AllowCustomScenarios\": false\n}",
+      "target": "Data/Config.json",
+      "arguments": "Config.json",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    }
+  ],
+  "authenticationRequirements": [],
+  "environment": {
+    "SteamAppId": "294100",
+    "DOTNET_ROOT": "{SERVER_DIR}/dotnet",
+    "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT": "1"
+  },
+  "linuxPackages": [],
+  "warnings": [],
+  "validationStatus": "ready",
+  "preferredRuntime": "native",
+  "noCommercialUsage": false,
+  "workingDirectory": "",
+  "executables": {
+    "windows": "OpenWorldServer.exe",
+    "linux": "OpenWorldServer"
+  },
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "windowsOnly": false,
+  "platformWorkingDirectories": {
+    "windows": "",
+    "linux": ""
+  },
+  "platformArguments": {
+    "windows": [
+      "{FORMATTED_ARGS}"
+    ],
+    "linux": [
+      "{FORMATTED_ARGS}"
+    ]
+  },
+  "arguments": [
+    "{FORMATTED_ARGS}"
+  ],
+  "stopCommand": "shutdown",
+  "query": "none"
+}

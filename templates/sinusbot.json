@@ -1,0 +1,444 @@
+{
+  "id": "sinusbot",
+  "name": "SinusBot",
+  "version": "1.1.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/sinusbot.json",
+  "sourceRef": "main",
+  "steamAppId": null,
+  "steamGameAppId": null,
+  "website": "https://sinusbot.com",
+  "image": "ghcr.io/zumbyte-appsolution/gscs:0.1.0-alpha.2",
+  "defaults": {
+    "YOUTUBEDLPATH": "./yt-dlp/yt-dlp",
+    "DATADIR": "./data"
+  },
+  "ports": [
+    {
+      "role": "game",
+      "default": 9087,
+      "containerPort": 9087,
+      "protocol": "tcp",
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "configurationTabs": [
+    {
+      "id": "bot",
+      "label": "Bot",
+      "icon": "settings",
+      "order": 0
+    }
+  ],
+  "configurationFields": [
+    {
+      "id": "GAME_PORT",
+      "label": "Listen Port",
+      "description": "",
+      "tab": "bot",
+      "section": "Bot",
+      "type": "number",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "ListenPort",
+      "parameterFormat": "--{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "GAME_BIND",
+      "label": "Listen Host",
+      "description": "",
+      "tab": "bot",
+      "section": "Bot",
+      "type": "text",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "ListenHost",
+      "parameterFormat": "--{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "YOUTUBEDLPATH",
+      "label": "YoutubeDL Path",
+      "description": "",
+      "tab": "bot",
+      "section": "Bot",
+      "type": "text",
+      "default": "./yt-dlp/yt-dlp",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "YoutubeDLPath",
+      "parameterFormat": "--{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "DATADIR",
+      "label": "Data Dir",
+      "description": "",
+      "tab": "bot",
+      "section": "Bot",
+      "type": "text",
+      "default": "./data",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "DataDir",
+      "parameterFormat": "--{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "BOTMODE",
+      "label": "Bot Mode",
+      "description": "Sets whether to run SinusBot for Discord only, or for both Discord and TeamSpeak 3/6. Delete the 'data' directory and update the server after selecting 'Discord + TeamSpeak 3/6'",
+      "tab": "bot",
+      "section": "Bot",
+      "type": "enum",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {
+        "": "Discord only",
+        "./TeamSpeak3-Client-linux_amd64/ts3client_linux_amd64": "Discord + TeamSpeak 3/6"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "TS3Path",
+      "parameterFormat": "--{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "OVERRIDE_PASSWORD",
+      "label": "Custom Admin Password",
+      "description": "Sets a custom admin password to log in to SinusBot. This will override the default random password that SinusBot generates and displays on first start",
+      "tab": "bot",
+      "section": "Bot",
+      "type": "password",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": true,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "override-password",
+      "parameterFormat": "--{0}=\"{1}\"",
+      "includeInArguments": true,
+      "isFlag": false,
+      "skipIfEmpty": true
+    }
+  ],
+  "configurationFiles": [
+    {
+      "path": "config.ini",
+      "format": "ini",
+      "lineFormat": "{0} = \"{1}\"",
+      "bindings": [
+        {
+          "key": "ListenPort",
+          "variable": "{GAME_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ListenHost",
+          "variable": "{GAME_BIND}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "YoutubeDLPath",
+          "variable": "{YOUTUBEDLPATH}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "DataDir",
+          "variable": "{DATADIR}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "TS3Path",
+          "variable": "{BOTMODE}",
+          "section": "",
+          "type": "enum"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    },
+    {
+      "path": "config.ini",
+      "format": "ini",
+      "lineFormat": "{0} = {1}",
+      "bindings": [
+        {
+          "key": "ListenPort",
+          "variable": "{GAME_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ListenHost",
+          "variable": "{GAME_BIND}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "YoutubeDLPath",
+          "variable": "{YOUTUBEDLPATH}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "DataDir",
+          "variable": "{DATADIR}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "TS3Path",
+          "variable": "{BOTMODE}",
+          "section": "",
+          "type": "enum"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    }
+  ],
+  "deploymentSteps": [
+    {
+      "name": "Create Text-To-Speech Directory",
+      "type": "directory",
+      "phase": "install",
+      "platform": "linux",
+      "source": "",
+      "target": "tts",
+      "arguments": "{SERVER_DIR}/tts",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Create Text-To-Speech Download Directory",
+      "type": "directory",
+      "phase": "install",
+      "platform": "linux",
+      "source": "",
+      "target": "tts/download",
+      "arguments": "{SERVER_DIR}/tts/download",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Create yt-dlp Directory",
+      "type": "directory",
+      "phase": "install",
+      "platform": "linux",
+      "source": "",
+      "target": "yt-dlp",
+      "arguments": "{SERVER_DIR}/yt-dlp",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Download SinusBot",
+      "type": "download-extract",
+      "phase": "install",
+      "platform": "linux",
+      "source": "https://michael.frie.se/sinusbot-1.1f-amd64.tar.bz2",
+      "target": "",
+      "arguments": "",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": false
+    },
+    {
+      "name": "Download Text-To-Speech",
+      "type": "download-extract",
+      "phase": "install",
+      "platform": "linux",
+      "source": "https://chromium.googlesource.com/chromiumos/platform/assets/+archive/master/speech_synthesis/patts.tar.gz",
+      "target": "tts/download",
+      "arguments": "",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": false
+    },
+    {
+      "name": "Install Text-To-Speech",
+      "type": "archive",
+      "phase": "install",
+      "platform": "linux",
+      "source": "tts_service_x86_64.nexe.zip",
+      "target": "",
+      "arguments": "0",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Download yt-dlp",
+      "type": "download",
+      "phase": "install",
+      "platform": "linux",
+      "source": "https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp",
+      "target": "yt-dlp",
+      "arguments": "",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": false
+    },
+    {
+      "name": "Download TeamSpeak 3 Client",
+      "type": "json-download",
+      "phase": "install",
+      "platform": "linux",
+      "source": "https://teamspeak.com/versions/client.json",
+      "target": "",
+      "arguments": "$['linux']['x86_64']['mirrors']['teamspeak.com']",
+      "conditionVariable": "BOTMODE",
+      "conditionValue": "./TeamSpeak3-Client-linux_amd64/ts3client_linux_amd64",
+      "optional": false,
+      "preserveExisting": false
+    },
+    {
+      "name": "Config.ini Download",
+      "type": "file",
+      "phase": "install",
+      "platform": "linux",
+      "source": "TS3Path = \"\"\nListenHost = \"0.0.0.0\"\nDataDir = \"./data\"\nListenPort = 9087\nLocalPlayback = false\nEnableLocalFS = false\nMaxBulkOperations = 0\nLogLevel = 0\nEnableProfiler = false\nYoutubeDLPath = \"./yt-dlp/yt-dlp\"\nEnableDebugConsole = false\nEnableInternalCommands = false\nAllowStreamPush = false\nUploadLimit = 83886080\nRunAsUser = 0\nRunAsGroup = 0\nExternalFileBase = \"\"\nInstanceActionLimit = 0\nUseSSL = false\nSSLKeyFile = \"\"\nSSLCertFile = \"\"\nHostname = \"\"\nHostnameMask = \"\"\nSampleInterval = 0\nStartVNC = false\nEnableWebStream = false\nLogFile = \"\"\nLicenseKey = \"\"\nIsProxied = false\nDenyStreamURLs = []\nPragma = 0\nUserAgent = \"\"\n\n[YoutubeDL]\n  BufferSize = 0\n  MaxDownloadSize = 0\n  MaxDownloadRate = 0\n  MaxSimultaneousChunkDownloads = 0\n  CacheStreamed = false\n  TimeoutSingleDownloader = 0\n  TimeoutMultiDownloader = 0\n  ChunkSize = 0\n\n[TS3]\n  AvatarMaxWidth = 0\n  AvatarMaxHeight = 0\n  AllowGIF = false\n\n[StreamRewrites]\n\n[Scripts]\n  Debug = false\n  AllowReload = false\n  EnableTimer = false\n  DisableLegacyEvents = false\n  DevMode = false\n  ScriptTimeout = 5\n\n[Themes]\n  Default = \"\"\n\n[SpeechRecognition]\n  Enable = false\n\n[FFmpeg]\n  UserAgent = \"\"\n  WaitTime = 0\n\n[DAV]\n  Enable = false\n\n[XServer]\n  Delay = 0\n  Debug = false\n\n[SHMem]\n  Enable = false\n  Size = 0\n  Delay = 0\n  Interval = 0\n\n[RadioStations]\n  URL = \"\"\n  UpdateInterval = 0\n\n[TTS]\n  Enabled = false\n\n  [[TTS.Modules]]\n    Locale = \"en-US\"\n    Filename = \"voice_lstm_en-US.zvoice\"\n    PipelineFile = \"voice_lstm_en-US/sfg/pipeline\"\n    Prefix = \"voice_lstm_en-US/sfg/\"\n    Instances = 2\n\n  [[TTS.Modules]]\n    Locale = \"de-DE\"\n    Filename = \"voice_lstm_de-DE.zvoice\"\n    PipelineFile = \"voice_lstm_de-DE/nfh/pipeline\"\n    Prefix = \"voice_lstm_de-DE/nfh/\" \n    Instances = 2",
+      "target": "config.ini",
+      "arguments": "config.ini",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Make Binaries Executable",
+      "type": "command",
+      "phase": "install",
+      "platform": "linux",
+      "source": "/bin/bash",
+      "target": "",
+      "arguments": "-c \"cd . && chmod 755 sinusbot yt-dlp/yt-dlp\"",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Update and Clear yt-dlp",
+      "type": "command",
+      "phase": "start",
+      "platform": "linux",
+      "source": "/bin/bash",
+      "target": "",
+      "arguments": "-c \"cd . && ./yt-dlp/yt-dlp --restrict-filename -U >/dev/null 2>&1 && ./yt-dlp/yt-dlp --rm-cache-dir >/dev/null 2>&1\"",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    }
+  ],
+  "authenticationRequirements": [],
+  "environment": {},
+  "linuxPackages": [],
+  "warnings": [],
+  "validationStatus": "ready",
+  "preferredRuntime": "native",
+  "noCommercialUsage": false,
+  "workingDirectory": "",
+  "executables": {
+    "linux": "sinusbot"
+  },
+  "operatingSystems": [
+    "linux"
+  ],
+  "windowsOnly": false,
+  "platformWorkingDirectories": {
+    "windows": "",
+    "linux": ""
+  },
+  "platformArguments": {
+    "windows": [
+      "{FORMATTED_ARGS}"
+    ],
+    "linux": [
+      "{FORMATTED_ARGS}"
+    ]
+  },
+  "arguments": [
+    "{FORMATTED_ARGS}"
+  ],
+  "stopCommand": "stop",
+  "query": "none"
+}

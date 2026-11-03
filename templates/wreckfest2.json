@@ -1,0 +1,307 @@
+{
+  "id": "wreckfest2",
+  "name": "Wreckfest 2",
+  "version": "1.1.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/wreckfest2.json",
+  "sourceRef": "main",
+  "steamAppId": 3519390,
+  "steamGameAppId": 1203190,
+  "website": "https://wreckfest2.thqnordic.com/",
+  "image": "ghcr.io/zumbyte-appsolution/gscs:0.1.0-alpha.2",
+  "defaults": {
+    "NET_SERVER_CONFIG_DESCRIPTION": "Welcome to my server!"
+  },
+  "ports": [
+    {
+      "role": "game",
+      "default": 30100,
+      "containerPort": 30100,
+      "protocol": "udp",
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "configurationTabs": [
+    {
+      "id": "server",
+      "label": "Server",
+      "icon": "settings",
+      "order": 0
+    },
+    {
+      "id": "laufzeit",
+      "label": "Laufzeit",
+      "icon": "settings",
+      "order": 1
+    }
+  ],
+  "configurationFields": [
+    {
+      "id": "GAME_PORT",
+      "label": "Game Port",
+      "description": "",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$['net server config'][0]['game port']",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVER_NAME",
+      "label": "Servername",
+      "description": "Sets the name of the server displayed in the server list",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "{SERVER_NAME}",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$['net server config'][0]['name']",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NET_SERVER_CONFIG_DESCRIPTION",
+      "label": "Serverbeschreibung",
+      "description": "Sets the description of the server displayed in the server list",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "Welcome to my server!",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$['net server config'][0]['description']",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NET_SERVER_CONFIG_PASSWORD",
+      "label": "Serverpasswort",
+      "description": "Sets the password required to join the server. Default is no password",
+      "tab": "server",
+      "section": "Server",
+      "type": "password",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": true,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$['net server config'][0]['password']",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SPECIFICRELEASEVERSION",
+      "label": "Proton GE Release Version (Linux)",
+      "description": "Sets the Proton GE [release version](https://github.com/GloriousEggroll/proton-ge-custom/releases) to install. Empty = latest. Example: GE-Proton9-1",
+      "tab": "laufzeit",
+      "section": "Laufzeit",
+      "type": "text",
+      "default": "",
+      "placeholder": "GE-Proton9-1",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "SpecificReleaseVersion",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    }
+  ],
+  "configurationFiles": [
+    {
+      "path": "server_data/server_config.scnf",
+      "format": "json",
+      "lineFormat": "",
+      "bindings": [
+        {
+          "key": "$['net server config'][0]['game port']",
+          "variable": "{GAME_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "$['net server config'][0]['name']",
+          "variable": "{SERVER_NAME}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "$['net server config'][0]['description']",
+          "variable": "{NET_SERVER_CONFIG_DESCRIPTION}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "$['net server config'][0]['password']",
+          "variable": "{NET_SERVER_CONFIG_PASSWORD}",
+          "section": "",
+          "type": "password"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": false,
+      "platform": "all"
+    }
+  ],
+  "deploymentSteps": [
+    {
+      "name": "SteamCMD Download",
+      "type": "steam",
+      "phase": "install",
+      "platform": "all",
+      "source": "3519390",
+      "target": "",
+      "arguments": "public",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Server_data Directory Creation",
+      "type": "directory",
+      "phase": "install",
+      "platform": "all",
+      "source": "",
+      "target": "server_data",
+      "arguments": "{SERVER_DIR}/server_data",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Server_config.scnf Download",
+      "type": "file",
+      "phase": "install",
+      "platform": "all",
+      "source": "{\n    \"bbmeta\": \"scnf v0 n1\",\n    \"net server config\": [\n        {\n            \"bbmeta\": \"ncnf v1 n1\",\n            \"name\": \"GSCS Wreckfest 2 Server\",\n            \"description\": \"Welcome to my server!\",\n            \"password\": \"\",\n            \"game port\": 30100\n        }\n    ],\n    \"game server config\": [\n        {\n            \"bbmeta\": \"gcnf v2 n1\",\n            \"event loop name\": \"default_loop\",\n            \"countdown time\": 100000,\n            \"flags\": \"leader enabled\"\n        }\n    ]\n}",
+      "target": "server_data/server_config.scnf",
+      "arguments": "server_config.scnf",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Server_privilege.sprv Download",
+      "type": "file",
+      "phase": "install",
+      "platform": "all",
+      "source": "{\n    \"bbmeta\": \"sprv v0 n1\",\n    \"roles\": [],\n    \"bans\": []\n}",
+      "target": "server_data/server_privilege.sprv",
+      "arguments": "server_privilege.sprv",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Proton GE Download",
+      "type": "archive",
+      "phase": "install",
+      "platform": "linux",
+      "source": "GE-Proton.tar.gz",
+      "target": "",
+      "arguments": "1",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    }
+  ],
+  "authenticationRequirements": [],
+  "environment": {
+    "SteamAppId": "3519390",
+    "HOME": "{SERVER_DIR}/"
+  },
+  "linuxPackages": [],
+  "warnings": [],
+  "validationStatus": "ready",
+  "preferredRuntime": "proton",
+  "noCommercialUsage": false,
+  "workingDirectory": "",
+  "executables": {
+    "windows": "Wreckfest2.exe"
+  },
+  "operatingSystems": [
+    "windows"
+  ],
+  "windowsOnly": true,
+  "minimumRuntime": "proton",
+  "platformWorkingDirectories": {
+    "windows": "",
+    "linux": ""
+  },
+  "platformArguments": {
+    "windows": [
+      "--server",
+      "--save-dir=.\\server_data",
+      "{FORMATTED_ARGS}"
+    ],
+    "linux": [
+      "--server",
+      "--save-dir=.\\server_data",
+      "{FORMATTED_ARGS}"
+    ]
+  },
+  "arguments": [
+    "--server",
+    "--save-dir=.\\server_data",
+    "{FORMATTED_ARGS}"
+  ],
+  "stopCommand": "exit",
+  "query": "source"
+}

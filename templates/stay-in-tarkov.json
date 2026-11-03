@@ -1,0 +1,621 @@
+{
+  "id": "stay-in-tarkov",
+  "name": "Stay In Tarkov",
+  "version": "1.1.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/stay-in-tarkov.json",
+  "sourceRef": "main",
+  "steamAppId": null,
+  "steamGameAppId": null,
+  "website": "https://github.com/stayintarkov/SIT.Aki-Server-Mod",
+  "image": "ghcr.io/zumbyte-appsolution/gscs:0.1.0-alpha.2",
+  "defaults": {
+    "SPTVERSION": "3.8.3-29197-01783e2",
+    "SITVERSION": "1.6.5/SITCoop-1.6.5-WithAki3.8.3-449288",
+    "OPENALLEXFILS": "false",
+    "SHOWPLAYERNAMETAGS": "false",
+    "SHOWPLAYERNAMETAGSONLYWHENVISIBLE": "false",
+    "USEUPNP": "false"
+  },
+  "ports": [
+    {
+      "role": "game",
+      "default": 6969,
+      "containerPort": 6969,
+      "protocol": "tcp",
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "tcp_relay",
+      "default": 6970,
+      "containerPort": 6970,
+      "protocol": "tcp",
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "tcp_nat_helper",
+      "default": 6971,
+      "containerPort": 6971,
+      "protocol": "tcp",
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "configurationTabs": [
+    {
+      "id": "server",
+      "label": "Server",
+      "icon": "settings",
+      "order": 0
+    }
+  ],
+  "configurationFields": [
+    {
+      "id": "GAME_PORT",
+      "label": "Game Port",
+      "description": "",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.port",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "TCP_RELAY_PORT",
+      "label": "TCP Relay Port",
+      "description": "",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.webSocketPort",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "TCP_NAT_HELPER_PORT",
+      "label": "TCP NAT Helper Port",
+      "description": "",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.natHelperPort",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "GAME_BIND",
+      "label": "Binding IP",
+      "description": "",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.ip",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SPTVERSION",
+      "label": "SPT AKI Version",
+      "description": "Sets the SPT AKI version to install. The SIT Version must be set accordingly. Example: When 3.8.0 is selected, you can use '1.6.4 with AKI 3.8.0' as the SIT Version",
+      "tab": "server",
+      "section": "Server",
+      "type": "enum",
+      "default": "3.8.3-29197-01783e2",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {
+        "3.8.0-29197-2dd4d91": "3.8.0",
+        "3.8.3-29197-01783e2": "3.8.3"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "SPTVersion",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SITVERSION",
+      "label": "SIT Version",
+      "description": "Sets the SIT version to install. The AKI version must match the SPT AKI Version. Example: When '1.6.4 with AKI 3.8.0' is selected, you must set 3.8.0 as the SPT AKI Version",
+      "tab": "server",
+      "section": "Server",
+      "type": "enum",
+      "default": "1.6.5/SITCoop-1.6.5-WithAki3.8.3-449288",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {
+        "1.6.4/SITCoop-1.6.4-WithAki3.8.0-2dd4d9": "1.6.4 with AKI 3.8.0",
+        "1.6.5/SITCoop-1.6.5-WithAki3.8.3-449288": "1.6.5 with AKI 3.8.3"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "SITVersion",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "OPENALLEXFILS",
+      "label": "Open All Exfils",
+      "description": "If set, all exfils will be available during the raid",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.openAllExfils",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SHOWPLAYERNAMETAGS",
+      "label": "Show Player Tags",
+      "description": "If set, player nameplates will show above their head",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.showPlayerNameTags",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SHOWPLAYERNAMETAGSONLYWHENVISIBLE",
+      "label": "Show Player Tags When Visible",
+      "description": "If set, player nameplates will only show when they are in view",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.showPlayerNameTagsOnlyWhenVisible",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "USEUPNP",
+      "label": "Use UPnP",
+      "description": "If set, enables the use of UPnP for port forwarding with compatible routers",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.useUPNP",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    }
+  ],
+  "configurationFiles": [
+    {
+      "path": "Aki_Data/Server/configs/http.json",
+      "format": "json",
+      "lineFormat": "",
+      "bindings": [
+        {
+          "key": "port",
+          "variable": "{GAME_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "webSocketPort",
+          "variable": "{TCP_RELAY_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "natHelperPort",
+          "variable": "{TCP_NAT_HELPER_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ip",
+          "variable": "{GAME_BIND}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "openAllExfils",
+          "variable": "{OPENALLEXFILS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "showPlayerNameTags",
+          "variable": "{SHOWPLAYERNAMETAGS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "showPlayerNameTagsOnlyWhenVisible",
+          "variable": "{SHOWPLAYERNAMETAGSONLYWHENVISIBLE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "useUPNP",
+          "variable": "{USEUPNP}",
+          "section": "",
+          "type": "checkbox"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    },
+    {
+      "path": "user/mods/SITCoop/config/coopConfig.json",
+      "format": "json",
+      "lineFormat": "",
+      "bindings": [
+        {
+          "key": "port",
+          "variable": "{GAME_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "webSocketPort",
+          "variable": "{TCP_RELAY_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "natHelperPort",
+          "variable": "{TCP_NAT_HELPER_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ip",
+          "variable": "{GAME_BIND}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "openAllExfils",
+          "variable": "{OPENALLEXFILS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "showPlayerNameTags",
+          "variable": "{SHOWPLAYERNAMETAGS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "showPlayerNameTagsOnlyWhenVisible",
+          "variable": "{SHOWPLAYERNAMETAGSONLYWHENVISIBLE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "useUPNP",
+          "variable": "{USEUPNP}",
+          "section": "",
+          "type": "checkbox"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    },
+    {
+      "path": "user/mods/SITCoop/config/SITConfig.json",
+      "format": "json",
+      "lineFormat": "",
+      "bindings": [
+        {
+          "key": "port",
+          "variable": "{GAME_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "webSocketPort",
+          "variable": "{TCP_RELAY_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "natHelperPort",
+          "variable": "{TCP_NAT_HELPER_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ip",
+          "variable": "{GAME_BIND}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "openAllExfils",
+          "variable": "{OPENALLEXFILS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "showPlayerNameTags",
+          "variable": "{SHOWPLAYERNAMETAGS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "showPlayerNameTagsOnlyWhenVisible",
+          "variable": "{SHOWPLAYERNAMETAGSONLYWHENVISIBLE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "useUPNP",
+          "variable": "{USEUPNP}",
+          "section": "",
+          "type": "checkbox"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    }
+  ],
+  "deploymentSteps": [
+    {
+      "name": "7-Zip Directory Creation",
+      "type": "directory",
+      "phase": "install",
+      "platform": "all",
+      "source": "",
+      "target": "7-Zip",
+      "arguments": "{SERVER_DIR}/7-Zip",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "7-Zip Download",
+      "type": "download",
+      "phase": "install",
+      "platform": "windows",
+      "source": "https://www.7-zip.org/a/7zr.exe",
+      "target": "7-Zip",
+      "arguments": "",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "7-Zip Download",
+      "type": "download",
+      "phase": "install",
+      "platform": "linux",
+      "source": "https://www.7-zip.org/a/7z2301-linux-x64.tar.xz",
+      "target": "7-Zip",
+      "arguments": "",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": false
+    },
+    {
+      "name": "7-Zip Files Extract",
+      "type": "archive",
+      "phase": "install",
+      "platform": "linux",
+      "source": "7z2301-linux-x64.tar.xz",
+      "target": "",
+      "arguments": "0",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Download SPT AKI",
+      "type": "download",
+      "phase": "install",
+      "platform": "all",
+      "source": "https://spt-releases.modd.in/SPT-{SPTVERSION}.7z",
+      "target": "",
+      "arguments": "",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": false
+    },
+    {
+      "name": "SIT Server Mod Download",
+      "type": "download-extract",
+      "phase": "install",
+      "platform": "windows",
+      "source": "https://github.com/stayintarkov/SIT.Aki-Server-Mod/releases/download/{SITVERSION}-win.zip",
+      "target": "",
+      "arguments": "",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": false
+    },
+    {
+      "name": "SIT Server Mod Download",
+      "type": "download-extract",
+      "phase": "install",
+      "platform": "linux",
+      "source": "https://github.com/stayintarkov/SIT.Aki-Server-Mod/releases/download/{SITVERSION}-linux.tar.gz",
+      "target": "",
+      "arguments": "",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": false
+    },
+    {
+      "name": "Make SIT Server Executable",
+      "type": "executable",
+      "phase": "install",
+      "platform": "linux",
+      "source": "",
+      "target": "Aki.Server.exe",
+      "arguments": "{SERVER_DIR}/Aki.Server.exe",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    }
+  ],
+  "authenticationRequirements": [],
+  "environment": {},
+  "linuxPackages": [],
+  "warnings": [],
+  "validationStatus": "ready",
+  "preferredRuntime": "native",
+  "noCommercialUsage": true,
+  "workingDirectory": "",
+  "executables": {
+    "windows": "Aki.Server.exe",
+    "linux": "Aki.Server.exe"
+  },
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "windowsOnly": false,
+  "platformWorkingDirectories": {
+    "windows": "",
+    "linux": ""
+  },
+  "platformArguments": {
+    "windows": [
+      "{FORMATTED_ARGS}"
+    ],
+    "linux": [
+      "{FORMATTED_ARGS}"
+    ]
+  },
+  "arguments": [
+    "{FORMATTED_ARGS}"
+  ],
+  "stopCommand": "exit",
+  "query": "none"
+}

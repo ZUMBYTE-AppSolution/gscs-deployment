@@ -1,0 +1,320 @@
+{
+  "id": "nightingale",
+  "name": "Nightingale",
+  "version": "1.1.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/nightingale.json",
+  "sourceRef": "main",
+  "steamAppId": 3796810,
+  "steamGameAppId": 1928980,
+  "website": "",
+  "image": "ghcr.io/zumbyte-appsolution/gscs:0.1.0-alpha.2",
+  "defaults": {
+    "STARTINGDIFFICULTY": "easy",
+    "SERVERBRANCH": "public"
+  },
+  "ports": [
+    {
+      "role": "game",
+      "default": 7777,
+      "containerPort": 7777,
+      "protocol": "udp",
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "status",
+      "default": 7778,
+      "containerPort": 7778,
+      "protocol": "tcp",
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "configurationTabs": [
+    {
+      "id": "server",
+      "label": "Server",
+      "icon": "settings",
+      "order": 0
+    },
+    {
+      "id": "steam-downloads",
+      "label": "Steam Downloads",
+      "icon": "settings",
+      "order": 1
+    }
+  ],
+  "configurationFields": [
+    {
+      "id": "STARTINGDIFFICULTY",
+      "label": "Starting Map Difficulty",
+      "description": "Sets the starting map difficulty for the very first map, if one is not supplied from an imported character",
+      "tab": "server",
+      "section": "Server",
+      "type": "enum",
+      "default": "easy",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {
+        "easy": "Easy (default)",
+        "medium": "Medium",
+        "hard": "Hard",
+        "extreme": "Extreme"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "/Script/NWX.NWXServerSettings.StartingDifficulty",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "PASSWORD",
+      "label": "Serverpasswort",
+      "description": "Sets the password required for players to join the server. Default is no password",
+      "tab": "server",
+      "section": "Server",
+      "type": "password",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": true,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "/Script/NWX.NWXServerSettings.Password",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ADMINPASSWORD",
+      "label": "Administratorpasswort",
+      "description": "Sets the password that allows players to authenticate in-game to kick and ban other players. Default is no password, which disables the functionality",
+      "tab": "server",
+      "section": "Server",
+      "type": "password",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": true,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "/Script/NWX.NWXServerSettings.AdminPassword",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ENABLECHEATS",
+      "label": "Enable Cheats",
+      "description": "If set, cheats will be enabled on the server",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": true,
+      "options": {},
+      "trueValue": "-EnableCheats ",
+      "falseValue": "",
+      "parameter": "EnableCheats",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SLOTS",
+      "label": "Spielerlimit",
+      "description": "Sets the maximum number of players allowed on the server at one time. Warning: increasing the maximum above 6 is unsupported and may result in unintended behaviour",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "6",
+      "placeholder": "6",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "MaxPlayers",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 1.0
+    },
+    {
+      "id": "SERVERBRANCH",
+      "label": "Serverversion",
+      "description": "Sets the server branch to install. Update the server after switching branches",
+      "tab": "steam-downloads",
+      "section": "Steam Downloads",
+      "type": "enum",
+      "default": "public",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {
+        "public": "Public (default)",
+        "public-test-realm": "Test branch (public-test-realm)"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "ServerBranch",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    }
+  ],
+  "configurationFiles": [
+    {
+      "path": "NWX/Config/ServerSettings.ini",
+      "format": "ini",
+      "lineFormat": "",
+      "bindings": [
+        {
+          "key": "MaxPlayers",
+          "variable": "{SLOTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ServerBranch",
+          "variable": "{SERVERBRANCH}",
+          "section": "",
+          "type": "enum"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": false,
+      "platform": "all"
+    }
+  ],
+  "deploymentSteps": [
+    {
+      "name": "Server Download",
+      "type": "steam",
+      "phase": "install",
+      "platform": "all",
+      "source": "3796810",
+      "target": "",
+      "arguments": "{SERVERBRANCH}",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "ExampleServerSettings.ini Copy",
+      "type": "copy",
+      "phase": "install",
+      "platform": "all",
+      "source": "NWX/Config/ExampleServerSettings.ini",
+      "target": "NWX/Config/ServerSettings.ini",
+      "arguments": "{SERVER_DIR}/NWX/Config/ExampleServerSettings.ini",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": true,
+      "preserveExisting": true
+    }
+  ],
+  "authenticationRequirements": [],
+  "environment": {
+    "LD_LIBRARY_PATH": "{SERVER_DIR}/linux64:%LD_LIBRARY_PATH%",
+    "SteamAppId": "3796810"
+  },
+  "linuxPackages": [],
+  "warnings": [],
+  "validationStatus": "ready",
+  "preferredRuntime": "native",
+  "noCommercialUsage": false,
+  "workingDirectory": "",
+  "executables": {
+    "windows": "NWX/Binaries/Win64/NWXServer-Win64-Shipping.exe",
+    "linux": "NWX/Binaries/Linux/NWXServer-Linux-Shipping"
+  },
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "windowsOnly": false,
+  "platformWorkingDirectories": {
+    "windows": "",
+    "linux": ""
+  },
+  "platformArguments": {
+    "windows": [
+      "NWX",
+      "-port={GAME_PORT}",
+      "-statusPort={STATUS_PORT}",
+      "-multihome={GAME_BIND}",
+      "-ini:Engine:[HTTPServer.Listeners]:+ListenerOverrides=(Port={STATUS_PORT},BindAddress={GAME_BIND})",
+      "-ini:Game:[/Script/Engine.GameSession]:MaxPlayers={SLOTS}",
+      "-ini:ServerSettings:[/Script/NWX.NWXServerSettings]:StartingDifficulty={STARTINGDIFFICULTY}",
+      "{FORMATTED_ARGS}",
+      "{ENABLECHEATS}-stdout",
+      "-FullStdOutLogOutput"
+    ],
+    "linux": [
+      "NWX",
+      "-port={GAME_PORT}",
+      "-statusPort={STATUS_PORT}",
+      "-multihome={GAME_BIND}",
+      "-ini:Engine:[HTTPServer.Listeners]:+ListenerOverrides=(Port={STATUS_PORT},BindAddress={GAME_BIND})",
+      "-ini:Game:[/Script/Engine.GameSession]:MaxPlayers={SLOTS}",
+      "-ini:ServerSettings:[/Script/NWX.NWXServerSettings]:StartingDifficulty={STARTINGDIFFICULTY}",
+      "{FORMATTED_ARGS}",
+      "{ENABLECHEATS}-stdout",
+      "-FullStdOutLogOutput"
+    ]
+  },
+  "arguments": [
+    "NWX",
+    "-port={GAME_PORT}",
+    "-statusPort={STATUS_PORT}",
+    "-multihome={GAME_BIND}",
+    "-ini:Engine:[HTTPServer.Listeners]:+ListenerOverrides=(Port={STATUS_PORT},BindAddress={GAME_BIND})",
+    "-ini:Game:[/Script/Engine.GameSession]:MaxPlayers={SLOTS}",
+    "-ini:ServerSettings:[/Script/NWX.NWXServerSettings]:StartingDifficulty={STARTINGDIFFICULTY}",
+    "{FORMATTED_ARGS}",
+    "{ENABLECHEATS}-stdout",
+    "-FullStdOutLogOutput"
+  ],
+  "stopCommand": "exit",
+  "query": "source"
+}

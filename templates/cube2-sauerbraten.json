@@ -1,0 +1,563 @@
+{
+  "id": "cube2-sauerbraten",
+  "name": "Cube 2: Sauerbraten",
+  "version": "1.1.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/cube2-sauerbraten.json",
+  "sourceRef": "main",
+  "steamAppId": null,
+  "steamGameAppId": null,
+  "website": "http://sauerbraten.org/",
+  "image": "ghcr.io/zumbyte-appsolution/gscs:0.1.0-alpha.2",
+  "defaults": {
+    "SERVERDESC": "GSCS Sauerbraten Server",
+    "SERVERMOTD": "Welcome to the server!",
+    "PUBLICSERVER": "0",
+    "UPDATEMASTER": "1",
+    "SERVERBOTLIMIT": "8"
+  },
+  "ports": [
+    {
+      "role": "game",
+      "default": 28785,
+      "containerPort": 28785,
+      "protocol": "udp",
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "ping",
+      "default": 28786,
+      "containerPort": 28786,
+      "protocol": "udp",
+      "offsetFromRole": "game",
+      "offset": 1
+    }
+  ],
+  "configurationTabs": [
+    {
+      "id": "server",
+      "label": "Server",
+      "icon": "settings",
+      "order": 0
+    }
+  ],
+  "configurationFields": [
+    {
+      "id": "GAME_PORT",
+      "label": "Server Port",
+      "description": "",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "serverport",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "GAME_BIND",
+      "label": "Server IP",
+      "description": "",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "serverip",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVERDESC",
+      "label": "Serverbeschreibung",
+      "description": "Sets the server description shown in the server browser. Keep it short or it may be truncated",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "GSCS Sauerbraten Server",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "serverdesc",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVERMOTD",
+      "label": "Server Message of the Day",
+      "description": "Sets an optional message of the day to send to players on connect",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "Welcome to the server!",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "servermotd",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "PUBLICSERVER",
+      "label": "Public Server Status",
+      "description": "Sets whether or not the server is intended for 'public' use",
+      "tab": "server",
+      "section": "Server",
+      "type": "enum",
+      "default": "0",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {
+        "0": "Allow 'setmaster 1' and locked/private mastermodes (default)",
+        "1": "Only gain master by 'auth' or admin, and disallow locked/private mastermodes",
+        "2": "Allow 'setmaster 1' but disallow private mastermode"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "publicserver",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "UPDATEMASTER",
+      "label": "Update Master Server",
+      "description": "If set, the server will report to the master server",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "1",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "1",
+      "falseValue": "0",
+      "parameter": "updatemaster",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVERPASS",
+      "label": "Serverpasswort",
+      "description": "Sets the password required to connect to the server. Default is no password",
+      "tab": "server",
+      "section": "Server",
+      "type": "password",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": true,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "serverpass",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ADMINPASS",
+      "label": "Administratorpasswort",
+      "description": "Sets the password that allows a player to gain admin by using 'setmaster password_here' in-game. Local auth keys are more secure and preferred",
+      "tab": "server",
+      "section": "Server",
+      "type": "password",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": true,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "adminpass",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SLOTS",
+      "label": "Spielerlimit",
+      "description": "Sets the maximum number of players allowed on the server at one time",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "8",
+      "placeholder": "8",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "maxclients",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVERBOTLIMIT",
+      "label": "Bot Limit",
+      "description": "Sets the maximum number of bots a master can add. Admins are unaffected by this limit. 0 = disallow bots",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "8",
+      "placeholder": "8",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "serverbotlimit",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVERAUTH",
+      "label": "Server Auth Domain",
+      "description": "Sets the domain to use for local authkeys to the server to allow authentication by 'auth domain_here'. Should be unique to the server to prevent clashes with other servers",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "serverauth",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    }
+  ],
+  "configurationFiles": [
+    {
+      "path": "server-init.cfg",
+      "format": "space",
+      "lineFormat": "{0} \"{1}\"",
+      "bindings": [
+        {
+          "key": "serverport",
+          "variable": "{GAME_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "serverip",
+          "variable": "{GAME_BIND}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "serverdesc",
+          "variable": "{SERVERDESC}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "servermotd",
+          "variable": "{SERVERMOTD}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "publicserver",
+          "variable": "{PUBLICSERVER}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "updatemaster",
+          "variable": "{UPDATEMASTER}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "serverpass",
+          "variable": "{SERVERPASS}",
+          "section": "",
+          "type": "password"
+        },
+        {
+          "key": "adminpass",
+          "variable": "{ADMINPASS}",
+          "section": "",
+          "type": "password"
+        },
+        {
+          "key": "maxclients",
+          "variable": "{SLOTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "serverbotlimit",
+          "variable": "{SERVERBOTLIMIT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "serverauth",
+          "variable": "{SERVERAUTH}",
+          "section": "",
+          "type": "text"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    },
+    {
+      "path": "server-init.cfg",
+      "format": "space",
+      "lineFormat": "{0} {1}",
+      "bindings": [
+        {
+          "key": "serverport",
+          "variable": "{GAME_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "serverip",
+          "variable": "{GAME_BIND}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "serverdesc",
+          "variable": "{SERVERDESC}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "servermotd",
+          "variable": "{SERVERMOTD}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "publicserver",
+          "variable": "{PUBLICSERVER}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "updatemaster",
+          "variable": "{UPDATEMASTER}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "serverpass",
+          "variable": "{SERVERPASS}",
+          "section": "",
+          "type": "password"
+        },
+        {
+          "key": "adminpass",
+          "variable": "{ADMINPASS}",
+          "section": "",
+          "type": "password"
+        },
+        {
+          "key": "maxclients",
+          "variable": "{SLOTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "serverbotlimit",
+          "variable": "{SERVERBOTLIMIT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "serverauth",
+          "variable": "{SERVERAUTH}",
+          "section": "",
+          "type": "text"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    }
+  ],
+  "deploymentSteps": [
+    {
+      "name": "Server-init.cfg Backup",
+      "type": "copy",
+      "phase": "install",
+      "platform": "all",
+      "source": "server-init.cfg",
+      "target": "server-init.cfg.bak",
+      "arguments": "{SERVER_DIR}/server-init.cfg",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": true,
+      "preserveExisting": false
+    },
+    {
+      "name": "Server Installation",
+      "type": "command",
+      "phase": "install",
+      "platform": "windows",
+      "source": "powershell.exe",
+      "target": "",
+      "arguments": "-NoProfile -Command \"$ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Set-Location -Path 'sauerbraten'; Write-Output \\\"Installing/updating server\\\"; Invoke-WebRequest -UseBasicParsing -UserAgent \\\"Wget/1.21.4\\\" -Uri 'https://sourceforge.net/projects/sauerbraten/files/latest/download' -OutFile 'sauerbraten.exe'; if ($?) { & './sauerbraten.exe' /S \\\"/D={SERVER_DIR}/\\\\\" *> $null; if ($LASTEXITCODE -eq 0) { Write-Output \\\"Server installed/updated\\\"; Remove-Item -Path 'sauerbraten.exe' -Force -ErrorAction SilentlyContinue | Out-Null } }\"",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Server Installation",
+      "type": "archive",
+      "phase": "install",
+      "platform": "linux",
+      "source": "sauerbraten.tar.bz2",
+      "target": "",
+      "arguments": "1",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Server-init.cfg Restore",
+      "type": "copy",
+      "phase": "install",
+      "platform": "all",
+      "source": "server-init.cfg.bak",
+      "target": "server-init.cfg",
+      "arguments": "{SERVER_DIR}/server-init.cfg.bak",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": true,
+      "preserveExisting": false
+    }
+  ],
+  "authenticationRequirements": [],
+  "environment": {},
+  "linuxPackages": [],
+  "warnings": [],
+  "validationStatus": "ready",
+  "preferredRuntime": "native",
+  "noCommercialUsage": false,
+  "workingDirectory": "",
+  "executables": {
+    "windows": "bin64/sauerbraten.exe",
+    "linux": "bin_unix/linux_64_server"
+  },
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "windowsOnly": false,
+  "platformWorkingDirectories": {
+    "windows": "",
+    "linux": ""
+  },
+  "platformArguments": {
+    "windows": [
+      "-d",
+      "-q{SERVER_DIR}/",
+      "{FORMATTED_ARGS}"
+    ],
+    "linux": [
+      "-q{SERVER_DIR}/",
+      "{FORMATTED_ARGS}"
+    ]
+  },
+  "arguments": [
+    "-q{SERVER_DIR}/",
+    "{FORMATTED_ARGS}"
+  ],
+  "stopCommand": "stop",
+  "query": "none"
+}

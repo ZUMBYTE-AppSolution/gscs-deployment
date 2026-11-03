@@ -1,0 +1,5692 @@
+{
+  "id": "pumpkin",
+  "name": "Pumpkin",
+  "version": "1.1.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/pumpkin.json",
+  "sourceRef": "main",
+  "steamAppId": null,
+  "steamGameAppId": null,
+  "website": "https://pumpkinmc.org/",
+  "image": "ghcr.io/zumbyte-appsolution/gscs:0.1.0-alpha.2",
+  "defaults": {
+    "JAVA_EDITION_ADDRESS": "{GAME_BIND}:{GAME_PORT}",
+    "BEDROCK_EDITION_ADDRESS": "{GAME_BIND}:{BEDROCK_EDITION_PORT}",
+    "QUERY_ADDRESS": "{GAME_BIND}:{GAME_PORT}",
+    "RCON_ADDRESS": "{GAME_BIND}:{RCON_PORT}",
+    "LINEAR_VERSION": "V1",
+    "LOGGING_COLOR": "false",
+    "COMMANDS_USE_TTY": "false",
+    "MOTD": "A blazingly fast Pumpkin server!",
+    "DEFAULT_LEVEL_NAME": "world",
+    "JAVA_EDITION": "true",
+    "BEDROCK_EDITION": "true",
+    "USE_FAVICON": "true",
+    "FAVICON_PATH": "icon.png",
+    "DEFAULT_GAMEMODE": "Survival",
+    "FORCE_GAMEMODE": "false",
+    "DEFAULT_DIFFICULTY": "Normal",
+    "HARDCORE": "false",
+    "DEFAULT_OP_LEVEL": "0",
+    "OP_PERMISSION_LEVEL": "4",
+    "PVP_ENABLED": "true",
+    "PVP_PROTECT_CREATIVE": "true",
+    "PVP_KNOCKBACK": "true",
+    "PVP_SWING": "true",
+    "PVP_HURT_ANIMATION": "true",
+    "USE_CONSOLE": "true",
+    "CHAT_FORMAT": "<{DISPLAYNAME}> {MESSAGE}",
+    "ALLOW_CHAT_REPORTS": "false",
+    "APRIL_FOOLS": "false",
+    "VIEW_DISTANCE": "16",
+    "SIMULATION_DISTANCE": "10",
+    "ALLOW_NETHER": "true",
+    "ALLOW_END": "true",
+    "WORLD_LIGHTING": "default",
+    "WORLD_CHUNK_TYPE": "pump",
+    "WORLD_CHUNK_WRITE_IN_PLACE": "false",
+    "TPS": "20.0",
+    "WORLD_AUTOSAVE_TICKS": "0",
+    "WORLD_CHUNK_COMPRESSION_ALGORITHM": "LZ4",
+    "WORLD_CHUNK_COMPRESSION_LEVEL": "6",
+    "NETWORKING_PACKET_COMPRESSION_ENABLED": "true",
+    "NETWORKING_PACKET_COMPRESSION_THRESHOLD": "256",
+    "NETWORKING_PACKET_COMPRESSION_LEVEL": "4",
+    "NETWORKING_BEDROCK_COMPRESSION_ENABLED": "true",
+    "NETWORKING_BEDROCK_COMPRESSION_THRESHOLD": "256",
+    "NETWORKING_BEDROCK_COMPRESSION_LEVEL": "4",
+    "PLAYER_DATA_SAVE_PLAYER_DATA": "true",
+    "PLAYER_DATA_SAVE_PLAYER_CRON_INTERVAL": "300",
+    "RECIPE_SEND_RECIPES": "true",
+    "NETWORKING_PROXY_ENABLED": "false",
+    "NETWORKING_PROXY_VELOCITY_ENABLED": "false",
+    "NETWORKING_PROXY_BUNGEECORD_ENABLED": "false",
+    "NETWORKING_QUERY_ENABLED": "false",
+    "NETWORKING_RCON_ENABLED": "false",
+    "NETWORKING_RCON_MAX_CONNECTIONS": "0",
+    "LAN_BROADCAST_ENABLED": "false",
+    "LAN_BROADCAST_PORT": "0",
+    "ONLINE_MODE": "true",
+    "WHITE_LIST": "false",
+    "ENFORCE_WHITELIST": "false",
+    "AUTH_ENABLED": "true",
+    "ENCRYPTION": "true",
+    "NETWORKING_AUTHENTICATION_PREVENT_PROXY_CONNECTIONS": "false",
+    "NETWORKING_AUTHENTICATION_CONNECT_TIMEOUT": "5000",
+    "NETWORKING_AUTHENTICATION_READ_TIMEOUT": "5000",
+    "NETWORKING_AUTHENTICATION_PLAYER_PROFILE_ALLOW_BANNED_PLAYERS": "false",
+    "NETWORKING_AUTHENTICATION_PLAYER_PROFILE_ALLOWED_ACTIONS": "['FORCED_NAME_CHANGE', 'USING_BANNED_SKIN']",
+    "NETWORKING_AUTHENTICATION_TEXTURES_ENABLED": "true",
+    "NETWORKING_AUTHENTICATION_TEXTURES_ALLOWED_URL_SCHEMES": "['http', 'https']",
+    "NETWORKING_AUTHENTICATION_TEXTURES_ALLOWED_URL_DOMAINS": "['.minecraft.net', '.mojang.com']",
+    "SCRUB_IPS": "true",
+    "PLUGINS_BLOCKED_PERMISSIONS": "[]",
+    "RESOURCE_PACK_ENABLED": "false",
+    "RESOURCE_PACK_FORCE": "false",
+    "RESOURCE_PACK_BEDROCK_ENABLED": "false",
+    "RESOURCE_PACK_BEDROCK_FORCE": "false",
+    "RESOURCE_PACK_BEDROCK_PACKS": "[]",
+    "NETWORKING_AUTHENTICATION_TEXTURES_TYPES_SKIN": "true",
+    "NETWORKING_AUTHENTICATION_TEXTURES_TYPES_CAPE": "true",
+    "NETWORKING_AUTHENTICATION_TEXTURES_TYPES_ELYTRA": "true",
+    "LOGGING_ENABLED": "true",
+    "LOGGING_THREADS": "true",
+    "LOGGING_TIMESTAMP": "true",
+    "LOGGING_FILE": "latest.log",
+    "LOGGING_LEVEL": "Info",
+    "LOGGING_ENV": "true",
+    "COMMANDS_LOG_CONSOLE": "true",
+    "NETWORKING_RCON_LOGGING_LOGGED_SUCCESSFULLY": "true",
+    "NETWORKING_RCON_LOGGING_WRONG_PASSWORD": "true",
+    "NETWORKING_RCON_LOGGING_COMMANDS": "true",
+    "NETWORKING_RCON_LOGGING_QUIT": "true",
+    "SERVER_LINKS_ENABLED": "true",
+    "LINK_BUG_REPORT": "https://github.com/Pumpkin-MC/Pumpkin/issues",
+    "SERVER_LINKS_CUSTOM_DISCORD": "https://discord.gg/pumpkin"
+  },
+  "ports": [
+    {
+      "role": "game",
+      "default": 25565,
+      "containerPort": 25565,
+      "protocol": "both",
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "bedrock_edition",
+      "default": 19132,
+      "containerPort": 19132,
+      "protocol": "udp",
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "rcon",
+      "default": 25575,
+      "containerPort": 25575,
+      "protocol": "tcp",
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "configurationTabs": [
+    {
+      "id": "server-and-startup",
+      "label": "Server and Startup",
+      "icon": "settings",
+      "order": 0
+    },
+    {
+      "id": "netzwerk",
+      "label": "Netzwerk",
+      "icon": "settings",
+      "order": 1
+    },
+    {
+      "id": "world-generation",
+      "label": "World Generation",
+      "icon": "settings",
+      "order": 2
+    },
+    {
+      "id": "logging",
+      "label": "Logging",
+      "icon": "settings",
+      "order": 3
+    },
+    {
+      "id": "gameplay-and-difficulty",
+      "label": "Gameplay and Difficulty",
+      "icon": "settings",
+      "order": 4
+    },
+    {
+      "id": "performance",
+      "label": "Performance",
+      "icon": "settings",
+      "order": 5
+    },
+    {
+      "id": "sicherheit",
+      "label": "Sicherheit",
+      "icon": "settings",
+      "order": 6
+    },
+    {
+      "id": "resource-packs",
+      "label": "Resource Packs",
+      "icon": "settings",
+      "order": 7
+    },
+    {
+      "id": "server-links",
+      "label": "Server Links",
+      "icon": "settings",
+      "order": 8
+    }
+  ],
+  "configurationFields": [
+    {
+      "id": "JAVA_EDITION_ADDRESS",
+      "label": "Java Address",
+      "description": "",
+      "tab": "server-and-startup",
+      "section": "Server and Startup",
+      "type": "text",
+      "default": "{GAME_BIND}:{GAME_PORT}",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "java_edition_address",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "BEDROCK_EDITION_ADDRESS",
+      "label": "Bedrock Address",
+      "description": "",
+      "tab": "server-and-startup",
+      "section": "Server and Startup",
+      "type": "text",
+      "default": "{GAME_BIND}:{BEDROCK_EDITION_PORT}",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "bedrock_edition_address",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "QUERY_ADDRESS",
+      "label": "Query Address",
+      "description": "",
+      "tab": "netzwerk",
+      "section": "Netzwerk",
+      "type": "text",
+      "default": "{GAME_BIND}:{GAME_PORT}",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.query.address",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "RCON_ADDRESS",
+      "label": "RCON Address",
+      "description": "",
+      "tab": "netzwerk",
+      "section": "Netzwerk",
+      "type": "text",
+      "default": "{GAME_BIND}:{RCON_PORT}",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.rcon.address",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "LINEAR_VERSION",
+      "label": "Linear Version",
+      "description": "",
+      "tab": "world-generation",
+      "section": "World Generation",
+      "type": "text",
+      "default": "V1",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "world.chunk.linear_version",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "LOGGING_COLOR",
+      "label": "Logging Color",
+      "description": "",
+      "tab": "logging",
+      "section": "Logging",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "logging.color",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "COMMANDS_USE_TTY",
+      "label": "Use TTY",
+      "description": "",
+      "tab": "logging",
+      "section": "Logging",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "commands.use_tty",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "MOTD",
+      "label": "Message of the Day",
+      "description": "Sets the message of the day that is shown in the in-game server list.",
+      "tab": "server-and-startup",
+      "section": "Server and Startup",
+      "type": "text",
+      "default": "A blazingly fast Pumpkin server!",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "motd",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "DEFAULT_LEVEL_NAME",
+      "label": "Level Name",
+      "description": "Sets the name of the level (world) to load, or create if it does not exist.",
+      "tab": "server-and-startup",
+      "section": "Server and Startup",
+      "type": "text",
+      "default": "world",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "default_level_name",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SEED",
+      "label": "Level Seed",
+      "description": "Sets the seed to randomise the generation of a new world. Empty = random seed.",
+      "tab": "server-and-startup",
+      "section": "Server and Startup",
+      "type": "text",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "seed",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SLOTS",
+      "label": "Spielerlimit",
+      "description": "Sets the maximum number of players allowed on the server at one time.",
+      "tab": "server-and-startup",
+      "section": "Server and Startup",
+      "type": "number",
+      "default": "1000",
+      "placeholder": "1000",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "max_players",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 1.0,
+      "max": 100000.0
+    },
+    {
+      "id": "JAVA_EDITION",
+      "label": "Enable Java Edition",
+      "description": "Whether support for Java Edition clients is enabled.",
+      "tab": "server-and-startup",
+      "section": "Server and Startup",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "java_edition",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "BEDROCK_EDITION",
+      "label": "Enable Bedrock Edition",
+      "description": "Whether support for Bedrock Edition clients is enabled.",
+      "tab": "server-and-startup",
+      "section": "Server and Startup",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "bedrock_edition",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "USE_FAVICON",
+      "label": "Use Favicon",
+      "description": "Whether to use a server favicon or not.",
+      "tab": "server-and-startup",
+      "section": "Server and Startup",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "use_favicon",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "FAVICON_PATH",
+      "label": "Favicon Path",
+      "description": "The path to the server's favicon.",
+      "tab": "server-and-startup",
+      "section": "Server and Startup",
+      "type": "text",
+      "default": "icon.png",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "favicon_path",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "DEFAULT_GAMEMODE",
+      "label": "Default Game Mode",
+      "description": "Sets the game mode for new players.",
+      "tab": "gameplay-and-difficulty",
+      "section": "Gameplay and Difficulty",
+      "type": "enum",
+      "default": "Survival",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {
+        "Survival": "Survival (default)",
+        "Creative": "Creative",
+        "Adventure": "Adventure",
+        "Spectator": "Spectator"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "default_gamemode",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "FORCE_GAMEMODE",
+      "label": "Force Game Mode",
+      "description": "If set, the server will send game mode values to clients other than the one saved during world creation.",
+      "tab": "gameplay-and-difficulty",
+      "section": "Gameplay and Difficulty",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "force_gamemode",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "DEFAULT_DIFFICULTY",
+      "label": "Difficulty Level",
+      "description": "Sets the difficulty level of the world.",
+      "tab": "gameplay-and-difficulty",
+      "section": "Gameplay and Difficulty",
+      "type": "enum",
+      "default": "Normal",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {
+        "Peaceful": "Peaceful",
+        "Easy": "Easy",
+        "Normal": "Normal (default)",
+        "Hard": "Hard"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "default_difficulty",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "HARDCORE",
+      "label": "Enable Hardcore Mode",
+      "description": "Whether the server is in hardcore mode.",
+      "tab": "gameplay-and-difficulty",
+      "section": "Gameplay and Difficulty",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "hardcore",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "DEFAULT_OP_LEVEL",
+      "label": "Default Player Permission Level",
+      "description": "Sets the permission level for new players joining the server for the first time.",
+      "tab": "gameplay-and-difficulty",
+      "section": "Gameplay and Difficulty",
+      "type": "enum",
+      "default": "0",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {
+        "0": "0 (default)",
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "commands.default_op_level",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "OP_PERMISSION_LEVEL",
+      "label": "OP Permission Level",
+      "description": "The permission level assigned by the /op command.",
+      "tab": "gameplay-and-difficulty",
+      "section": "Gameplay and Difficulty",
+      "type": "enum",
+      "default": "4",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {
+        "0": "0",
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4 (default)"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "op_permission_level",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "PVP_ENABLED",
+      "label": "Enable PVP",
+      "description": "Whether PVP is enabled or not.",
+      "tab": "gameplay-and-difficulty",
+      "section": "Gameplay and Difficulty",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "pvp.enabled",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "PVP_PROTECT_CREATIVE",
+      "label": "Protect Creative",
+      "description": "Whether to protect players in creative against PVP.",
+      "tab": "gameplay-and-difficulty",
+      "section": "Gameplay and Difficulty",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "pvp.protect_creative",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "PVP_KNOCKBACK",
+      "label": "PVP Knockback",
+      "description": "Whether attacks should have knockback or not.",
+      "tab": "gameplay-and-difficulty",
+      "section": "Gameplay and Difficulty",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "pvp.knockback",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "PVP_SWING",
+      "label": "PVP Swing",
+      "description": "Whether players should swing when attacking or not.",
+      "tab": "gameplay-and-difficulty",
+      "section": "Gameplay and Difficulty",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "pvp.swing",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "PVP_HURT_ANIMATION",
+      "label": "PVP Hurt Animation",
+      "description": "Whether to show red hurt animation and FOV bobbing.",
+      "tab": "gameplay-and-difficulty",
+      "section": "Gameplay and Difficulty",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "pvp.hurt_animation",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "USE_CONSOLE",
+      "label": "Allow Commands From Console",
+      "description": "Whether commands from the console are accepted or not.",
+      "tab": "gameplay-and-difficulty",
+      "section": "Gameplay and Difficulty",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "commands.use_console",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "CHAT_FORMAT",
+      "label": "Chat Format",
+      "description": "Format for chat messages.",
+      "tab": "gameplay-and-difficulty",
+      "section": "Gameplay and Difficulty",
+      "type": "text",
+      "default": "<{DISPLAYNAME}> {MESSAGE}",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "chat.format",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ALLOW_CHAT_REPORTS",
+      "label": "Allow Chat Reports",
+      "description": "Allow players to report chat messages.",
+      "tab": "gameplay-and-difficulty",
+      "section": "Gameplay and Difficulty",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "allow_chat_reports",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "APRIL_FOOLS",
+      "label": "Enable April Fools Mode",
+      "description": "Enable April Fools features.",
+      "tab": "gameplay-and-difficulty",
+      "section": "Gameplay and Difficulty",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "fun.april_fools",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "VIEW_DISTANCE",
+      "label": "View Distance",
+      "description": "Sets the maximum allowed view distance. Higher values have performance impact.",
+      "tab": "world-generation",
+      "section": "World Generation",
+      "type": "number",
+      "default": "16",
+      "placeholder": "16",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "view_distance",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 2.0,
+      "max": 32.0
+    },
+    {
+      "id": "SIMULATION_DISTANCE",
+      "label": "Simulation Distance",
+      "description": "Sets the distance from any player that the world will be ticked. Higher values have performance impact.",
+      "tab": "world-generation",
+      "section": "World Generation",
+      "type": "number",
+      "default": "10",
+      "placeholder": "10",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "simulation_distance",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 2.0,
+      "max": 32.0
+    },
+    {
+      "id": "ALLOW_NETHER",
+      "label": "Allow Nether",
+      "description": "Whether the Nether dimension is enabled.",
+      "tab": "world-generation",
+      "section": "World Generation",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "allow_nether",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ALLOW_END",
+      "label": "Allow The End",
+      "description": "Whether the End dimension is enabled.",
+      "tab": "world-generation",
+      "section": "World Generation",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "allow_end",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "WORLD_LIGHTING",
+      "label": "World Lighting Engine",
+      "description": "The lighting engine to use.",
+      "tab": "world-generation",
+      "section": "World Generation",
+      "type": "enum",
+      "default": "default",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {
+        "default": "Default",
+        "full": "Full",
+        "dark": "Dark"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "world.lighting",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "WORLD_CHUNK_TYPE",
+      "label": "World Chunk Type",
+      "description": "The chunk storage format.",
+      "tab": "world-generation",
+      "section": "World Generation",
+      "type": "enum",
+      "default": "pump",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {
+        "anvil": "Anvil",
+        "linear": "Linear",
+        "pump": "Pump (default)"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "world.chunk.type",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "WORLD_CHUNK_WRITE_IN_PLACE",
+      "label": "Write Chunks In Place",
+      "description": "Whether to write chunk data directly to region files.",
+      "tab": "world-generation",
+      "section": "World Generation",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "world.chunk.write_in_place",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "TPS",
+      "label": "Target TPS",
+      "description": "The server's target tick rate.",
+      "tab": "performance",
+      "section": "Performance",
+      "type": "number",
+      "default": "20.0",
+      "placeholder": "20.0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "tps",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "WORLD_AUTOSAVE_TICKS",
+      "label": "World Autosave Ticks",
+      "description": "Interval in ticks to autosave the world (0 to disable).",
+      "tab": "performance",
+      "section": "Performance",
+      "type": "number",
+      "default": "0",
+      "placeholder": "0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "world.autosave_ticks",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "WORLD_CHUNK_COMPRESSION_ALGORITHM",
+      "label": "World Compression Algorithm",
+      "description": "Compression algorithm for world chunks.",
+      "tab": "performance",
+      "section": "Performance",
+      "type": "enum",
+      "default": "LZ4",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {
+        "LZ4": "LZ4 (default)",
+        "GZip": "GZip",
+        "Zlib": "Zlib",
+        "Custom": "Custom"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "world.chunk.compression.algorithm",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "WORLD_CHUNK_COMPRESSION_LEVEL",
+      "label": "World Compression Level",
+      "description": "Compression level for world chunks.",
+      "tab": "performance",
+      "section": "Performance",
+      "type": "number",
+      "default": "6",
+      "placeholder": "6",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "world.chunk.compression.level",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NETWORKING_PACKET_COMPRESSION_ENABLED",
+      "label": "Java: Enable Packet Compression",
+      "description": "Whether packet compression is enabled.",
+      "tab": "performance",
+      "section": "Performance",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.java_compression.enabled",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NETWORKING_PACKET_COMPRESSION_THRESHOLD",
+      "label": "Java: Compression Threshold",
+      "description": "Sets the smallest size of raw network payload to compress.",
+      "tab": "performance",
+      "section": "Performance",
+      "type": "number",
+      "default": "256",
+      "placeholder": "256",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.java_compression.threshold",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0,
+      "max": 1024.0
+    },
+    {
+      "id": "NETWORKING_PACKET_COMPRESSION_LEVEL",
+      "label": "Java: Packet Compression Level",
+      "description": "Compression level (0 to disable).",
+      "tab": "performance",
+      "section": "Performance",
+      "type": "enum",
+      "default": "4",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {
+        "0": "0",
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4 (default)",
+        "5": "5",
+        "6": "6",
+        "7": "7",
+        "8": "8",
+        "9": "9"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.java_compression.level",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NETWORKING_BEDROCK_COMPRESSION_ENABLED",
+      "label": "Bedrock: Enable Packet Compression",
+      "description": "Whether packet compression is enabled.",
+      "tab": "performance",
+      "section": "Performance",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.bedrock_compression.enabled",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NETWORKING_BEDROCK_COMPRESSION_THRESHOLD",
+      "label": "Bedrock: Compression Threshold",
+      "description": "Sets the smallest size of raw network payload to compress.",
+      "tab": "performance",
+      "section": "Performance",
+      "type": "number",
+      "default": "256",
+      "placeholder": "256",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.bedrock_compression.threshold",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0,
+      "max": 1024.0
+    },
+    {
+      "id": "NETWORKING_BEDROCK_COMPRESSION_LEVEL",
+      "label": "Bedrock: Packet Compression Level",
+      "description": "Compression level (0 to disable).",
+      "tab": "performance",
+      "section": "Performance",
+      "type": "enum",
+      "default": "4",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {
+        "0": "0",
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4 (default)",
+        "5": "5",
+        "6": "6",
+        "7": "7",
+        "8": "8",
+        "9": "9"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.bedrock_compression.level",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "PLAYER_DATA_SAVE_PLAYER_DATA",
+      "label": "Save Player Data",
+      "description": "Whether to save player data to disk.",
+      "tab": "performance",
+      "section": "Performance",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "player_data.save_player_data",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "PLAYER_DATA_SAVE_PLAYER_CRON_INTERVAL",
+      "label": "Player Data Save Interval",
+      "description": "Interval to save player data.",
+      "tab": "performance",
+      "section": "Performance",
+      "type": "number",
+      "default": "300",
+      "placeholder": "300",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "player_data.save_player_cron_interval",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "RECIPE_SEND_RECIPES",
+      "label": "Send Recipes",
+      "description": "Whether to send recipe book data to players. Disabling this can significantly improve login performance.",
+      "tab": "performance",
+      "section": "Performance",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "recipe.send_recipes",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NETWORKING_PROXY_ENABLED",
+      "label": "Enable Proxy Support",
+      "description": "Enables support for proxies.",
+      "tab": "netzwerk",
+      "section": "Netzwerk",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.proxy.enabled",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NETWORKING_PROXY_VELOCITY_ENABLED",
+      "label": "Enable Velocity",
+      "description": "Whether Velocity support is enabled or not.",
+      "tab": "netzwerk",
+      "section": "Netzwerk",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.proxy.velocity.enabled",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NETWORKING_PROXY_VELOCITY_SECRET",
+      "label": "Velocity Secret",
+      "description": "The secret as configured in Velocity.",
+      "tab": "netzwerk",
+      "section": "Netzwerk",
+      "type": "password",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": true,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.proxy.velocity.secret",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NETWORKING_PROXY_BUNGEECORD_ENABLED",
+      "label": "Enable BungeeCord",
+      "description": "Whether BungeeCord support is enabled or not.",
+      "tab": "netzwerk",
+      "section": "Netzwerk",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.proxy.bungeecord.enabled",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NETWORKING_QUERY_ENABLED",
+      "label": "Enable Query",
+      "description": "Whether to listen for Query protocol requests or not.",
+      "tab": "netzwerk",
+      "section": "Netzwerk",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.query.enabled",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NETWORKING_RCON_ENABLED",
+      "label": "RCON aktivieren",
+      "description": "Whether the Remote Console RCON protocol is enabled.",
+      "tab": "netzwerk",
+      "section": "Netzwerk",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.rcon.enabled",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NETWORKING_RCON_PASSWORD",
+      "label": "RCON-Passwort",
+      "description": "The password to use for RCON authentication.",
+      "tab": "netzwerk",
+      "section": "Netzwerk",
+      "type": "password",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": true,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.rcon.password",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NETWORKING_RCON_MAX_CONNECTIONS",
+      "label": "RCON Max Connections",
+      "description": "The maximum number of RCON connections allowed.",
+      "tab": "netzwerk",
+      "section": "Netzwerk",
+      "type": "number",
+      "default": "0",
+      "placeholder": "0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.rcon.max_connections",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "LAN_BROADCAST_ENABLED",
+      "label": "LAN Broadcast",
+      "description": "WARNING: READ THIS BEFORE ENABLING THIS SETTING! This setting enables local network discovery for Java clients. This may require manual port allocation (see LAN Broadcast Port).",
+      "tab": "netzwerk",
+      "section": "Netzwerk",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.lan_broadcast.enabled",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "LAN_BROADCAST_PORT",
+      "label": "LAN Broadcast Port",
+      "description": "Set to 0 for a random port (default). WARNING: In some cases, the default behavior will fail. You MUST set a static port here and map it in the Network and Ports setting for the instance.",
+      "tab": "netzwerk",
+      "section": "Netzwerk",
+      "type": "text",
+      "default": "0",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.lan_broadcast.port",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ONLINE_MODE",
+      "label": "Enable Online Mode",
+      "description": "If set, all connected players must be authenticated.",
+      "tab": "sicherheit",
+      "section": "Sicherheit",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "online_mode",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "WHITE_LIST",
+      "label": "Enable Allow List",
+      "description": "If set, all connected players must be listed in the server whitelist.",
+      "tab": "sicherheit",
+      "section": "Sicherheit",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "white_list",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ENFORCE_WHITELIST",
+      "label": "Enforce Allow List",
+      "description": "Kick players not on the whitelist.",
+      "tab": "sicherheit",
+      "section": "Sicherheit",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "enforce_whitelist",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "AUTH_ENABLED",
+      "label": "Authentication",
+      "description": "Whether authentication is enabled or not.",
+      "tab": "sicherheit",
+      "section": "Sicherheit",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.authentication.enabled",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ENCRYPTION",
+      "label": "Enable Encryption",
+      "description": "Whether packet encryption is enabled.",
+      "tab": "sicherheit",
+      "section": "Sicherheit",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "encryption",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NETWORKING_AUTHENTICATION_PREVENT_PROXY_CONNECTIONS",
+      "label": "Prevent Proxy Connections",
+      "description": "Whether to block proxy connections.",
+      "tab": "sicherheit",
+      "section": "Sicherheit",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.authentication.prevent_proxy_connections",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NETWORKING_AUTHENTICATION_PREVENT_PROXY_CONNECTION_AUTH_URL",
+      "label": "Auth Prevent Proxy URL",
+      "description": "The URL to authenticate with if prevent_proxy_connections is enabled.",
+      "tab": "sicherheit",
+      "section": "Sicherheit",
+      "type": "url",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.authentication.prevent_proxy_connection_auth_url",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NETWORKING_AUTHENTICATION_AUTH_URL",
+      "label": "Auth URL",
+      "description": "The URL to authenticate with.",
+      "tab": "sicherheit",
+      "section": "Sicherheit",
+      "type": "url",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.authentication.auth_url",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NETWORKING_AUTHENTICATION_CONNECT_TIMEOUT",
+      "label": "Auth Connect Timeout",
+      "description": "Timeout for auth connection.",
+      "tab": "sicherheit",
+      "section": "Sicherheit",
+      "type": "number",
+      "default": "5000",
+      "placeholder": "5000",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.authentication.connect_timeout",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NETWORKING_AUTHENTICATION_READ_TIMEOUT",
+      "label": "Auth Read Timeout",
+      "description": "Timeout for auth reading.",
+      "tab": "sicherheit",
+      "section": "Sicherheit",
+      "type": "number",
+      "default": "5000",
+      "placeholder": "5000",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.authentication.read_timeout",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NETWORKING_AUTHENTICATION_PLAYER_PROFILE_ALLOW_BANNED_PLAYERS",
+      "label": "Allow Banned Players",
+      "description": "Allow players flagged by Mojang.",
+      "tab": "sicherheit",
+      "section": "Sicherheit",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.authentication.player_profile.allow_banned_players",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NETWORKING_AUTHENTICATION_PLAYER_PROFILE_ALLOWED_ACTIONS",
+      "label": "Auth Allowed Actions",
+      "description": "Actions allowed if allow_banned_players is enabled. Must follow the exact format: ['FORCED_NAME_CHANGE', 'USING_BANNED_SKIN']",
+      "tab": "sicherheit",
+      "section": "Sicherheit",
+      "type": "text",
+      "default": "['FORCED_NAME_CHANGE', 'USING_BANNED_SKIN']",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.authentication.player_profile.allowed_actions",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NETWORKING_AUTHENTICATION_TEXTURES_ENABLED",
+      "label": "Enable Texture Filtering",
+      "description": "Whether to filter/validate player textures.",
+      "tab": "sicherheit",
+      "section": "Sicherheit",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.authentication.textures.enabled",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NETWORKING_AUTHENTICATION_TEXTURES_ALLOWED_URL_SCHEMES",
+      "label": "Auth Allowed URL Schemes",
+      "description": "Allowed URL schemes for textures. Must follow the exact format: ['http', 'https']",
+      "tab": "sicherheit",
+      "section": "Sicherheit",
+      "type": "text",
+      "default": "['http', 'https']",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.authentication.textures.allowed_url_schemes",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NETWORKING_AUTHENTICATION_TEXTURES_ALLOWED_URL_DOMAINS",
+      "label": "Auth Allowed URL Domains",
+      "description": "Allowed URL domains for textures. Must follow the exact format: ['.minecraft.net', '.mojang.com']",
+      "tab": "sicherheit",
+      "section": "Sicherheit",
+      "type": "text",
+      "default": "['.minecraft.net', '.mojang.com']",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.authentication.textures.allowed_url_domains",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SCRUB_IPS",
+      "label": "IP Scrubbing",
+      "description": "Whether to scrub players' IP addresses from logs.",
+      "tab": "sicherheit",
+      "section": "Sicherheit",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "scrub_ips",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "PLUGINS_BLOCKED_PERMISSIONS",
+      "label": "Blocked Plugin Permissions",
+      "description": "A list of permissions to block from plugins. Must follow the exact format: ['permission.node', 'another.node']",
+      "tab": "sicherheit",
+      "section": "Sicherheit",
+      "type": "text",
+      "default": "[]",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "plugins.blocked_permissions",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "RESOURCE_PACK_ENABLED",
+      "label": "Java: Require Texture Packs",
+      "description": "If set, clients must use resource packs in the current world.",
+      "tab": "resource-packs",
+      "section": "Resource Packs",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "resource_pack.java.enabled",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "RESOURCE_PACK_URL",
+      "label": "Java: Resource Pack URL",
+      "description": "The direct download URL to the resource pack.",
+      "tab": "resource-packs",
+      "section": "Resource Packs",
+      "type": "url",
+      "default": "",
+      "placeholder": "https://example.org/resourcepack.zip",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "resource_pack.java.url",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "RESOURCE_PACK_SHA1",
+      "label": "Java: Resource Pack SHA1",
+      "description": "The SHA1 hash of the resource pack.",
+      "tab": "resource-packs",
+      "section": "Resource Packs",
+      "type": "text",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "resource_pack.java.sha1",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "RESOURCE_PACK_PROMPT_MESSAGE",
+      "label": "Java: Resource Pack Prompt",
+      "description": "The message to show to the user when prompted.",
+      "tab": "resource-packs",
+      "section": "Resource Packs",
+      "type": "text",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "resource_pack.java.prompt_message",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "RESOURCE_PACK_FORCE",
+      "label": "Java: Force Resource Pack",
+      "description": "Whether to force the client to download the resource pack.",
+      "tab": "resource-packs",
+      "section": "Resource Packs",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "resource_pack.java.force",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "RESOURCE_PACK_BEDROCK_ENABLED",
+      "label": "Bedrock: Require Texture Packs",
+      "description": "If set, clients must use resource packs in the current world.",
+      "tab": "resource-packs",
+      "section": "Resource Packs",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "resource_pack.bedrock.enabled",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "RESOURCE_PACK_BEDROCK_FORCE",
+      "label": "Bedrock: Force Resource Pack",
+      "description": "Whether to force the client to download the resource pack.",
+      "tab": "resource-packs",
+      "section": "Resource Packs",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "resource_pack.bedrock.force",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "RESOURCE_PACK_BEDROCK_PACKS",
+      "label": "Bedrock: Resource Packs",
+      "description": "The Bedrock resource packs to include. Must follow the exact array format: ['pack1', 'pack2']",
+      "tab": "resource-packs",
+      "section": "Resource Packs",
+      "type": "text",
+      "default": "[]",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "resource_pack.bedrock.packs",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NETWORKING_AUTHENTICATION_TEXTURES_TYPES_SKIN",
+      "label": "Use Skin Textures",
+      "description": "Whether to use player skins or not.",
+      "tab": "resource-packs",
+      "section": "Resource Packs",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.authentication.textures.types.skin",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NETWORKING_AUTHENTICATION_TEXTURES_TYPES_CAPE",
+      "label": "Use Cape Textures",
+      "description": "Whether to use player capes or not.",
+      "tab": "resource-packs",
+      "section": "Resource Packs",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.authentication.textures.types.cape",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NETWORKING_AUTHENTICATION_TEXTURES_TYPES_ELYTRA",
+      "label": "Use Elytra Textures",
+      "description": "Whether to use player elytras or not.",
+      "tab": "resource-packs",
+      "section": "Resource Packs",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.authentication.textures.types.elytra",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "LOGGING_ENABLED",
+      "label": "Enable Logging",
+      "description": "Whether logging is enabled or not.",
+      "tab": "logging",
+      "section": "Logging",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "logging.enabled",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "LOGGING_THREADS",
+      "label": "Logging Threads",
+      "description": "Whether to print threads in the logging message.",
+      "tab": "logging",
+      "section": "Logging",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "logging.threads",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "LOGGING_TIMESTAMP",
+      "label": "Logging Timestamp",
+      "description": "Whether to print the timestamp in the message.",
+      "tab": "logging",
+      "section": "Logging",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "logging.timestamp",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "LOGGING_FILE",
+      "label": "Log File",
+      "description": "Name of the log file.",
+      "tab": "logging",
+      "section": "Logging",
+      "type": "text",
+      "default": "latest.log",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "logging.file",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "LOGGING_LEVEL",
+      "label": "Logging Level",
+      "description": "The log verbosity level.",
+      "tab": "logging",
+      "section": "Logging",
+      "type": "enum",
+      "default": "Info",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {
+        "Off": "Off",
+        "Error": "Error",
+        "Warn": "Warn",
+        "Info": "Info (default)",
+        "Debug": "Debug",
+        "Trace": "Trace"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "logging.level",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "LOGGING_ENV",
+      "label": "Use Environment Log Level",
+      "description": "Whether to allow choosing the log level by setting the RUST_LOG environment variable.",
+      "tab": "logging",
+      "section": "Logging",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "logging.env",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "COMMANDS_LOG_CONSOLE",
+      "label": "Log Console Commands",
+      "description": "Whether commands from players should be logged in the console or not.",
+      "tab": "logging",
+      "section": "Logging",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "commands.log_console",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NETWORKING_RCON_LOGGING_LOGGED_SUCCESSFULLY",
+      "label": "Log RCON Success",
+      "description": "Whether successful logins should be logged to console.",
+      "tab": "logging",
+      "section": "Logging",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.rcon.logging.logged_successfully",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NETWORKING_RCON_LOGGING_WRONG_PASSWORD",
+      "label": "Log RCON Wrong Password",
+      "description": "Whether wrong password attempts should be logged.",
+      "tab": "logging",
+      "section": "Logging",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": true,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.rcon.logging.wrong_password",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NETWORKING_RCON_LOGGING_COMMANDS",
+      "label": "Log RCON Commands",
+      "description": "Whether to log commands run from RCON.",
+      "tab": "logging",
+      "section": "Logging",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.rcon.logging.commands",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NETWORKING_RCON_LOGGING_QUIT",
+      "label": "Log RCON Quit",
+      "description": "Whether RCON client quit should be logged.",
+      "tab": "logging",
+      "section": "Logging",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "networking.rcon.logging.quit",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVER_LINKS_ENABLED",
+      "label": "Enable Server Links",
+      "description": "Enable custom server links.",
+      "tab": "server-links",
+      "section": "Server Links",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "server_links.enabled",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "LINK_BUG_REPORT",
+      "label": "Bug Report Link",
+      "description": "Link for bug reports.",
+      "tab": "server-links",
+      "section": "Server Links",
+      "type": "url",
+      "default": "https://github.com/Pumpkin-MC/Pumpkin/issues",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "server_links.bug_report",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVER_LINKS_SUPPORT",
+      "label": "Support Link",
+      "description": "Link for support.",
+      "tab": "server-links",
+      "section": "Server Links",
+      "type": "url",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "server_links.support",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVER_LINKS_STATUS",
+      "label": "Status Link",
+      "description": "Link for server status.",
+      "tab": "server-links",
+      "section": "Server Links",
+      "type": "url",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "server_links.status",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVER_LINKS_FEEDBACK",
+      "label": "Feedback Link",
+      "description": "Link for feedback.",
+      "tab": "server-links",
+      "section": "Server Links",
+      "type": "url",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "server_links.feedback",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVER_LINKS_COMMUNITY",
+      "label": "Community Link",
+      "description": "Link for community.",
+      "tab": "server-links",
+      "section": "Server Links",
+      "type": "url",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "server_links.community",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVER_LINKS_WEBSITE",
+      "label": "Website Link",
+      "description": "Link for website.",
+      "tab": "server-links",
+      "section": "Server Links",
+      "type": "url",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "server_links.website",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVER_LINKS_FORUMS",
+      "label": "Forums Link",
+      "description": "Link for forums.",
+      "tab": "server-links",
+      "section": "Server Links",
+      "type": "url",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "server_links.forums",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVER_LINKS_NEWS",
+      "label": "News Link",
+      "description": "Link for news.",
+      "tab": "server-links",
+      "section": "Server Links",
+      "type": "url",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "server_links.news",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVER_LINKS_ANNOUNCEMENTS",
+      "label": "Announcements Link",
+      "description": "Link for announcements.",
+      "tab": "server-links",
+      "section": "Server Links",
+      "type": "url",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "server_links.announcements",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVER_LINKS_CUSTOM_DISCORD",
+      "label": "Discord Link",
+      "description": "The URL for the Discord link.",
+      "tab": "server-links",
+      "section": "Server Links",
+      "type": "url",
+      "default": "https://discord.gg/pumpkin",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "server_links.custom.Discord",
+      "parameterFormat": "",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    }
+  ],
+  "configurationFiles": [
+    {
+      "path": "pumpkin.toml",
+      "format": "ini",
+      "lineFormat": "{0} = \"{1}\"",
+      "bindings": [
+        {
+          "key": "java_edition_address",
+          "variable": "{JAVA_EDITION_ADDRESS}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "bedrock_edition_address",
+          "variable": "{BEDROCK_EDITION_ADDRESS}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "networking.query.address",
+          "variable": "{QUERY_ADDRESS}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "networking.rcon.address",
+          "variable": "{RCON_ADDRESS}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "world.chunk.linear_version",
+          "variable": "{LINEAR_VERSION}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "logging.color",
+          "variable": "{LOGGING_COLOR}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "commands.use_tty",
+          "variable": "{COMMANDS_USE_TTY}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "motd",
+          "variable": "{MOTD}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "default_level_name",
+          "variable": "{DEFAULT_LEVEL_NAME}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "seed",
+          "variable": "{SEED}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "max_players",
+          "variable": "{SLOTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "java_edition",
+          "variable": "{JAVA_EDITION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "bedrock_edition",
+          "variable": "{BEDROCK_EDITION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "use_favicon",
+          "variable": "{USE_FAVICON}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "favicon_path",
+          "variable": "{FAVICON_PATH}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "default_gamemode",
+          "variable": "{DEFAULT_GAMEMODE}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "force_gamemode",
+          "variable": "{FORCE_GAMEMODE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "default_difficulty",
+          "variable": "{DEFAULT_DIFFICULTY}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "hardcore",
+          "variable": "{HARDCORE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "commands.default_op_level",
+          "variable": "{DEFAULT_OP_LEVEL}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "op_permission_level",
+          "variable": "{OP_PERMISSION_LEVEL}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "pvp.enabled",
+          "variable": "{PVP_ENABLED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "pvp.protect_creative",
+          "variable": "{PVP_PROTECT_CREATIVE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "pvp.knockback",
+          "variable": "{PVP_KNOCKBACK}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "pvp.swing",
+          "variable": "{PVP_SWING}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "pvp.hurt_animation",
+          "variable": "{PVP_HURT_ANIMATION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "commands.use_console",
+          "variable": "{USE_CONSOLE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "chat.format",
+          "variable": "{CHAT_FORMAT}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "allow_chat_reports",
+          "variable": "{ALLOW_CHAT_REPORTS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "fun.april_fools",
+          "variable": "{APRIL_FOOLS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "view_distance",
+          "variable": "{VIEW_DISTANCE}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "simulation_distance",
+          "variable": "{SIMULATION_DISTANCE}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "allow_nether",
+          "variable": "{ALLOW_NETHER}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "allow_end",
+          "variable": "{ALLOW_END}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "world.lighting",
+          "variable": "{WORLD_LIGHTING}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "world.chunk.type",
+          "variable": "{WORLD_CHUNK_TYPE}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "world.chunk.write_in_place",
+          "variable": "{WORLD_CHUNK_WRITE_IN_PLACE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "tps",
+          "variable": "{TPS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "world.autosave_ticks",
+          "variable": "{WORLD_AUTOSAVE_TICKS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "world.chunk.compression.algorithm",
+          "variable": "{WORLD_CHUNK_COMPRESSION_ALGORITHM}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "world.chunk.compression.level",
+          "variable": "{WORLD_CHUNK_COMPRESSION_LEVEL}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "networking.java_compression.enabled",
+          "variable": "{NETWORKING_PACKET_COMPRESSION_ENABLED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.java_compression.threshold",
+          "variable": "{NETWORKING_PACKET_COMPRESSION_THRESHOLD}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "networking.java_compression.level",
+          "variable": "{NETWORKING_PACKET_COMPRESSION_LEVEL}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "networking.bedrock_compression.enabled",
+          "variable": "{NETWORKING_BEDROCK_COMPRESSION_ENABLED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.bedrock_compression.threshold",
+          "variable": "{NETWORKING_BEDROCK_COMPRESSION_THRESHOLD}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "networking.bedrock_compression.level",
+          "variable": "{NETWORKING_BEDROCK_COMPRESSION_LEVEL}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "player_data.save_player_data",
+          "variable": "{PLAYER_DATA_SAVE_PLAYER_DATA}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "player_data.save_player_cron_interval",
+          "variable": "{PLAYER_DATA_SAVE_PLAYER_CRON_INTERVAL}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "recipe.send_recipes",
+          "variable": "{RECIPE_SEND_RECIPES}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.proxy.enabled",
+          "variable": "{NETWORKING_PROXY_ENABLED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.proxy.velocity.enabled",
+          "variable": "{NETWORKING_PROXY_VELOCITY_ENABLED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.proxy.velocity.secret",
+          "variable": "{NETWORKING_PROXY_VELOCITY_SECRET}",
+          "section": "",
+          "type": "password"
+        },
+        {
+          "key": "networking.proxy.bungeecord.enabled",
+          "variable": "{NETWORKING_PROXY_BUNGEECORD_ENABLED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.query.enabled",
+          "variable": "{NETWORKING_QUERY_ENABLED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.rcon.enabled",
+          "variable": "{NETWORKING_RCON_ENABLED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.rcon.password",
+          "variable": "{NETWORKING_RCON_PASSWORD}",
+          "section": "",
+          "type": "password"
+        },
+        {
+          "key": "networking.rcon.max_connections",
+          "variable": "{NETWORKING_RCON_MAX_CONNECTIONS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "networking.lan_broadcast.enabled",
+          "variable": "{LAN_BROADCAST_ENABLED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.lan_broadcast.port",
+          "variable": "{LAN_BROADCAST_PORT}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "online_mode",
+          "variable": "{ONLINE_MODE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "white_list",
+          "variable": "{WHITE_LIST}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "enforce_whitelist",
+          "variable": "{ENFORCE_WHITELIST}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.authentication.enabled",
+          "variable": "{AUTH_ENABLED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "encryption",
+          "variable": "{ENCRYPTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.authentication.prevent_proxy_connections",
+          "variable": "{NETWORKING_AUTHENTICATION_PREVENT_PROXY_CONNECTIONS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.authentication.prevent_proxy_connection_auth_url",
+          "variable": "{NETWORKING_AUTHENTICATION_PREVENT_PROXY_CONNECTION_AUTH_URL}",
+          "section": "",
+          "type": "url"
+        },
+        {
+          "key": "networking.authentication.auth_url",
+          "variable": "{NETWORKING_AUTHENTICATION_AUTH_URL}",
+          "section": "",
+          "type": "url"
+        },
+        {
+          "key": "networking.authentication.connect_timeout",
+          "variable": "{NETWORKING_AUTHENTICATION_CONNECT_TIMEOUT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "networking.authentication.read_timeout",
+          "variable": "{NETWORKING_AUTHENTICATION_READ_TIMEOUT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "networking.authentication.player_profile.allow_banned_players",
+          "variable": "{NETWORKING_AUTHENTICATION_PLAYER_PROFILE_ALLOW_BANNED_PLAYERS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.authentication.player_profile.allowed_actions",
+          "variable": "{NETWORKING_AUTHENTICATION_PLAYER_PROFILE_ALLOWED_ACTIONS}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "networking.authentication.textures.enabled",
+          "variable": "{NETWORKING_AUTHENTICATION_TEXTURES_ENABLED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.authentication.textures.allowed_url_schemes",
+          "variable": "{NETWORKING_AUTHENTICATION_TEXTURES_ALLOWED_URL_SCHEMES}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "networking.authentication.textures.allowed_url_domains",
+          "variable": "{NETWORKING_AUTHENTICATION_TEXTURES_ALLOWED_URL_DOMAINS}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "scrub_ips",
+          "variable": "{SCRUB_IPS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "plugins.blocked_permissions",
+          "variable": "{PLUGINS_BLOCKED_PERMISSIONS}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "resource_pack.java.enabled",
+          "variable": "{RESOURCE_PACK_ENABLED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "resource_pack.java.url",
+          "variable": "{RESOURCE_PACK_URL}",
+          "section": "",
+          "type": "url"
+        },
+        {
+          "key": "resource_pack.java.sha1",
+          "variable": "{RESOURCE_PACK_SHA1}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "resource_pack.java.prompt_message",
+          "variable": "{RESOURCE_PACK_PROMPT_MESSAGE}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "resource_pack.java.force",
+          "variable": "{RESOURCE_PACK_FORCE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "resource_pack.bedrock.enabled",
+          "variable": "{RESOURCE_PACK_BEDROCK_ENABLED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "resource_pack.bedrock.force",
+          "variable": "{RESOURCE_PACK_BEDROCK_FORCE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "resource_pack.bedrock.packs",
+          "variable": "{RESOURCE_PACK_BEDROCK_PACKS}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "networking.authentication.textures.types.skin",
+          "variable": "{NETWORKING_AUTHENTICATION_TEXTURES_TYPES_SKIN}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.authentication.textures.types.cape",
+          "variable": "{NETWORKING_AUTHENTICATION_TEXTURES_TYPES_CAPE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.authentication.textures.types.elytra",
+          "variable": "{NETWORKING_AUTHENTICATION_TEXTURES_TYPES_ELYTRA}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "logging.enabled",
+          "variable": "{LOGGING_ENABLED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "logging.threads",
+          "variable": "{LOGGING_THREADS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "logging.timestamp",
+          "variable": "{LOGGING_TIMESTAMP}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "logging.file",
+          "variable": "{LOGGING_FILE}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "logging.level",
+          "variable": "{LOGGING_LEVEL}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "logging.env",
+          "variable": "{LOGGING_ENV}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "commands.log_console",
+          "variable": "{COMMANDS_LOG_CONSOLE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.rcon.logging.logged_successfully",
+          "variable": "{NETWORKING_RCON_LOGGING_LOGGED_SUCCESSFULLY}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.rcon.logging.wrong_password",
+          "variable": "{NETWORKING_RCON_LOGGING_WRONG_PASSWORD}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.rcon.logging.commands",
+          "variable": "{NETWORKING_RCON_LOGGING_COMMANDS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.rcon.logging.quit",
+          "variable": "{NETWORKING_RCON_LOGGING_QUIT}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "server_links.enabled",
+          "variable": "{SERVER_LINKS_ENABLED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "server_links.bug_report",
+          "variable": "{LINK_BUG_REPORT}",
+          "section": "",
+          "type": "url"
+        },
+        {
+          "key": "server_links.support",
+          "variable": "{SERVER_LINKS_SUPPORT}",
+          "section": "",
+          "type": "url"
+        },
+        {
+          "key": "server_links.status",
+          "variable": "{SERVER_LINKS_STATUS}",
+          "section": "",
+          "type": "url"
+        },
+        {
+          "key": "server_links.feedback",
+          "variable": "{SERVER_LINKS_FEEDBACK}",
+          "section": "",
+          "type": "url"
+        },
+        {
+          "key": "server_links.community",
+          "variable": "{SERVER_LINKS_COMMUNITY}",
+          "section": "",
+          "type": "url"
+        },
+        {
+          "key": "server_links.website",
+          "variable": "{SERVER_LINKS_WEBSITE}",
+          "section": "",
+          "type": "url"
+        },
+        {
+          "key": "server_links.forums",
+          "variable": "{SERVER_LINKS_FORUMS}",
+          "section": "",
+          "type": "url"
+        },
+        {
+          "key": "server_links.news",
+          "variable": "{SERVER_LINKS_NEWS}",
+          "section": "",
+          "type": "url"
+        },
+        {
+          "key": "server_links.announcements",
+          "variable": "{SERVER_LINKS_ANNOUNCEMENTS}",
+          "section": "",
+          "type": "url"
+        },
+        {
+          "key": "server_links.custom.Discord",
+          "variable": "{SERVER_LINKS_CUSTOM_DISCORD}",
+          "section": "",
+          "type": "url"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    },
+    {
+      "path": "pumpkin.toml",
+      "format": "ini",
+      "lineFormat": "{0} = {1}",
+      "bindings": [
+        {
+          "key": "java_edition_address",
+          "variable": "{JAVA_EDITION_ADDRESS}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "bedrock_edition_address",
+          "variable": "{BEDROCK_EDITION_ADDRESS}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "networking.query.address",
+          "variable": "{QUERY_ADDRESS}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "networking.rcon.address",
+          "variable": "{RCON_ADDRESS}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "world.chunk.linear_version",
+          "variable": "{LINEAR_VERSION}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "logging.color",
+          "variable": "{LOGGING_COLOR}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "commands.use_tty",
+          "variable": "{COMMANDS_USE_TTY}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "motd",
+          "variable": "{MOTD}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "default_level_name",
+          "variable": "{DEFAULT_LEVEL_NAME}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "seed",
+          "variable": "{SEED}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "max_players",
+          "variable": "{SLOTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "java_edition",
+          "variable": "{JAVA_EDITION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "bedrock_edition",
+          "variable": "{BEDROCK_EDITION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "use_favicon",
+          "variable": "{USE_FAVICON}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "favicon_path",
+          "variable": "{FAVICON_PATH}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "default_gamemode",
+          "variable": "{DEFAULT_GAMEMODE}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "force_gamemode",
+          "variable": "{FORCE_GAMEMODE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "default_difficulty",
+          "variable": "{DEFAULT_DIFFICULTY}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "hardcore",
+          "variable": "{HARDCORE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "commands.default_op_level",
+          "variable": "{DEFAULT_OP_LEVEL}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "op_permission_level",
+          "variable": "{OP_PERMISSION_LEVEL}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "pvp.enabled",
+          "variable": "{PVP_ENABLED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "pvp.protect_creative",
+          "variable": "{PVP_PROTECT_CREATIVE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "pvp.knockback",
+          "variable": "{PVP_KNOCKBACK}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "pvp.swing",
+          "variable": "{PVP_SWING}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "pvp.hurt_animation",
+          "variable": "{PVP_HURT_ANIMATION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "commands.use_console",
+          "variable": "{USE_CONSOLE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "chat.format",
+          "variable": "{CHAT_FORMAT}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "allow_chat_reports",
+          "variable": "{ALLOW_CHAT_REPORTS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "fun.april_fools",
+          "variable": "{APRIL_FOOLS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "view_distance",
+          "variable": "{VIEW_DISTANCE}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "simulation_distance",
+          "variable": "{SIMULATION_DISTANCE}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "allow_nether",
+          "variable": "{ALLOW_NETHER}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "allow_end",
+          "variable": "{ALLOW_END}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "world.lighting",
+          "variable": "{WORLD_LIGHTING}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "world.chunk.type",
+          "variable": "{WORLD_CHUNK_TYPE}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "world.chunk.write_in_place",
+          "variable": "{WORLD_CHUNK_WRITE_IN_PLACE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "tps",
+          "variable": "{TPS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "world.autosave_ticks",
+          "variable": "{WORLD_AUTOSAVE_TICKS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "world.chunk.compression.algorithm",
+          "variable": "{WORLD_CHUNK_COMPRESSION_ALGORITHM}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "world.chunk.compression.level",
+          "variable": "{WORLD_CHUNK_COMPRESSION_LEVEL}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "networking.java_compression.enabled",
+          "variable": "{NETWORKING_PACKET_COMPRESSION_ENABLED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.java_compression.threshold",
+          "variable": "{NETWORKING_PACKET_COMPRESSION_THRESHOLD}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "networking.java_compression.level",
+          "variable": "{NETWORKING_PACKET_COMPRESSION_LEVEL}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "networking.bedrock_compression.enabled",
+          "variable": "{NETWORKING_BEDROCK_COMPRESSION_ENABLED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.bedrock_compression.threshold",
+          "variable": "{NETWORKING_BEDROCK_COMPRESSION_THRESHOLD}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "networking.bedrock_compression.level",
+          "variable": "{NETWORKING_BEDROCK_COMPRESSION_LEVEL}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "player_data.save_player_data",
+          "variable": "{PLAYER_DATA_SAVE_PLAYER_DATA}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "player_data.save_player_cron_interval",
+          "variable": "{PLAYER_DATA_SAVE_PLAYER_CRON_INTERVAL}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "recipe.send_recipes",
+          "variable": "{RECIPE_SEND_RECIPES}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.proxy.enabled",
+          "variable": "{NETWORKING_PROXY_ENABLED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.proxy.velocity.enabled",
+          "variable": "{NETWORKING_PROXY_VELOCITY_ENABLED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.proxy.velocity.secret",
+          "variable": "{NETWORKING_PROXY_VELOCITY_SECRET}",
+          "section": "",
+          "type": "password"
+        },
+        {
+          "key": "networking.proxy.bungeecord.enabled",
+          "variable": "{NETWORKING_PROXY_BUNGEECORD_ENABLED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.query.enabled",
+          "variable": "{NETWORKING_QUERY_ENABLED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.rcon.enabled",
+          "variable": "{NETWORKING_RCON_ENABLED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.rcon.password",
+          "variable": "{NETWORKING_RCON_PASSWORD}",
+          "section": "",
+          "type": "password"
+        },
+        {
+          "key": "networking.rcon.max_connections",
+          "variable": "{NETWORKING_RCON_MAX_CONNECTIONS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "networking.lan_broadcast.enabled",
+          "variable": "{LAN_BROADCAST_ENABLED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.lan_broadcast.port",
+          "variable": "{LAN_BROADCAST_PORT}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "online_mode",
+          "variable": "{ONLINE_MODE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "white_list",
+          "variable": "{WHITE_LIST}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "enforce_whitelist",
+          "variable": "{ENFORCE_WHITELIST}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.authentication.enabled",
+          "variable": "{AUTH_ENABLED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "encryption",
+          "variable": "{ENCRYPTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.authentication.prevent_proxy_connections",
+          "variable": "{NETWORKING_AUTHENTICATION_PREVENT_PROXY_CONNECTIONS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.authentication.prevent_proxy_connection_auth_url",
+          "variable": "{NETWORKING_AUTHENTICATION_PREVENT_PROXY_CONNECTION_AUTH_URL}",
+          "section": "",
+          "type": "url"
+        },
+        {
+          "key": "networking.authentication.auth_url",
+          "variable": "{NETWORKING_AUTHENTICATION_AUTH_URL}",
+          "section": "",
+          "type": "url"
+        },
+        {
+          "key": "networking.authentication.connect_timeout",
+          "variable": "{NETWORKING_AUTHENTICATION_CONNECT_TIMEOUT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "networking.authentication.read_timeout",
+          "variable": "{NETWORKING_AUTHENTICATION_READ_TIMEOUT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "networking.authentication.player_profile.allow_banned_players",
+          "variable": "{NETWORKING_AUTHENTICATION_PLAYER_PROFILE_ALLOW_BANNED_PLAYERS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.authentication.player_profile.allowed_actions",
+          "variable": "{NETWORKING_AUTHENTICATION_PLAYER_PROFILE_ALLOWED_ACTIONS}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "networking.authentication.textures.enabled",
+          "variable": "{NETWORKING_AUTHENTICATION_TEXTURES_ENABLED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.authentication.textures.allowed_url_schemes",
+          "variable": "{NETWORKING_AUTHENTICATION_TEXTURES_ALLOWED_URL_SCHEMES}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "networking.authentication.textures.allowed_url_domains",
+          "variable": "{NETWORKING_AUTHENTICATION_TEXTURES_ALLOWED_URL_DOMAINS}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "scrub_ips",
+          "variable": "{SCRUB_IPS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "plugins.blocked_permissions",
+          "variable": "{PLUGINS_BLOCKED_PERMISSIONS}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "resource_pack.java.enabled",
+          "variable": "{RESOURCE_PACK_ENABLED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "resource_pack.java.url",
+          "variable": "{RESOURCE_PACK_URL}",
+          "section": "",
+          "type": "url"
+        },
+        {
+          "key": "resource_pack.java.sha1",
+          "variable": "{RESOURCE_PACK_SHA1}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "resource_pack.java.prompt_message",
+          "variable": "{RESOURCE_PACK_PROMPT_MESSAGE}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "resource_pack.java.force",
+          "variable": "{RESOURCE_PACK_FORCE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "resource_pack.bedrock.enabled",
+          "variable": "{RESOURCE_PACK_BEDROCK_ENABLED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "resource_pack.bedrock.force",
+          "variable": "{RESOURCE_PACK_BEDROCK_FORCE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "resource_pack.bedrock.packs",
+          "variable": "{RESOURCE_PACK_BEDROCK_PACKS}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "networking.authentication.textures.types.skin",
+          "variable": "{NETWORKING_AUTHENTICATION_TEXTURES_TYPES_SKIN}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.authentication.textures.types.cape",
+          "variable": "{NETWORKING_AUTHENTICATION_TEXTURES_TYPES_CAPE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.authentication.textures.types.elytra",
+          "variable": "{NETWORKING_AUTHENTICATION_TEXTURES_TYPES_ELYTRA}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "logging.enabled",
+          "variable": "{LOGGING_ENABLED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "logging.threads",
+          "variable": "{LOGGING_THREADS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "logging.timestamp",
+          "variable": "{LOGGING_TIMESTAMP}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "logging.file",
+          "variable": "{LOGGING_FILE}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "logging.level",
+          "variable": "{LOGGING_LEVEL}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "logging.env",
+          "variable": "{LOGGING_ENV}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "commands.log_console",
+          "variable": "{COMMANDS_LOG_CONSOLE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.rcon.logging.logged_successfully",
+          "variable": "{NETWORKING_RCON_LOGGING_LOGGED_SUCCESSFULLY}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.rcon.logging.wrong_password",
+          "variable": "{NETWORKING_RCON_LOGGING_WRONG_PASSWORD}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.rcon.logging.commands",
+          "variable": "{NETWORKING_RCON_LOGGING_COMMANDS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "networking.rcon.logging.quit",
+          "variable": "{NETWORKING_RCON_LOGGING_QUIT}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "server_links.enabled",
+          "variable": "{SERVER_LINKS_ENABLED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "server_links.bug_report",
+          "variable": "{LINK_BUG_REPORT}",
+          "section": "",
+          "type": "url"
+        },
+        {
+          "key": "server_links.support",
+          "variable": "{SERVER_LINKS_SUPPORT}",
+          "section": "",
+          "type": "url"
+        },
+        {
+          "key": "server_links.status",
+          "variable": "{SERVER_LINKS_STATUS}",
+          "section": "",
+          "type": "url"
+        },
+        {
+          "key": "server_links.feedback",
+          "variable": "{SERVER_LINKS_FEEDBACK}",
+          "section": "",
+          "type": "url"
+        },
+        {
+          "key": "server_links.community",
+          "variable": "{SERVER_LINKS_COMMUNITY}",
+          "section": "",
+          "type": "url"
+        },
+        {
+          "key": "server_links.website",
+          "variable": "{SERVER_LINKS_WEBSITE}",
+          "section": "",
+          "type": "url"
+        },
+        {
+          "key": "server_links.forums",
+          "variable": "{SERVER_LINKS_FORUMS}",
+          "section": "",
+          "type": "url"
+        },
+        {
+          "key": "server_links.news",
+          "variable": "{SERVER_LINKS_NEWS}",
+          "section": "",
+          "type": "url"
+        },
+        {
+          "key": "server_links.announcements",
+          "variable": "{SERVER_LINKS_ANNOUNCEMENTS}",
+          "section": "",
+          "type": "url"
+        },
+        {
+          "key": "server_links.custom.Discord",
+          "variable": "{SERVER_LINKS_CUSTOM_DISCORD}",
+          "section": "",
+          "type": "url"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    },
+    {
+      "path": "pumpkin.toml",
+      "format": "ini",
+      "lineFormat": "{0} = \"{1}\"",
+      "bindings": [
+        {
+          "key": "java_edition_address",
+          "variable": "{JAVA_EDITION_ADDRESS}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "bedrock_edition_address",
+          "variable": "{BEDROCK_EDITION_ADDRESS}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "address",
+          "variable": "{QUERY_ADDRESS}",
+          "section": "networking.query",
+          "type": "text"
+        },
+        {
+          "key": "address",
+          "variable": "{RCON_ADDRESS}",
+          "section": "networking.rcon",
+          "type": "text"
+        },
+        {
+          "key": "linear_version",
+          "variable": "{LINEAR_VERSION}",
+          "section": "world.chunk",
+          "type": "text"
+        },
+        {
+          "key": "color",
+          "variable": "{LOGGING_COLOR}",
+          "section": "logging",
+          "type": "checkbox"
+        },
+        {
+          "key": "use_tty",
+          "variable": "{COMMANDS_USE_TTY}",
+          "section": "commands",
+          "type": "checkbox"
+        },
+        {
+          "key": "motd",
+          "variable": "{MOTD}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "default_level_name",
+          "variable": "{DEFAULT_LEVEL_NAME}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "seed",
+          "variable": "{SEED}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "max_players",
+          "variable": "{SLOTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "java_edition",
+          "variable": "{JAVA_EDITION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "bedrock_edition",
+          "variable": "{BEDROCK_EDITION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "use_favicon",
+          "variable": "{USE_FAVICON}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "favicon_path",
+          "variable": "{FAVICON_PATH}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "default_gamemode",
+          "variable": "{DEFAULT_GAMEMODE}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "force_gamemode",
+          "variable": "{FORCE_GAMEMODE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "default_difficulty",
+          "variable": "{DEFAULT_DIFFICULTY}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "hardcore",
+          "variable": "{HARDCORE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "default_op_level",
+          "variable": "{DEFAULT_OP_LEVEL}",
+          "section": "commands",
+          "type": "enum"
+        },
+        {
+          "key": "op_permission_level",
+          "variable": "{OP_PERMISSION_LEVEL}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "enabled",
+          "variable": "{PVP_ENABLED}",
+          "section": "pvp",
+          "type": "checkbox"
+        },
+        {
+          "key": "protect_creative",
+          "variable": "{PVP_PROTECT_CREATIVE}",
+          "section": "pvp",
+          "type": "checkbox"
+        },
+        {
+          "key": "knockback",
+          "variable": "{PVP_KNOCKBACK}",
+          "section": "pvp",
+          "type": "checkbox"
+        },
+        {
+          "key": "swing",
+          "variable": "{PVP_SWING}",
+          "section": "pvp",
+          "type": "checkbox"
+        },
+        {
+          "key": "hurt_animation",
+          "variable": "{PVP_HURT_ANIMATION}",
+          "section": "pvp",
+          "type": "checkbox"
+        },
+        {
+          "key": "use_console",
+          "variable": "{USE_CONSOLE}",
+          "section": "commands",
+          "type": "checkbox"
+        },
+        {
+          "key": "format",
+          "variable": "{CHAT_FORMAT}",
+          "section": "chat",
+          "type": "text"
+        },
+        {
+          "key": "allow_chat_reports",
+          "variable": "{ALLOW_CHAT_REPORTS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "april_fools",
+          "variable": "{APRIL_FOOLS}",
+          "section": "fun",
+          "type": "checkbox"
+        },
+        {
+          "key": "view_distance",
+          "variable": "{VIEW_DISTANCE}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "simulation_distance",
+          "variable": "{SIMULATION_DISTANCE}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "allow_nether",
+          "variable": "{ALLOW_NETHER}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "allow_end",
+          "variable": "{ALLOW_END}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "lighting",
+          "variable": "{WORLD_LIGHTING}",
+          "section": "world",
+          "type": "enum"
+        },
+        {
+          "key": "type",
+          "variable": "{WORLD_CHUNK_TYPE}",
+          "section": "world.chunk",
+          "type": "enum"
+        },
+        {
+          "key": "write_in_place",
+          "variable": "{WORLD_CHUNK_WRITE_IN_PLACE}",
+          "section": "world.chunk",
+          "type": "checkbox"
+        },
+        {
+          "key": "tps",
+          "variable": "{TPS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "autosave_ticks",
+          "variable": "{WORLD_AUTOSAVE_TICKS}",
+          "section": "world",
+          "type": "number"
+        },
+        {
+          "key": "algorithm",
+          "variable": "{WORLD_CHUNK_COMPRESSION_ALGORITHM}",
+          "section": "world.chunk.compression",
+          "type": "enum"
+        },
+        {
+          "key": "level",
+          "variable": "{WORLD_CHUNK_COMPRESSION_LEVEL}",
+          "section": "world.chunk.compression",
+          "type": "number"
+        },
+        {
+          "key": "enabled",
+          "variable": "{NETWORKING_PACKET_COMPRESSION_ENABLED}",
+          "section": "networking.java_compression",
+          "type": "checkbox"
+        },
+        {
+          "key": "threshold",
+          "variable": "{NETWORKING_PACKET_COMPRESSION_THRESHOLD}",
+          "section": "networking.java_compression",
+          "type": "number"
+        },
+        {
+          "key": "level",
+          "variable": "{NETWORKING_PACKET_COMPRESSION_LEVEL}",
+          "section": "networking.java_compression",
+          "type": "enum"
+        },
+        {
+          "key": "enabled",
+          "variable": "{NETWORKING_BEDROCK_COMPRESSION_ENABLED}",
+          "section": "networking.bedrock_compression",
+          "type": "checkbox"
+        },
+        {
+          "key": "threshold",
+          "variable": "{NETWORKING_BEDROCK_COMPRESSION_THRESHOLD}",
+          "section": "networking.bedrock_compression",
+          "type": "number"
+        },
+        {
+          "key": "level",
+          "variable": "{NETWORKING_BEDROCK_COMPRESSION_LEVEL}",
+          "section": "networking.bedrock_compression",
+          "type": "enum"
+        },
+        {
+          "key": "save_player_data",
+          "variable": "{PLAYER_DATA_SAVE_PLAYER_DATA}",
+          "section": "player_data",
+          "type": "checkbox"
+        },
+        {
+          "key": "save_player_cron_interval",
+          "variable": "{PLAYER_DATA_SAVE_PLAYER_CRON_INTERVAL}",
+          "section": "player_data",
+          "type": "number"
+        },
+        {
+          "key": "send_recipes",
+          "variable": "{RECIPE_SEND_RECIPES}",
+          "section": "recipe",
+          "type": "checkbox"
+        },
+        {
+          "key": "enabled",
+          "variable": "{NETWORKING_PROXY_ENABLED}",
+          "section": "networking.proxy",
+          "type": "checkbox"
+        },
+        {
+          "key": "enabled",
+          "variable": "{NETWORKING_PROXY_VELOCITY_ENABLED}",
+          "section": "networking.proxy.velocity",
+          "type": "checkbox"
+        },
+        {
+          "key": "secret",
+          "variable": "{NETWORKING_PROXY_VELOCITY_SECRET}",
+          "section": "networking.proxy.velocity",
+          "type": "password"
+        },
+        {
+          "key": "enabled",
+          "variable": "{NETWORKING_PROXY_BUNGEECORD_ENABLED}",
+          "section": "networking.proxy.bungeecord",
+          "type": "checkbox"
+        },
+        {
+          "key": "enabled",
+          "variable": "{NETWORKING_QUERY_ENABLED}",
+          "section": "networking.query",
+          "type": "checkbox"
+        },
+        {
+          "key": "enabled",
+          "variable": "{NETWORKING_RCON_ENABLED}",
+          "section": "networking.rcon",
+          "type": "checkbox"
+        },
+        {
+          "key": "password",
+          "variable": "{NETWORKING_RCON_PASSWORD}",
+          "section": "networking.rcon",
+          "type": "password"
+        },
+        {
+          "key": "max_connections",
+          "variable": "{NETWORKING_RCON_MAX_CONNECTIONS}",
+          "section": "networking.rcon",
+          "type": "number"
+        },
+        {
+          "key": "enabled",
+          "variable": "{LAN_BROADCAST_ENABLED}",
+          "section": "networking.lan_broadcast",
+          "type": "checkbox"
+        },
+        {
+          "key": "port",
+          "variable": "{LAN_BROADCAST_PORT}",
+          "section": "networking.lan_broadcast",
+          "type": "text"
+        },
+        {
+          "key": "online_mode",
+          "variable": "{ONLINE_MODE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "white_list",
+          "variable": "{WHITE_LIST}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "enforce_whitelist",
+          "variable": "{ENFORCE_WHITELIST}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "enabled",
+          "variable": "{AUTH_ENABLED}",
+          "section": "networking.authentication",
+          "type": "checkbox"
+        },
+        {
+          "key": "encryption",
+          "variable": "{ENCRYPTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "prevent_proxy_connections",
+          "variable": "{NETWORKING_AUTHENTICATION_PREVENT_PROXY_CONNECTIONS}",
+          "section": "networking.authentication",
+          "type": "checkbox"
+        },
+        {
+          "key": "prevent_proxy_connection_auth_url",
+          "variable": "{NETWORKING_AUTHENTICATION_PREVENT_PROXY_CONNECTION_AUTH_URL}",
+          "section": "networking.authentication",
+          "type": "url"
+        },
+        {
+          "key": "auth_url",
+          "variable": "{NETWORKING_AUTHENTICATION_AUTH_URL}",
+          "section": "networking.authentication",
+          "type": "url"
+        },
+        {
+          "key": "connect_timeout",
+          "variable": "{NETWORKING_AUTHENTICATION_CONNECT_TIMEOUT}",
+          "section": "networking.authentication",
+          "type": "number"
+        },
+        {
+          "key": "read_timeout",
+          "variable": "{NETWORKING_AUTHENTICATION_READ_TIMEOUT}",
+          "section": "networking.authentication",
+          "type": "number"
+        },
+        {
+          "key": "allow_banned_players",
+          "variable": "{NETWORKING_AUTHENTICATION_PLAYER_PROFILE_ALLOW_BANNED_PLAYERS}",
+          "section": "networking.authentication.player_profile",
+          "type": "checkbox"
+        },
+        {
+          "key": "allowed_actions",
+          "variable": "{NETWORKING_AUTHENTICATION_PLAYER_PROFILE_ALLOWED_ACTIONS}",
+          "section": "networking.authentication.player_profile",
+          "type": "text"
+        },
+        {
+          "key": "enabled",
+          "variable": "{NETWORKING_AUTHENTICATION_TEXTURES_ENABLED}",
+          "section": "networking.authentication.textures",
+          "type": "checkbox"
+        },
+        {
+          "key": "allowed_url_schemes",
+          "variable": "{NETWORKING_AUTHENTICATION_TEXTURES_ALLOWED_URL_SCHEMES}",
+          "section": "networking.authentication.textures",
+          "type": "text"
+        },
+        {
+          "key": "allowed_url_domains",
+          "variable": "{NETWORKING_AUTHENTICATION_TEXTURES_ALLOWED_URL_DOMAINS}",
+          "section": "networking.authentication.textures",
+          "type": "text"
+        },
+        {
+          "key": "scrub_ips",
+          "variable": "{SCRUB_IPS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "blocked_permissions",
+          "variable": "{PLUGINS_BLOCKED_PERMISSIONS}",
+          "section": "plugins",
+          "type": "text"
+        },
+        {
+          "key": "enabled",
+          "variable": "{RESOURCE_PACK_ENABLED}",
+          "section": "resource_pack.java",
+          "type": "checkbox"
+        },
+        {
+          "key": "url",
+          "variable": "{RESOURCE_PACK_URL}",
+          "section": "resource_pack.java",
+          "type": "url"
+        },
+        {
+          "key": "sha1",
+          "variable": "{RESOURCE_PACK_SHA1}",
+          "section": "resource_pack.java",
+          "type": "text"
+        },
+        {
+          "key": "prompt_message",
+          "variable": "{RESOURCE_PACK_PROMPT_MESSAGE}",
+          "section": "resource_pack.java",
+          "type": "text"
+        },
+        {
+          "key": "force",
+          "variable": "{RESOURCE_PACK_FORCE}",
+          "section": "resource_pack.java",
+          "type": "checkbox"
+        },
+        {
+          "key": "enabled",
+          "variable": "{RESOURCE_PACK_BEDROCK_ENABLED}",
+          "section": "resource_pack.bedrock",
+          "type": "checkbox"
+        },
+        {
+          "key": "force",
+          "variable": "{RESOURCE_PACK_BEDROCK_FORCE}",
+          "section": "resource_pack.bedrock",
+          "type": "checkbox"
+        },
+        {
+          "key": "packs",
+          "variable": "{RESOURCE_PACK_BEDROCK_PACKS}",
+          "section": "resource_pack.bedrock",
+          "type": "text"
+        },
+        {
+          "key": "skin",
+          "variable": "{NETWORKING_AUTHENTICATION_TEXTURES_TYPES_SKIN}",
+          "section": "networking.authentication.textures.types",
+          "type": "checkbox"
+        },
+        {
+          "key": "cape",
+          "variable": "{NETWORKING_AUTHENTICATION_TEXTURES_TYPES_CAPE}",
+          "section": "networking.authentication.textures.types",
+          "type": "checkbox"
+        },
+        {
+          "key": "elytra",
+          "variable": "{NETWORKING_AUTHENTICATION_TEXTURES_TYPES_ELYTRA}",
+          "section": "networking.authentication.textures.types",
+          "type": "checkbox"
+        },
+        {
+          "key": "enabled",
+          "variable": "{LOGGING_ENABLED}",
+          "section": "logging",
+          "type": "checkbox"
+        },
+        {
+          "key": "threads",
+          "variable": "{LOGGING_THREADS}",
+          "section": "logging",
+          "type": "checkbox"
+        },
+        {
+          "key": "timestamp",
+          "variable": "{LOGGING_TIMESTAMP}",
+          "section": "logging",
+          "type": "checkbox"
+        },
+        {
+          "key": "file",
+          "variable": "{LOGGING_FILE}",
+          "section": "logging",
+          "type": "text"
+        },
+        {
+          "key": "level",
+          "variable": "{LOGGING_LEVEL}",
+          "section": "logging",
+          "type": "enum"
+        },
+        {
+          "key": "env",
+          "variable": "{LOGGING_ENV}",
+          "section": "logging",
+          "type": "checkbox"
+        },
+        {
+          "key": "log_console",
+          "variable": "{COMMANDS_LOG_CONSOLE}",
+          "section": "commands",
+          "type": "checkbox"
+        },
+        {
+          "key": "logged_successfully",
+          "variable": "{NETWORKING_RCON_LOGGING_LOGGED_SUCCESSFULLY}",
+          "section": "networking.rcon.logging",
+          "type": "checkbox"
+        },
+        {
+          "key": "wrong_password",
+          "variable": "{NETWORKING_RCON_LOGGING_WRONG_PASSWORD}",
+          "section": "networking.rcon.logging",
+          "type": "checkbox"
+        },
+        {
+          "key": "commands",
+          "variable": "{NETWORKING_RCON_LOGGING_COMMANDS}",
+          "section": "networking.rcon.logging",
+          "type": "checkbox"
+        },
+        {
+          "key": "quit",
+          "variable": "{NETWORKING_RCON_LOGGING_QUIT}",
+          "section": "networking.rcon.logging",
+          "type": "checkbox"
+        },
+        {
+          "key": "enabled",
+          "variable": "{SERVER_LINKS_ENABLED}",
+          "section": "server_links",
+          "type": "checkbox"
+        },
+        {
+          "key": "bug_report",
+          "variable": "{LINK_BUG_REPORT}",
+          "section": "server_links",
+          "type": "url"
+        },
+        {
+          "key": "support",
+          "variable": "{SERVER_LINKS_SUPPORT}",
+          "section": "server_links",
+          "type": "url"
+        },
+        {
+          "key": "status",
+          "variable": "{SERVER_LINKS_STATUS}",
+          "section": "server_links",
+          "type": "url"
+        },
+        {
+          "key": "feedback",
+          "variable": "{SERVER_LINKS_FEEDBACK}",
+          "section": "server_links",
+          "type": "url"
+        },
+        {
+          "key": "community",
+          "variable": "{SERVER_LINKS_COMMUNITY}",
+          "section": "server_links",
+          "type": "url"
+        },
+        {
+          "key": "website",
+          "variable": "{SERVER_LINKS_WEBSITE}",
+          "section": "server_links",
+          "type": "url"
+        },
+        {
+          "key": "forums",
+          "variable": "{SERVER_LINKS_FORUMS}",
+          "section": "server_links",
+          "type": "url"
+        },
+        {
+          "key": "news",
+          "variable": "{SERVER_LINKS_NEWS}",
+          "section": "server_links",
+          "type": "url"
+        },
+        {
+          "key": "announcements",
+          "variable": "{SERVER_LINKS_ANNOUNCEMENTS}",
+          "section": "server_links",
+          "type": "url"
+        },
+        {
+          "key": "Discord",
+          "variable": "{SERVER_LINKS_CUSTOM_DISCORD}",
+          "section": "server_links.custom",
+          "type": "url"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    },
+    {
+      "path": "pumpkin.toml",
+      "format": "ini",
+      "lineFormat": "{0} = {1}",
+      "bindings": [
+        {
+          "key": "java_edition_address",
+          "variable": "{JAVA_EDITION_ADDRESS}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "bedrock_edition_address",
+          "variable": "{BEDROCK_EDITION_ADDRESS}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "address",
+          "variable": "{QUERY_ADDRESS}",
+          "section": "networking.query",
+          "type": "text"
+        },
+        {
+          "key": "address",
+          "variable": "{RCON_ADDRESS}",
+          "section": "networking.rcon",
+          "type": "text"
+        },
+        {
+          "key": "linear_version",
+          "variable": "{LINEAR_VERSION}",
+          "section": "world.chunk",
+          "type": "text"
+        },
+        {
+          "key": "color",
+          "variable": "{LOGGING_COLOR}",
+          "section": "logging",
+          "type": "checkbox"
+        },
+        {
+          "key": "use_tty",
+          "variable": "{COMMANDS_USE_TTY}",
+          "section": "commands",
+          "type": "checkbox"
+        },
+        {
+          "key": "motd",
+          "variable": "{MOTD}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "default_level_name",
+          "variable": "{DEFAULT_LEVEL_NAME}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "seed",
+          "variable": "{SEED}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "max_players",
+          "variable": "{SLOTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "java_edition",
+          "variable": "{JAVA_EDITION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "bedrock_edition",
+          "variable": "{BEDROCK_EDITION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "use_favicon",
+          "variable": "{USE_FAVICON}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "favicon_path",
+          "variable": "{FAVICON_PATH}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "default_gamemode",
+          "variable": "{DEFAULT_GAMEMODE}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "force_gamemode",
+          "variable": "{FORCE_GAMEMODE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "default_difficulty",
+          "variable": "{DEFAULT_DIFFICULTY}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "hardcore",
+          "variable": "{HARDCORE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "default_op_level",
+          "variable": "{DEFAULT_OP_LEVEL}",
+          "section": "commands",
+          "type": "enum"
+        },
+        {
+          "key": "op_permission_level",
+          "variable": "{OP_PERMISSION_LEVEL}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "enabled",
+          "variable": "{PVP_ENABLED}",
+          "section": "pvp",
+          "type": "checkbox"
+        },
+        {
+          "key": "protect_creative",
+          "variable": "{PVP_PROTECT_CREATIVE}",
+          "section": "pvp",
+          "type": "checkbox"
+        },
+        {
+          "key": "knockback",
+          "variable": "{PVP_KNOCKBACK}",
+          "section": "pvp",
+          "type": "checkbox"
+        },
+        {
+          "key": "swing",
+          "variable": "{PVP_SWING}",
+          "section": "pvp",
+          "type": "checkbox"
+        },
+        {
+          "key": "hurt_animation",
+          "variable": "{PVP_HURT_ANIMATION}",
+          "section": "pvp",
+          "type": "checkbox"
+        },
+        {
+          "key": "use_console",
+          "variable": "{USE_CONSOLE}",
+          "section": "commands",
+          "type": "checkbox"
+        },
+        {
+          "key": "format",
+          "variable": "{CHAT_FORMAT}",
+          "section": "chat",
+          "type": "text"
+        },
+        {
+          "key": "allow_chat_reports",
+          "variable": "{ALLOW_CHAT_REPORTS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "april_fools",
+          "variable": "{APRIL_FOOLS}",
+          "section": "fun",
+          "type": "checkbox"
+        },
+        {
+          "key": "view_distance",
+          "variable": "{VIEW_DISTANCE}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "simulation_distance",
+          "variable": "{SIMULATION_DISTANCE}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "allow_nether",
+          "variable": "{ALLOW_NETHER}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "allow_end",
+          "variable": "{ALLOW_END}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "lighting",
+          "variable": "{WORLD_LIGHTING}",
+          "section": "world",
+          "type": "enum"
+        },
+        {
+          "key": "type",
+          "variable": "{WORLD_CHUNK_TYPE}",
+          "section": "world.chunk",
+          "type": "enum"
+        },
+        {
+          "key": "write_in_place",
+          "variable": "{WORLD_CHUNK_WRITE_IN_PLACE}",
+          "section": "world.chunk",
+          "type": "checkbox"
+        },
+        {
+          "key": "tps",
+          "variable": "{TPS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "autosave_ticks",
+          "variable": "{WORLD_AUTOSAVE_TICKS}",
+          "section": "world",
+          "type": "number"
+        },
+        {
+          "key": "algorithm",
+          "variable": "{WORLD_CHUNK_COMPRESSION_ALGORITHM}",
+          "section": "world.chunk.compression",
+          "type": "enum"
+        },
+        {
+          "key": "level",
+          "variable": "{WORLD_CHUNK_COMPRESSION_LEVEL}",
+          "section": "world.chunk.compression",
+          "type": "number"
+        },
+        {
+          "key": "enabled",
+          "variable": "{NETWORKING_PACKET_COMPRESSION_ENABLED}",
+          "section": "networking.java_compression",
+          "type": "checkbox"
+        },
+        {
+          "key": "threshold",
+          "variable": "{NETWORKING_PACKET_COMPRESSION_THRESHOLD}",
+          "section": "networking.java_compression",
+          "type": "number"
+        },
+        {
+          "key": "level",
+          "variable": "{NETWORKING_PACKET_COMPRESSION_LEVEL}",
+          "section": "networking.java_compression",
+          "type": "enum"
+        },
+        {
+          "key": "enabled",
+          "variable": "{NETWORKING_BEDROCK_COMPRESSION_ENABLED}",
+          "section": "networking.bedrock_compression",
+          "type": "checkbox"
+        },
+        {
+          "key": "threshold",
+          "variable": "{NETWORKING_BEDROCK_COMPRESSION_THRESHOLD}",
+          "section": "networking.bedrock_compression",
+          "type": "number"
+        },
+        {
+          "key": "level",
+          "variable": "{NETWORKING_BEDROCK_COMPRESSION_LEVEL}",
+          "section": "networking.bedrock_compression",
+          "type": "enum"
+        },
+        {
+          "key": "save_player_data",
+          "variable": "{PLAYER_DATA_SAVE_PLAYER_DATA}",
+          "section": "player_data",
+          "type": "checkbox"
+        },
+        {
+          "key": "save_player_cron_interval",
+          "variable": "{PLAYER_DATA_SAVE_PLAYER_CRON_INTERVAL}",
+          "section": "player_data",
+          "type": "number"
+        },
+        {
+          "key": "send_recipes",
+          "variable": "{RECIPE_SEND_RECIPES}",
+          "section": "recipe",
+          "type": "checkbox"
+        },
+        {
+          "key": "enabled",
+          "variable": "{NETWORKING_PROXY_ENABLED}",
+          "section": "networking.proxy",
+          "type": "checkbox"
+        },
+        {
+          "key": "enabled",
+          "variable": "{NETWORKING_PROXY_VELOCITY_ENABLED}",
+          "section": "networking.proxy.velocity",
+          "type": "checkbox"
+        },
+        {
+          "key": "secret",
+          "variable": "{NETWORKING_PROXY_VELOCITY_SECRET}",
+          "section": "networking.proxy.velocity",
+          "type": "password"
+        },
+        {
+          "key": "enabled",
+          "variable": "{NETWORKING_PROXY_BUNGEECORD_ENABLED}",
+          "section": "networking.proxy.bungeecord",
+          "type": "checkbox"
+        },
+        {
+          "key": "enabled",
+          "variable": "{NETWORKING_QUERY_ENABLED}",
+          "section": "networking.query",
+          "type": "checkbox"
+        },
+        {
+          "key": "enabled",
+          "variable": "{NETWORKING_RCON_ENABLED}",
+          "section": "networking.rcon",
+          "type": "checkbox"
+        },
+        {
+          "key": "password",
+          "variable": "{NETWORKING_RCON_PASSWORD}",
+          "section": "networking.rcon",
+          "type": "password"
+        },
+        {
+          "key": "max_connections",
+          "variable": "{NETWORKING_RCON_MAX_CONNECTIONS}",
+          "section": "networking.rcon",
+          "type": "number"
+        },
+        {
+          "key": "enabled",
+          "variable": "{LAN_BROADCAST_ENABLED}",
+          "section": "networking.lan_broadcast",
+          "type": "checkbox"
+        },
+        {
+          "key": "port",
+          "variable": "{LAN_BROADCAST_PORT}",
+          "section": "networking.lan_broadcast",
+          "type": "text"
+        },
+        {
+          "key": "online_mode",
+          "variable": "{ONLINE_MODE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "white_list",
+          "variable": "{WHITE_LIST}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "enforce_whitelist",
+          "variable": "{ENFORCE_WHITELIST}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "enabled",
+          "variable": "{AUTH_ENABLED}",
+          "section": "networking.authentication",
+          "type": "checkbox"
+        },
+        {
+          "key": "encryption",
+          "variable": "{ENCRYPTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "prevent_proxy_connections",
+          "variable": "{NETWORKING_AUTHENTICATION_PREVENT_PROXY_CONNECTIONS}",
+          "section": "networking.authentication",
+          "type": "checkbox"
+        },
+        {
+          "key": "prevent_proxy_connection_auth_url",
+          "variable": "{NETWORKING_AUTHENTICATION_PREVENT_PROXY_CONNECTION_AUTH_URL}",
+          "section": "networking.authentication",
+          "type": "url"
+        },
+        {
+          "key": "auth_url",
+          "variable": "{NETWORKING_AUTHENTICATION_AUTH_URL}",
+          "section": "networking.authentication",
+          "type": "url"
+        },
+        {
+          "key": "connect_timeout",
+          "variable": "{NETWORKING_AUTHENTICATION_CONNECT_TIMEOUT}",
+          "section": "networking.authentication",
+          "type": "number"
+        },
+        {
+          "key": "read_timeout",
+          "variable": "{NETWORKING_AUTHENTICATION_READ_TIMEOUT}",
+          "section": "networking.authentication",
+          "type": "number"
+        },
+        {
+          "key": "allow_banned_players",
+          "variable": "{NETWORKING_AUTHENTICATION_PLAYER_PROFILE_ALLOW_BANNED_PLAYERS}",
+          "section": "networking.authentication.player_profile",
+          "type": "checkbox"
+        },
+        {
+          "key": "allowed_actions",
+          "variable": "{NETWORKING_AUTHENTICATION_PLAYER_PROFILE_ALLOWED_ACTIONS}",
+          "section": "networking.authentication.player_profile",
+          "type": "text"
+        },
+        {
+          "key": "enabled",
+          "variable": "{NETWORKING_AUTHENTICATION_TEXTURES_ENABLED}",
+          "section": "networking.authentication.textures",
+          "type": "checkbox"
+        },
+        {
+          "key": "allowed_url_schemes",
+          "variable": "{NETWORKING_AUTHENTICATION_TEXTURES_ALLOWED_URL_SCHEMES}",
+          "section": "networking.authentication.textures",
+          "type": "text"
+        },
+        {
+          "key": "allowed_url_domains",
+          "variable": "{NETWORKING_AUTHENTICATION_TEXTURES_ALLOWED_URL_DOMAINS}",
+          "section": "networking.authentication.textures",
+          "type": "text"
+        },
+        {
+          "key": "scrub_ips",
+          "variable": "{SCRUB_IPS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "blocked_permissions",
+          "variable": "{PLUGINS_BLOCKED_PERMISSIONS}",
+          "section": "plugins",
+          "type": "text"
+        },
+        {
+          "key": "enabled",
+          "variable": "{RESOURCE_PACK_ENABLED}",
+          "section": "resource_pack.java",
+          "type": "checkbox"
+        },
+        {
+          "key": "url",
+          "variable": "{RESOURCE_PACK_URL}",
+          "section": "resource_pack.java",
+          "type": "url"
+        },
+        {
+          "key": "sha1",
+          "variable": "{RESOURCE_PACK_SHA1}",
+          "section": "resource_pack.java",
+          "type": "text"
+        },
+        {
+          "key": "prompt_message",
+          "variable": "{RESOURCE_PACK_PROMPT_MESSAGE}",
+          "section": "resource_pack.java",
+          "type": "text"
+        },
+        {
+          "key": "force",
+          "variable": "{RESOURCE_PACK_FORCE}",
+          "section": "resource_pack.java",
+          "type": "checkbox"
+        },
+        {
+          "key": "enabled",
+          "variable": "{RESOURCE_PACK_BEDROCK_ENABLED}",
+          "section": "resource_pack.bedrock",
+          "type": "checkbox"
+        },
+        {
+          "key": "force",
+          "variable": "{RESOURCE_PACK_BEDROCK_FORCE}",
+          "section": "resource_pack.bedrock",
+          "type": "checkbox"
+        },
+        {
+          "key": "packs",
+          "variable": "{RESOURCE_PACK_BEDROCK_PACKS}",
+          "section": "resource_pack.bedrock",
+          "type": "text"
+        },
+        {
+          "key": "skin",
+          "variable": "{NETWORKING_AUTHENTICATION_TEXTURES_TYPES_SKIN}",
+          "section": "networking.authentication.textures.types",
+          "type": "checkbox"
+        },
+        {
+          "key": "cape",
+          "variable": "{NETWORKING_AUTHENTICATION_TEXTURES_TYPES_CAPE}",
+          "section": "networking.authentication.textures.types",
+          "type": "checkbox"
+        },
+        {
+          "key": "elytra",
+          "variable": "{NETWORKING_AUTHENTICATION_TEXTURES_TYPES_ELYTRA}",
+          "section": "networking.authentication.textures.types",
+          "type": "checkbox"
+        },
+        {
+          "key": "enabled",
+          "variable": "{LOGGING_ENABLED}",
+          "section": "logging",
+          "type": "checkbox"
+        },
+        {
+          "key": "threads",
+          "variable": "{LOGGING_THREADS}",
+          "section": "logging",
+          "type": "checkbox"
+        },
+        {
+          "key": "timestamp",
+          "variable": "{LOGGING_TIMESTAMP}",
+          "section": "logging",
+          "type": "checkbox"
+        },
+        {
+          "key": "file",
+          "variable": "{LOGGING_FILE}",
+          "section": "logging",
+          "type": "text"
+        },
+        {
+          "key": "level",
+          "variable": "{LOGGING_LEVEL}",
+          "section": "logging",
+          "type": "enum"
+        },
+        {
+          "key": "env",
+          "variable": "{LOGGING_ENV}",
+          "section": "logging",
+          "type": "checkbox"
+        },
+        {
+          "key": "log_console",
+          "variable": "{COMMANDS_LOG_CONSOLE}",
+          "section": "commands",
+          "type": "checkbox"
+        },
+        {
+          "key": "logged_successfully",
+          "variable": "{NETWORKING_RCON_LOGGING_LOGGED_SUCCESSFULLY}",
+          "section": "networking.rcon.logging",
+          "type": "checkbox"
+        },
+        {
+          "key": "wrong_password",
+          "variable": "{NETWORKING_RCON_LOGGING_WRONG_PASSWORD}",
+          "section": "networking.rcon.logging",
+          "type": "checkbox"
+        },
+        {
+          "key": "commands",
+          "variable": "{NETWORKING_RCON_LOGGING_COMMANDS}",
+          "section": "networking.rcon.logging",
+          "type": "checkbox"
+        },
+        {
+          "key": "quit",
+          "variable": "{NETWORKING_RCON_LOGGING_QUIT}",
+          "section": "networking.rcon.logging",
+          "type": "checkbox"
+        },
+        {
+          "key": "enabled",
+          "variable": "{SERVER_LINKS_ENABLED}",
+          "section": "server_links",
+          "type": "checkbox"
+        },
+        {
+          "key": "bug_report",
+          "variable": "{LINK_BUG_REPORT}",
+          "section": "server_links",
+          "type": "url"
+        },
+        {
+          "key": "support",
+          "variable": "{SERVER_LINKS_SUPPORT}",
+          "section": "server_links",
+          "type": "url"
+        },
+        {
+          "key": "status",
+          "variable": "{SERVER_LINKS_STATUS}",
+          "section": "server_links",
+          "type": "url"
+        },
+        {
+          "key": "feedback",
+          "variable": "{SERVER_LINKS_FEEDBACK}",
+          "section": "server_links",
+          "type": "url"
+        },
+        {
+          "key": "community",
+          "variable": "{SERVER_LINKS_COMMUNITY}",
+          "section": "server_links",
+          "type": "url"
+        },
+        {
+          "key": "website",
+          "variable": "{SERVER_LINKS_WEBSITE}",
+          "section": "server_links",
+          "type": "url"
+        },
+        {
+          "key": "forums",
+          "variable": "{SERVER_LINKS_FORUMS}",
+          "section": "server_links",
+          "type": "url"
+        },
+        {
+          "key": "news",
+          "variable": "{SERVER_LINKS_NEWS}",
+          "section": "server_links",
+          "type": "url"
+        },
+        {
+          "key": "announcements",
+          "variable": "{SERVER_LINKS_ANNOUNCEMENTS}",
+          "section": "server_links",
+          "type": "url"
+        },
+        {
+          "key": "Discord",
+          "variable": "{SERVER_LINKS_CUSTOM_DISCORD}",
+          "section": "server_links.custom",
+          "type": "url"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    }
+  ],
+  "deploymentSteps": [
+    {
+      "name": "Download Server",
+      "type": "download",
+      "phase": "install",
+      "platform": "linux",
+      "source": "https://github.com/Pumpkin-MC/Pumpkin/releases/download/nightly/pumpkin-X64-Linux",
+      "target": "",
+      "arguments": "pumpkin",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": false
+    },
+    {
+      "name": "Download Server",
+      "type": "download",
+      "phase": "install",
+      "platform": "linux",
+      "source": "https://github.com/Pumpkin-MC/Pumpkin/releases/download/nightly/pumpkin-ARM64-Linux",
+      "target": "",
+      "arguments": "pumpkin",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": false
+    },
+    {
+      "name": "Make Server Executable",
+      "type": "executable",
+      "phase": "install",
+      "platform": "linux",
+      "source": "",
+      "target": "pumpkin",
+      "arguments": "{SERVER_DIR}/pumpkin",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Download Server",
+      "type": "download",
+      "phase": "install",
+      "platform": "windows",
+      "source": "https://github.com/Pumpkin-MC/Pumpkin/releases/download/nightly/pumpkin-X64-Windows.exe",
+      "target": "",
+      "arguments": "Pumpkin.exe",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": false
+    },
+    {
+      "name": "Download Config File",
+      "type": "file",
+      "phase": "install",
+      "platform": "all",
+      "source": "java_edition = true\njava_edition_address = \"0.0.0.0:25565\"\nbedrock_edition = true\nbedrock_edition_address = \"0.0.0.0:19132\"\nseed = \"\"\nmax_players = 1000\nview_distance = 16\nsimulation_distance = 10\ndefault_difficulty = \"Normal\"\nop_permission_level = 4\nallow_nether = true\nallow_end = true\nhardcore = false\nonline_mode = true\nencryption = true\nmotd = \"A blazingly fast Pumpkin server!\"\ntps = 20.0\ndefault_gamemode = \"Survival\"\nforce_gamemode = false\nscrub_ips = true\nuse_favicon = true\nfavicon_path = \"icon.png\"\ndefault_level_name = \"world\"\nallow_chat_reports = false\nwhite_list = false\nenforce_whitelist = false\n\n[logging]\nenabled = true\nlevel = \"Info\"\nenv = true\nthreads = true\ncolor = false\ntimestamp = true\nfile = \"latest.log\"\n\n[resource_pack.java]\nenabled = false\nurl = \"\"\nsha1 = \"\"\nprompt_message = \"\"\nforce = false\n\n[resource_pack.bedrock]\nenabled = false\nforce = false\npacks = []\n\n[world]\nlighting = \"default\"\nautosave_ticks = 0\n\n[world.chunk]\ntype = \"anvil\"\nlinear_version = \"V1\"\nwrite_in_place = false\n\n[world.chunk.compression]\nalgorithm = \"LZ4\"\nlevel = 6\n\n[networking.authentication]\nenabled = true\nconnect_timeout = 5000\nread_timeout = 5000\nprevent_proxy_connections = false\nauth_url = \"\"\nprevent_proxy_connection_auth_url = \"\"\n\n[networking.authentication.player_profile]\nallow_banned_players = false\nallowed_actions = ['FORCED_NAME_CHANGE', 'USING_BANNED_SKIN']\n\n[networking.authentication.textures]\nenabled = true\nallowed_url_schemes = ['http', 'https']\nallowed_url_domains = ['.minecraft.net', '.mojang.com']\n\n[networking.authentication.textures.types]\nskin = true\ncape = true\nelytra = true\n\n[networking.query]\nenabled = false\naddress = \"0.0.0.0:25565\"\n\n[networking.rcon]\nenabled = false\naddress = \"0.0.0.0:25575\"\npassword = \"\"\nmax_connections = 10\n\n[networking.rcon.logging]\nlogged_successfully = true\nwrong_password = true\ncommands = true\nquit = true\n\n[networking.proxy]\nenabled = false\n\n[networking.proxy.velocity]\nenabled = false\nsecret = \"\"\n\n[networking.proxy.bungeecord]\nenabled = false\n\n[networking.java_compression]\nenabled = true\nthreshold = 256\nlevel = 4\n\n[networking.bedrock_compression]\nenabled = true\nthreshold = 256\nlevel = 4\n\n[networking.lan_broadcast]\nenabled = false\nport = 0\n\n[commands]\nuse_console = true\nuse_tty = false\nlog_console = true\ndefault_op_level = 0\n\n[chat]\nformat = \"<{DISPLAYNAME}> {MESSAGE}\"\n\n[pvp]\nenabled = true\nhurt_animation = true\nprotect_creative = true\nknockback = true\nswing = true\n\n[server_links]\nenabled = true\nbug_report = \"https://github.com/Pumpkin-MC/Pumpkin/issues\"\nsupport = \"\"\nstatus = \"\"\nfeedback = \"\"\ncommunity = \"\"\nwebsite = \"\"\nforums = \"\"\nnews = \"\"\nannouncements = \"\"\n\n[server_links.custom]\nDiscord = \"https://discord.gg/pumpkin\"\n\n[player_data]\nsave_player_data = true\nsave_player_cron_interval = 300\n\n[fun]\napril_fools = false\n\n[recipe]\nsend_recipes = true\n\n[plugins]\nblocked_permissions = []",
+      "target": "pumpkin.toml",
+      "arguments": "pumpkin.toml",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    }
+  ],
+  "authenticationRequirements": [],
+  "environment": {},
+  "linuxPackages": [],
+  "warnings": [],
+  "validationStatus": "ready",
+  "preferredRuntime": "native",
+  "noCommercialUsage": false,
+  "workingDirectory": "",
+  "executables": {
+    "windows": "Pumpkin.exe",
+    "linux": "pumpkin"
+  },
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "windowsOnly": false,
+  "platformWorkingDirectories": {
+    "windows": "",
+    "linux": ""
+  },
+  "platformArguments": {
+    "windows": [
+      "{FORMATTED_ARGS}"
+    ],
+    "linux": [
+      "{FORMATTED_ARGS}"
+    ]
+  },
+  "arguments": [
+    "{FORMATTED_ARGS}"
+  ],
+  "stopCommand": "stop",
+  "query": "none"
+}

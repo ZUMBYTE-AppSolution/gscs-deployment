@@ -1,0 +1,3925 @@
+{
+  "id": "rimworld-together",
+  "name": "Rimworld Together - RimWorld Server",
+  "version": "1.1.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/rimworld-together.json",
+  "sourceRef": "main",
+  "steamAppId": null,
+  "steamGameAppId": 294100,
+  "website": "https://github.com/Nova-Atomic/Rimworld-Together",
+  "image": "ghcr.io/zumbyte-appsolution/gscs:0.1.0-alpha.2",
+  "defaults": {
+    "DESCRIPTION": "Welcome to my Rimworld Together server!",
+    "ENABLESERVERBROWSER": "false",
+    "USEWHITELIST": "false",
+    "WHITELISTEDUSERS": "[]",
+    "VERBOSELOGS": "false",
+    "EXTREMEVERBOSELOGS": "false",
+    "DISPLAYCHATINCONSOLE": "false",
+    "USEUPNP": "false",
+    "SYNCLOCALSAVE": "true",
+    "TEMPORALACTIVITYPROTECTION": "false",
+    "TEMPORALACTIVITYPROTECTIONTIME": "3600",
+    "TEMPORALEVENTPROTECTION": "true",
+    "TEMPORALEVENTPROTECTIONTIME": "3600",
+    "TEMPORALAIDPROTECTION": "false",
+    "TEMPORALAIDPROTECTIONTIME": "3600",
+    "TEMPORALSPYPROTECTION": "true",
+    "TEMPORALSPYPROTECTIONTIME": "3600",
+    "ENABLEMOTD": "false",
+    "LOGINNOTIFICATIONS": "false",
+    "DISCONNECTNOTIFICATIONS": "false",
+    "AUTOMATICBACKUPS": "true",
+    "INTERVALHOURS": "24.0",
+    "AUTOMATICDELETION": "true",
+    "AMOUNT": "3",
+    "ENABLEACTIVITIES": "true",
+    "ENABLEEVENTS": "true",
+    "ENABLESITES": "true",
+    "ENABLEROADS": "true",
+    "ENABLEFACTIONS": "true",
+    "ENABLEAIDS": "true",
+    "ENABLETRADING": "true",
+    "ENABLESPYING": "true",
+    "ENABLECUSTOMSCENARIOS": "true",
+    "ENABLENPCDESTRUCTION": "false",
+    "ENABLEPOLLUTIONSPREAD": "true",
+    "ENFORCEDGAMESPEED": "0",
+    "SPYCOST": "100",
+    "ALLOWDIRTPATH": "true",
+    "ALLOWDIRTROAD": "true",
+    "ALLOWSTONEROAD": "true",
+    "ALLOWASPHALTPATH": "true",
+    "ALLOWASPHALTHIGHWAY": "true",
+    "DIRTPATHCOST": "10",
+    "DIRTROADCOST": "20",
+    "STONEROADCOST": "25",
+    "ASPHALTPATHCOST": "30",
+    "ASPHALTHIGHWAYCOST": "50"
+  },
+  "ports": [
+    {
+      "role": "game",
+      "default": 25555,
+      "containerPort": 25555,
+      "protocol": "tcp",
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "configurationTabs": [
+    {
+      "id": "server",
+      "label": "Server",
+      "icon": "settings",
+      "order": 0
+    },
+    {
+      "id": "actions",
+      "label": "Actions",
+      "icon": "settings",
+      "order": 1
+    },
+    {
+      "id": "roads",
+      "label": "Roads",
+      "icon": "settings",
+      "order": 2
+    },
+    {
+      "id": "server-updates",
+      "label": "Server Updates",
+      "icon": "settings",
+      "order": 3
+    }
+  ],
+  "configurationFields": [
+    {
+      "id": "GAME_PORT",
+      "label": "Server Port",
+      "description": "",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.Port",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "GAME_BIND",
+      "label": "Server IP Binding",
+      "description": "",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.IP",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVER_NAME",
+      "label": "Servername",
+      "description": "Sets the name of the server. Maximum 40 characters",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "{SERVER_NAME}",
+      "placeholder": "GSCS Rimworld Together Server",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.Name",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "DESCRIPTION",
+      "label": "Serverbeschreibung",
+      "description": "Sets the description of the server. Maximum 200 characters",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "Welcome to my Rimworld Together server!",
+      "placeholder": "Welcome to my Rimworld Together server!",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.Description",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ENABLESERVERBROWSER",
+      "label": "Show In Server Browser",
+      "description": "If enabled, the server will be visible in the public server browser",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.EnableServerBrowser",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "PUBLICENDPOINT",
+      "label": "Public Endpoint Address Selection Mode",
+      "description": "Sets whether and how the public endpoint address (IP or domain) for the server, as used by the server browser, is set. If 'Address manually set' is selected, specify the desired public endpoint address under Manual Public Endpoint Address",
+      "tab": "server",
+      "section": "Server",
+      "type": "enum",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {
+        "": "IP automatically set by Rimworld Together (default)",
+        "{EXTERNALIP}": "IP automatically set by GSCS",
+        "{MANUALPUBLICENDPOINT}": "Address manually set"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.PublicEndPoint",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "MANUALPUBLICENDPOINT",
+      "label": "Manual Public Endpoint Address",
+      "description": "Sets the public endpoint address (IP or domain) for the server, if 'Address manually set' is selected as the Public Endpoint Address Selection Mode",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "ManualPublicEndPoint",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SLOTS",
+      "label": "Spielerlimit",
+      "description": "Sets the maximum number of players that may connect to the server at one time",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "100",
+      "placeholder": "100",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.MaxPlayers",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 1.0
+    },
+    {
+      "id": "USEWHITELIST",
+      "label": "Enable Whitelist",
+      "description": "If set, allows only the usernames listed under Whitelisted Players to join the server",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.UseWhitelist",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "WHITELISTEDUSERS",
+      "label": "Whitelisted Players",
+      "description": "Sets a list of in-game usernames for whitelisted players. Requires Enable Whitelist to be set",
+      "tab": "server",
+      "section": "Server",
+      "type": "textarea",
+      "default": "[]",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.WhitelistedUsers",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "VERBOSELOGS",
+      "label": "Enable Verbose Logging",
+      "description": "If set, the server console will include additional logging output for developer or debugging purposes. Not recommended for normal use",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.VerboseLogs",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "EXTREMEVERBOSELOGS",
+      "label": "Enable Extreme Verbose Logging",
+      "description": "If set, the server console will include much more verbose logging",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.ExtremeVerboseLogs",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "DISPLAYCHATINCONSOLE",
+      "label": "Display Chat In Console",
+      "description": "If set, player chat will be displayed in the server console",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.DisplayChatInConsole",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "USEUPNP",
+      "label": "Use UPnP",
+      "description": "If set, UPnP will be used to automatically configure port forwarding on compatible routers",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.UseUPnP",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SYNCLOCALSAVE",
+      "label": "Sync Local Save",
+      "description": "If set, local save syncing will be enabled",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.SyncLocalSave",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "TEMPORALACTIVITYPROTECTION",
+      "label": "Enable Temporal Activity Protection",
+      "description": "If set, temporal activity protection will be enabled",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.TemporalActivityProtection",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "TEMPORALACTIVITYPROTECTIONTIME",
+      "label": "Temporal Activity Protection Time",
+      "description": "Sets the cooldown between receiving activity requests. Temporal Activity Protection must be enabled",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "3600",
+      "placeholder": "3600",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.TemporalActivityProtectionTime",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "TEMPORALEVENTPROTECTION",
+      "label": "Enable Temporal Event Protection",
+      "description": "If set, temporal event protection will be enabled",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.TemporalEventProtection",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "TEMPORALEVENTPROTECTIONTIME",
+      "label": "Temporal Event Protection Time",
+      "description": "Sets the cooldown between receiving player-sent events. Temporal Event Protection must be enabled",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "3600",
+      "placeholder": "3600",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.TemporalEventProtectionTime",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "TEMPORALAIDPROTECTION",
+      "label": "Enable Temporal Aid Protection",
+      "description": "If set, temporal aid protection will be enabled",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.TemporalAidProtection",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "TEMPORALAIDPROTECTIONTIME",
+      "label": "Temporal Aid Protection Time",
+      "description": "Sets the cooldown between receiving player-sent aid. Temporal Aid Protection must be enabled",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "3600",
+      "placeholder": "3600",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.TemporalAidProtectionTime",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "TEMPORALSPYPROTECTION",
+      "label": "Enable Temporal Spy Protection",
+      "description": "If set, temporal spy protection will be enabled",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.TemporalSpyProtection",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "TEMPORALSPYPROTECTIONTIME",
+      "label": "Temporal Spy Protection Time",
+      "description": "Sets the cooldown between spying attempts. Temporal Spy Protection must be enabled",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "3600",
+      "placeholder": "3600",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.TemporalSpyProtectionTime",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ENABLEMOTD",
+      "label": "Enable Server MOTD",
+      "description": "If enabled, sends a welcome message to all players that log in",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.EnableMoTD",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "MESSAGEOFTHEDAY",
+      "label": "Server MOTD",
+      "description": "Sets message sent to players when they log in. Enable Server MOTD must be set",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "",
+      "placeholder": "Welcome to the server!",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.MessageOfTheDay",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "LOGINNOTIFICATIONS",
+      "label": "Login Notifications",
+      "description": "If enabled, sends a message when a user logs in",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.LoginNotifications",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "DISCONNECTNOTIFICATIONS",
+      "label": "Disconnect Notifications",
+      "description": "If enabled, sends a message when a user logs off",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.DisconnectNotifications",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "AUTOMATICBACKUPS",
+      "label": "Enable Automatic Backups",
+      "description": "If enabled, the server will automatically create backups at regular intervals",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.AutomaticBackups",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "INTERVALHOURS",
+      "label": "Backup Interval",
+      "description": "Sets the interval between automatic backups. A backup is also created when the server is started",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "24.0",
+      "placeholder": "24.0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.IntervalHours",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "AUTOMATICDELETION",
+      "label": "Enable Automatic Backup Deletion",
+      "description": "If enabled, old backups will be automatically deleted, based on the Backup Retention Amount",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.AutomaticDeletion",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "AMOUNT",
+      "label": "Backup Retention Amount",
+      "description": "Sets the number of backups to keep before older backups are deleted, if Automatic Backup Deletion is enabled",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "3",
+      "placeholder": "3",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.Amount",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ENABLEACTIVITIES",
+      "label": "Enable Offline Activities",
+      "description": "If set, offline visting and raiding will be enabled",
+      "tab": "actions",
+      "section": "Actions",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.EnableActivities",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ENABLEEVENTS",
+      "label": "Enable Events",
+      "description": "If set, events will be enabled",
+      "tab": "actions",
+      "section": "Actions",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.EnableEvents",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ENABLESITES",
+      "label": "Enable Sites",
+      "description": "If set, creation of sites will be enabled",
+      "tab": "actions",
+      "section": "Actions",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.EnableSites",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ENABLEROADS",
+      "label": "Enable Roads",
+      "description": "If set, creation of user-built roads will be enabled",
+      "tab": "actions",
+      "section": "Actions",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.EnableRoads",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ENABLEFACTIONS",
+      "label": "Enable Factions",
+      "description": "If set, creation of user-made factions will be enabled",
+      "tab": "actions",
+      "section": "Actions",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.EnableFactions",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ENABLEAIDS",
+      "label": "Enable Aids",
+      "description": "If set, transfer of pawns will be enabled",
+      "tab": "actions",
+      "section": "Actions",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.EnableAids",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ENABLETRADING",
+      "label": "Enable Trading",
+      "description": "If set, transfer of items will be enabled",
+      "tab": "actions",
+      "section": "Actions",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.EnableTrading",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ENABLESPYING",
+      "label": "Enable Spying",
+      "description": "If set, spying on offline will be enabled",
+      "tab": "actions",
+      "section": "Actions",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.EnableSpying",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ENABLECUSTOMSCENARIOS",
+      "label": "Enable Custom Scenarios",
+      "description": "If set, selection by users of custom scenarios will be allowed",
+      "tab": "actions",
+      "section": "Actions",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.EnableCustomScenarios",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ENABLENPCDESTRUCTION",
+      "label": "Enable NPC Destruction",
+      "description": "If set, permanent destruction of NPC settlements by users will be allowed",
+      "tab": "actions",
+      "section": "Actions",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.EnableNPCDestruction",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ENABLEPOLLUTIONSPREAD",
+      "label": "Enable Pollution Spread",
+      "description": "If set, users with Biotech will be allowed to spread pollution to world tiles, including other players",
+      "tab": "actions",
+      "section": "Actions",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.EnablePollutionSpread",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ENFORCEDGAMESPEED",
+      "label": "Enforced Game Speed",
+      "description": "Sets the game speed the server will be running at. 0 = no restriction",
+      "tab": "actions",
+      "section": "Actions",
+      "type": "number",
+      "default": "0",
+      "placeholder": "0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.EnforcedGameSpeed",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "SPYCOST",
+      "label": "Spy Cost",
+      "description": "Sets the cost of spying on a player",
+      "tab": "actions",
+      "section": "Actions",
+      "type": "number",
+      "default": "100",
+      "placeholder": "100",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.SpyCost",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "ALLOWDIRTPATH",
+      "label": "Allow Dirt Path",
+      "description": "If set, user-built dirt paths will be allowed",
+      "tab": "roads",
+      "section": "Roads",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.AllowDirtPath",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ALLOWDIRTROAD",
+      "label": "Allow Dirt Road",
+      "description": "If set, user-built dirt roads will be allowed",
+      "tab": "roads",
+      "section": "Roads",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.AllowDirtRoad",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ALLOWSTONEROAD",
+      "label": "Allow Stone Road",
+      "description": "If set, user-built stone roads will be allowed",
+      "tab": "roads",
+      "section": "Roads",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.AllowStoneRoad",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ALLOWASPHALTPATH",
+      "label": "Allow Asphalt Path",
+      "description": "If set, user-built asphalt paths will be allowed",
+      "tab": "roads",
+      "section": "Roads",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.AllowAsphaltPath",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ALLOWASPHALTHIGHWAY",
+      "label": "Allow Asphalt Highway",
+      "description": "If set, user-built asphalt highways will be allowed",
+      "tab": "roads",
+      "section": "Roads",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.AllowAsphaltHighway",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "DIRTPATHCOST",
+      "label": "Dirt Path Cost",
+      "description": "Sets the cost of building a dirt path",
+      "tab": "roads",
+      "section": "Roads",
+      "type": "number",
+      "default": "10",
+      "placeholder": "10",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.DirtPathCost",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "DIRTROADCOST",
+      "label": "Dirt Road Cost",
+      "description": "Sets the cost of building a dirt road",
+      "tab": "roads",
+      "section": "Roads",
+      "type": "number",
+      "default": "20",
+      "placeholder": "20",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.DirtRoadCost",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "STONEROADCOST",
+      "label": "Stone Road Cost",
+      "description": "Sets the cost of building a stone road",
+      "tab": "roads",
+      "section": "Roads",
+      "type": "number",
+      "default": "25",
+      "placeholder": "25",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.StoneRoadCost",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ASPHALTPATHCOST",
+      "label": "Asphalt Path Cost",
+      "description": "Sets the cost of building an asphalt path",
+      "tab": "roads",
+      "section": "Roads",
+      "type": "number",
+      "default": "30",
+      "placeholder": "30",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.AsphaltPathCost",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ASPHALTHIGHWAYCOST",
+      "label": "Asphalt Highway Cost",
+      "description": "Sets the cost of building an asphalt highway",
+      "tab": "roads",
+      "section": "Roads",
+      "type": "number",
+      "default": "50",
+      "placeholder": "50",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.AsphaltHighwayCost",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "RELEASEVERSION",
+      "label": "Server Release Version",
+      "description": "Sets the [server release version](https://github.com/RimworldTogether/Rimworld-Together/releases) to install. Empty = latest. Minimum version 1.4.0. Note that GSCS's settings may not work with older versions. Update the server after changing this setting",
+      "tab": "server-updates",
+      "section": "Server Updates",
+      "type": "text",
+      "default": "",
+      "placeholder": "25.7.11.1",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "ReleaseVersion",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "DOTNETVERSION",
+      "label": "Dotnet Version",
+      "description": "Sets the [ASP.NET Core Runtime 7.0 version](https://dotnet.microsoft.com/en-us/download/dotnet/7.0) to install. Empty = latest. Update the server after changing this setting",
+      "tab": "server-updates",
+      "section": "Server Updates",
+      "type": "text",
+      "default": "",
+      "placeholder": "7.0.14",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "DotnetVersion",
+      "parameterFormat": "{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    }
+  ],
+  "configurationFiles": [
+    {
+      "path": "Configs/ServerConfig.json",
+      "format": "json",
+      "lineFormat": "",
+      "bindings": [
+        {
+          "key": "Port",
+          "variable": "{GAME_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "IP",
+          "variable": "{GAME_BIND}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "Name",
+          "variable": "{SERVER_NAME}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "Description",
+          "variable": "{DESCRIPTION}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "EnableServerBrowser",
+          "variable": "{ENABLESERVERBROWSER}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "PublicEndPoint",
+          "variable": "{PUBLICENDPOINT}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "MaxPlayers",
+          "variable": "{SLOTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "UseWhitelist",
+          "variable": "{USEWHITELIST}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "WhitelistedUsers",
+          "variable": "{WHITELISTEDUSERS}",
+          "section": "",
+          "type": "textarea"
+        },
+        {
+          "key": "VerboseLogs",
+          "variable": "{VERBOSELOGS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "ExtremeVerboseLogs",
+          "variable": "{EXTREMEVERBOSELOGS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "DisplayChatInConsole",
+          "variable": "{DISPLAYCHATINCONSOLE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "UseUPnP",
+          "variable": "{USEUPNP}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "SyncLocalSave",
+          "variable": "{SYNCLOCALSAVE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalActivityProtection",
+          "variable": "{TEMPORALACTIVITYPROTECTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalActivityProtectionTime",
+          "variable": "{TEMPORALACTIVITYPROTECTIONTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "TemporalEventProtection",
+          "variable": "{TEMPORALEVENTPROTECTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalEventProtectionTime",
+          "variable": "{TEMPORALEVENTPROTECTIONTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "TemporalAidProtection",
+          "variable": "{TEMPORALAIDPROTECTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalAidProtectionTime",
+          "variable": "{TEMPORALAIDPROTECTIONTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "TemporalSpyProtection",
+          "variable": "{TEMPORALSPYPROTECTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalSpyProtectionTime",
+          "variable": "{TEMPORALSPYPROTECTIONTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "EnableMoTD",
+          "variable": "{ENABLEMOTD}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "MessageOfTheDay",
+          "variable": "{MESSAGEOFTHEDAY}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "LoginNotifications",
+          "variable": "{LOGINNOTIFICATIONS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "DisconnectNotifications",
+          "variable": "{DISCONNECTNOTIFICATIONS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AutomaticBackups",
+          "variable": "{AUTOMATICBACKUPS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "IntervalHours",
+          "variable": "{INTERVALHOURS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AutomaticDeletion",
+          "variable": "{AUTOMATICDELETION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "Amount",
+          "variable": "{AMOUNT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "EnableActivities",
+          "variable": "{ENABLEACTIVITIES}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableEvents",
+          "variable": "{ENABLEEVENTS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableSites",
+          "variable": "{ENABLESITES}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableRoads",
+          "variable": "{ENABLEROADS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableFactions",
+          "variable": "{ENABLEFACTIONS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableAids",
+          "variable": "{ENABLEAIDS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableTrading",
+          "variable": "{ENABLETRADING}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableSpying",
+          "variable": "{ENABLESPYING}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableCustomScenarios",
+          "variable": "{ENABLECUSTOMSCENARIOS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableNPCDestruction",
+          "variable": "{ENABLENPCDESTRUCTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnablePollutionSpread",
+          "variable": "{ENABLEPOLLUTIONSPREAD}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnforcedGameSpeed",
+          "variable": "{ENFORCEDGAMESPEED}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "SpyCost",
+          "variable": "{SPYCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AllowDirtPath",
+          "variable": "{ALLOWDIRTPATH}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowDirtRoad",
+          "variable": "{ALLOWDIRTROAD}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowStoneRoad",
+          "variable": "{ALLOWSTONEROAD}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowAsphaltPath",
+          "variable": "{ALLOWASPHALTPATH}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowAsphaltHighway",
+          "variable": "{ALLOWASPHALTHIGHWAY}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "DirtPathCost",
+          "variable": "{DIRTPATHCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "DirtRoadCost",
+          "variable": "{DIRTROADCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "StoneRoadCost",
+          "variable": "{STONEROADCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AsphaltPathCost",
+          "variable": "{ASPHALTPATHCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AsphaltHighwayCost",
+          "variable": "{ASPHALTHIGHWAYCOST}",
+          "section": "",
+          "type": "number"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    },
+    {
+      "path": "Configs/WhitelistConfig.json",
+      "format": "json",
+      "lineFormat": "",
+      "bindings": [
+        {
+          "key": "Port",
+          "variable": "{GAME_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "IP",
+          "variable": "{GAME_BIND}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "Name",
+          "variable": "{SERVER_NAME}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "Description",
+          "variable": "{DESCRIPTION}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "EnableServerBrowser",
+          "variable": "{ENABLESERVERBROWSER}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "PublicEndPoint",
+          "variable": "{PUBLICENDPOINT}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "MaxPlayers",
+          "variable": "{SLOTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "UseWhitelist",
+          "variable": "{USEWHITELIST}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "WhitelistedUsers",
+          "variable": "{WHITELISTEDUSERS}",
+          "section": "",
+          "type": "textarea"
+        },
+        {
+          "key": "VerboseLogs",
+          "variable": "{VERBOSELOGS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "ExtremeVerboseLogs",
+          "variable": "{EXTREMEVERBOSELOGS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "DisplayChatInConsole",
+          "variable": "{DISPLAYCHATINCONSOLE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "UseUPnP",
+          "variable": "{USEUPNP}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "SyncLocalSave",
+          "variable": "{SYNCLOCALSAVE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalActivityProtection",
+          "variable": "{TEMPORALACTIVITYPROTECTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalActivityProtectionTime",
+          "variable": "{TEMPORALACTIVITYPROTECTIONTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "TemporalEventProtection",
+          "variable": "{TEMPORALEVENTPROTECTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalEventProtectionTime",
+          "variable": "{TEMPORALEVENTPROTECTIONTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "TemporalAidProtection",
+          "variable": "{TEMPORALAIDPROTECTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalAidProtectionTime",
+          "variable": "{TEMPORALAIDPROTECTIONTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "TemporalSpyProtection",
+          "variable": "{TEMPORALSPYPROTECTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalSpyProtectionTime",
+          "variable": "{TEMPORALSPYPROTECTIONTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "EnableMoTD",
+          "variable": "{ENABLEMOTD}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "MessageOfTheDay",
+          "variable": "{MESSAGEOFTHEDAY}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "LoginNotifications",
+          "variable": "{LOGINNOTIFICATIONS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "DisconnectNotifications",
+          "variable": "{DISCONNECTNOTIFICATIONS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AutomaticBackups",
+          "variable": "{AUTOMATICBACKUPS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "IntervalHours",
+          "variable": "{INTERVALHOURS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AutomaticDeletion",
+          "variable": "{AUTOMATICDELETION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "Amount",
+          "variable": "{AMOUNT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "EnableActivities",
+          "variable": "{ENABLEACTIVITIES}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableEvents",
+          "variable": "{ENABLEEVENTS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableSites",
+          "variable": "{ENABLESITES}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableRoads",
+          "variable": "{ENABLEROADS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableFactions",
+          "variable": "{ENABLEFACTIONS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableAids",
+          "variable": "{ENABLEAIDS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableTrading",
+          "variable": "{ENABLETRADING}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableSpying",
+          "variable": "{ENABLESPYING}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableCustomScenarios",
+          "variable": "{ENABLECUSTOMSCENARIOS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableNPCDestruction",
+          "variable": "{ENABLENPCDESTRUCTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnablePollutionSpread",
+          "variable": "{ENABLEPOLLUTIONSPREAD}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnforcedGameSpeed",
+          "variable": "{ENFORCEDGAMESPEED}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "SpyCost",
+          "variable": "{SPYCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AllowDirtPath",
+          "variable": "{ALLOWDIRTPATH}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowDirtRoad",
+          "variable": "{ALLOWDIRTROAD}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowStoneRoad",
+          "variable": "{ALLOWSTONEROAD}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowAsphaltPath",
+          "variable": "{ALLOWASPHALTPATH}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowAsphaltHighway",
+          "variable": "{ALLOWASPHALTHIGHWAY}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "DirtPathCost",
+          "variable": "{DIRTPATHCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "DirtRoadCost",
+          "variable": "{DIRTROADCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "StoneRoadCost",
+          "variable": "{STONEROADCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AsphaltPathCost",
+          "variable": "{ASPHALTPATHCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AsphaltHighwayCost",
+          "variable": "{ASPHALTHIGHWAYCOST}",
+          "section": "",
+          "type": "number"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    },
+    {
+      "path": "Configs/ServerBrowserConfig.json",
+      "format": "json",
+      "lineFormat": "",
+      "bindings": [
+        {
+          "key": "Port",
+          "variable": "{GAME_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "IP",
+          "variable": "{GAME_BIND}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "Name",
+          "variable": "{SERVER_NAME}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "Description",
+          "variable": "{DESCRIPTION}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "EnableServerBrowser",
+          "variable": "{ENABLESERVERBROWSER}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "PublicEndPoint",
+          "variable": "{PUBLICENDPOINT}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "MaxPlayers",
+          "variable": "{SLOTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "UseWhitelist",
+          "variable": "{USEWHITELIST}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "WhitelistedUsers",
+          "variable": "{WHITELISTEDUSERS}",
+          "section": "",
+          "type": "textarea"
+        },
+        {
+          "key": "VerboseLogs",
+          "variable": "{VERBOSELOGS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "ExtremeVerboseLogs",
+          "variable": "{EXTREMEVERBOSELOGS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "DisplayChatInConsole",
+          "variable": "{DISPLAYCHATINCONSOLE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "UseUPnP",
+          "variable": "{USEUPNP}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "SyncLocalSave",
+          "variable": "{SYNCLOCALSAVE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalActivityProtection",
+          "variable": "{TEMPORALACTIVITYPROTECTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalActivityProtectionTime",
+          "variable": "{TEMPORALACTIVITYPROTECTIONTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "TemporalEventProtection",
+          "variable": "{TEMPORALEVENTPROTECTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalEventProtectionTime",
+          "variable": "{TEMPORALEVENTPROTECTIONTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "TemporalAidProtection",
+          "variable": "{TEMPORALAIDPROTECTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalAidProtectionTime",
+          "variable": "{TEMPORALAIDPROTECTIONTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "TemporalSpyProtection",
+          "variable": "{TEMPORALSPYPROTECTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalSpyProtectionTime",
+          "variable": "{TEMPORALSPYPROTECTIONTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "EnableMoTD",
+          "variable": "{ENABLEMOTD}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "MessageOfTheDay",
+          "variable": "{MESSAGEOFTHEDAY}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "LoginNotifications",
+          "variable": "{LOGINNOTIFICATIONS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "DisconnectNotifications",
+          "variable": "{DISCONNECTNOTIFICATIONS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AutomaticBackups",
+          "variable": "{AUTOMATICBACKUPS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "IntervalHours",
+          "variable": "{INTERVALHOURS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AutomaticDeletion",
+          "variable": "{AUTOMATICDELETION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "Amount",
+          "variable": "{AMOUNT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "EnableActivities",
+          "variable": "{ENABLEACTIVITIES}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableEvents",
+          "variable": "{ENABLEEVENTS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableSites",
+          "variable": "{ENABLESITES}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableRoads",
+          "variable": "{ENABLEROADS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableFactions",
+          "variable": "{ENABLEFACTIONS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableAids",
+          "variable": "{ENABLEAIDS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableTrading",
+          "variable": "{ENABLETRADING}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableSpying",
+          "variable": "{ENABLESPYING}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableCustomScenarios",
+          "variable": "{ENABLECUSTOMSCENARIOS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableNPCDestruction",
+          "variable": "{ENABLENPCDESTRUCTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnablePollutionSpread",
+          "variable": "{ENABLEPOLLUTIONSPREAD}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnforcedGameSpeed",
+          "variable": "{ENFORCEDGAMESPEED}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "SpyCost",
+          "variable": "{SPYCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AllowDirtPath",
+          "variable": "{ALLOWDIRTPATH}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowDirtRoad",
+          "variable": "{ALLOWDIRTROAD}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowStoneRoad",
+          "variable": "{ALLOWSTONEROAD}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowAsphaltPath",
+          "variable": "{ALLOWASPHALTPATH}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowAsphaltHighway",
+          "variable": "{ALLOWASPHALTHIGHWAY}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "DirtPathCost",
+          "variable": "{DIRTPATHCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "DirtRoadCost",
+          "variable": "{DIRTROADCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "StoneRoadCost",
+          "variable": "{STONEROADCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AsphaltPathCost",
+          "variable": "{ASPHALTPATHCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AsphaltHighwayCost",
+          "variable": "{ASPHALTHIGHWAYCOST}",
+          "section": "",
+          "type": "number"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    },
+    {
+      "path": "Configs/ChatConfig.json",
+      "format": "json",
+      "lineFormat": "",
+      "bindings": [
+        {
+          "key": "Port",
+          "variable": "{GAME_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "IP",
+          "variable": "{GAME_BIND}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "Name",
+          "variable": "{SERVER_NAME}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "Description",
+          "variable": "{DESCRIPTION}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "EnableServerBrowser",
+          "variable": "{ENABLESERVERBROWSER}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "PublicEndPoint",
+          "variable": "{PUBLICENDPOINT}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "MaxPlayers",
+          "variable": "{SLOTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "UseWhitelist",
+          "variable": "{USEWHITELIST}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "WhitelistedUsers",
+          "variable": "{WHITELISTEDUSERS}",
+          "section": "",
+          "type": "textarea"
+        },
+        {
+          "key": "VerboseLogs",
+          "variable": "{VERBOSELOGS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "ExtremeVerboseLogs",
+          "variable": "{EXTREMEVERBOSELOGS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "DisplayChatInConsole",
+          "variable": "{DISPLAYCHATINCONSOLE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "UseUPnP",
+          "variable": "{USEUPNP}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "SyncLocalSave",
+          "variable": "{SYNCLOCALSAVE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalActivityProtection",
+          "variable": "{TEMPORALACTIVITYPROTECTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalActivityProtectionTime",
+          "variable": "{TEMPORALACTIVITYPROTECTIONTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "TemporalEventProtection",
+          "variable": "{TEMPORALEVENTPROTECTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalEventProtectionTime",
+          "variable": "{TEMPORALEVENTPROTECTIONTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "TemporalAidProtection",
+          "variable": "{TEMPORALAIDPROTECTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalAidProtectionTime",
+          "variable": "{TEMPORALAIDPROTECTIONTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "TemporalSpyProtection",
+          "variable": "{TEMPORALSPYPROTECTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalSpyProtectionTime",
+          "variable": "{TEMPORALSPYPROTECTIONTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "EnableMoTD",
+          "variable": "{ENABLEMOTD}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "MessageOfTheDay",
+          "variable": "{MESSAGEOFTHEDAY}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "LoginNotifications",
+          "variable": "{LOGINNOTIFICATIONS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "DisconnectNotifications",
+          "variable": "{DISCONNECTNOTIFICATIONS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AutomaticBackups",
+          "variable": "{AUTOMATICBACKUPS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "IntervalHours",
+          "variable": "{INTERVALHOURS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AutomaticDeletion",
+          "variable": "{AUTOMATICDELETION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "Amount",
+          "variable": "{AMOUNT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "EnableActivities",
+          "variable": "{ENABLEACTIVITIES}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableEvents",
+          "variable": "{ENABLEEVENTS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableSites",
+          "variable": "{ENABLESITES}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableRoads",
+          "variable": "{ENABLEROADS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableFactions",
+          "variable": "{ENABLEFACTIONS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableAids",
+          "variable": "{ENABLEAIDS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableTrading",
+          "variable": "{ENABLETRADING}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableSpying",
+          "variable": "{ENABLESPYING}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableCustomScenarios",
+          "variable": "{ENABLECUSTOMSCENARIOS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableNPCDestruction",
+          "variable": "{ENABLENPCDESTRUCTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnablePollutionSpread",
+          "variable": "{ENABLEPOLLUTIONSPREAD}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnforcedGameSpeed",
+          "variable": "{ENFORCEDGAMESPEED}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "SpyCost",
+          "variable": "{SPYCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AllowDirtPath",
+          "variable": "{ALLOWDIRTPATH}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowDirtRoad",
+          "variable": "{ALLOWDIRTROAD}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowStoneRoad",
+          "variable": "{ALLOWSTONEROAD}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowAsphaltPath",
+          "variable": "{ALLOWASPHALTPATH}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowAsphaltHighway",
+          "variable": "{ALLOWASPHALTHIGHWAY}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "DirtPathCost",
+          "variable": "{DIRTPATHCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "DirtRoadCost",
+          "variable": "{DIRTROADCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "StoneRoadCost",
+          "variable": "{STONEROADCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AsphaltPathCost",
+          "variable": "{ASPHALTPATHCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AsphaltHighwayCost",
+          "variable": "{ASPHALTHIGHWAYCOST}",
+          "section": "",
+          "type": "number"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    },
+    {
+      "path": "Configs/BackupConfig.json",
+      "format": "json",
+      "lineFormat": "",
+      "bindings": [
+        {
+          "key": "Port",
+          "variable": "{GAME_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "IP",
+          "variable": "{GAME_BIND}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "Name",
+          "variable": "{SERVER_NAME}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "Description",
+          "variable": "{DESCRIPTION}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "EnableServerBrowser",
+          "variable": "{ENABLESERVERBROWSER}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "PublicEndPoint",
+          "variable": "{PUBLICENDPOINT}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "MaxPlayers",
+          "variable": "{SLOTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "UseWhitelist",
+          "variable": "{USEWHITELIST}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "WhitelistedUsers",
+          "variable": "{WHITELISTEDUSERS}",
+          "section": "",
+          "type": "textarea"
+        },
+        {
+          "key": "VerboseLogs",
+          "variable": "{VERBOSELOGS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "ExtremeVerboseLogs",
+          "variable": "{EXTREMEVERBOSELOGS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "DisplayChatInConsole",
+          "variable": "{DISPLAYCHATINCONSOLE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "UseUPnP",
+          "variable": "{USEUPNP}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "SyncLocalSave",
+          "variable": "{SYNCLOCALSAVE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalActivityProtection",
+          "variable": "{TEMPORALACTIVITYPROTECTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalActivityProtectionTime",
+          "variable": "{TEMPORALACTIVITYPROTECTIONTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "TemporalEventProtection",
+          "variable": "{TEMPORALEVENTPROTECTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalEventProtectionTime",
+          "variable": "{TEMPORALEVENTPROTECTIONTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "TemporalAidProtection",
+          "variable": "{TEMPORALAIDPROTECTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalAidProtectionTime",
+          "variable": "{TEMPORALAIDPROTECTIONTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "TemporalSpyProtection",
+          "variable": "{TEMPORALSPYPROTECTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalSpyProtectionTime",
+          "variable": "{TEMPORALSPYPROTECTIONTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "EnableMoTD",
+          "variable": "{ENABLEMOTD}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "MessageOfTheDay",
+          "variable": "{MESSAGEOFTHEDAY}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "LoginNotifications",
+          "variable": "{LOGINNOTIFICATIONS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "DisconnectNotifications",
+          "variable": "{DISCONNECTNOTIFICATIONS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AutomaticBackups",
+          "variable": "{AUTOMATICBACKUPS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "IntervalHours",
+          "variable": "{INTERVALHOURS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AutomaticDeletion",
+          "variable": "{AUTOMATICDELETION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "Amount",
+          "variable": "{AMOUNT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "EnableActivities",
+          "variable": "{ENABLEACTIVITIES}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableEvents",
+          "variable": "{ENABLEEVENTS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableSites",
+          "variable": "{ENABLESITES}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableRoads",
+          "variable": "{ENABLEROADS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableFactions",
+          "variable": "{ENABLEFACTIONS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableAids",
+          "variable": "{ENABLEAIDS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableTrading",
+          "variable": "{ENABLETRADING}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableSpying",
+          "variable": "{ENABLESPYING}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableCustomScenarios",
+          "variable": "{ENABLECUSTOMSCENARIOS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableNPCDestruction",
+          "variable": "{ENABLENPCDESTRUCTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnablePollutionSpread",
+          "variable": "{ENABLEPOLLUTIONSPREAD}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnforcedGameSpeed",
+          "variable": "{ENFORCEDGAMESPEED}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "SpyCost",
+          "variable": "{SPYCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AllowDirtPath",
+          "variable": "{ALLOWDIRTPATH}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowDirtRoad",
+          "variable": "{ALLOWDIRTROAD}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowStoneRoad",
+          "variable": "{ALLOWSTONEROAD}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowAsphaltPath",
+          "variable": "{ALLOWASPHALTPATH}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowAsphaltHighway",
+          "variable": "{ALLOWASPHALTHIGHWAY}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "DirtPathCost",
+          "variable": "{DIRTPATHCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "DirtRoadCost",
+          "variable": "{DIRTROADCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "StoneRoadCost",
+          "variable": "{STONEROADCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AsphaltPathCost",
+          "variable": "{ASPHALTPATHCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AsphaltHighwayCost",
+          "variable": "{ASPHALTHIGHWAYCOST}",
+          "section": "",
+          "type": "number"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    },
+    {
+      "path": "Configs/ActionConfig.json",
+      "format": "json",
+      "lineFormat": "",
+      "bindings": [
+        {
+          "key": "Port",
+          "variable": "{GAME_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "IP",
+          "variable": "{GAME_BIND}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "Name",
+          "variable": "{SERVER_NAME}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "Description",
+          "variable": "{DESCRIPTION}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "EnableServerBrowser",
+          "variable": "{ENABLESERVERBROWSER}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "PublicEndPoint",
+          "variable": "{PUBLICENDPOINT}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "MaxPlayers",
+          "variable": "{SLOTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "UseWhitelist",
+          "variable": "{USEWHITELIST}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "WhitelistedUsers",
+          "variable": "{WHITELISTEDUSERS}",
+          "section": "",
+          "type": "textarea"
+        },
+        {
+          "key": "VerboseLogs",
+          "variable": "{VERBOSELOGS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "ExtremeVerboseLogs",
+          "variable": "{EXTREMEVERBOSELOGS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "DisplayChatInConsole",
+          "variable": "{DISPLAYCHATINCONSOLE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "UseUPnP",
+          "variable": "{USEUPNP}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "SyncLocalSave",
+          "variable": "{SYNCLOCALSAVE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalActivityProtection",
+          "variable": "{TEMPORALACTIVITYPROTECTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalActivityProtectionTime",
+          "variable": "{TEMPORALACTIVITYPROTECTIONTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "TemporalEventProtection",
+          "variable": "{TEMPORALEVENTPROTECTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalEventProtectionTime",
+          "variable": "{TEMPORALEVENTPROTECTIONTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "TemporalAidProtection",
+          "variable": "{TEMPORALAIDPROTECTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalAidProtectionTime",
+          "variable": "{TEMPORALAIDPROTECTIONTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "TemporalSpyProtection",
+          "variable": "{TEMPORALSPYPROTECTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalSpyProtectionTime",
+          "variable": "{TEMPORALSPYPROTECTIONTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "EnableMoTD",
+          "variable": "{ENABLEMOTD}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "MessageOfTheDay",
+          "variable": "{MESSAGEOFTHEDAY}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "LoginNotifications",
+          "variable": "{LOGINNOTIFICATIONS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "DisconnectNotifications",
+          "variable": "{DISCONNECTNOTIFICATIONS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AutomaticBackups",
+          "variable": "{AUTOMATICBACKUPS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "IntervalHours",
+          "variable": "{INTERVALHOURS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AutomaticDeletion",
+          "variable": "{AUTOMATICDELETION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "Amount",
+          "variable": "{AMOUNT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "EnableActivities",
+          "variable": "{ENABLEACTIVITIES}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableEvents",
+          "variable": "{ENABLEEVENTS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableSites",
+          "variable": "{ENABLESITES}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableRoads",
+          "variable": "{ENABLEROADS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableFactions",
+          "variable": "{ENABLEFACTIONS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableAids",
+          "variable": "{ENABLEAIDS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableTrading",
+          "variable": "{ENABLETRADING}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableSpying",
+          "variable": "{ENABLESPYING}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableCustomScenarios",
+          "variable": "{ENABLECUSTOMSCENARIOS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableNPCDestruction",
+          "variable": "{ENABLENPCDESTRUCTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnablePollutionSpread",
+          "variable": "{ENABLEPOLLUTIONSPREAD}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnforcedGameSpeed",
+          "variable": "{ENFORCEDGAMESPEED}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "SpyCost",
+          "variable": "{SPYCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AllowDirtPath",
+          "variable": "{ALLOWDIRTPATH}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowDirtRoad",
+          "variable": "{ALLOWDIRTROAD}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowStoneRoad",
+          "variable": "{ALLOWSTONEROAD}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowAsphaltPath",
+          "variable": "{ALLOWASPHALTPATH}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowAsphaltHighway",
+          "variable": "{ALLOWASPHALTHIGHWAY}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "DirtPathCost",
+          "variable": "{DIRTPATHCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "DirtRoadCost",
+          "variable": "{DIRTROADCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "StoneRoadCost",
+          "variable": "{STONEROADCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AsphaltPathCost",
+          "variable": "{ASPHALTPATHCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AsphaltHighwayCost",
+          "variable": "{ASPHALTHIGHWAYCOST}",
+          "section": "",
+          "type": "number"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    },
+    {
+      "path": "Configs/RoadConfig.json",
+      "format": "json",
+      "lineFormat": "",
+      "bindings": [
+        {
+          "key": "Port",
+          "variable": "{GAME_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "IP",
+          "variable": "{GAME_BIND}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "Name",
+          "variable": "{SERVER_NAME}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "Description",
+          "variable": "{DESCRIPTION}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "EnableServerBrowser",
+          "variable": "{ENABLESERVERBROWSER}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "PublicEndPoint",
+          "variable": "{PUBLICENDPOINT}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "MaxPlayers",
+          "variable": "{SLOTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "UseWhitelist",
+          "variable": "{USEWHITELIST}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "WhitelistedUsers",
+          "variable": "{WHITELISTEDUSERS}",
+          "section": "",
+          "type": "textarea"
+        },
+        {
+          "key": "VerboseLogs",
+          "variable": "{VERBOSELOGS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "ExtremeVerboseLogs",
+          "variable": "{EXTREMEVERBOSELOGS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "DisplayChatInConsole",
+          "variable": "{DISPLAYCHATINCONSOLE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "UseUPnP",
+          "variable": "{USEUPNP}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "SyncLocalSave",
+          "variable": "{SYNCLOCALSAVE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalActivityProtection",
+          "variable": "{TEMPORALACTIVITYPROTECTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalActivityProtectionTime",
+          "variable": "{TEMPORALACTIVITYPROTECTIONTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "TemporalEventProtection",
+          "variable": "{TEMPORALEVENTPROTECTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalEventProtectionTime",
+          "variable": "{TEMPORALEVENTPROTECTIONTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "TemporalAidProtection",
+          "variable": "{TEMPORALAIDPROTECTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalAidProtectionTime",
+          "variable": "{TEMPORALAIDPROTECTIONTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "TemporalSpyProtection",
+          "variable": "{TEMPORALSPYPROTECTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "TemporalSpyProtectionTime",
+          "variable": "{TEMPORALSPYPROTECTIONTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "EnableMoTD",
+          "variable": "{ENABLEMOTD}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "MessageOfTheDay",
+          "variable": "{MESSAGEOFTHEDAY}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "LoginNotifications",
+          "variable": "{LOGINNOTIFICATIONS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "DisconnectNotifications",
+          "variable": "{DISCONNECTNOTIFICATIONS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AutomaticBackups",
+          "variable": "{AUTOMATICBACKUPS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "IntervalHours",
+          "variable": "{INTERVALHOURS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AutomaticDeletion",
+          "variable": "{AUTOMATICDELETION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "Amount",
+          "variable": "{AMOUNT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "EnableActivities",
+          "variable": "{ENABLEACTIVITIES}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableEvents",
+          "variable": "{ENABLEEVENTS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableSites",
+          "variable": "{ENABLESITES}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableRoads",
+          "variable": "{ENABLEROADS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableFactions",
+          "variable": "{ENABLEFACTIONS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableAids",
+          "variable": "{ENABLEAIDS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableTrading",
+          "variable": "{ENABLETRADING}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableSpying",
+          "variable": "{ENABLESPYING}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableCustomScenarios",
+          "variable": "{ENABLECUSTOMSCENARIOS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnableNPCDestruction",
+          "variable": "{ENABLENPCDESTRUCTION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnablePollutionSpread",
+          "variable": "{ENABLEPOLLUTIONSPREAD}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "EnforcedGameSpeed",
+          "variable": "{ENFORCEDGAMESPEED}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "SpyCost",
+          "variable": "{SPYCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AllowDirtPath",
+          "variable": "{ALLOWDIRTPATH}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowDirtRoad",
+          "variable": "{ALLOWDIRTROAD}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowStoneRoad",
+          "variable": "{ALLOWSTONEROAD}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowAsphaltPath",
+          "variable": "{ALLOWASPHALTPATH}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "AllowAsphaltHighway",
+          "variable": "{ALLOWASPHALTHIGHWAY}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "DirtPathCost",
+          "variable": "{DIRTPATHCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "DirtRoadCost",
+          "variable": "{DIRTROADCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "StoneRoadCost",
+          "variable": "{STONEROADCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AsphaltPathCost",
+          "variable": "{ASPHALTPATHCOST}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AsphaltHighwayCost",
+          "variable": "{ASPHALTHIGHWAYCOST}",
+          "section": "",
+          "type": "number"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    }
+  ],
+  "deploymentSteps": [
+    {
+      "name": "Create Configs Directory",
+      "type": "directory",
+      "phase": "install",
+      "platform": "all",
+      "source": "",
+      "target": "Configs",
+      "arguments": "{SERVER_DIR}/Configs",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Create Dotnet Directory",
+      "type": "directory",
+      "phase": "install",
+      "platform": "all",
+      "source": "",
+      "target": "Dotnet",
+      "arguments": "{SERVER_DIR}/Dotnet",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "ASP.NET Core Runtime Download",
+      "type": "archive",
+      "phase": "install",
+      "platform": "linux",
+      "source": "dotnet.tar.gz",
+      "target": "",
+      "arguments": "0",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "ASP.NET Core Runtime Download",
+      "type": "archive",
+      "phase": "install",
+      "platform": "linux",
+      "source": "dotnet.tar.gz",
+      "target": "",
+      "arguments": "0",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "ASP.NET Core Runtime Download",
+      "type": "command",
+      "phase": "install",
+      "platform": "windows",
+      "source": "powershell.exe",
+      "target": "",
+      "arguments": "-NoProfile -Command \"$ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; $DotnetVersion='{DOTNETVERSION}'; Set-Location -Path '{SERVER_DIR}/'; if (Test-Path 'Dotnet/dotnet.exe') { $InstalledVersion = (& Dotnet/dotnet.exe --list-runtimes | Where-Object { $_ -like 'Microsoft.AspNetCore.App*' } | Select-Object -First 1).Split()[1] } else { $InstalledVersion = '' }; if ( [string]::IsNullOrWhiteSpace($DotnetVersion) ) { $DotnetVersion=(Invoke-RestMethod -UseBasicParsing -Uri https://builds.dotnet.microsoft.com/dotnet/release-metadata/7.0/releases.json).\\\"latest-runtime\\\" }; if ($DotnetVersion -notmatch '^\\d+\\.\\d+\\.\\d+$') { Write-Output \\\"Invalid ASP.NET Core Runtime version format specified\\\"; exit 1 } elseif ( $InstalledVersion -eq $DotnetVersion ) { Write-Output \\\"ASP.NET Core Runtime v$DotnetVersion already installed. Skipping\\\"; exit 0 } else { if ( Test-Path dotnet.zip ) { Remove-Item dotnet.zip -Force -ErrorAction SilentlyContinue *> $null }; try { Invoke-WebRequest -UseBasicParsing -Uri https://builds.dotnet.microsoft.com/dotnet/aspnetcore/Runtime/$DotnetVersion/aspnetcore-runtime-$DotnetVersion-win-x64.zip -OutFile dotnet.zip -ErrorAction Stop } catch { Write-Output \\\"Download failed from the Microsoft CDN. This is a fault with the CDN, not GSCS. Aborting\\\"; exit 1; }; Remove-Item -Path 'Dotnet/*' -Recurse -Force -ErrorAction SilentlyContinue; Expand-Archive -Path \\\"dotnet.zip\\\" -DestinationPath \\\"Dotnet\\\" -Force *> $null; if ( Test-Path dotnet.zip ) { Remove-Item dotnet.zip -Force -ErrorAction SilentlyContinue *> $null }; Write-Output \\\"ASP.NET Core Runtime v$DotnetVersion downloaded\\\" }\"",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Rimworld Together Download",
+      "type": "github-extract",
+      "phase": "install",
+      "platform": "windows",
+      "source": "RimworldTogether/Rimworld-Together",
+      "target": "",
+      "arguments": "win-x64.zip",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": false
+    },
+    {
+      "name": "Rimworld Together Download",
+      "type": "github-extract",
+      "phase": "install",
+      "platform": "linux",
+      "source": "RimworldTogether/Rimworld-Together",
+      "target": "",
+      "arguments": "linux-x64.zip",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": false
+    },
+    {
+      "name": "Rimworld Together Download",
+      "type": "github-extract",
+      "phase": "install",
+      "platform": "linux",
+      "source": "RimworldTogether/Rimworld-Together",
+      "target": "",
+      "arguments": "linux-arm64.zip",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": false
+    },
+    {
+      "name": "Set Executable Flag",
+      "type": "executable",
+      "phase": "install",
+      "platform": "linux",
+      "source": "",
+      "target": "GameServer",
+      "arguments": "{SERVER_DIR}/GameServer",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "ServerConfig.json File Download",
+      "type": "file",
+      "phase": "install",
+      "platform": "all",
+      "source": "{\n  \"Name\": \"GSCS Rimworld Together Server\",\n  \"Description\": \"Welcome to my Rimworld Together server!\",\n  \"IP\": \"0.0.0.0\",\n  \"Port\": \"25555\",\n  \"MaxPlayers\": \"100\",\n  \"VerboseLogs\": false,\n  \"ExtremeVerboseLogs\": false,\n  \"DisplayChatInConsole\": false,\n  \"UseUPnP\": false,\n  \"SyncLocalSave\": true,\n  \"TemporalActivityProtection\": false,\n  \"TemporalActivityProtectionTime\": 3600,\n  \"TemporalEventProtection\": true,\n  \"TemporalEventProtectionTime\": 3600,\n  \"TemporalAidProtection\": false,\n  \"TemporalAidProtectionTime\": 3600,\n  \"TemporalSpyProtection\": true,\n  \"TemporalSpyProtectionTime\": 3600\n}",
+      "target": "Configs/ServerConfig.json",
+      "arguments": "ServerConfig.json",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": false
+    }
+  ],
+  "authenticationRequirements": [],
+  "environment": {
+    "SteamAppId": "294100",
+    "DOTNET_ROOT": "{SERVER_DIR}/Dotnet"
+  },
+  "linuxPackages": [],
+  "warnings": [],
+  "validationStatus": "ready",
+  "preferredRuntime": "native",
+  "noCommercialUsage": false,
+  "workingDirectory": "",
+  "executables": {
+    "windows": "GameServer.exe",
+    "linux": "GameServer"
+  },
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "windowsOnly": false,
+  "platformWorkingDirectories": {
+    "windows": "",
+    "linux": ""
+  },
+  "platformArguments": {
+    "windows": [
+      "{FORMATTED_ARGS}"
+    ],
+    "linux": [
+      "{FORMATTED_ARGS}"
+    ]
+  },
+  "arguments": [
+    "{FORMATTED_ARGS}"
+  ],
+  "stopCommand": "quit",
+  "query": "none"
+}

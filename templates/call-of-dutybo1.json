@@ -1,0 +1,2954 @@
+{
+  "id": "call-of-dutybo1",
+  "name": "Call of Duty: Black Ops (Plutonium Mod)",
+  "version": "1.1.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/call-of-dutybo1.json",
+  "sourceRef": "main",
+  "steamAppId": 42700,
+  "steamGameAppId": 42700,
+  "website": "https://www.activision.com/au/en/games/call-of-duty/call-of-duty-black-ops",
+  "image": "ghcr.io/zumbyte-appsolution/gscs:0.1.0-alpha.2",
+  "defaults": {
+    "RCON_LOCALHOST_BYPASS": "1",
+    "RCON_PRINTS": "1",
+    "CON_DISPLAYRCONOUTPUT": "1",
+    "G_LOGSYNC": "1",
+    "G_LOG": "logs\\games.log",
+    "GAMEMODE": "t5mp \"{SERVER_DIR}/T5\" -dedicated +set key {SERVERKEY} +set fs_game \"{MOD}\" +exec dedicated.cfg",
+    "MAPMODE": "+map_rotate",
+    "GAMETYPE": "dm",
+    "MAP_NAME": "mp_nuked",
+    "RCON_RATE_LIMIT": "500",
+    "SV_FLOODPROTECT": "4",
+    "SV_KICKBANTIME": "300",
+    "SV_PRIVATECLIENTS": "0",
+    "SV_PURE": "0",
+    "SV_RECONNECTLIMIT": "3",
+    "SV_ZOMBIETIME": "2",
+    "SV_TIMEOUT": "15",
+    "SCR_ALLOWFILEIO": "1",
+    "SCR_KILL_INFINITE_LOOPS": "1",
+    "SV_VOICE": "1",
+    "SV_VOICEQUALITY": "3",
+    "G_INACTIVITY": "190",
+    "G_PLAYERCOLLISION": "0",
+    "G_PLAYEREJECTION": "0",
+    "SV_DISABLECLIENTCONSOLE": "0",
+    "BULLET_PENETRATION_AFFECTED_BY_TEAM": "1",
+    "G_FIXBULLETDAMAGEDUPE": "0",
+    "G_PATCHROCKETJUMPS": "1",
+    "G_FIX_VIEWKICK_DUPE": "0",
+    "G_PLAYERCOLLISIONEJECTSPEED": "25",
+    "SV_ALLOWFRIENDLYTHROWBACK": "1",
+    "CG_HUDGRENADEICONSHOWFRIENDLY": "1",
+    "G_FIX_ENTITY_LEAKS": "0",
+    "G_ALLOWVOTE": "0",
+    "SV_DOUBLECODPOINTS": "1",
+    "PARTY_MINPLAYERS": "2",
+    "SCR_XPSCALE": "1",
+    "SCR_WAGERBET": "100",
+    "SV_SAYNAME": "Console",
+    "G_VOICECHATTALKINGDURATION": "500",
+    "VOICE_DEADCHAT": "1",
+    "VOICE_GLOBAL": "0",
+    "SP_MINPLAYERS": "1",
+    "G_SP_FIX_DAMAGE_OVERFLOW": "1",
+    "PERK_WEAPRATEENHANCED": "0",
+    "G_FIX_TESLA_BUG": "0",
+    "RCON_PASSWORD": "{RANDOM_SECRET}"
+  },
+  "ports": [
+    {
+      "role": "game",
+      "default": 28960,
+      "containerPort": 28960,
+      "protocol": "both",
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "configurationTabs": [
+    {
+      "id": "server",
+      "label": "Server",
+      "icon": "settings",
+      "order": 0
+    },
+    {
+      "id": "spielregeln",
+      "label": "Spielregeln",
+      "icon": "settings",
+      "order": 1
+    },
+    {
+      "id": "authentication",
+      "label": "Zugangsdaten",
+      "icon": "key",
+      "order": -1
+    },
+    {
+      "id": "security",
+      "label": "Sicherheit",
+      "order": 3
+    }
+  ],
+  "configurationFields": [
+    {
+      "id": "RCON_PASSWORD",
+      "label": "RCON-Passwort",
+      "description": "",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": true,
+      "hidden": true,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "rcon_password",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "RCON_LOCALHOST_BYPASS",
+      "label": "Localhost RCON Rate Limit Bypass",
+      "description": "",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "1",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "rcon_localhost_bypass",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "RCON_PRINTS",
+      "label": "RCON Console Activity",
+      "description": "",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "1",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "rcon_prints",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "CON_DISPLAYRCONOUTPUT",
+      "label": "RCON Command Output",
+      "description": "",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "1",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "con_displayRconOutput",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "G_LOGSYNC",
+      "label": "Buffer Full Log",
+      "description": "",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "1",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "g_logSync",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "G_LOG",
+      "label": "Log File Name",
+      "description": "",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "logs\\games.log",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "g_log",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "GAMEMODE",
+      "label": "Spielmodus",
+      "description": "Sets the game mode. Configure the relevant config file accordingly - 'Plutonium/storage/t5/dedicated.cfg' for Multiplayer, 'Plutonium/storage/t5/dedicated_sp.cfg' for Zombies",
+      "tab": "server",
+      "section": "Server",
+      "type": "enum",
+      "default": "t5mp \"{SERVER_DIR}/T5\" -dedicated +set key {SERVERKEY} +set fs_game \"{MOD}\" +exec dedicated.cfg",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {
+        "t5mp \"{SERVER_DIR}/T5\" -dedicated +set key {SERVERKEY} +set fs_game \"{MOD}\" +exec dedicated.cfg": "Multiplayer (default)",
+        "t5sp \"{SERVER_DIR}/T5\" -dedicated +set key {SERVERKEY} +set fs_game \"{MOD}\" +exec dedicated_sp.cfg": "Zombies"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "GameMode",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVERKEY",
+      "label": "Server Key",
+      "description": "Sets the [server key](https://platform.plutonium.pw/serverkeys) required to run the server. This also sets the server name. A Plutonium account must be at least one week old to create a key, and game ownership must be [verified](https://forum.plutonium.pw/topic/32250/an-update-on-game-ownership-verification)",
+      "tab": "server",
+      "section": "Server",
+      "type": "password",
+      "default": "",
+      "placeholder": "",
+      "required": true,
+      "secret": true,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "ServerKey",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "G_PASSWORD",
+      "label": "Serverpasswort",
+      "description": "Sets the password to join the server. Default is no password",
+      "tab": "server",
+      "section": "Server",
+      "type": "password",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": true,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "g_password",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "MAPMODE",
+      "label": "Map Mode",
+      "description": "Sets whether to enable map rotation (the Map Rotation List must then also be set) or to load a specific initial map (the Initial Game Type and Initial Map must then also be set, as applicable)",
+      "tab": "server",
+      "section": "Server",
+      "type": "enum",
+      "default": "+map_rotate",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": true,
+      "options": {
+        "+map_rotate": "Map rotation (default)",
+        "+set gametype {GAMETYPE} +map \"{MAP_NAME}\"": "Specific initial map (Multiplayer)",
+        "+map \"{MAP_NAME}\"": "Specific initial map (Zombies)"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "MapMode",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "MAPROTATION",
+      "label": "Map Rotation List",
+      "description": "Configure the map rotation in 'dedicated.cfg' or 'dedicated_sp.cfg' (as applicable). Alternatively enable a playlist for Multiplayer",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "MapRotation",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "GAMETYPE",
+      "label": "Initial Game Type (Multiplayer)",
+      "description": "Sets the game type to start the server with in Multiplayer mode. This setting will be overridden if map rotation is configured. Settings for each game type can be set in 'dedicated.cfg'",
+      "tab": "server",
+      "section": "Server",
+      "type": "enum",
+      "default": "dm",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {
+        "ctf": "Capture the Flag",
+        "dm": "Deathmatch / Free-for-all (default)",
+        "dem": "Demolition",
+        "dom": "Domination",
+        "koth": "Headquarters",
+        "sab": "Sabotage",
+        "sd": "Search & Destroy",
+        "tdm": "Team Deathmatch"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "gametype",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "MAP_NAME",
+      "label": "Initial Map",
+      "description": "Sets the map to start the server with. See 'dedicated.cfg' or 'dedicated_sp.cfg' (as applicable) for map names. This setting will be overridden if map rotation is configured",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "mp_nuked",
+      "placeholder": "mp_nuked",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "map_name",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "MOD",
+      "label": "Load Mod",
+      "description": "Sets the mod to load when starting the server, based on the path to the mod in the 'Plutonium/storage/t5' directory",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "",
+      "placeholder": "mods/modname",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "Mod",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": true,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SLOTS",
+      "label": "Spielerlimit",
+      "description": "Sets the maximum number of players allowed on the server at one time. Maximum 18 for Multiplayer, 4 for Zombies",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "8",
+      "placeholder": "8",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "sv_maxclients",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": true,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 1.0,
+      "max": 18.0
+    },
+    {
+      "id": "SV_WWWBASEURL",
+      "label": "Fast Download URL",
+      "description": "Sets the URL for [fast download](https://plutonium.pw/docs/server/t5/fastdl/) of mods",
+      "tab": "server",
+      "section": "Server",
+      "type": "url",
+      "default": "",
+      "placeholder": "http://domain.tld/t5",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "sv_wwwBaseURL",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "RCON_RATE_LIMIT",
+      "label": "RCON Rate Limit",
+      "description": "Sets the RCON rate limit (per IP). Localhost RCON commands are not rate limited",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "500",
+      "placeholder": "500",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "rcon_rate_limit",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0,
+      "max": 10000.0
+    },
+    {
+      "id": "SV_FLOODPROTECT",
+      "label": "Chat Spam Protection",
+      "description": "Sets the chat spam protection level",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "4",
+      "placeholder": "4",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "sv_floodProtect",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "SV_KICKBANTIME",
+      "label": "Kick Ban Duration",
+      "description": "Sets the duration before a kicked player can rejoin the server",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "300",
+      "placeholder": "300",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "sv_kickBanTime",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "SV_PRIVATECLIENTS",
+      "label": "Private Reserved Slots (Multiplayer)",
+      "description": "Sets the number of private reserved slots on the server",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "0",
+      "placeholder": "0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "sv_privateClients",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "SV_PRIVATEPASSWORD",
+      "label": "Private Slot Password (Multiplayer)",
+      "description": "Sets the password needed to use a private reserved slot",
+      "tab": "server",
+      "section": "Server",
+      "type": "password",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": true,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "sv_privatePassword",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SV_PURE",
+      "label": "Match Data Verification (Multiplayer)",
+      "description": "If set, match data verification between client and server will be enabled",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "0",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "1",
+      "falseValue": "0",
+      "parameter": "sv_pure",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SV_RECONNECTLIMIT",
+      "label": "Reconnect Limit (Multiplayer)",
+      "description": "Sets the number of times a player can attempt to reconnect",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "3",
+      "placeholder": "3",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "sv_reconnectlimit",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "SV_ZOMBIETIME",
+      "label": "Idle Timeout (Multiplayer)",
+      "description": "Sets the idle time period before a player is kicked",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "2",
+      "placeholder": "2",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "sv_zombietime",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "SV_TIMEOUT",
+      "label": "Connection Timeout (Multiplayer)",
+      "description": "Sets the timeout period for connection attempts or interruptions",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "15",
+      "placeholder": "15",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "sv_timeout",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "SCR_ALLOWFILEIO",
+      "label": "Allow File IO",
+      "description": "If set, GSC scripts will be allowed to interact with files on the OS filesystem in a special scriptdata folder",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "1",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "1",
+      "falseValue": "0",
+      "parameter": "scr_allowFileIo",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SCR_KILL_INFINITE_LOOPS",
+      "label": "Kill Infinite Loops",
+      "description": "If set, the game will be allowed to kill threads in the GSC engine it thinks are malfunctioning",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "1",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "1",
+      "falseValue": "0",
+      "parameter": "scr_kill_infinite_loops",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SV_VOICE",
+      "label": "Enable Voice Chat",
+      "description": "If set, voice chat will be enabled",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "checkbox",
+      "default": "1",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "1",
+      "falseValue": "0",
+      "parameter": "sv_voice",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SV_VOICEQUALITY",
+      "label": "Server Voice Chat Quality",
+      "description": "Sets the server voice quality level",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "number",
+      "default": "3",
+      "placeholder": "3",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "sv_voicequality",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0,
+      "max": 9.0
+    },
+    {
+      "id": "G_INACTIVITY",
+      "label": "Kick Idle Players",
+      "description": "If set, idle/AFK players will be auto-kicked from the server after the specified time",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "number",
+      "default": "190",
+      "placeholder": "190",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "g_inactivity",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "G_PLAYERCOLLISION",
+      "label": "Player Collision Mode",
+      "description": "Sets who players collide with",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "enum",
+      "default": "0",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {
+        "0": "Everybody (default)",
+        "1": "Enemies",
+        "2": "Nobody"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "g_playerCollision",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "G_PLAYEREJECTION",
+      "label": "Player Ejection Mode",
+      "description": "Sets from whom players are ejected",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "enum",
+      "default": "0",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {
+        "0": "Everybody (default)",
+        "1": "Enemies",
+        "2": "Nobody"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "g_playerEjection",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SV_DISABLECLIENTCONSOLE",
+      "label": "Disable Client Console",
+      "description": "Enables or disables players' ability to access server commands",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "checkbox",
+      "default": "0",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "1",
+      "falseValue": "0",
+      "parameter": "sv_disableClientConsole",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "BULLET_PENETRATION_AFFECTED_BY_TEAM",
+      "label": "Enable Team To Affect Bullet Penetration",
+      "description": "If enabled, team members will affect bullet penetration",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "checkbox",
+      "default": "1",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "1",
+      "falseValue": "0",
+      "parameter": "bullet_penetration_affected_by_team",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "G_FIXBULLETDAMAGEDUPE",
+      "label": "Fix Bullet Damage Duplication",
+      "description": "If enabled, the issue where players that are clipped inside each other receive duplicate bullet damage will be fixed",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "checkbox",
+      "default": "0",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "1",
+      "falseValue": "0",
+      "parameter": "g_fixBulletDamageDupe",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "G_PATCHROCKETJUMPS",
+      "label": "Allow Rocket Jumps",
+      "description": "If enabled, upward knockback from rocket shots will be enabled",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "checkbox",
+      "default": "1",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "1",
+      "falseValue": "0",
+      "parameter": "g_patchRocketJumps",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "G_FIX_VIEWKICK_DUPE",
+      "label": "Fix Viewkick Duplication",
+      "description": "If set, an issue where viewkick is doubled will be fixed",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "checkbox",
+      "default": "0",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "1",
+      "falseValue": "0",
+      "parameter": "g_fix_viewkick_dupe",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "G_PLAYERCOLLISIONEJECTSPEED",
+      "label": "Player Collision Ejection Speed",
+      "description": "Sets the speed at which players are ejected from each other",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "number",
+      "default": "25",
+      "placeholder": "25",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "g_playerCollisionEjectSpeed",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0,
+      "max": 32000.0
+    },
+    {
+      "id": "SV_ALLOWFRIENDLYTHROWBACK",
+      "label": "Allow Friendly Grenade Throwback",
+      "description": "If set, throwing back friendly grenades will be allowed",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "checkbox",
+      "default": "1",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "1",
+      "falseValue": "0",
+      "parameter": "sv_allowFriendlyThrowback",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "CG_HUDGRENADEICONSHOWFRIENDLY",
+      "label": "Show Friendly Grenades On HUD",
+      "description": "If set, friendly grenades will be shown on the HUD",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "checkbox",
+      "default": "1",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "1",
+      "falseValue": "0",
+      "parameter": "cg_hudGrenadeIconShowFriendly",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "G_FIX_ENTITY_LEAKS",
+      "label": "Fix Entity Leaks",
+      "description": "If set, various engine-related issues where entities leak will be fixed",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "checkbox",
+      "default": "0",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "1",
+      "falseValue": "0",
+      "parameter": "g_fix_entity_leaks",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "G_ALLOWVOTE",
+      "label": "Allow Voting (Multiplayer)",
+      "description": "If set, voting will be allowed",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "checkbox",
+      "default": "0",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "1",
+      "falseValue": "0",
+      "parameter": "g_allowVote",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SV_DOUBLECODPOINTS",
+      "label": "Double CoD Points (Multiplayer)",
+      "description": "Enables earning double CoD Points for finished matches",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "checkbox",
+      "default": "1",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "1",
+      "falseValue": "0",
+      "parameter": "sv_doubleCoDPoints",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "PARTY_MINPLAYERS",
+      "label": "Minimum Players In Pre-Match Lobby (Multiplayer)",
+      "description": "Sets the minimum number of players required in the pre-match lobby",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "number",
+      "default": "2",
+      "placeholder": "2",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "party_minplayers",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 1.0
+    },
+    {
+      "id": "SCR_XPSCALE",
+      "label": "XP Scale (Multiplayer)",
+      "description": "Sets the XP multiplier for round-end scores",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "number",
+      "default": "1",
+      "placeholder": "1",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "scr_xpscale",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "SCR_WAGERBET",
+      "label": "Wager Bet Amount (Multiplayer)",
+      "description": "Sets the cost to connect to a wager gamemode",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "number",
+      "default": "100",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "scr_wagerbet",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "SV_SAYNAME",
+      "label": "Server Say Name (Multiplayer)",
+      "description": "Sets the name that server-side 'say' commands show up as",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "text",
+      "default": "Console",
+      "placeholder": "Console",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "sv_sayname",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "G_VOICECHATTALKINGDURATION",
+      "label": "Voice Chat Duration (Multiplayer)",
+      "description": "Sets the duration a player can use voice chat",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "number",
+      "default": "500",
+      "placeholder": "500",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "g_voiceChatTalkingDuration",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "VOICE_DEADCHAT",
+      "label": "Allow Dead Player Voice Chat (Multiplayer)",
+      "description": "If set, voice chat for dead players will be allowed",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "checkbox",
+      "default": "1",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "1",
+      "falseValue": "0",
+      "parameter": "voice_deadChat",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "VOICE_GLOBAL",
+      "label": "Enable Global Voice Chat (Multiplayer)",
+      "description": "If set, global voice chat will be enabled",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "checkbox",
+      "default": "0",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "1",
+      "falseValue": "0",
+      "parameter": "voice_global",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SP_MINPLAYERS",
+      "label": "Minimum Starting Players (Zombies)",
+      "description": "Sets the minimum players needed to start the game. Do NOT set this higher than the Player Limit!",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "number",
+      "default": "1",
+      "placeholder": "1",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "sp_minplayers",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 1.0,
+      "max": 4.0
+    },
+    {
+      "id": "G_SP_FIX_DAMAGE_OVERFLOW",
+      "label": "Fix Unkillable Zombies Bug (Zombies)",
+      "description": "If set, fixes the unkillable zombies in traps bug",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "checkbox",
+      "default": "1",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "1",
+      "falseValue": "0",
+      "parameter": "g_sp_fix_damage_overflow",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "PERK_WEAPRATEENHANCED",
+      "label": "Use Enhanced Weapon Rate (Zombies)",
+      "description": "If set, Doubletap 2.0 will be used instead of the old (vanilla) Doubletap",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "checkbox",
+      "default": "0",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "1",
+      "falseValue": "0",
+      "parameter": "perk_weapRateEnhanced",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "G_FIX_TESLA_BUG",
+      "label": "Fix Tesla Bug (Zombies)",
+      "description": "If setm a GSC issue where health is set but not max health will be fixed",
+      "tab": "spielregeln",
+      "section": "Spielregeln",
+      "type": "checkbox",
+      "default": "0",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "1",
+      "falseValue": "0",
+      "parameter": "g_fix_tesla_bug",
+      "parameterFormat": "+set {0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "STEAM_USER",
+      "label": "Steam-Benutzername",
+      "type": "text",
+      "tab": "authentication",
+      "section": "Steam",
+      "default": "",
+      "required": true,
+      "secret": false,
+      "platform": "all"
+    },
+    {
+      "id": "STEAM_PASSWORD",
+      "label": "Steam-Passwort",
+      "type": "password",
+      "tab": "authentication",
+      "section": "Steam",
+      "default": "",
+      "required": true,
+      "secret": true,
+      "platform": "all"
+    },
+    {
+      "id": "STEAM_GUARD_CODE",
+      "label": "Steam-Guard-Code",
+      "type": "password",
+      "tab": "authentication",
+      "section": "Steam",
+      "default": "",
+      "required": false,
+      "secret": true,
+      "platform": "all"
+    }
+  ],
+  "configurationFiles": [
+    {
+      "path": "Plutonium/storage/t5/dedicated.cfg",
+      "format": "space",
+      "lineFormat": "set {0} \"{1}\"",
+      "bindings": [
+        {
+          "key": "rcon_password",
+          "variable": "{RCON_PASSWORD}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "rcon_localhost_bypass",
+          "variable": "{RCON_LOCALHOST_BYPASS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "rcon_prints",
+          "variable": "{RCON_PRINTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "con_displayRconOutput",
+          "variable": "{CON_DISPLAYRCONOUTPUT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "g_logSync",
+          "variable": "{G_LOGSYNC}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "g_log",
+          "variable": "{G_LOG}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "GameMode",
+          "variable": "{GAMEMODE}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "ServerKey",
+          "variable": "{SERVERKEY}",
+          "section": "",
+          "type": "password"
+        },
+        {
+          "key": "g_password",
+          "variable": "{G_PASSWORD}",
+          "section": "",
+          "type": "password"
+        },
+        {
+          "key": "MapRotation",
+          "variable": "{MAPROTATION}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "gametype",
+          "variable": "{GAMETYPE}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "map_name",
+          "variable": "{MAP_NAME}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "sv_wwwBaseURL",
+          "variable": "{SV_WWWBASEURL}",
+          "section": "",
+          "type": "url"
+        },
+        {
+          "key": "rcon_rate_limit",
+          "variable": "{RCON_RATE_LIMIT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_floodProtect",
+          "variable": "{SV_FLOODPROTECT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_kickBanTime",
+          "variable": "{SV_KICKBANTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_privateClients",
+          "variable": "{SV_PRIVATECLIENTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_privatePassword",
+          "variable": "{SV_PRIVATEPASSWORD}",
+          "section": "",
+          "type": "password"
+        },
+        {
+          "key": "sv_pure",
+          "variable": "{SV_PURE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "sv_reconnectlimit",
+          "variable": "{SV_RECONNECTLIMIT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_zombietime",
+          "variable": "{SV_ZOMBIETIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_timeout",
+          "variable": "{SV_TIMEOUT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "scr_allowFileIo",
+          "variable": "{SCR_ALLOWFILEIO}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "scr_kill_infinite_loops",
+          "variable": "{SCR_KILL_INFINITE_LOOPS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "sv_voice",
+          "variable": "{SV_VOICE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "sv_voicequality",
+          "variable": "{SV_VOICEQUALITY}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "g_inactivity",
+          "variable": "{G_INACTIVITY}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "g_playerCollision",
+          "variable": "{G_PLAYERCOLLISION}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "g_playerEjection",
+          "variable": "{G_PLAYEREJECTION}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "sv_disableClientConsole",
+          "variable": "{SV_DISABLECLIENTCONSOLE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "bullet_penetration_affected_by_team",
+          "variable": "{BULLET_PENETRATION_AFFECTED_BY_TEAM}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "g_fixBulletDamageDupe",
+          "variable": "{G_FIXBULLETDAMAGEDUPE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "g_patchRocketJumps",
+          "variable": "{G_PATCHROCKETJUMPS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "g_fix_viewkick_dupe",
+          "variable": "{G_FIX_VIEWKICK_DUPE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "g_playerCollisionEjectSpeed",
+          "variable": "{G_PLAYERCOLLISIONEJECTSPEED}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_allowFriendlyThrowback",
+          "variable": "{SV_ALLOWFRIENDLYTHROWBACK}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "cg_hudGrenadeIconShowFriendly",
+          "variable": "{CG_HUDGRENADEICONSHOWFRIENDLY}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "g_fix_entity_leaks",
+          "variable": "{G_FIX_ENTITY_LEAKS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "g_allowVote",
+          "variable": "{G_ALLOWVOTE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "sv_doubleCoDPoints",
+          "variable": "{SV_DOUBLECODPOINTS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "party_minplayers",
+          "variable": "{PARTY_MINPLAYERS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "scr_xpscale",
+          "variable": "{SCR_XPSCALE}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "scr_wagerbet",
+          "variable": "{SCR_WAGERBET}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_sayname",
+          "variable": "{SV_SAYNAME}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "g_voiceChatTalkingDuration",
+          "variable": "{G_VOICECHATTALKINGDURATION}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "voice_deadChat",
+          "variable": "{VOICE_DEADCHAT}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "voice_global",
+          "variable": "{VOICE_GLOBAL}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "sp_minplayers",
+          "variable": "{SP_MINPLAYERS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "g_sp_fix_damage_overflow",
+          "variable": "{G_SP_FIX_DAMAGE_OVERFLOW}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "perk_weapRateEnhanced",
+          "variable": "{PERK_WEAPRATEENHANCED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "g_fix_tesla_bug",
+          "variable": "{G_FIX_TESLA_BUG}",
+          "section": "",
+          "type": "checkbox"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    },
+    {
+      "path": "Plutonium/storage/t5/dedicated.cfg",
+      "format": "space",
+      "lineFormat": "set {0} {1}",
+      "bindings": [
+        {
+          "key": "rcon_password",
+          "variable": "{RCON_PASSWORD}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "rcon_localhost_bypass",
+          "variable": "{RCON_LOCALHOST_BYPASS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "rcon_prints",
+          "variable": "{RCON_PRINTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "con_displayRconOutput",
+          "variable": "{CON_DISPLAYRCONOUTPUT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "g_logSync",
+          "variable": "{G_LOGSYNC}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "g_log",
+          "variable": "{G_LOG}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "GameMode",
+          "variable": "{GAMEMODE}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "ServerKey",
+          "variable": "{SERVERKEY}",
+          "section": "",
+          "type": "password"
+        },
+        {
+          "key": "g_password",
+          "variable": "{G_PASSWORD}",
+          "section": "",
+          "type": "password"
+        },
+        {
+          "key": "MapRotation",
+          "variable": "{MAPROTATION}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "gametype",
+          "variable": "{GAMETYPE}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "map_name",
+          "variable": "{MAP_NAME}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "sv_wwwBaseURL",
+          "variable": "{SV_WWWBASEURL}",
+          "section": "",
+          "type": "url"
+        },
+        {
+          "key": "rcon_rate_limit",
+          "variable": "{RCON_RATE_LIMIT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_floodProtect",
+          "variable": "{SV_FLOODPROTECT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_kickBanTime",
+          "variable": "{SV_KICKBANTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_privateClients",
+          "variable": "{SV_PRIVATECLIENTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_privatePassword",
+          "variable": "{SV_PRIVATEPASSWORD}",
+          "section": "",
+          "type": "password"
+        },
+        {
+          "key": "sv_pure",
+          "variable": "{SV_PURE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "sv_reconnectlimit",
+          "variable": "{SV_RECONNECTLIMIT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_zombietime",
+          "variable": "{SV_ZOMBIETIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_timeout",
+          "variable": "{SV_TIMEOUT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "scr_allowFileIo",
+          "variable": "{SCR_ALLOWFILEIO}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "scr_kill_infinite_loops",
+          "variable": "{SCR_KILL_INFINITE_LOOPS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "sv_voice",
+          "variable": "{SV_VOICE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "sv_voicequality",
+          "variable": "{SV_VOICEQUALITY}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "g_inactivity",
+          "variable": "{G_INACTIVITY}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "g_playerCollision",
+          "variable": "{G_PLAYERCOLLISION}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "g_playerEjection",
+          "variable": "{G_PLAYEREJECTION}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "sv_disableClientConsole",
+          "variable": "{SV_DISABLECLIENTCONSOLE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "bullet_penetration_affected_by_team",
+          "variable": "{BULLET_PENETRATION_AFFECTED_BY_TEAM}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "g_fixBulletDamageDupe",
+          "variable": "{G_FIXBULLETDAMAGEDUPE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "g_patchRocketJumps",
+          "variable": "{G_PATCHROCKETJUMPS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "g_fix_viewkick_dupe",
+          "variable": "{G_FIX_VIEWKICK_DUPE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "g_playerCollisionEjectSpeed",
+          "variable": "{G_PLAYERCOLLISIONEJECTSPEED}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_allowFriendlyThrowback",
+          "variable": "{SV_ALLOWFRIENDLYTHROWBACK}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "cg_hudGrenadeIconShowFriendly",
+          "variable": "{CG_HUDGRENADEICONSHOWFRIENDLY}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "g_fix_entity_leaks",
+          "variable": "{G_FIX_ENTITY_LEAKS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "g_allowVote",
+          "variable": "{G_ALLOWVOTE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "sv_doubleCoDPoints",
+          "variable": "{SV_DOUBLECODPOINTS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "party_minplayers",
+          "variable": "{PARTY_MINPLAYERS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "scr_xpscale",
+          "variable": "{SCR_XPSCALE}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "scr_wagerbet",
+          "variable": "{SCR_WAGERBET}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_sayname",
+          "variable": "{SV_SAYNAME}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "g_voiceChatTalkingDuration",
+          "variable": "{G_VOICECHATTALKINGDURATION}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "voice_deadChat",
+          "variable": "{VOICE_DEADCHAT}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "voice_global",
+          "variable": "{VOICE_GLOBAL}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "sp_minplayers",
+          "variable": "{SP_MINPLAYERS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "g_sp_fix_damage_overflow",
+          "variable": "{G_SP_FIX_DAMAGE_OVERFLOW}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "perk_weapRateEnhanced",
+          "variable": "{PERK_WEAPRATEENHANCED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "g_fix_tesla_bug",
+          "variable": "{G_FIX_TESLA_BUG}",
+          "section": "",
+          "type": "checkbox"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    },
+    {
+      "path": "Plutonium/storage/t5/dedicated_sp.cfg",
+      "format": "space",
+      "lineFormat": "set {0} \"{1}\"",
+      "bindings": [
+        {
+          "key": "rcon_password",
+          "variable": "{RCON_PASSWORD}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "rcon_localhost_bypass",
+          "variable": "{RCON_LOCALHOST_BYPASS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "rcon_prints",
+          "variable": "{RCON_PRINTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "con_displayRconOutput",
+          "variable": "{CON_DISPLAYRCONOUTPUT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "g_logSync",
+          "variable": "{G_LOGSYNC}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "g_log",
+          "variable": "{G_LOG}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "GameMode",
+          "variable": "{GAMEMODE}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "ServerKey",
+          "variable": "{SERVERKEY}",
+          "section": "",
+          "type": "password"
+        },
+        {
+          "key": "g_password",
+          "variable": "{G_PASSWORD}",
+          "section": "",
+          "type": "password"
+        },
+        {
+          "key": "MapRotation",
+          "variable": "{MAPROTATION}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "gametype",
+          "variable": "{GAMETYPE}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "map_name",
+          "variable": "{MAP_NAME}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "sv_wwwBaseURL",
+          "variable": "{SV_WWWBASEURL}",
+          "section": "",
+          "type": "url"
+        },
+        {
+          "key": "rcon_rate_limit",
+          "variable": "{RCON_RATE_LIMIT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_floodProtect",
+          "variable": "{SV_FLOODPROTECT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_kickBanTime",
+          "variable": "{SV_KICKBANTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_privateClients",
+          "variable": "{SV_PRIVATECLIENTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_privatePassword",
+          "variable": "{SV_PRIVATEPASSWORD}",
+          "section": "",
+          "type": "password"
+        },
+        {
+          "key": "sv_pure",
+          "variable": "{SV_PURE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "sv_reconnectlimit",
+          "variable": "{SV_RECONNECTLIMIT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_zombietime",
+          "variable": "{SV_ZOMBIETIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_timeout",
+          "variable": "{SV_TIMEOUT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "scr_allowFileIo",
+          "variable": "{SCR_ALLOWFILEIO}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "scr_kill_infinite_loops",
+          "variable": "{SCR_KILL_INFINITE_LOOPS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "sv_voice",
+          "variable": "{SV_VOICE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "sv_voicequality",
+          "variable": "{SV_VOICEQUALITY}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "g_inactivity",
+          "variable": "{G_INACTIVITY}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "g_playerCollision",
+          "variable": "{G_PLAYERCOLLISION}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "g_playerEjection",
+          "variable": "{G_PLAYEREJECTION}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "sv_disableClientConsole",
+          "variable": "{SV_DISABLECLIENTCONSOLE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "bullet_penetration_affected_by_team",
+          "variable": "{BULLET_PENETRATION_AFFECTED_BY_TEAM}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "g_fixBulletDamageDupe",
+          "variable": "{G_FIXBULLETDAMAGEDUPE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "g_patchRocketJumps",
+          "variable": "{G_PATCHROCKETJUMPS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "g_fix_viewkick_dupe",
+          "variable": "{G_FIX_VIEWKICK_DUPE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "g_playerCollisionEjectSpeed",
+          "variable": "{G_PLAYERCOLLISIONEJECTSPEED}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_allowFriendlyThrowback",
+          "variable": "{SV_ALLOWFRIENDLYTHROWBACK}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "cg_hudGrenadeIconShowFriendly",
+          "variable": "{CG_HUDGRENADEICONSHOWFRIENDLY}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "g_fix_entity_leaks",
+          "variable": "{G_FIX_ENTITY_LEAKS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "g_allowVote",
+          "variable": "{G_ALLOWVOTE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "sv_doubleCoDPoints",
+          "variable": "{SV_DOUBLECODPOINTS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "party_minplayers",
+          "variable": "{PARTY_MINPLAYERS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "scr_xpscale",
+          "variable": "{SCR_XPSCALE}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "scr_wagerbet",
+          "variable": "{SCR_WAGERBET}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_sayname",
+          "variable": "{SV_SAYNAME}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "g_voiceChatTalkingDuration",
+          "variable": "{G_VOICECHATTALKINGDURATION}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "voice_deadChat",
+          "variable": "{VOICE_DEADCHAT}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "voice_global",
+          "variable": "{VOICE_GLOBAL}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "sp_minplayers",
+          "variable": "{SP_MINPLAYERS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "g_sp_fix_damage_overflow",
+          "variable": "{G_SP_FIX_DAMAGE_OVERFLOW}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "perk_weapRateEnhanced",
+          "variable": "{PERK_WEAPRATEENHANCED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "g_fix_tesla_bug",
+          "variable": "{G_FIX_TESLA_BUG}",
+          "section": "",
+          "type": "checkbox"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    },
+    {
+      "path": "Plutonium/storage/t5/dedicated_sp.cfg",
+      "format": "space",
+      "lineFormat": "set {0} {1}",
+      "bindings": [
+        {
+          "key": "rcon_password",
+          "variable": "{RCON_PASSWORD}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "rcon_localhost_bypass",
+          "variable": "{RCON_LOCALHOST_BYPASS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "rcon_prints",
+          "variable": "{RCON_PRINTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "con_displayRconOutput",
+          "variable": "{CON_DISPLAYRCONOUTPUT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "g_logSync",
+          "variable": "{G_LOGSYNC}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "g_log",
+          "variable": "{G_LOG}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "GameMode",
+          "variable": "{GAMEMODE}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "ServerKey",
+          "variable": "{SERVERKEY}",
+          "section": "",
+          "type": "password"
+        },
+        {
+          "key": "g_password",
+          "variable": "{G_PASSWORD}",
+          "section": "",
+          "type": "password"
+        },
+        {
+          "key": "MapRotation",
+          "variable": "{MAPROTATION}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "gametype",
+          "variable": "{GAMETYPE}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "map_name",
+          "variable": "{MAP_NAME}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "sv_wwwBaseURL",
+          "variable": "{SV_WWWBASEURL}",
+          "section": "",
+          "type": "url"
+        },
+        {
+          "key": "rcon_rate_limit",
+          "variable": "{RCON_RATE_LIMIT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_floodProtect",
+          "variable": "{SV_FLOODPROTECT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_kickBanTime",
+          "variable": "{SV_KICKBANTIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_privateClients",
+          "variable": "{SV_PRIVATECLIENTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_privatePassword",
+          "variable": "{SV_PRIVATEPASSWORD}",
+          "section": "",
+          "type": "password"
+        },
+        {
+          "key": "sv_pure",
+          "variable": "{SV_PURE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "sv_reconnectlimit",
+          "variable": "{SV_RECONNECTLIMIT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_zombietime",
+          "variable": "{SV_ZOMBIETIME}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_timeout",
+          "variable": "{SV_TIMEOUT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "scr_allowFileIo",
+          "variable": "{SCR_ALLOWFILEIO}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "scr_kill_infinite_loops",
+          "variable": "{SCR_KILL_INFINITE_LOOPS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "sv_voice",
+          "variable": "{SV_VOICE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "sv_voicequality",
+          "variable": "{SV_VOICEQUALITY}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "g_inactivity",
+          "variable": "{G_INACTIVITY}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "g_playerCollision",
+          "variable": "{G_PLAYERCOLLISION}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "g_playerEjection",
+          "variable": "{G_PLAYEREJECTION}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "sv_disableClientConsole",
+          "variable": "{SV_DISABLECLIENTCONSOLE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "bullet_penetration_affected_by_team",
+          "variable": "{BULLET_PENETRATION_AFFECTED_BY_TEAM}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "g_fixBulletDamageDupe",
+          "variable": "{G_FIXBULLETDAMAGEDUPE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "g_patchRocketJumps",
+          "variable": "{G_PATCHROCKETJUMPS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "g_fix_viewkick_dupe",
+          "variable": "{G_FIX_VIEWKICK_DUPE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "g_playerCollisionEjectSpeed",
+          "variable": "{G_PLAYERCOLLISIONEJECTSPEED}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_allowFriendlyThrowback",
+          "variable": "{SV_ALLOWFRIENDLYTHROWBACK}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "cg_hudGrenadeIconShowFriendly",
+          "variable": "{CG_HUDGRENADEICONSHOWFRIENDLY}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "g_fix_entity_leaks",
+          "variable": "{G_FIX_ENTITY_LEAKS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "g_allowVote",
+          "variable": "{G_ALLOWVOTE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "sv_doubleCoDPoints",
+          "variable": "{SV_DOUBLECODPOINTS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "party_minplayers",
+          "variable": "{PARTY_MINPLAYERS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "scr_xpscale",
+          "variable": "{SCR_XPSCALE}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "scr_wagerbet",
+          "variable": "{SCR_WAGERBET}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "sv_sayname",
+          "variable": "{SV_SAYNAME}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "g_voiceChatTalkingDuration",
+          "variable": "{G_VOICECHATTALKINGDURATION}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "voice_deadChat",
+          "variable": "{VOICE_DEADCHAT}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "voice_global",
+          "variable": "{VOICE_GLOBAL}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "sp_minplayers",
+          "variable": "{SP_MINPLAYERS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "g_sp_fix_damage_overflow",
+          "variable": "{G_SP_FIX_DAMAGE_OVERFLOW}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "perk_weapRateEnhanced",
+          "variable": "{PERK_WEAPRATEENHANCED}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "g_fix_tesla_bug",
+          "variable": "{G_FIX_TESLA_BUG}",
+          "section": "",
+          "type": "checkbox"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    }
+  ],
+  "deploymentSteps": [
+    {
+      "name": "SteamCMD Client Download",
+      "type": "steam",
+      "phase": "install",
+      "platform": "all",
+      "source": "42700",
+      "target": "T5",
+      "arguments": "public",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Create Plutonium Directory",
+      "type": "directory",
+      "phase": "install",
+      "platform": "all",
+      "source": "",
+      "target": "Plutonium",
+      "arguments": "{SERVER_DIR}/Plutonium",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Plutonium Updater Download",
+      "type": "download-extract",
+      "phase": "install",
+      "platform": "windows",
+      "source": "https://github.com/mxve/plutonium-updater.rs/releases/latest/download/plutonium-updater-x86_64-pc-windows-msvc.zip",
+      "target": "",
+      "arguments": "",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": false
+    },
+    {
+      "name": "Plutonium Installation",
+      "type": "command",
+      "phase": "install",
+      "platform": "windows",
+      "source": "cmd.exe",
+      "target": "",
+      "arguments": "/C cd server && plutonium-updater.exe -e \"games/iw5mp.exe\" -e \"games/iw5sp.exe\" -e \"games/t6mp.exe\" -e \"games/t6zm.exe\" -e \"games/t4mp.exe\" -e \"games/t4sp.exe\" -e \"storage/iw5\" -e \"storage/t6\" -e \"storage/t4\" -sfd \"{SERVER_DIR}/Plutonium\"",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Plutonium Updater Download",
+      "type": "download-extract",
+      "phase": "install",
+      "platform": "linux",
+      "source": "https://github.com/mxve/plutonium-updater.rs/releases/latest/download/plutonium-updater-x86_64-unknown-linux-gnu.tar.gz",
+      "target": "",
+      "arguments": "",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": false
+    },
+    {
+      "name": "Plutonium Installation",
+      "type": "command",
+      "phase": "install",
+      "platform": "linux",
+      "source": "/bin/bash",
+      "target": "",
+      "arguments": "-c \"cd . && chmod +x plutonium-updater && ./plutonium-updater -e \\\"games/iw5mp.exe\\\" -e \\\"games/iw5sp.exe\\\" -e \\\"games/t6mp.exe\\\" -e \\\"games/t6zm.exe\\\" -e \\\"games/t4mp.exe\\\" -e \\\"games/t4sp.exe\\\" -e \\\"storage/iw5\\\" -e \\\"storage/t6\\\" -e \\\"storage/t4\\\" -sfd \\\"{SERVER_DIR}/Plutonium\\\"\"",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Create Config Download Directory",
+      "type": "directory",
+      "phase": "install",
+      "platform": "all",
+      "source": "",
+      "target": "configs",
+      "arguments": "{SERVER_DIR}/configs",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Plutonium Config Files Download",
+      "type": "download-extract",
+      "phase": "install",
+      "platform": "all",
+      "source": "https://github.com/xerxes-at/T5ServerConfig/archive/refs/heads/master.zip",
+      "target": "configs",
+      "arguments": "",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": false
+    },
+    {
+      "name": "Create mods Directory",
+      "type": "directory",
+      "phase": "install",
+      "platform": "all",
+      "source": "",
+      "target": "Plutonium/storage/t5/mods",
+      "arguments": "{SERVER_DIR}/Plutonium/storage/t5/mods",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": true,
+      "preserveExisting": true
+    },
+    {
+      "name": "Disable Prefix Sound",
+      "type": "command",
+      "phase": "install",
+      "platform": "linux",
+      "source": "/bin/bash",
+      "target": "",
+      "arguments": "-c \"cd . && wget -q -N https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks && chmod +x winetricks; export WINEPREFIX=\\\"{SERVER_DIR}/.wine\\\"; export WINEARCH=win32; ./winetricks sound=disabled > winescript_log.txt 2>&1\"",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": true,
+      "preserveExisting": true
+    }
+  ],
+  "authenticationRequirements": [
+    {
+      "id": "steam-account",
+      "label": "Steam-Konto",
+      "description": "Ein Steam-Konto mit Berechtigung für dieses Spiel hinterlegen. Steam Guard kann einmalig erforderlich sein.",
+      "url": "https://store.steampowered.com/login/",
+      "required": true,
+      "platform": "all"
+    }
+  ],
+  "environment": {
+    "SteamAppId": "42700",
+    "WINEPREFIX": "{SERVER_DIR}/.wine",
+    "WINEARCH": "win32",
+    "WINEDEBUG": "-all"
+  },
+  "linuxPackages": [],
+  "warnings": [],
+  "validationStatus": "ready",
+  "preferredRuntime": "wine",
+  "noCommercialUsage": false,
+  "workingDirectory": "Plutonium",
+  "executables": {
+    "windows": "Plutonium/bin/plutonium-bootstrapper-win32.exe"
+  },
+  "operatingSystems": [
+    "windows"
+  ],
+  "windowsOnly": true,
+  "minimumRuntime": "wine",
+  "platformWorkingDirectories": {
+    "windows": "Plutonium",
+    "linux": "Plutonium"
+  },
+  "platformArguments": {
+    "windows": [
+      "{GAMEMODE}",
+      "+set",
+      "net_port",
+      "{GAME_PORT}",
+      "+set",
+      "net_ip",
+      "{GAME_BIND}",
+      "+set",
+      "rcon_password",
+      "{RCON_PASSWORD}",
+      "{FORMATTED_ARGS}",
+      "{MAPMODE}"
+    ],
+    "linux": [
+      "{GAMEMODE}",
+      "+set",
+      "net_port",
+      "{GAME_PORT}",
+      "+set",
+      "net_ip",
+      "{GAME_BIND}",
+      "+set",
+      "rcon_password",
+      "{RCON_PASSWORD}",
+      "{FORMATTED_ARGS}",
+      "{MAPMODE}"
+    ]
+  },
+  "arguments": [
+    "{GAMEMODE}",
+    "+set",
+    "net_port",
+    "{GAME_PORT}",
+    "+set",
+    "net_ip",
+    "{GAME_BIND}",
+    "+set",
+    "rcon_password",
+    "{RCON_PASSWORD}",
+    "{FORMATTED_ARGS}",
+    "{MAPMODE}"
+  ],
+  "stopCommand": "quit",
+  "query": "source"
+}

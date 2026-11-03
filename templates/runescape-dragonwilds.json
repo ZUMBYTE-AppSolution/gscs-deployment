@@ -1,0 +1,242 @@
+{
+  "id": "runescape-dragonwilds",
+  "name": "RuneScape: Dragonwilds",
+  "version": "1.1.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/runescape-dragonwilds.json",
+  "sourceRef": "main",
+  "steamAppId": 4019830,
+  "steamGameAppId": 1374490,
+  "website": "https://dragonwilds.runescape.com/",
+  "image": "ghcr.io/zumbyte-appsolution/gscs:0.1.0-alpha.2",
+  "defaults": {
+    "DEFAULTWORLDNAME": "World-12345",
+    "ADMINPASSWORD": "{RANDOM_SECRET}"
+  },
+  "ports": [
+    {
+      "role": "game",
+      "default": 7777,
+      "containerPort": 7777,
+      "protocol": "udp",
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "configurationTabs": [
+    {
+      "id": "server",
+      "label": "Server",
+      "icon": "settings",
+      "order": 0
+    }
+  ],
+  "configurationFields": [
+    {
+      "id": "OWNERID",
+      "label": "Owner ID",
+      "description": "Sets the server owner's RuneScape: Dragonwilds EOS Player ID. This can be found in-game at the bottom of the Settings Menu",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "",
+      "placeholder": "",
+      "required": true,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "/Script/Dominion.DedicatedServerSettings.OwnerId",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVER_NAME",
+      "label": "Servername",
+      "description": "Sets the 'CREATED BY' name for the server shown in the client server list. Maximum 64 characters",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "{SERVER_NAME}",
+      "placeholder": "",
+      "required": true,
+      "secret": false,
+      "hidden": false,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "/Script/Dominion.DedicatedServerSettings.ServerName",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "DEFAULTWORLDNAME",
+      "label": "Default World Name",
+      "description": "Sets the name of the default world that is created on start. This is shown as the server name in the client server list and is used for search. Case-sensitive. Maximum 64 characters",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "World-12345",
+      "placeholder": "World-12345",
+      "required": true,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "/Script/Dominion.DedicatedServerSettings.DefaultWorldName",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ADMINPASSWORD",
+      "label": "Administratorpasswort",
+      "description": "Sets the admin password, allowing access to the Server Management tab in-game. Default is a secure random password",
+      "tab": "server",
+      "section": "Server",
+      "type": "password",
+      "default": "{RANDOM_SECRET}",
+      "placeholder": "",
+      "required": true,
+      "secret": true,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "ini:DedicatedServer:[/Script/Dominion.DedicatedServerSettings]:AdminPassword",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": true,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "WORLDPASSWORD",
+      "label": "World Password",
+      "description": "Sets the password required to join the server. Empty = no password",
+      "tab": "server",
+      "section": "Server",
+      "type": "password",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": true,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "/Script/Dominion.DedicatedServerSettings.WorldPassword",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    }
+  ],
+  "configurationFiles": [
+    {
+      "path": "RSDragonwilds/Saved/Config/LinuxServer/DedicatedServer.ini",
+      "format": "ini",
+      "lineFormat": "",
+      "bindings": [],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "linux"
+    },
+    {
+      "path": "RSDragonwilds/Saved/Config/WindowsServer/DedicatedServer.ini",
+      "format": "ini",
+      "lineFormat": "",
+      "bindings": [],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "windows"
+    }
+  ],
+  "deploymentSteps": [
+    {
+      "name": "Server Download",
+      "type": "steam",
+      "phase": "install",
+      "platform": "all",
+      "source": "4019830",
+      "target": "",
+      "arguments": "public",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    }
+  ],
+  "authenticationRequirements": [],
+  "environment": {
+    "LD_LIBRARY_PATH": "{SERVER_DIR}/linux64:%LD_LIBRARY_PATH%",
+    "SteamAppId": "4019830"
+  },
+  "linuxPackages": [],
+  "warnings": [],
+  "validationStatus": "ready",
+  "preferredRuntime": "native",
+  "noCommercialUsage": false,
+  "workingDirectory": "",
+  "executables": {
+    "windows": "RSDragonwilds/Binaries/Win64/RSDragonwildsServer-Win64-Shipping.exe",
+    "linux": "RSDragonwilds/Binaries/Linux/RSDragonwildsServer-Linux-Shipping"
+  },
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "windowsOnly": false,
+  "platformWorkingDirectories": {
+    "windows": "",
+    "linux": ""
+  },
+  "platformArguments": {
+    "windows": [
+      "RSDragonwilds",
+      "-Port={GAME_PORT}",
+      "{FORMATTED_ARGS}",
+      "-stdout",
+      "-FullStdOutLogOutput"
+    ],
+    "linux": [
+      "RSDragonwilds",
+      "-Port={GAME_PORT}",
+      "{FORMATTED_ARGS}",
+      "-stdout",
+      "-FullStdOutLogOutput"
+    ]
+  },
+  "arguments": [
+    "RSDragonwilds",
+    "-Port={GAME_PORT}",
+    "{FORMATTED_ARGS}",
+    "-stdout",
+    "-FullStdOutLogOutput"
+  ],
+  "stopCommand": "exit",
+  "query": "source"
+}

@@ -1,0 +1,1652 @@
+{
+  "id": "tarkov-fika",
+  "name": "Tarkov (Fika Mod) (Legacy)",
+  "version": "1.1.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/tarkov-fika.json",
+  "sourceRef": "main",
+  "steamAppId": null,
+  "steamGameAppId": 2247310,
+  "website": "https://github.com/project-fika/Fika-Documentation",
+  "image": "ghcr.io/zumbyte-appsolution/gscs:0.1.0-alpha.2",
+  "defaults": {
+    "USEBTR": "true",
+    "FRIENDLYFIRE": "true",
+    "DYNAMICVEXFILS": "false",
+    "ALLOWFREECAM": "false",
+    "BLACKLISTEDITEMS": "[]",
+    "FORCESAVEONDEATH": "false",
+    "MODS_REQUIRED": "[]",
+    "MODS_OPTIONAL": "[]",
+    "USEINERTIA": "true",
+    "SHAREDQUESTPROGRESSION": "false",
+    "CANEDITRAIDSETTINGS": "true",
+    "ENABLETRANSITS": "false",
+    "ANYONECANSTARTRAID": "false",
+    "DISABLESPTCHATBOTS": "true",
+    "ALLOWITEMSENDING": "true",
+    "GIFTEDITEMSLOSEFIR": "true",
+    "LAUNCHERLISTALLPROFILES": "false",
+    "SESSIONTIMEOUT": "5",
+    "SHOWDEVPROFILE": "false",
+    "SHOWNONSTANDARDPROFILE": "false",
+    "LOGCLIENTMODSINCONSOLE": "false",
+    "NATPUNCHSERVER_ENABLE": "false",
+    "NATPUNCHSERVER_NATINTRODUCEAMOUNT": "1",
+    "DEDICATED_PROFILES_AMOUNT": "0",
+    "DEDICATED_SCRIPTS_GENERATE": "true",
+    "HEADLESS_SETLEVELTOAVERAGEOFLOBBY": "true",
+    "HEADLESS_RESTARTAFTERAMOUNTOFRAIDS": "0",
+    "BACKGROUND_ENABLE": "true",
+    "BACKGROUND_EASTEREGG": "false"
+  },
+  "ports": [
+    {
+      "role": "game",
+      "default": 6969,
+      "containerPort": 6969,
+      "protocol": "tcp",
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "nat_punch_server",
+      "default": 6970,
+      "containerPort": 6970,
+      "protocol": "udp",
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "configurationTabs": [
+    {
+      "id": "server",
+      "label": "Server",
+      "icon": "settings",
+      "order": 0
+    },
+    {
+      "id": "server-updates",
+      "label": "Server Updates",
+      "icon": "settings",
+      "order": 1
+    }
+  ],
+  "configurationFields": [
+    {
+      "id": "GAME_PORT",
+      "label": "SPT-AKI Server Port",
+      "description": "",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.port",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NAT_PUNCH_SERVER_PORT",
+      "label": "NAT Punch Server Port",
+      "description": "",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.natPunchServer.port",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "GAME_BIND",
+      "label": "AKI Binding IP",
+      "description": "",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.ip",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "USEBTR",
+      "label": "Spawn BTR On Streets",
+      "description": "If set, the BTR will spawn on streets",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.client.useBtr",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "FRIENDLYFIRE",
+      "label": "Enable Friendly Fire",
+      "description": "If set, friendly fire will be enabled",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.client.friendlyFire",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "DYNAMICVEXFILS",
+      "label": "Enable Dynamic Vehicle Exfils",
+      "description": "If set, vehicle exfils will scale to the number of players in the raid",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.client.dynamicVExfils",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ALLOWFREECAM",
+      "label": "Allow Free Camera",
+      "description": "If set, the free camera can be toggled freely",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.client.allowFreeCam",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "BLACKLISTEDITEMS",
+      "label": "Blacklisted Items",
+      "description": "Sets a list of item template IDs that cannot be sent. Requires SPT-AKI 3.9+",
+      "tab": "server",
+      "section": "Server",
+      "type": "textarea",
+      "default": "[]",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.client.blacklistedItems",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "FORCESAVEONDEATH",
+      "label": "Force Save On Death",
+      "description": "If set, saving will be forced upon death, preventing ALT+F4 cheese. Requires SPT-AKI 3.9+",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.client.forceSaveOnDeath",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "MODS_REQUIRED",
+      "label": "Required Mods",
+      "description": "Sets a list of required mods on the server. If enabled, always include standard SPT mods: com.SPT.custom, com.SPT.singleplayer, com.SPT.core, com.SPT.debugging, com.fika.core, com.bepis.bepinex.configurationmanager. Requires SPT-AKI 3.9+",
+      "tab": "server",
+      "section": "Server",
+      "type": "textarea",
+      "default": "[]",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.client.mods.required",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "MODS_OPTIONAL",
+      "label": "Optional Mods",
+      "description": "Sets a list of mods that are allowed in addition to Required Mods. Requires SPT-AKI 3.9+",
+      "tab": "server",
+      "section": "Server",
+      "type": "textarea",
+      "default": "[]",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.client.mods.optional",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "USEINERTIA",
+      "label": "Enable Inertia",
+      "description": "If set, intertia will be enabled. Requires SPT-AKI 3.9+",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.client.useInertia",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SHAREDQUESTPROGRESSION",
+      "label": "Enable Shared Quest Progression",
+      "description": "If set, quest progression in raid will be shared. Requires SPT-AKI 3.9+",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.client.sharedQuestProgression",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "CANEDITRAIDSETTINGS",
+      "label": "Allow Editing Raid Settings",
+      "description": "If set, clients can modify the raid settings before starting a raid",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.client.canEditRaidSettings",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ENABLETRANSITS",
+      "label": "Enable Transits",
+      "description": "If set, transits will be enabled",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.client.enableTransits",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ANYONECANSTARTRAID",
+      "label": "Anyone Can Start Raid",
+      "description": "If set, anyone can click 'START RAID'. Requires Fika 2.4.0+",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.client.anyoneCanStartRaid",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "DISABLESPTCHATBOTS",
+      "label": "Disable Chat Bots",
+      "description": "If set, chat bots will not be disabled. Requires Fika 2.4.0+",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.server.SPT.disableSPTChatBots",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ALLOWITEMSENDING",
+      "label": "Enable Item Sending",
+      "description": "If set, item sending will be enabled",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.client.allowItemSending",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "GIFTEDITEMSLOSEFIR",
+      "label": "Gifted Items Lose FiR Status",
+      "description": "If set, sent items will lose their FiR status",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.server.giftedItemsLoseFIR",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "LAUNCHERLISTALLPROFILES",
+      "label": "List All Profiles In Launcher",
+      "description": "If set, the launcher will list all profiles",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.server.launcherListAllProfiles",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SESSIONTIMEOUT",
+      "label": "Session Timeout",
+      "description": "Sets how long the server waits for a keepalive ping from a client until the session is considered crashed. Requires SPT-AKI 3.9+",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "5",
+      "placeholder": "5",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.server.sessionTimeout",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "SHOWDEVPROFILE",
+      "label": "Enable Dev Profiles",
+      "description": "If set, dev profiles will be able to be created. Requires SPT-AKI 3.9+",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.server.showDevProfile",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SHOWNONSTANDARDPROFILE",
+      "label": "Enable Non-Standard Profiles",
+      "description": "If set, non-standard EFT profiles will be able to be created. Requires SPT-AKI 3.9+",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.server.showNonStandardProfile",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "LOGCLIENTMODSINCONSOLE",
+      "label": "Log Client Mods In Console",
+      "description": "If set, all mods of a client connecting will be printed in the console. Requires Fika 2.4.0+",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.server.logClientModsInConsole",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NATPUNCHSERVER_ENABLE",
+      "label": "Enable NAT Punching",
+      "description": "If set, the NAT punch server will be installed when the Tarkov server is updated and enabled when it is started. Requires SPT-AKI 3.9+ on Windows, 3.10+ on Linux",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.natPunchServer.enable",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NATPUNCHSERVER_NATINTRODUCEAMOUNT",
+      "label": "NAT Punching Amount",
+      "description": "Sets the NAT punching amount. Requires SPT-AKI 3.9+",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "1",
+      "placeholder": "1",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.natPunchServer.natIntroduceAmount",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "DEDICATED_PROFILES_AMOUNT",
+      "label": "Headless Client Profiles Amount",
+      "description": "Sets the number of headless profiles to generate automatically, one per [headless client](https://github.com/project-fika/Fika-Headless)",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "0",
+      "placeholder": "0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.headless.profiles.amount",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "DEDICATED_SCRIPTS_GENERATE",
+      "label": "Generate Scripts For Headless Clients",
+      "description": "If set, a startup script will be automatically generated for each headless client profile. Required unless you know what you are doing",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.headless.scripts.generate",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "DEDICATED_SCRIPTS_FORCEIP",
+      "label": "Connection IP For Headless Clients",
+      "description": "Sets the IP the headless client should connect to. Set to 127.0.0.1 if local",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "",
+      "placeholder": "127.0.0.1",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.headless.scripts.forceIp",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "HEADLESS_SETLEVELTOAVERAGEOFLOBBY",
+      "label": "Set Headless Client Level To Average Of Lobby",
+      "description": "If set, the level of headless clients will be set to the average level of the lobby. Requires Fika 2.4.0+",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.headless.setLevelToAverageOfLobby",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "HEADLESS_RESTARTAFTERAMOUNTOFRAIDS",
+      "label": "Restart Headless Clients After Amount Of Raids",
+      "description": "Sets the number of raids after which the headless client will restart. Set to 0 to disable. Requires Fika 2.4.0+",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "0",
+      "placeholder": "0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.headless.restartAfterAmountOfRaids",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "BACKGROUND_ENABLE",
+      "label": "Enable Launcher Background",
+      "description": "If set, the launcher background will be enabled. Requires SPT-AKI 3.10+",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "true",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.background.enable",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "BACKGROUND_EASTEREGG",
+      "label": "Enable Launcher Background Easter Egg",
+      "description": "If set, the launcher background easter egg will be enabled. Requires SPT-AKI 3.10+",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "false",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.background.easteregg",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "NODEVERSION",
+      "label": "Node.js Version",
+      "description": "Optionally sets a specific [Node.js version](https://nodejs.org/download/release/) to install. Format: v22.12.0. Empty = default version for the SPT-AKI Version (recommended). Update the server after changing this setting",
+      "tab": "server-updates",
+      "section": "Server Updates",
+      "type": "text",
+      "default": "",
+      "placeholder": "v22.12.0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "NodeVersion",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    }
+  ],
+  "configurationFiles": [
+    {
+      "path": "SPT_Data/Server/configs/http.json",
+      "format": "json",
+      "lineFormat": "",
+      "bindings": [
+        {
+          "key": "port",
+          "variable": "{GAME_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "natPunchServer.port",
+          "variable": "{NAT_PUNCH_SERVER_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ip",
+          "variable": "{GAME_BIND}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "client.useBtr",
+          "variable": "{USEBTR}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "client.friendlyFire",
+          "variable": "{FRIENDLYFIRE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "client.dynamicVExfils",
+          "variable": "{DYNAMICVEXFILS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "client.allowFreeCam",
+          "variable": "{ALLOWFREECAM}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "client.blacklistedItems",
+          "variable": "{BLACKLISTEDITEMS}",
+          "section": "",
+          "type": "textarea"
+        },
+        {
+          "key": "client.forceSaveOnDeath",
+          "variable": "{FORCESAVEONDEATH}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "client.mods.required",
+          "variable": "{MODS_REQUIRED}",
+          "section": "",
+          "type": "textarea"
+        },
+        {
+          "key": "client.mods.optional",
+          "variable": "{MODS_OPTIONAL}",
+          "section": "",
+          "type": "textarea"
+        },
+        {
+          "key": "client.useInertia",
+          "variable": "{USEINERTIA}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "client.sharedQuestProgression",
+          "variable": "{SHAREDQUESTPROGRESSION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "client.canEditRaidSettings",
+          "variable": "{CANEDITRAIDSETTINGS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "client.enableTransits",
+          "variable": "{ENABLETRANSITS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "client.anyoneCanStartRaid",
+          "variable": "{ANYONECANSTARTRAID}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "server.SPT.disableSPTChatBots",
+          "variable": "{DISABLESPTCHATBOTS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "client.allowItemSending",
+          "variable": "{ALLOWITEMSENDING}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "server.giftedItemsLoseFIR",
+          "variable": "{GIFTEDITEMSLOSEFIR}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "server.launcherListAllProfiles",
+          "variable": "{LAUNCHERLISTALLPROFILES}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "server.sessionTimeout",
+          "variable": "{SESSIONTIMEOUT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "server.showDevProfile",
+          "variable": "{SHOWDEVPROFILE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "server.showNonStandardProfile",
+          "variable": "{SHOWNONSTANDARDPROFILE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "server.logClientModsInConsole",
+          "variable": "{LOGCLIENTMODSINCONSOLE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "natPunchServer.enable",
+          "variable": "{NATPUNCHSERVER_ENABLE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "natPunchServer.natIntroduceAmount",
+          "variable": "{NATPUNCHSERVER_NATINTRODUCEAMOUNT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "headless.profiles.amount",
+          "variable": "{DEDICATED_PROFILES_AMOUNT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "headless.scripts.generate",
+          "variable": "{DEDICATED_SCRIPTS_GENERATE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "headless.scripts.forceIp",
+          "variable": "{DEDICATED_SCRIPTS_FORCEIP}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "headless.setLevelToAverageOfLobby",
+          "variable": "{HEADLESS_SETLEVELTOAVERAGEOFLOBBY}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "headless.restartAfterAmountOfRaids",
+          "variable": "{HEADLESS_RESTARTAFTERAMOUNTOFRAIDS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "background.enable",
+          "variable": "{BACKGROUND_ENABLE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "background.easteregg",
+          "variable": "{BACKGROUND_EASTEREGG}",
+          "section": "",
+          "type": "checkbox"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    },
+    {
+      "path": "Aki_Data/Server/configs/http.json",
+      "format": "json",
+      "lineFormat": "",
+      "bindings": [
+        {
+          "key": "port",
+          "variable": "{GAME_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "natPunchServer.port",
+          "variable": "{NAT_PUNCH_SERVER_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ip",
+          "variable": "{GAME_BIND}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "client.useBtr",
+          "variable": "{USEBTR}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "client.friendlyFire",
+          "variable": "{FRIENDLYFIRE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "client.dynamicVExfils",
+          "variable": "{DYNAMICVEXFILS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "client.allowFreeCam",
+          "variable": "{ALLOWFREECAM}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "client.blacklistedItems",
+          "variable": "{BLACKLISTEDITEMS}",
+          "section": "",
+          "type": "textarea"
+        },
+        {
+          "key": "client.forceSaveOnDeath",
+          "variable": "{FORCESAVEONDEATH}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "client.mods.required",
+          "variable": "{MODS_REQUIRED}",
+          "section": "",
+          "type": "textarea"
+        },
+        {
+          "key": "client.mods.optional",
+          "variable": "{MODS_OPTIONAL}",
+          "section": "",
+          "type": "textarea"
+        },
+        {
+          "key": "client.useInertia",
+          "variable": "{USEINERTIA}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "client.sharedQuestProgression",
+          "variable": "{SHAREDQUESTPROGRESSION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "client.canEditRaidSettings",
+          "variable": "{CANEDITRAIDSETTINGS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "client.enableTransits",
+          "variable": "{ENABLETRANSITS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "client.anyoneCanStartRaid",
+          "variable": "{ANYONECANSTARTRAID}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "server.SPT.disableSPTChatBots",
+          "variable": "{DISABLESPTCHATBOTS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "client.allowItemSending",
+          "variable": "{ALLOWITEMSENDING}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "server.giftedItemsLoseFIR",
+          "variable": "{GIFTEDITEMSLOSEFIR}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "server.launcherListAllProfiles",
+          "variable": "{LAUNCHERLISTALLPROFILES}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "server.sessionTimeout",
+          "variable": "{SESSIONTIMEOUT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "server.showDevProfile",
+          "variable": "{SHOWDEVPROFILE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "server.showNonStandardProfile",
+          "variable": "{SHOWNONSTANDARDPROFILE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "server.logClientModsInConsole",
+          "variable": "{LOGCLIENTMODSINCONSOLE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "natPunchServer.enable",
+          "variable": "{NATPUNCHSERVER_ENABLE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "natPunchServer.natIntroduceAmount",
+          "variable": "{NATPUNCHSERVER_NATINTRODUCEAMOUNT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "headless.profiles.amount",
+          "variable": "{DEDICATED_PROFILES_AMOUNT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "headless.scripts.generate",
+          "variable": "{DEDICATED_SCRIPTS_GENERATE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "headless.scripts.forceIp",
+          "variable": "{DEDICATED_SCRIPTS_FORCEIP}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "headless.setLevelToAverageOfLobby",
+          "variable": "{HEADLESS_SETLEVELTOAVERAGEOFLOBBY}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "headless.restartAfterAmountOfRaids",
+          "variable": "{HEADLESS_RESTARTAFTERAMOUNTOFRAIDS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "background.enable",
+          "variable": "{BACKGROUND_ENABLE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "background.easteregg",
+          "variable": "{BACKGROUND_EASTEREGG}",
+          "section": "",
+          "type": "checkbox"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    },
+    {
+      "path": "user/mods/fika-server/assets/configs/fika.jsonc",
+      "format": "json",
+      "lineFormat": "",
+      "bindings": [
+        {
+          "key": "port",
+          "variable": "{GAME_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "natPunchServer.port",
+          "variable": "{NAT_PUNCH_SERVER_PORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "ip",
+          "variable": "{GAME_BIND}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "client.useBtr",
+          "variable": "{USEBTR}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "client.friendlyFire",
+          "variable": "{FRIENDLYFIRE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "client.dynamicVExfils",
+          "variable": "{DYNAMICVEXFILS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "client.allowFreeCam",
+          "variable": "{ALLOWFREECAM}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "client.blacklistedItems",
+          "variable": "{BLACKLISTEDITEMS}",
+          "section": "",
+          "type": "textarea"
+        },
+        {
+          "key": "client.forceSaveOnDeath",
+          "variable": "{FORCESAVEONDEATH}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "client.mods.required",
+          "variable": "{MODS_REQUIRED}",
+          "section": "",
+          "type": "textarea"
+        },
+        {
+          "key": "client.mods.optional",
+          "variable": "{MODS_OPTIONAL}",
+          "section": "",
+          "type": "textarea"
+        },
+        {
+          "key": "client.useInertia",
+          "variable": "{USEINERTIA}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "client.sharedQuestProgression",
+          "variable": "{SHAREDQUESTPROGRESSION}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "client.canEditRaidSettings",
+          "variable": "{CANEDITRAIDSETTINGS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "client.enableTransits",
+          "variable": "{ENABLETRANSITS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "client.anyoneCanStartRaid",
+          "variable": "{ANYONECANSTARTRAID}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "server.SPT.disableSPTChatBots",
+          "variable": "{DISABLESPTCHATBOTS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "client.allowItemSending",
+          "variable": "{ALLOWITEMSENDING}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "server.giftedItemsLoseFIR",
+          "variable": "{GIFTEDITEMSLOSEFIR}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "server.launcherListAllProfiles",
+          "variable": "{LAUNCHERLISTALLPROFILES}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "server.sessionTimeout",
+          "variable": "{SESSIONTIMEOUT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "server.showDevProfile",
+          "variable": "{SHOWDEVPROFILE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "server.showNonStandardProfile",
+          "variable": "{SHOWNONSTANDARDPROFILE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "server.logClientModsInConsole",
+          "variable": "{LOGCLIENTMODSINCONSOLE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "natPunchServer.enable",
+          "variable": "{NATPUNCHSERVER_ENABLE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "natPunchServer.natIntroduceAmount",
+          "variable": "{NATPUNCHSERVER_NATINTRODUCEAMOUNT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "headless.profiles.amount",
+          "variable": "{DEDICATED_PROFILES_AMOUNT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "headless.scripts.generate",
+          "variable": "{DEDICATED_SCRIPTS_GENERATE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "headless.scripts.forceIp",
+          "variable": "{DEDICATED_SCRIPTS_FORCEIP}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "headless.setLevelToAverageOfLobby",
+          "variable": "{HEADLESS_SETLEVELTOAVERAGEOFLOBBY}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "headless.restartAfterAmountOfRaids",
+          "variable": "{HEADLESS_RESTARTAFTERAMOUNTOFRAIDS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "background.enable",
+          "variable": "{BACKGROUND_ENABLE}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "background.easteregg",
+          "variable": "{BACKGROUND_EASTEREGG}",
+          "section": "",
+          "type": "checkbox"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    }
+  ],
+  "deploymentSteps": [
+    {
+      "name": "SPT-AKI Installation",
+      "type": "command",
+      "phase": "install",
+      "platform": "windows",
+      "source": "powershell.exe",
+      "target": "",
+      "arguments": "-NoProfile -Command \"$ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Set-Location -Path 'tarkov'; Remove-Item srv -Recurse -Force -ErrorAction SilentlyContinue | Out-Null; $env:GIT_LFS_SKIP_SMUDGE = '1'; git clone --branch 3.11.4 https://github.com/sp-tarkov/server.git srv 1> $null; if ($LASTEXITCODE -eq 0) { Remove-Item Env:\\GIT_LFS_SKIP_SMUDGE; if (Test-Path 'node/node.exe') { $InstalledVersion = & node/node.exe --version } else { $InstalledVersion = '' }; if ( [string]::IsNullOrWhiteSpace($NodeVersion) ) { $NodeVersion = (Get-Content srv/project/.nvmrc -TotalCount 1).Trim() }; if ( $NodeVersion -notmatch '^v\\d+\\.\\d+\\.\\d+$' ) { Write-Output 'Invalid Node.js version format specified'; exit 1 } elseif ( $InstalledVersion -ne $NodeVersion ) { if ( Test-Path node.zip ) { Remove-Item node.zip -Force -ErrorAction SilentlyContinue *> $null }; try { Invoke-WebRequest -UseBasicParsing -Uri https://nodejs.org/download/release/$NodeVersion/node-$NodeVersion-win-x64.zip -OutFile node.zip -ErrorAction Stop } catch { Write-Output \\\"Download of required Node.js dependency failed from the Node.js CDN. This is a fault with the CDN, not GSCS. Aborting\\\"; exit 1; }; Expand-Archive -Path \\\"node.zip\\\" -DestinationPath \\\".\\\" -Force *> $null; if ( Test-Path node.zip ) { Remove-Item node.zip -Force -ErrorAction SilentlyContinue *> $null }; if (Test-Path \\\"node-*\\\") { Remove-Item -Recurse -Force node -ErrorAction SilentlyContinue *> $null; Get-ChildItem -Directory | Where-Object { $_.Name -like \\\"node-*\\\" } | Rename-Item -NewName \\\"node\\\" *> $null } }; Set-Location -Path 'srv/project'; git lfs install 1> $null; if ($LASTEXITCODE -eq 0) { git lfs pull 1> $null; if ($LASTEXITCODE -eq 0) { $env:PATH='{SERVER_DIR}/node;' + $env:PATH; & node ../../node/node_modules/npm/bin/npm-cli.js install 1> $null; & node ../../node/node_modules/npm/bin/npm-cli.js run build:release -- --arch=x64 --platform=win32 1> $null; Copy-Item build/* '{SERVER_DIR}/' -Recurse -Force -ErrorAction SilentlyContinue | Out-Null; Set-Location -Path '{SERVER_DIR}/'; Remove-Item '{SERVER_DIR}/srv' -Recurse -Force -ErrorAction SilentlyContinue | Out-Null } } }\"",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "SPT-AKI Installation",
+      "type": "archive",
+      "phase": "install",
+      "platform": "linux",
+      "source": "node.tar.gz",
+      "target": "",
+      "arguments": "1",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "SPT-AKI Installation",
+      "type": "archive",
+      "phase": "install",
+      "platform": "linux",
+      "source": "node.tar.gz",
+      "target": "",
+      "arguments": "1",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Fika Server Mod Download",
+      "type": "json-download-extract",
+      "phase": "install",
+      "platform": "all",
+      "source": "https://api.github.com/repos/project-fika/Fika-Server/releases/tags/v2.4.8",
+      "target": "",
+      "arguments": "$.assets[0].browser_download_url",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": false
+    },
+    {
+      "name": "Fika Server Tools Download",
+      "type": "github-extract",
+      "phase": "install",
+      "platform": "windows",
+      "source": "project-fika/Fika-ServerTools",
+      "target": "user/mods/fika-server",
+      "arguments": "FikaServerTools_main-windows64.zip",
+      "conditionVariable": "NATPUNCHSERVER_ENABLE",
+      "conditionValue": "true",
+      "optional": false,
+      "preserveExisting": false
+    },
+    {
+      "name": "Fika Server Tools Download",
+      "type": "github-extract",
+      "phase": "install",
+      "platform": "linux",
+      "source": "project-fika/Fika-ServerTools",
+      "target": "user/mods/fika-server",
+      "arguments": "FikaServerTools_main-linux64.zip",
+      "conditionVariable": "NATPUNCHSERVER_ENABLE",
+      "conditionValue": "true",
+      "optional": false,
+      "preserveExisting": false
+    },
+    {
+      "name": "Make Fika Server Tools Executable",
+      "type": "executable",
+      "phase": "install",
+      "platform": "linux",
+      "source": "",
+      "target": "user/mods/fika-server/FikaServerTools",
+      "arguments": "{SERVER_DIR}/user/mods/fika-server/FikaServerTools",
+      "conditionVariable": "NATPUNCHSERVER_ENABLE",
+      "conditionValue": "true",
+      "optional": false,
+      "preserveExisting": true
+    }
+  ],
+  "authenticationRequirements": [],
+  "environment": {},
+  "linuxPackages": [],
+  "warnings": [],
+  "validationStatus": "ready",
+  "preferredRuntime": "native",
+  "noCommercialUsage": true,
+  "workingDirectory": "",
+  "executables": {
+    "windows": "SPT.Server.exe",
+    "linux": "SPT.Server.exe"
+  },
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "windowsOnly": false,
+  "platformWorkingDirectories": {
+    "windows": "",
+    "linux": ""
+  },
+  "platformArguments": {
+    "windows": [
+      "{FORMATTED_ARGS}"
+    ],
+    "linux": [
+      "{FORMATTED_ARGS}"
+    ]
+  },
+  "arguments": [
+    "{FORMATTED_ARGS}"
+  ],
+  "stopCommand": "exit",
+  "query": "none"
+}

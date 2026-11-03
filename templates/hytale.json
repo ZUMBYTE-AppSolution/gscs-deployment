@@ -9,7 +9,7 @@
   "steamGameAppId": null,
   "website": "https://hytale.com/",
   "windowsOnly": false,
-  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
+  "image": "ghcr.io/zumbyte-appsolution/gscs:0.1.0-alpha.2",
   "operatingSystems": [
     "windows",
     "linux"
@@ -42,21 +42,128 @@
     }
   ],
   "defaults": {
-    "JAVA_MAJOR": "25",
+    "JAVA_MAJOR": "21",
     "HYTALE_PATCHLINE": "release"
   },
   "installScripts": {},
   "updateScripts": {},
   "query": "hytale",
-  "validationStatus": "metadata-validated",
-  "warnings": [
-    "Vor dem ersten Start unter Hytale-Anmeldung ein Konto verbinden und ein Spielprofil auswählen. Die Erneuerung erfolgt automatisch.",
-    "Der offizielle Downloader benötigt eine separate Geräteanmeldung. Java 25 und UDP/QUIC sind erforderlich.",
-    "Der Downloader ist für x64 verfügbar. Auf ARM64 Original-Serverdateien manuell bereitstellen."
-  ],
+  "validationStatus": "ready",
+  "warnings": [],
   "licenseUrl": "https://www.hytale.com/legal/terms-of-service",
   "workingDirectory": "Server",
   "stopCommand": "stop",
   "saveCommand": "save",
-  "authentication": "hytale"
+  "authentication": "hytale",
+  "configurationTabs": [
+    {
+      "id": "runtime",
+      "label": "Laufzeit",
+      "order": 0
+    },
+    {
+      "id": "server",
+      "label": "Server",
+      "order": 1
+    },
+    {
+      "id": "security",
+      "label": "Sicherheit",
+      "order": 2
+    },
+    {
+      "id": "world",
+      "label": "Welt",
+      "order": 3
+    }
+  ],
+  "configurationFields": [
+    {
+      "id": "JAVA_MAJOR",
+      "label": "Java-Version",
+      "default": "21",
+      "tab": "runtime",
+      "type": "enum",
+      "options": {
+        "17": "Java 17",
+        "21": "Java 21",
+        "25": "Java 25"
+      },
+      "startupPermission": true
+    },
+    {
+      "id": "HYTALE_PATCHLINE",
+      "label": "Updatekanal",
+      "default": "release",
+      "tab": "runtime",
+      "type": "text",
+      "secret": false,
+      "startupPermission": false
+    },
+    {
+      "id": "MOTD",
+      "label": "Willkommensnachricht",
+      "default": "",
+      "tab": "server",
+      "type": "text"
+    },
+    {
+      "id": "SERVER_PASSWORD",
+      "label": "Serverpasswort",
+      "default": "",
+      "tab": "security",
+      "type": "password",
+      "secret": true
+    },
+    {
+      "id": "VIEW_DISTANCE",
+      "label": "Maximale Sichtweite",
+      "default": "12",
+      "tab": "world",
+      "type": "number",
+      "min": 1,
+      "max": 32
+    }
+  ],
+  "configurationFiles": [
+    {
+      "path": "Server/config.json",
+      "format": "json",
+      "bindings": [
+        {
+          "key": "ServerName",
+          "variable": "{SERVER_NAME}",
+          "type": "text"
+        },
+        {
+          "key": "MOTD",
+          "variable": "{MOTD}",
+          "type": "text"
+        },
+        {
+          "key": "Password",
+          "variable": "{SERVER_PASSWORD}",
+          "type": "text"
+        },
+        {
+          "key": "MaxPlayers",
+          "variable": "{SLOTS}",
+          "type": "number"
+        },
+        {
+          "key": "MaxViewRadius",
+          "variable": "{VIEW_DISTANCE}",
+          "type": "number"
+        }
+      ]
+    }
+  ],
+  "authenticationRequirements": [
+    {
+      "id": "hytale",
+      "label": "Hytale-Konto",
+      "description": "Im Bereich Hytale-Anmeldung ein Konto verbinden und ein Spielprofil zuordnen. Laufende Serversitzungen werden automatisch verlängert.",
+      "url": "https://support.hytale.com/hc/en-us/articles/45328341414043-Server-Provider-Authentication-Guide"
+    }
+  ]
 }

@@ -1,67 +1,787 @@
 {
   "id": "conan-exiles",
-  "name": "Conan Exiles",
-  "version": "1.0.0",
-  "approved": false,
+  "name": "Conan Exiles (Legacy)",
+  "version": "1.1.0",
+  "approved": true,
   "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/conan-exiles.json",
   "sourceRef": "main",
   "steamAppId": 443030,
   "steamGameAppId": 440900,
-  "website": "https://store.steampowered.com/app/440900/",
-  "windowsOnly": false,
-  "image": "ghcr.io/zumbyte-appsolution/gscs-runtime:0.1.0",
-  "operatingSystems": [
-    "windows",
-    "linux"
-  ],
-  "executables": {
-    "windows": "ConanSandboxServer.exe",
-    "linux": "ConanSandbox/Binaries/Linux/ConanSandboxServer"
+  "website": "https://store.steampowered.com/app/440900/Conan_Exiles/",
+  "image": "ghcr.io/zumbyte-appsolution/gscs:0.1.0-alpha.2",
+  "defaults": {
+    "DOWNLOADPORTOFFSET": "0",
+    "MAP": "/Game/Maps/ConanSandbox/ConanSandbox",
+    "SERVERREGION": "0",
+    "ISBATTLEYEENABLED": "False",
+    "ISVACENABLED": "True",
+    "RCON_PASSWORD": "{RANDOM_SECRET}"
   },
-  "arguments": [
-    "-log",
-    "-Port={GAME_PORT}",
-    "-QueryPort={QUERY_PORT}"
-  ],
   "ports": [
     {
       "role": "game",
       "default": 7777,
-      "protocol": "udp",
       "containerPort": 7777,
+      "protocol": "both",
       "offsetFromRole": "",
       "offset": 0
     },
     {
-      "role": "peer",
+      "role": "pinger",
       "default": 7778,
-      "protocol": "udp",
       "containerPort": 7778,
+      "protocol": "udp",
       "offsetFromRole": "game",
       "offset": 1
     },
     {
       "role": "query",
       "default": 27015,
-      "protocol": "udp",
       "containerPort": 27015,
+      "protocol": "udp",
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "rcon",
+      "default": 25575,
+      "containerPort": 25575,
+      "protocol": "tcp",
       "offsetFromRole": "",
       "offset": 0
     }
   ],
-  "defaults": {},
-  "installScripts": {},
-  "updateScripts": {},
-  "query": "source",
-  "validationStatus": "configuration-required",
-  "warnings": [
-    "Vor der Freigabe die mitgelieferte Spielkonfiguration, Zugangsdaten und Startparameter prüfen."
+  "configurationTabs": [
+    {
+      "id": "server",
+      "label": "Server",
+      "icon": "settings",
+      "order": 0
+    },
+    {
+      "id": "security",
+      "label": "Sicherheit",
+      "order": 1
+    }
   ],
-  "licenseUrl": "",
-  "attribution": {
-    "source": "Valve SteamCMD app_info_print",
-    "steamAppId": 443030,
-    "checkedAt": "2026-11-02",
-    "documentation": "https://developer.valvesoftware.com/wiki/SteamCMD"
-  }
+  "configurationFields": [
+    {
+      "id": "GAME_PORT",
+      "label": "Game Port",
+      "description": "",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "URL.Port",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "DOWNLOADPORTOFFSET",
+      "label": "Download Port Offset",
+      "description": "Mod download port matches the Game Port.",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "0",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "/Script/ConanSandbox.SystemSettings.ModFileDownload.DownloadPortOffset",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "QUERY_PORT",
+      "label": "Query Port",
+      "description": "",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "OnlineSubsystemNull.GameServerQueryPort",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "RCON_PORT",
+      "label": "RCON Port",
+      "description": "",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "RconPlugin.RconPort",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVER_NAME",
+      "label": "Servername",
+      "description": "Name of the server shown in the server browser.",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "{SERVER_NAME}",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "ServerName",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": true,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "MAP",
+      "label": "Map",
+      "description": "Sets the map to load on startup.",
+      "tab": "server",
+      "section": "Server",
+      "type": "enum",
+      "default": "/Game/Maps/ConanSandbox/ConanSandbox",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {
+        "{CUSTOMMAP}": "Custom",
+        "/Game/Maps/ConanSandbox/ConanSandbox": "Exiled Lands (default)",
+        "/Game/DLC_EXT/DLC_Siptah/Maps/DLC_Isle_of_Siptah": "Isle of Siptah"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "Map",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "CUSTOMMAP",
+      "label": "Custom Map",
+      "description": "If using a custom map, enter it here. Choose Custom from the Map option.",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "",
+      "placeholder": "/Game/Mods/Savage_Wilds/Savage_Wilds",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "CustomMap",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SLOTS",
+      "label": "Spielerlimit",
+      "description": "Maximum number of players that may connect to the server.",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "40",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "MaxPlayers",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 1.0
+    },
+    {
+      "id": "SERVER_PASSWORD",
+      "label": "Serverpasswort",
+      "description": "Password to connect to the server. Default is no password.",
+      "tab": "server",
+      "section": "Server",
+      "type": "password",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": true,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "ServerPassword",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": true,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ADMINPASSWORD",
+      "label": "Administratorpasswort",
+      "description": "To allow use of the in-game admin panel, set the \"admin\" user password in ConanSandbox/Saved/Config/WindowsServer/ServerSettings.ini. Add the setting on a new line immediately after the [ServerSettings] header, in the format: AdminPassword=yourpassword",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": true,
+      "hidden": true,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "AdminPassword",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "RCON_PASSWORD",
+      "label": "RCON-Passwort",
+      "description": "See the Security and Privacy menu for configurable options for the server's RCON.",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": true,
+      "hidden": true,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "RconPlugin.RconPassword",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVERREGION",
+      "label": "Server Region",
+      "description": "Sets the server region, which affects how the server is filtered in the server list.",
+      "tab": "server",
+      "section": "Server",
+      "type": "enum",
+      "default": "0",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {
+        "0": "Europe",
+        "1": "North America",
+        "2": "Asia",
+        "3": "Australia",
+        "4": "South America",
+        "5": "Japan"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "ServerSettings.serverRegion",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ISBATTLEYEENABLED",
+      "label": "Enable BattlEye",
+      "description": "If enabled, BattlEye cheat protection will apply to the server.",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "False",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "True",
+      "falseValue": "False",
+      "parameter": "ServerSettings.IsBattlEyeEnabled",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ISVACENABLED",
+      "label": "Enable Valve Anti-cheat (Steam VAC).",
+      "description": "",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "True",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "True",
+      "falseValue": "False",
+      "parameter": "ServerSettings.IsVACEnabled",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "MODLIST",
+      "label": "Mods List",
+      "description": "To download mods, enter each ID into \"Steam workshop items\" under the Updates menu, and update the server. To load the mods, specify in the box below the path to each mod's .pak file in the ConanSandbox\\Mods\\ directory. Example: 2377569193\\Savage_Wilds.pak",
+      "tab": "server",
+      "section": "Server",
+      "type": "textarea",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "ModList",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    }
+  ],
+  "configurationFiles": [
+    {
+      "path": "ConanSandbox/Saved/Config/WindowsServer/ServerSettings.ini",
+      "format": "ini",
+      "lineFormat": "",
+      "bindings": [
+        {
+          "key": "Port",
+          "variable": "{GAME_PORT}",
+          "section": "URL",
+          "type": "number"
+        },
+        {
+          "key": "GameServerQueryPort",
+          "variable": "{QUERY_PORT}",
+          "section": "OnlineSubsystemNull",
+          "type": "number"
+        },
+        {
+          "key": "RconPort",
+          "variable": "{RCON_PORT}",
+          "section": "RconPlugin",
+          "type": "number"
+        },
+        {
+          "key": "Map",
+          "variable": "{MAP}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "CustomMap",
+          "variable": "{CUSTOMMAP}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "MaxPlayers",
+          "variable": "{SLOTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AdminPassword",
+          "variable": "{ADMINPASSWORD}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "RconPassword",
+          "variable": "{RCON_PASSWORD}",
+          "section": "RconPlugin",
+          "type": "text"
+        },
+        {
+          "key": "serverRegion",
+          "variable": "{SERVERREGION}",
+          "section": "ServerSettings",
+          "type": "enum"
+        },
+        {
+          "key": "IsBattlEyeEnabled",
+          "variable": "{ISBATTLEYEENABLED}",
+          "section": "ServerSettings",
+          "type": "checkbox"
+        },
+        {
+          "key": "IsVACEnabled",
+          "variable": "{ISVACENABLED}",
+          "section": "ServerSettings",
+          "type": "checkbox"
+        },
+        {
+          "key": "ModList",
+          "variable": "{MODLIST}",
+          "section": "",
+          "type": "textarea"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "windows"
+    },
+    {
+      "path": "ConanSandbox/Saved/Config/WindowsServer/Game.ini",
+      "format": "ini",
+      "lineFormat": "",
+      "bindings": [
+        {
+          "key": "Port",
+          "variable": "{GAME_PORT}",
+          "section": "URL",
+          "type": "number"
+        },
+        {
+          "key": "GameServerQueryPort",
+          "variable": "{QUERY_PORT}",
+          "section": "OnlineSubsystemNull",
+          "type": "number"
+        },
+        {
+          "key": "RconPort",
+          "variable": "{RCON_PORT}",
+          "section": "RconPlugin",
+          "type": "number"
+        },
+        {
+          "key": "Map",
+          "variable": "{MAP}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "CustomMap",
+          "variable": "{CUSTOMMAP}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "MaxPlayers",
+          "variable": "{SLOTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AdminPassword",
+          "variable": "{ADMINPASSWORD}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "RconPassword",
+          "variable": "{RCON_PASSWORD}",
+          "section": "RconPlugin",
+          "type": "text"
+        },
+        {
+          "key": "serverRegion",
+          "variable": "{SERVERREGION}",
+          "section": "ServerSettings",
+          "type": "enum"
+        },
+        {
+          "key": "IsBattlEyeEnabled",
+          "variable": "{ISBATTLEYEENABLED}",
+          "section": "ServerSettings",
+          "type": "checkbox"
+        },
+        {
+          "key": "IsVACEnabled",
+          "variable": "{ISVACENABLED}",
+          "section": "ServerSettings",
+          "type": "checkbox"
+        },
+        {
+          "key": "ModList",
+          "variable": "{MODLIST}",
+          "section": "",
+          "type": "textarea"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "windows"
+    },
+    {
+      "path": "ConanSandbox/Saved/Config/WindowsServer/Engine.ini",
+      "format": "ini",
+      "lineFormat": "",
+      "bindings": [
+        {
+          "key": "Port",
+          "variable": "{GAME_PORT}",
+          "section": "URL",
+          "type": "number"
+        },
+        {
+          "key": "GameServerQueryPort",
+          "variable": "{QUERY_PORT}",
+          "section": "OnlineSubsystemNull",
+          "type": "number"
+        },
+        {
+          "key": "RconPort",
+          "variable": "{RCON_PORT}",
+          "section": "RconPlugin",
+          "type": "number"
+        },
+        {
+          "key": "Map",
+          "variable": "{MAP}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "CustomMap",
+          "variable": "{CUSTOMMAP}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "MaxPlayers",
+          "variable": "{SLOTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AdminPassword",
+          "variable": "{ADMINPASSWORD}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "RconPassword",
+          "variable": "{RCON_PASSWORD}",
+          "section": "RconPlugin",
+          "type": "text"
+        },
+        {
+          "key": "serverRegion",
+          "variable": "{SERVERREGION}",
+          "section": "ServerSettings",
+          "type": "enum"
+        },
+        {
+          "key": "IsBattlEyeEnabled",
+          "variable": "{ISBATTLEYEENABLED}",
+          "section": "ServerSettings",
+          "type": "checkbox"
+        },
+        {
+          "key": "IsVACEnabled",
+          "variable": "{ISVACENABLED}",
+          "section": "ServerSettings",
+          "type": "checkbox"
+        },
+        {
+          "key": "ModList",
+          "variable": "{MODLIST}",
+          "section": "",
+          "type": "textarea"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "windows"
+    }
+  ],
+  "deploymentSteps": [
+    {
+      "name": "SteamCMD and Conan Exiles Download",
+      "type": "steam",
+      "phase": "install",
+      "platform": "all",
+      "source": "443030",
+      "target": "",
+      "arguments": "conan-exiles-legacy",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Config Directory Creation",
+      "type": "directory",
+      "phase": "install",
+      "platform": "all",
+      "source": "",
+      "target": "conan-exiles/443030/ConanSandbox/Saved/Config/WindowsServer",
+      "arguments": "./conan-exiles/443030/ConanSandbox/Saved/Config/WindowsServer",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    }
+  ],
+  "authenticationRequirements": [],
+  "environment": {
+    "LD_LIBRARY_PATH": "{SERVER_DIR}/linux64:%LD_LIBRARY_PATH%",
+    "SteamAppId": "443030",
+    "WINEPREFIX": "{SERVER_DIR}/.wine",
+    "WINEARCH": "win64",
+    "WINEDEBUG": "-all"
+  },
+  "linuxPackages": [],
+  "warnings": [],
+  "validationStatus": "ready",
+  "preferredRuntime": "wine",
+  "noCommercialUsage": false,
+  "workingDirectory": "ConanSandbox/Binaries/Win64",
+  "executables": {
+    "windows": "ConanSandbox/Binaries/Win64/ConanSandboxServer-Win64-Shipping.exe"
+  },
+  "operatingSystems": [
+    "windows"
+  ],
+  "windowsOnly": true,
+  "minimumRuntime": "wine",
+  "platformWorkingDirectories": {
+    "windows": "ConanSandbox/Binaries/Win64",
+    "linux": "ConanSandbox/Binaries/Win64"
+  },
+  "platformArguments": {
+    "windows": [
+      "{MAP}",
+      "-stdout",
+      "-FullStdOutLogOutput",
+      "-Port={GAME_PORT}",
+      "-QueryPort={QUERY_PORT}",
+      "-RconPort={RCON_PORT}",
+      "-RconEnabled=1",
+      "-RconPassword={RCON_PASSWORD}",
+      "-MaxPlayers={SLOTS}",
+      "{FORMATTED_ARGS}"
+    ],
+    "linux": [
+      "{MAP}",
+      "-stdout",
+      "-FullStdOutLogOutput",
+      "-Port={GAME_PORT}",
+      "-QueryPort={QUERY_PORT}",
+      "-RconPort={RCON_PORT}",
+      "-RconEnabled=1",
+      "-RconPassword={RCON_PASSWORD}",
+      "-MaxPlayers={SLOTS}",
+      "{FORMATTED_ARGS}"
+    ]
+  },
+  "arguments": [
+    "{MAP}",
+    "-stdout",
+    "-FullStdOutLogOutput",
+    "-Port={GAME_PORT}",
+    "-QueryPort={QUERY_PORT}",
+    "-RconPort={RCON_PORT}",
+    "-RconEnabled=1",
+    "-RconPassword={RCON_PASSWORD}",
+    "-MaxPlayers={SLOTS}",
+    "{FORMATTED_ARGS}"
+  ],
+  "stopCommand": "shutdown",
+  "query": "source",
+  "licenseUrl": ""
 }

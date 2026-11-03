@@ -1,0 +1,573 @@
+{
+  "id": "cubic-odyssey",
+  "name": "Cubic Odyssey",
+  "version": "1.1.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/cubic-odyssey.json",
+  "sourceRef": "main",
+  "steamAppId": 3858450,
+  "steamGameAppId": 3400000,
+  "website": "https://cubicodyssey.game/en/",
+  "image": "ghcr.io/zumbyte-appsolution/gscs:0.1.0-alpha.2",
+  "defaults": {
+    "STARTINGPORT": "0",
+    "ENDINGPORT": "0",
+    "GALAXYSEED": "0",
+    "GAMEMODE": "adventure",
+    "PRIVATESERVER": "FALSE",
+    "ENABLECRASHDUMPS": "TRUE",
+    "ALLOWRELAYING": "TRUE",
+    "ENABLELOGGING": "TRUE"
+  },
+  "ports": [
+    {
+      "role": "game",
+      "default": 27000,
+      "containerPort": 27000,
+      "protocol": "udp",
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "configurationTabs": [
+    {
+      "id": "server",
+      "label": "Server",
+      "icon": "settings",
+      "order": 0
+    }
+  ],
+  "configurationFields": [
+    {
+      "id": "STARTINGPORT",
+      "label": "Server Port",
+      "description": "",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "0",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "startingPort",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ENDINGPORT",
+      "label": "Max Port",
+      "description": "",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "0",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "endingPort",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVERNETWORKING",
+      "label": "Server Networking",
+      "description": "NOTE: The server uses EOS for networking. This means that the Server Port will not show as listening, and no port forwarding is required. Connect through the server browser",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "serverNetworking",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVER_NAME",
+      "label": "Servername",
+      "description": "Sets the name of the server as it appears on the server list",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "{SERVER_NAME}",
+      "placeholder": "GSCS Cubic Odyssey Server",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "serverName",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "GALAXYSEED",
+      "label": "Galaxy Seed",
+      "description": "Sets the seed for galaxy generation. 0 = random seed",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "0",
+      "placeholder": "0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "galaxySeed",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "GAMEMODE",
+      "label": "Spielmodus",
+      "description": "Sets the game mode",
+      "tab": "server",
+      "section": "Server",
+      "type": "enum",
+      "default": "adventure",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {
+        "adventure": "Adventure (default)",
+        "creative": "Creative"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "Gamemode",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "PRIVATESERVER",
+      "label": "Make Server Private",
+      "description": "If set, the server will not appear in public server lists",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "FALSE",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "TRUE",
+      "falseValue": "FALSE",
+      "parameter": "privateServer",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SLOTS",
+      "label": "Spielerlimit",
+      "description": "Sets the maximum number of players able to join the server at one time",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "48",
+      "placeholder": "48",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "maxPlayers",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVERPASSWORD",
+      "label": "Serverpasswort",
+      "description": "Sets the password needed to join the server. Maximum 32 characters. Default is no password",
+      "tab": "server",
+      "section": "Server",
+      "type": "password",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": true,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "serverPassword",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ENABLECRASHDUMPS",
+      "label": "Enable Crash Dumps",
+      "description": "If set, crash dumps will be enabled for debugging",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "TRUE",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "TRUE",
+      "falseValue": "FALSE",
+      "parameter": "enableCrashDumps",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ALLOWRELAYING",
+      "label": "Allow Relaying",
+      "description": "If set, EOS relay of connections will be allowed",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "TRUE",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "TRUE",
+      "falseValue": "FALSE",
+      "parameter": "allowRelaying",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ENABLELOGGING",
+      "label": "Enable Logging",
+      "description": "If set, logging will be enabled for the server",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "TRUE",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "TRUE",
+      "falseValue": "FALSE",
+      "parameter": "enableLogging",
+      "parameterFormat": "-{0}={1}",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    }
+  ],
+  "configurationFiles": [
+    {
+      "path": "config/server_config.txt",
+      "format": "space",
+      "lineFormat": "\t\t{0} \"{1}\"",
+      "bindings": [
+        {
+          "key": "startingPort",
+          "variable": "{STARTINGPORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "endingPort",
+          "variable": "{ENDINGPORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "serverNetworking",
+          "variable": "{SERVERNETWORKING}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "serverName",
+          "variable": "{SERVER_NAME}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "galaxySeed",
+          "variable": "{GALAXYSEED}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "Gamemode",
+          "variable": "{GAMEMODE}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "privateServer",
+          "variable": "{PRIVATESERVER}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "maxPlayers",
+          "variable": "{SLOTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "serverPassword",
+          "variable": "{SERVERPASSWORD}",
+          "section": "",
+          "type": "password"
+        },
+        {
+          "key": "enableCrashDumps",
+          "variable": "{ENABLECRASHDUMPS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "allowRelaying",
+          "variable": "{ALLOWRELAYING}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "enableLogging",
+          "variable": "{ENABLELOGGING}",
+          "section": "",
+          "type": "checkbox"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    },
+    {
+      "path": "config/server_config.txt",
+      "format": "space",
+      "lineFormat": "\t\t{0} {1}",
+      "bindings": [
+        {
+          "key": "startingPort",
+          "variable": "{STARTINGPORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "endingPort",
+          "variable": "{ENDINGPORT}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "serverNetworking",
+          "variable": "{SERVERNETWORKING}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "serverName",
+          "variable": "{SERVER_NAME}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "galaxySeed",
+          "variable": "{GALAXYSEED}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "Gamemode",
+          "variable": "{GAMEMODE}",
+          "section": "",
+          "type": "enum"
+        },
+        {
+          "key": "privateServer",
+          "variable": "{PRIVATESERVER}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "maxPlayers",
+          "variable": "{SLOTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "serverPassword",
+          "variable": "{SERVERPASSWORD}",
+          "section": "",
+          "type": "password"
+        },
+        {
+          "key": "enableCrashDumps",
+          "variable": "{ENABLECRASHDUMPS}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "allowRelaying",
+          "variable": "{ALLOWRELAYING}",
+          "section": "",
+          "type": "checkbox"
+        },
+        {
+          "key": "enableLogging",
+          "variable": "{ENABLELOGGING}",
+          "section": "",
+          "type": "checkbox"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": true,
+      "platform": "all"
+    }
+  ],
+  "deploymentSteps": [
+    {
+      "name": "SteamCMD Download",
+      "type": "steam",
+      "phase": "install",
+      "platform": "all",
+      "source": "3858450",
+      "target": "",
+      "arguments": "public",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Server_config.txt Copy",
+      "type": "copy",
+      "phase": "install",
+      "platform": "all",
+      "source": "config/server_config.txt.sample",
+      "target": "config/server_config.txt",
+      "arguments": "{SERVER_DIR}/config/server_config.txt.sample",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    }
+  ],
+  "authenticationRequirements": [],
+  "environment": {
+    "SteamAppId": "3858450",
+    "WINEPREFIX": "{SERVER_DIR}/.wine",
+    "WINEARCH": "win64",
+    "WINEDEBUG": "-all"
+  },
+  "linuxPackages": [],
+  "warnings": [],
+  "validationStatus": "ready",
+  "preferredRuntime": "wine",
+  "noCommercialUsage": false,
+  "workingDirectory": "server",
+  "executables": {
+    "windows": "server/CubicOdysseyServer.exe"
+  },
+  "operatingSystems": [
+    "windows"
+  ],
+  "windowsOnly": true,
+  "minimumRuntime": "wine",
+  "platformWorkingDirectories": {
+    "windows": "server",
+    "linux": "server"
+  },
+  "platformArguments": {
+    "windows": [
+      "-Gamemode={GAMEMODE}",
+      "-MaxNumPlayers={SLOTS}",
+      "{FORMATTED_ARGS}"
+    ],
+    "linux": [
+      "-Gamemode={GAMEMODE}",
+      "-MaxNumPlayers={SLOTS}",
+      "{FORMATTED_ARGS}"
+    ]
+  },
+  "arguments": [
+    "-Gamemode={GAMEMODE}",
+    "-MaxNumPlayers={SLOTS}",
+    "{FORMATTED_ARGS}"
+  ],
+  "stopCommand": "quit",
+  "query": "source"
+}

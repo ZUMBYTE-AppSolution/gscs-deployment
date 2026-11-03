@@ -1,0 +1,275 @@
+{
+  "id": "veloren",
+  "name": "Veloren",
+  "version": "1.1.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/veloren.json",
+  "sourceRef": "main",
+  "steamAppId": null,
+  "steamGameAppId": null,
+  "website": "https://veloren.net",
+  "image": "ghcr.io/zumbyte-appsolution/gscs:0.1.0-alpha.2",
+  "defaults": {
+    "RELEASEVERSION": "weekly"
+  },
+  "ports": [
+    {
+      "role": "game",
+      "default": 14004,
+      "containerPort": 14004,
+      "protocol": "tcp",
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "metrics",
+      "default": 14005,
+      "containerPort": 14005,
+      "protocol": "tcp",
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "configurationTabs": [
+    {
+      "id": "server",
+      "label": "Server",
+      "icon": "settings",
+      "order": 0
+    },
+    {
+      "id": "server-updates",
+      "label": "Server Updates",
+      "icon": "settings",
+      "order": 1
+    }
+  ],
+  "configurationFields": [
+    {
+      "id": "GAME_PORT",
+      "label": "Server Port",
+      "description": "",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "server_port",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "METRICS_PORT",
+      "label": "Metrics Port",
+      "description": "",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": true,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "metrics_port",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVER_NAME",
+      "label": "Servername",
+      "description": "Server name visible in the server list",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "{SERVER_NAME}",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "server_name",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SLOTS",
+      "label": "Spielerlimit",
+      "description": "Maximum number of players that may connect to the server",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "100",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "max_players",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 1.0
+    },
+    {
+      "id": "RELEASEVERSION",
+      "label": "Server Release Version",
+      "description": "Sets the server release version to install. NOTE: Update the server after changing this setting!",
+      "tab": "server-updates",
+      "section": "Server Updates",
+      "type": "enum",
+      "default": "weekly",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {
+        "weekly": "Weekly (default)",
+        "nightly": "Nightly"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "ReleaseVersion",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    }
+  ],
+  "configurationFiles": [
+    {
+      "path": "userdata/server/server_config/settings.ron",
+      "format": "template",
+      "lineFormat": "",
+      "bindings": [],
+      "template": "// DO NOT edit settings.ron directly\n// AMP_settings.ron controls settings.ron. Edit AMP_settings.ron if you want to add or change certain settings\n// NOTE:\n// - Do not change values in double curly braces, ie {{}}. They are set either via the GSCS UI (under \"Server Settings\")\n//   or are controlled by GSCS itself (in particular, ports)\n// - Other settings can be changed or added as needed\n(\n    gameserver_protocols: [\n        Tcp(\n            address: \"0.0.0.0:{GAME_PORT}\",\n        ),\n        // Uncomment the block below if you want the server to bind on an IPv6 socket as well as IPv4\n        /*\n        Tcp(\n            address: \"[::]:{GAME_PORT}\",\n        ),\n        */\n    ],\n    metrics_address: \"127.0.0.1:{METRICS_PORT}\",\n    auth_server_address: Some(\"https://auth.veloren.net\"),\n    max_players: {SLOTS},\n    world_seed: 230,\n    server_name: {JSON_SERVER_NAME},\n    start_time: 32400,\n    map_file: None,\n    max_view_distance: Some(65),\n    banned_words_files: [],\n    max_player_group_size: 6,\n    client_timeout: (\n        secs: 40,\n        nanos: 0,\n    ),\n    spawn_town: None,\n    max_player_for_kill_broadcast: None,\n    calendar_mode: Auto,\n    gameplay: (\n        battle_mode: Global(PvP),\n        safe_spawn: false,\n        explosion_burn_marks: true,\n    ),\n)",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": false,
+      "platform": "all"
+    }
+  ],
+  "deploymentSteps": [
+    {
+      "name": "Server Download",
+      "type": "download-extract",
+      "phase": "install",
+      "platform": "windows",
+      "source": "https://download.veloren.net/latest/windows/x86_64/{RELEASEVERSION}",
+      "target": "",
+      "arguments": "{RELEASEVERSION}.zip",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": false
+    },
+    {
+      "name": "Server Download",
+      "type": "download-extract",
+      "phase": "install",
+      "platform": "linux",
+      "source": "https://download.veloren.net/latest/linux/x86_64/{RELEASEVERSION}",
+      "target": "",
+      "arguments": "{RELEASEVERSION}.zip",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": false
+    },
+    {
+      "name": "Set Executable Flag",
+      "type": "executable",
+      "phase": "install",
+      "platform": "linux",
+      "source": "",
+      "target": "veloren-server-cli",
+      "arguments": "{SERVER_DIR}/veloren-server-cli",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Config Directory Creation",
+      "type": "directory",
+      "phase": "install",
+      "platform": "all",
+      "source": "",
+      "target": "userdata/server/server_config",
+      "arguments": "{SERVER_DIR}/userdata/server/server_config",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    }
+  ],
+  "authenticationRequirements": [],
+  "environment": {
+    "RUST_LOG": "debug,common::net=info"
+  },
+  "linuxPackages": [],
+  "warnings": [],
+  "validationStatus": "ready",
+  "preferredRuntime": "native",
+  "noCommercialUsage": false,
+  "workingDirectory": "",
+  "executables": {
+    "windows": "veloren-server-cli.exe",
+    "linux": "veloren-server-cli"
+  },
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "windowsOnly": false,
+  "platformWorkingDirectories": {
+    "windows": "",
+    "linux": ""
+  },
+  "platformArguments": {
+    "windows": [
+      "{FORMATTED_ARGS}"
+    ],
+    "linux": [
+      "{FORMATTED_ARGS}"
+    ]
+  },
+  "arguments": [
+    "{FORMATTED_ARGS}"
+  ],
+  "stopCommand": "shutdown graceful 0",
+  "query": "none"
+}

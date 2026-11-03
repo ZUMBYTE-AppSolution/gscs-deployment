@@ -1,0 +1,202 @@
+{
+  "id": "windward",
+  "name": "Windward",
+  "version": "1.1.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/windward.json",
+  "sourceRef": "main",
+  "steamAppId": null,
+  "steamGameAppId": 326410,
+  "website": "https://windward.fandom.com/wiki/Windward_Wiki",
+  "image": "ghcr.io/zumbyte-appsolution/gscs:0.1.0-alpha.2",
+  "defaults": {
+    "PUBLIC": "-public",
+    "WORLD": "World"
+  },
+  "ports": [
+    {
+      "role": "game",
+      "default": 5127,
+      "containerPort": 5127,
+      "protocol": "tcp",
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "configurationTabs": [
+    {
+      "id": "server",
+      "label": "Server",
+      "icon": "settings",
+      "order": 0
+    }
+  ],
+  "configurationFields": [
+    {
+      "id": "SERVER_NAME",
+      "label": "Servername",
+      "description": "Server name as shown in the in-game browser",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "{SERVER_NAME}",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "name",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": true,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "PUBLIC",
+      "label": "Make Server Public",
+      "description": "If enabled, the server will be registered to the public lobby and be publicly visible in the in-game browser",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "-public",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": true,
+      "options": {},
+      "trueValue": "-public",
+      "falseValue": "",
+      "parameter": "public",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "WORLD",
+      "label": "Weltname",
+      "description": "Sets the name of the world to load (if it already exists) or to create. If the world does not already exist in the Worlds directory, an admin must create it in-game after connecting to the server",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "World",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "world",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": true,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ADMINS",
+      "label": "Server Admins",
+      "description": "List of Steam64 IDs for server admins. [Find Steam64 IDs](https://steamid.io/)",
+      "tab": "server",
+      "section": "Server",
+      "type": "textarea",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "admins",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    }
+  ],
+  "configurationFiles": [],
+  "deploymentSteps": [
+    {
+      "name": "Server Download",
+      "type": "download-extract",
+      "phase": "install",
+      "platform": "all",
+      "source": "https://www.tasharen.com/windward/WWServer.zip",
+      "target": "",
+      "arguments": "",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": false
+    }
+  ],
+  "authenticationRequirements": [],
+  "environment": {
+    "LD_LIBRARY_PATH": "{SERVER_DIR}/linux64:%LD_LIBRARY_PATH%",
+    "SteamAppId": "326410"
+  },
+  "linuxPackages": [],
+  "warnings": [],
+  "validationStatus": "ready",
+  "preferredRuntime": "native",
+  "noCommercialUsage": false,
+  "workingDirectory": "",
+  "executables": {
+    "windows": "WWServer.exe",
+    "linux": "/usr/bin/mono"
+  },
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "windowsOnly": false,
+  "platformWorkingDirectories": {
+    "windows": "",
+    "linux": ""
+  },
+  "platformArguments": {
+    "windows": [
+      "-tcp",
+      "{GAME_PORT}",
+      "-http",
+      "-localPath",
+      "{FORMATTED_ARGS}",
+      "{PUBLIC}"
+    ],
+    "linux": [
+      "./WWServer.exe",
+      "-tcp",
+      "{GAME_PORT}",
+      "-http",
+      "-localPath",
+      "{FORMATTED_ARGS}",
+      "{PUBLIC}"
+    ]
+  },
+  "arguments": [
+    "./WWServer.exe",
+    "-tcp",
+    "{GAME_PORT}",
+    "-http",
+    "-localPath",
+    "{FORMATTED_ARGS}",
+    "{PUBLIC}"
+  ],
+  "stopCommand": "q\\n",
+  "query": "none"
+}

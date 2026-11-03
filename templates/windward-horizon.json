@@ -1,0 +1,232 @@
+{
+  "id": "windward-horizon",
+  "name": "Windward Horizon",
+  "version": "1.1.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/windward-horizon.json",
+  "sourceRef": "main",
+  "steamAppId": null,
+  "steamGameAppId": 2665460,
+  "website": "https://www.tasharen.com/",
+  "image": "ghcr.io/zumbyte-appsolution/gscs:0.1.0-alpha.2",
+  "defaults": {
+    "PUBLIC": "-public",
+    "WORLD": "World"
+  },
+  "ports": [
+    {
+      "role": "game",
+      "default": 5137,
+      "containerPort": 5137,
+      "protocol": "tcp",
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "configurationTabs": [
+    {
+      "id": "server",
+      "label": "Server",
+      "icon": "settings",
+      "order": 0
+    }
+  ],
+  "configurationFields": [
+    {
+      "id": "SERVER_NAME",
+      "label": "Servername",
+      "description": "Sets the server name as shown in the in-game browser",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "{SERVER_NAME}",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "name",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": true,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "PUBLIC",
+      "label": "Make Server Public",
+      "description": "If set, the server will be registered to the public lobby and be publicly visible in the in-game browser",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "-public",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": true,
+      "options": {},
+      "trueValue": "-public ",
+      "falseValue": "",
+      "parameter": "public",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "WORLD",
+      "label": "Weltname",
+      "description": "Sets the name of the world to load (if it already exists) or to create. Omit the .world suffix",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "World",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "world",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": true,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ADMINS",
+      "label": "Server Admins",
+      "description": "List of Steam64 IDs for server admins. [Find Steam64 IDs](https://steamid.io/)",
+      "tab": "server",
+      "section": "Server",
+      "type": "textarea",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "admins",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "IPV6",
+      "label": "Enable IPv6",
+      "description": "If set, IPv6 will be enabled for the server, causing it to bind to :: (all IPs). WARNING: This will override the server IPv4 address binding otherwise set by GSCS for the instance and could cause port conflicts",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "-ipv6 ",
+      "falseValue": "",
+      "parameter": "public",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    }
+  ],
+  "configurationFiles": [],
+  "deploymentSteps": [
+    {
+      "name": "Server Download",
+      "type": "download-extract",
+      "phase": "install",
+      "platform": "all",
+      "source": "https://www.tasharen.com/wh/WHServer.zip",
+      "target": "",
+      "arguments": "WHServer.zip",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": false
+    }
+  ],
+  "authenticationRequirements": [],
+  "environment": {
+    "LD_LIBRARY_PATH": "{SERVER_DIR}/linux64:%LD_LIBRARY_PATH%",
+    "SteamAppId": "2665460"
+  },
+  "linuxPackages": [],
+  "warnings": [],
+  "validationStatus": "ready",
+  "preferredRuntime": "native",
+  "noCommercialUsage": false,
+  "workingDirectory": "",
+  "executables": {
+    "windows": "WHServer.exe",
+    "linux": "/usr/bin/mono"
+  },
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "windowsOnly": false,
+  "platformWorkingDirectories": {
+    "windows": "",
+    "linux": ""
+  },
+  "platformArguments": {
+    "windows": [
+      "-port",
+      "{GAME_PORT}",
+      "-lan",
+      "{GAME_BIND}",
+      "-http",
+      "{IPV6}-app",
+      "{SERVER_DIR}/",
+      "{FORMATTED_ARGS}"
+    ],
+    "linux": [
+      "./WHServer.exe",
+      "-port",
+      "{GAME_PORT}",
+      "-lan",
+      "{GAME_BIND}",
+      "-http",
+      "{IPV6}-app",
+      "{SERVER_DIR}/",
+      "{FORMATTED_ARGS}"
+    ]
+  },
+  "arguments": [
+    "./WHServer.exe",
+    "-port",
+    "{GAME_PORT}",
+    "-lan",
+    "{GAME_BIND}",
+    "-http",
+    "{IPV6}-app",
+    "{SERVER_DIR}/",
+    "{FORMATTED_ARGS}"
+  ],
+  "stopCommand": "q\\n",
+  "query": "none"
+}

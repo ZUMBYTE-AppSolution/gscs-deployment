@@ -1,0 +1,409 @@
+{
+  "id": "exfil",
+  "name": "EXFIL",
+  "version": "1.1.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/exfil.json",
+  "sourceRef": "main",
+  "steamAppId": 3093190,
+  "steamGameAppId": 860020,
+  "website": "https://www.misultin.com/",
+  "image": "ghcr.io/zumbyte-appsolution/gscs:0.1.0-alpha.2",
+  "defaults": {
+    "AUTOSTARTTIMER": "0",
+    "MINAUTOSTARTPLAYERS": "2",
+    "ADDAUTOSTARTTIMEONPLAYERJOIN": "20",
+    "SERVERBRANCH": "public"
+  },
+  "ports": [
+    {
+      "role": "game",
+      "default": 7777,
+      "containerPort": 7777,
+      "protocol": "udp",
+      "offsetFromRole": "",
+      "offset": 0
+    },
+    {
+      "role": "query",
+      "default": 27015,
+      "containerPort": 27015,
+      "protocol": "udp",
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "configurationTabs": [
+    {
+      "id": "server",
+      "label": "Server",
+      "icon": "settings",
+      "order": 0
+    },
+    {
+      "id": "steam-downloads",
+      "label": "Steam Downloads",
+      "icon": "settings",
+      "order": 1
+    }
+  ],
+  "configurationFields": [
+    {
+      "id": "SERVER_NAME",
+      "label": "Servername",
+      "description": "Sets the name of the server that will appear in the server browser",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "{SERVER_NAME}",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.ServerName",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SERVER_PASSWORD",
+      "label": "Serverpasswort",
+      "description": "Sets the password required for players to join the server. Default is no password",
+      "tab": "server",
+      "section": "Server",
+      "type": "password",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": true,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.ServerPassword",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "SLOTS",
+      "label": "Spielerlimit",
+      "description": "Sets the maximum number of players that may connect to the server at one time",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "32",
+      "placeholder": "32",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.MaxPlayerCount",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 1.0
+    },
+    {
+      "id": "AUTOSTARTTIMER",
+      "label": "Auto Start Timer",
+      "description": "Sets the timer for auto start. 0 = disabled",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "0",
+      "placeholder": "0",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.AutoStartTimer",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "MINAUTOSTARTPLAYERS",
+      "label": "Minimum Auto Start Players",
+      "description": "Sets the minimum number of players required to auto start",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "2",
+      "placeholder": "2",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.MinAutoStartPlayers",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 1.0
+    },
+    {
+      "id": "ADDAUTOSTARTTIMEONPLAYERJOIN",
+      "label": "Auto Start Additional Time On Player Join",
+      "description": "Adds additional time to the auto start timer when a player joins",
+      "tab": "server",
+      "section": "Server",
+      "type": "number",
+      "default": "20",
+      "placeholder": "20",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "$.AddAutoStartTimeOnPlayerJoin",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true,
+      "min": 0.0
+    },
+    {
+      "id": "SERVERBRANCH",
+      "label": "Serverversion",
+      "description": "Sets the server branch to install. Update the server after switching branches",
+      "tab": "steam-downloads",
+      "section": "Steam Downloads",
+      "type": "enum",
+      "default": "public",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {
+        "public": "Public (default)",
+        "public-testing": "Testing build",
+        "demo": "Demo build"
+      },
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "ServerBranch",
+      "parameterFormat": "-{0}=\"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    }
+  ],
+  "configurationFiles": [
+    {
+      "path": "Exfil/Saved/ServerSettings/DedicatedSettings.JSON",
+      "format": "json",
+      "lineFormat": "",
+      "bindings": [
+        {
+          "key": "ServerName",
+          "variable": "{SERVER_NAME}",
+          "section": "",
+          "type": "text"
+        },
+        {
+          "key": "ServerPassword",
+          "variable": "{SERVER_PASSWORD}",
+          "section": "",
+          "type": "password"
+        },
+        {
+          "key": "MaxPlayerCount",
+          "variable": "{SLOTS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AutoStartTimer",
+          "variable": "{AUTOSTARTTIMER}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "MinAutoStartPlayers",
+          "variable": "{MINAUTOSTARTPLAYERS}",
+          "section": "",
+          "type": "number"
+        },
+        {
+          "key": "AddAutoStartTimeOnPlayerJoin",
+          "variable": "{ADDAUTOSTARTTIMEONPLAYERJOIN}",
+          "section": "",
+          "type": "number"
+        }
+      ],
+      "template": "",
+      "onlyIfPresent": false,
+      "onlyExistingBindings": false,
+      "platform": "all"
+    }
+  ],
+  "deploymentSteps": [
+    {
+      "name": "SteamCMD Download",
+      "type": "steam",
+      "phase": "install",
+      "platform": "all",
+      "source": "3093190",
+      "target": "",
+      "arguments": "{SERVERBRANCH}",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "SteamCMD Component Download",
+      "type": "steam",
+      "phase": "install",
+      "platform": "windows",
+      "source": "1007",
+      "target": "Exfil/Binaries/Win64",
+      "arguments": "public",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "DedicatedSettings.JSON.sample Copy",
+      "type": "copy",
+      "phase": "install",
+      "platform": "all",
+      "source": "Exfil/Saved/ServerSettings/DedicatedSettings.JSON.sample",
+      "target": "Exfil/Saved/ServerSettings/DedicatedSettings.JSON",
+      "arguments": "{SERVER_DIR}/Exfil/Saved/ServerSettings/DedicatedSettings.JSON.sample",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "ServerSettings.JSON.sample Copy",
+      "type": "copy",
+      "phase": "install",
+      "platform": "all",
+      "source": "Exfil/Saved/ServerSettings/ServerSettings.JSON.sample",
+      "target": "Exfil/Saved/ServerSettings/ServerSettings.JSON",
+      "arguments": "{SERVER_DIR}/Exfil/Saved/ServerSettings/ServerSettings.JSON.sample",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Community.JSON.sample Copy",
+      "type": "copy",
+      "phase": "install",
+      "platform": "all",
+      "source": "Exfil/Saved/ServerSettings/Community.JSON.sample",
+      "target": "Exfil/Saved/ServerSettings/Community.JSON",
+      "arguments": "{SERVER_DIR}/Exfil/Saved/ServerSettings/Community.JSON.sample",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "AdminSettings.JSON Creation",
+      "type": "file",
+      "phase": "install",
+      "platform": "all",
+      "source": "{\n   \"AdminList\": [],\n   \"BanList\": []\n}",
+      "target": "Exfil/Saved/ServerSettings/AdminSettings.JSON",
+      "arguments": "{SERVER_DIR}/Exfil/Saved/ServerSettings/AdminSettings.JSON",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    }
+  ],
+  "authenticationRequirements": [],
+  "environment": {
+    "LD_LIBRARY_PATH": "{SERVER_DIR}/linux64:{SERVER_DIR}/linux64:%LD_LIBRARY_PATH%",
+    "SteamAppId": "3093190"
+  },
+  "linuxPackages": [],
+  "warnings": [],
+  "validationStatus": "ready",
+  "preferredRuntime": "native",
+  "noCommercialUsage": false,
+  "workingDirectory": "",
+  "executables": {
+    "windows": "Exfil/Binaries/Win64/ExfilServer-Win64-Shipping.exe",
+    "linux": "Exfil/Binaries/Linux/ExfilServer-Linux-Shipping"
+  },
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "windowsOnly": false,
+  "platformWorkingDirectories": {
+    "windows": "",
+    "linux": ""
+  },
+  "platformArguments": {
+    "windows": [
+      "Exfil",
+      "-Port={GAME_PORT}",
+      "-QueryPort={QUERY_PORT}",
+      "{FORMATTED_ARGS}",
+      "-stdout",
+      "-FullStdOutLogOutput"
+    ],
+    "linux": [
+      "Exfil",
+      "-Port={GAME_PORT}",
+      "-QueryPort={QUERY_PORT}",
+      "{FORMATTED_ARGS}",
+      "-stdout",
+      "-FullStdOutLogOutput"
+    ]
+  },
+  "arguments": [
+    "Exfil",
+    "-Port={GAME_PORT}",
+    "-QueryPort={QUERY_PORT}",
+    "{FORMATTED_ARGS}",
+    "-stdout",
+    "-FullStdOutLogOutput"
+  ],
+  "stopCommand": "quit",
+  "query": "source"
+}

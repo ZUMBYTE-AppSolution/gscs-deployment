@@ -1,0 +1,276 @@
+{
+  "id": "project5-sightseer",
+  "name": "Project 5: Sightseer",
+  "version": "1.1.0",
+  "approved": true,
+  "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/project5-sightseer.json",
+  "sourceRef": "main",
+  "steamAppId": 655780,
+  "steamGameAppId": 655780,
+  "website": "https://project-5-sightseer.fandom.com/wiki/Project_5:_Sightseer_Wiki",
+  "image": "ghcr.io/zumbyte-appsolution/gscs:0.1.0-alpha.2",
+  "defaults": {
+    "PUBLIC": "-public",
+    "FN": "World.dat"
+  },
+  "ports": [
+    {
+      "role": "game",
+      "default": 5190,
+      "containerPort": 5190,
+      "protocol": "tcp",
+      "offsetFromRole": "",
+      "offset": 0
+    }
+  ],
+  "configurationTabs": [
+    {
+      "id": "server",
+      "label": "Server",
+      "icon": "settings",
+      "order": 0
+    },
+    {
+      "id": "authentication",
+      "label": "Zugangsdaten",
+      "icon": "key",
+      "order": -1
+    }
+  ],
+  "configurationFields": [
+    {
+      "id": "SERVER_NAME",
+      "label": "Servername",
+      "description": "Server name as shown in the in-game browser",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "{SERVER_NAME}",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": true,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "name",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": true,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "PUBLIC",
+      "label": "Make Server Public",
+      "description": "If enabled, the server will be registered to the public lobby and be publicly visible in the in-game browser",
+      "tab": "server",
+      "section": "Server",
+      "type": "checkbox",
+      "default": "-public",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": true,
+      "options": {},
+      "trueValue": "-public",
+      "falseValue": "",
+      "parameter": "public",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "FN",
+      "label": "World Save Name",
+      "description": "Sets the name of the world save to load (if it already exists) or to create. If the world save does not already exist, an admin must create it in-game after connecting to the server",
+      "tab": "server",
+      "section": "Server",
+      "type": "text",
+      "default": "World.dat",
+      "placeholder": "World.dat",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "fn",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": true,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "ADMINS",
+      "label": "Server Admins",
+      "description": "List of Steam64 IDs for server admins. [Find Steam64 IDs](https://steamid.io/)",
+      "tab": "server",
+      "section": "Server",
+      "type": "textarea",
+      "default": "",
+      "placeholder": "",
+      "required": false,
+      "secret": false,
+      "hidden": false,
+      "readOnly": false,
+      "startupPermission": false,
+      "argumentFragment": false,
+      "options": {},
+      "trueValue": "true",
+      "falseValue": "false",
+      "parameter": "admins",
+      "parameterFormat": "-{0} \"{1}\"",
+      "includeInArguments": false,
+      "isFlag": false,
+      "skipIfEmpty": true
+    },
+    {
+      "id": "STEAM_USER",
+      "label": "Steam-Benutzername",
+      "type": "text",
+      "tab": "authentication",
+      "section": "Steam",
+      "default": "",
+      "required": true,
+      "secret": false,
+      "platform": "all"
+    },
+    {
+      "id": "STEAM_PASSWORD",
+      "label": "Steam-Passwort",
+      "type": "password",
+      "tab": "authentication",
+      "section": "Steam",
+      "default": "",
+      "required": true,
+      "secret": true,
+      "platform": "all"
+    },
+    {
+      "id": "STEAM_GUARD_CODE",
+      "label": "Steam-Guard-Code",
+      "type": "password",
+      "tab": "authentication",
+      "section": "Steam",
+      "default": "",
+      "required": false,
+      "secret": true,
+      "platform": "all"
+    }
+  ],
+  "configurationFiles": [],
+  "deploymentSteps": [
+    {
+      "name": "SteamCMD Download",
+      "type": "steam",
+      "phase": "install",
+      "platform": "all",
+      "source": "655780",
+      "target": "",
+      "arguments": "public",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Create ServerConfig Directory",
+      "type": "directory",
+      "phase": "install",
+      "platform": "all",
+      "source": "",
+      "target": "ServerConfig",
+      "arguments": "{SERVER_DIR}/ServerConfig",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": false,
+      "preserveExisting": true
+    },
+    {
+      "name": "Create Ban File",
+      "type": "file",
+      "phase": "install",
+      "platform": "all",
+      "source": "",
+      "target": "ServerConfig/ban.txt",
+      "arguments": "{SERVER_DIR}/ServerConfig/ban.txt",
+      "conditionVariable": "",
+      "conditionValue": "",
+      "optional": true,
+      "preserveExisting": true
+    }
+  ],
+  "authenticationRequirements": [
+    {
+      "id": "steam-account",
+      "label": "Steam-Konto",
+      "description": "Ein Steam-Konto mit Berechtigung für dieses Spiel hinterlegen. Steam Guard kann einmalig erforderlich sein.",
+      "url": "https://store.steampowered.com/login/",
+      "required": true,
+      "platform": "all"
+    }
+  ],
+  "environment": {
+    "LD_LIBRARY_PATH": "{SERVER_DIR}/linux64:%LD_LIBRARY_PATH%",
+    "SteamAppId": "655780"
+  },
+  "linuxPackages": [],
+  "warnings": [],
+  "validationStatus": "ready",
+  "preferredRuntime": "native",
+  "noCommercialUsage": false,
+  "workingDirectory": "",
+  "executables": {
+    "windows": "P5SServer.exe",
+    "linux": "/usr/bin/mono"
+  },
+  "operatingSystems": [
+    "windows",
+    "linux"
+  ],
+  "windowsOnly": false,
+  "platformWorkingDirectories": {
+    "windows": "",
+    "linux": ""
+  },
+  "platformArguments": {
+    "windows": [
+      "-port",
+      "{GAME_PORT}",
+      "-http",
+      "-localPath",
+      "{FORMATTED_ARGS}",
+      "{PUBLIC}"
+    ],
+    "linux": [
+      "./P5SServer.exe",
+      "-port",
+      "{GAME_PORT}",
+      "-http",
+      "-localPath",
+      "{FORMATTED_ARGS}",
+      "{PUBLIC}"
+    ]
+  },
+  "arguments": [
+    "./P5SServer.exe",
+    "-port",
+    "{GAME_PORT}",
+    "-http",
+    "-localPath",
+    "{FORMATTED_ARGS}",
+    "{PUBLIC}"
+  ],
+  "stopCommand": "q\\n",
+  "query": "source"
+}
