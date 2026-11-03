@@ -1032,6 +1032,16 @@
       ]
     },
     {
+      "id": "minecraft-java-multi",
+      "name": "Minecraft Java · Multi",
+      "path": "templates/minecraft-java-multi.json",
+      "sha256": "C625F2E3C6C88815D6E62C6A5049F9C0B943D0D4E5EF0A0D1DAB5368FC816A07",
+      "platforms": [
+        "windows",
+        "linux"
+      ]
+    },    
+    {
       "id": "minetest",
       "name": "Minetest (Legacy)",
       "path": "templates/minetest.json",
