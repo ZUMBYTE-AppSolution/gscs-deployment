@@ -1,6 +1,6 @@
 # GSCS Deployment-Katalog
 
-230 GSCS-Profile mit 9.626 Konfigurationsfeldern. Installation, Startparameter, TCP-/UDP-Ports und Zugangsdaten sind je Spiel hinterlegt. Die Konfiguration erscheint in passenden Bereichen im GSCS-Webinterface. Native Ausführung, Docker und die benötigten Kompatibilitätslaufzeiten richten sich nach dem gewählten Profil und Node.
+230 GSCS-Profile mit 9.646 Konfigurationsfeldern. Installation, Startparameter, TCP-/UDP-Ports und Zugangsdaten sind je Spiel hinterlegt. Die Konfiguration erscheint in passenden Bereichen im GSCS-Webinterface. Native Ausführung, Docker und die benötigten Kompatibilitätslaufzeiten richten sich nach dem gewählten Profil und Node.
 
 Die vollständige Liste steht in [SPIELE.md](SPIELE.md). Die Profile enthalten keine Spielserver-Binaries oder Zugangsdaten. Spielabhängige Konten, Tokens und Originaldateien müssen bereitgestellt werden. Die enthaltenen Profile sind strukturell geprüft; nicht alle Spiele wurden installiert und im Spielbetrieb getestet.
 
@@ -14,3 +14,5 @@ Die vollständige Liste steht in [SPIELE.md](SPIELE.md). Die Profile enthalten k
 Hytale besitzt getrennte geführte Anmeldungen für den Downloader und den Serveranbieter. GSCS erneuert laufende Serversitzungen über die hinterlegte Kontoverbindung. Für einen eigenen Anbieterzugang die [Anleitung](https://github.com/ZUMBYTE-AppSolution/gscs-deployment/wiki/Hytale-Anmeldung) beachten.
 
 Spielnamen, Logos und Spielserver gehören ihren jeweiligen Rechteinhabern. Für übernommene Vorlagendefinitionen gilt zusätzlich [LICENSE.third-party.txt](LICENSE.third-party.txt).
+
+[Hytale: Servername, Passwort und Weltregeln konfigurieren](HYTALE-CONFIG.md).

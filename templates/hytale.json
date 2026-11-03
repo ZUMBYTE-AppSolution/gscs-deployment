@@ -1,7 +1,7 @@
 {
   "id": "hytale",
   "name": "Hytale",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "approved": true,
   "sourceUrl": "https://raw.githubusercontent.com/ZUMBYTE-AppSolution/gscs-deployment/main/templates/hytale.json",
   "sourceRef": "main",
@@ -42,7 +42,7 @@
     }
   ],
   "defaults": {
-    "JAVA_MAJOR": "21",
+    "JAVA_MAJOR": "25",
     "HYTALE_PATCHLINE": "release"
   },
   "installScripts": {},
@@ -57,48 +57,40 @@
   "authentication": "hytale",
   "configurationTabs": [
     {
-      "id": "runtime",
-      "label": "Laufzeit",
+      "id": "server",
+      "label": "Server & Spieler",
       "order": 0
     },
     {
-      "id": "server",
-      "label": "Server",
+      "id": "security",
+      "label": "Zugang",
       "order": 1
     },
     {
-      "id": "security",
-      "label": "Sicherheit",
+      "id": "world",
+      "label": "Standardwelt",
       "order": 2
     },
     {
-      "id": "world",
-      "label": "Welt",
+      "id": "worldrules",
+      "label": "Weltregeln",
       "order": 3
+    },
+    {
+      "id": "runtime",
+      "label": "Laufzeit & Updates",
+      "order": 4
     }
   ],
   "configurationFields": [
     {
-      "id": "JAVA_MAJOR",
-      "label": "Java-Version",
-      "default": "21",
-      "tab": "runtime",
-      "type": "enum",
-      "options": {
-        "17": "Java 17",
-        "21": "Java 21",
-        "25": "Java 25"
-      },
-      "startupPermission": true
-    },
-    {
-      "id": "HYTALE_PATCHLINE",
-      "label": "Updatekanal",
-      "default": "release",
-      "tab": "runtime",
+      "id": "DISPLAY_NAME",
+      "label": "Servername im Spiel",
+      "default": "Hytale Server",
+      "tab": "server",
       "type": "text",
-      "secret": false,
-      "startupPermission": false
+      "required": true,
+      "description": "Anzeigename in der Serverliste. Der Name der GSCS-Instanz bleibt unabhängig."
     },
     {
       "id": "MOTD",
@@ -106,6 +98,24 @@
       "default": "",
       "tab": "server",
       "type": "text"
+    },
+    {
+      "id": "SLOTS",
+      "label": "Maximale Spieler",
+      "default": "32",
+      "tab": "server",
+      "type": "integer",
+      "readOnly": true,
+      "description": "Das Spielerlimit wird über Slots in den allgemeinen Servereinstellungen festgelegt."
+    },
+    {
+      "id": "VIEW_DISTANCE",
+      "label": "Maximale Sichtweite",
+      "default": "12",
+      "tab": "server",
+      "type": "number",
+      "min": 1,
+      "max": 32
     },
     {
       "id": "SERVER_PASSWORD",
@@ -116,13 +126,178 @@
       "secret": true
     },
     {
-      "id": "VIEW_DISTANCE",
-      "label": "Maximale Sichtweite",
-      "default": "12",
+      "id": "REQUIRE_JOIN_PERMISSION",
+      "label": "Beitrittsberechtigung erforderlich",
+      "default": "false",
+      "tab": "security",
+      "type": "checkbox",
+      "description": "Nur Spieler mit der Berechtigung hytale.server.join dürfen beitreten."
+    },
+    {
+      "id": "WORLD_NAME",
+      "label": "Standardwelt",
+      "default": "default",
       "tab": "world",
-      "type": "number",
-      "min": 1,
-      "max": 32
+      "type": "text",
+      "required": true,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9 _-]{0,63}$",
+      "description": "Name des Ordners unter universe/worlds."
+    },
+    {
+      "id": "DEFAULT_GAME_MODE",
+      "label": "Standard-Spielmodus",
+      "default": "Adventure",
+      "tab": "world",
+      "type": "enum",
+      "options": {
+        "Adventure": "Abenteuer",
+        "Creative": "Kreativ"
+      }
+    },
+    {
+      "id": "DEFAULT_MODS_ENABLED",
+      "label": "Nicht einzeln konfigurierte Mods aktivieren",
+      "default": "true",
+      "tab": "runtime",
+      "type": "checkbox"
+    },
+    {
+      "id": "JAVA_MAJOR",
+      "label": "Java-Version",
+      "default": "25",
+      "tab": "runtime",
+      "type": "enum",
+      "options": {
+        "25": "Java 25"
+      },
+      "startupPermission": true,
+      "required": true
+    },
+    {
+      "id": "HYTALE_PATCHLINE",
+      "label": "Updatekanal",
+      "default": "release",
+      "tab": "runtime",
+      "type": "enum",
+      "secret": false,
+      "startupPermission": false,
+      "options": {
+        "release": "Release",
+        "pre-release": "Vorabversion"
+      },
+      "description": "Hytale-Dateien und Clients müssen zur selben Version gehören."
+    },
+    {
+      "id": "WORLD_PVP",
+      "label": "PvP",
+      "default": "false",
+      "tab": "worldrules",
+      "type": "checkbox",
+      "description": "Wird nach der ersten Welterstellung beim nächsten Serverstart übernommen."
+    },
+    {
+      "id": "WORLD_FALL_DAMAGE",
+      "label": "Fallschaden",
+      "default": "true",
+      "tab": "worldrules",
+      "type": "checkbox",
+      "description": "Wird nach der ersten Welterstellung beim nächsten Serverstart übernommen."
+    },
+    {
+      "id": "WORLD_NPC_SPAWNING",
+      "label": "NPCs erzeugen",
+      "default": "true",
+      "tab": "worldrules",
+      "type": "checkbox",
+      "description": "Wird nach der ersten Welterstellung beim nächsten Serverstart übernommen."
+    },
+    {
+      "id": "WORLD_SPAWN_MARKERS",
+      "label": "Spawnmarker aktivieren",
+      "default": "true",
+      "tab": "worldrules",
+      "type": "checkbox",
+      "description": "Wird nach der ersten Welterstellung beim nächsten Serverstart übernommen."
+    },
+    {
+      "id": "WORLD_NPC_FROZEN",
+      "label": "NPCs einfrieren",
+      "default": "false",
+      "tab": "worldrules",
+      "type": "checkbox",
+      "description": "Wird nach der ersten Welterstellung beim nächsten Serverstart übernommen."
+    },
+    {
+      "id": "WORLD_TIME_PAUSED",
+      "label": "Spielzeit anhalten",
+      "default": "false",
+      "tab": "worldrules",
+      "type": "checkbox",
+      "description": "Wird nach der ersten Welterstellung beim nächsten Serverstart übernommen."
+    },
+    {
+      "id": "WORLD_WORLD_TICKING",
+      "label": "Weltsimulation aktivieren",
+      "default": "true",
+      "tab": "worldrules",
+      "type": "checkbox",
+      "description": "Wird nach der ersten Welterstellung beim nächsten Serverstart übernommen."
+    },
+    {
+      "id": "WORLD_BLOCK_TICKING",
+      "label": "Blocksimulation aktivieren",
+      "default": "true",
+      "tab": "worldrules",
+      "type": "checkbox",
+      "description": "Wird nach der ersten Welterstellung beim nächsten Serverstart übernommen."
+    },
+    {
+      "id": "WORLD_COMPASS",
+      "label": "Kompass aktualisieren",
+      "default": "true",
+      "tab": "worldrules",
+      "type": "checkbox",
+      "description": "Wird nach der ersten Welterstellung beim nächsten Serverstart übernommen."
+    },
+    {
+      "id": "WORLD_OBJECTIVE_MARKERS",
+      "label": "Zielmarkierungen anzeigen",
+      "default": "true",
+      "tab": "worldrules",
+      "type": "checkbox",
+      "description": "Wird nach der ersten Welterstellung beim nächsten Serverstart übernommen."
+    },
+    {
+      "id": "WORLD_SAVE_PLAYERS",
+      "label": "Spielerdaten speichern",
+      "default": "true",
+      "tab": "worldrules",
+      "type": "checkbox",
+      "description": "Wird nach der ersten Welterstellung beim nächsten Serverstart übernommen."
+    },
+    {
+      "id": "WORLD_SAVE_CHUNKS",
+      "label": "Chunks speichern",
+      "default": "true",
+      "tab": "worldrules",
+      "type": "checkbox",
+      "description": "Wird nach der ersten Welterstellung beim nächsten Serverstart übernommen."
+    },
+    {
+      "id": "WORLD_UNLOAD_CHUNKS",
+      "label": "Nicht benötigte Chunks entladen",
+      "default": "true",
+      "tab": "worldrules",
+      "type": "checkbox",
+      "description": "Wird nach der ersten Welterstellung beim nächsten Serverstart übernommen."
+    },
+    {
+      "id": "GAMEPLAY_CONFIG",
+      "label": "Gameplay-Konfiguration",
+      "default": "Default",
+      "tab": "worldrules",
+      "type": "text",
+      "description": "Name einer installierten Gameplay-Konfiguration."
     }
   ],
   "configurationFiles": [
@@ -132,7 +307,7 @@
       "bindings": [
         {
           "key": "ServerName",
-          "variable": "{SERVER_NAME}",
+          "variable": "{DISPLAY_NAME}",
           "type": "text"
         },
         {
@@ -154,6 +329,103 @@
           "key": "MaxViewRadius",
           "variable": "{VIEW_DISTANCE}",
           "type": "number"
+        },
+        {
+          "key": "Defaults.World",
+          "variable": "{WORLD_NAME}",
+          "type": "text"
+        },
+        {
+          "key": "Defaults.GameMode",
+          "variable": "{DEFAULT_GAME_MODE}",
+          "type": "text"
+        },
+        {
+          "key": "RequireJoinPermission",
+          "variable": "{REQUIRE_JOIN_PERMISSION}",
+          "type": "checkbox"
+        },
+        {
+          "key": "DefaultModsEnabled",
+          "variable": "{DEFAULT_MODS_ENABLED}",
+          "type": "checkbox"
+        }
+      ]
+    },
+    {
+      "path": "Server/universe/worlds/{WORLD_NAME}/config.json",
+      "format": "json",
+      "onlyIfPresent": true,
+      "bindings": [
+        {
+          "key": "IsPvpEnabled",
+          "variable": "{WORLD_PVP}",
+          "type": "checkbox"
+        },
+        {
+          "key": "IsFallDamageEnabled",
+          "variable": "{WORLD_FALL_DAMAGE}",
+          "type": "checkbox"
+        },
+        {
+          "key": "IsSpawningNPC",
+          "variable": "{WORLD_NPC_SPAWNING}",
+          "type": "checkbox"
+        },
+        {
+          "key": "IsSpawnMarkersEnabled",
+          "variable": "{WORLD_SPAWN_MARKERS}",
+          "type": "checkbox"
+        },
+        {
+          "key": "IsAllNPCFrozen",
+          "variable": "{WORLD_NPC_FROZEN}",
+          "type": "checkbox"
+        },
+        {
+          "key": "IsGameTimePaused",
+          "variable": "{WORLD_TIME_PAUSED}",
+          "type": "checkbox"
+        },
+        {
+          "key": "IsTicking",
+          "variable": "{WORLD_WORLD_TICKING}",
+          "type": "checkbox"
+        },
+        {
+          "key": "IsBlockTicking",
+          "variable": "{WORLD_BLOCK_TICKING}",
+          "type": "checkbox"
+        },
+        {
+          "key": "IsCompassUpdating",
+          "variable": "{WORLD_COMPASS}",
+          "type": "checkbox"
+        },
+        {
+          "key": "IsObjectiveMarkersEnabled",
+          "variable": "{WORLD_OBJECTIVE_MARKERS}",
+          "type": "checkbox"
+        },
+        {
+          "key": "IsSavingPlayers",
+          "variable": "{WORLD_SAVE_PLAYERS}",
+          "type": "checkbox"
+        },
+        {
+          "key": "IsSavingChunks",
+          "variable": "{WORLD_SAVE_CHUNKS}",
+          "type": "checkbox"
+        },
+        {
+          "key": "IsUnloadingChunks",
+          "variable": "{WORLD_UNLOAD_CHUNKS}",
+          "type": "checkbox"
+        },
+        {
+          "key": "GameplayConfig",
+          "variable": "{GAMEPLAY_CONFIG}",
+          "type": "text"
         }
       ]
     }

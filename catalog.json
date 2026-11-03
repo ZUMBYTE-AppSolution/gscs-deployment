@@ -838,7 +838,7 @@
       "id": "hytale",
       "name": "Hytale",
       "path": "templates/hytale.json",
-      "sha256": "21c7e4c91c29f1dab1c5adda1e0d9f75a8165172670f77f8f19d9f5557589d5a",
+      "sha256": "5c21c97102adab6b89f68632d1e8c909e4550ee50e403544f321c95b8f18b0bf",
       "platforms": [
         "windows",
         "linux"

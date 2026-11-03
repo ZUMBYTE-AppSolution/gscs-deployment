@@ -88,7 +88,7 @@
 | [Halo 3 (Project Reclaimer Mod)](templates/halo3-project-reclaimer.json) | windows | 34 | Steam-Konto |
 | [HumanitZ](templates/humanitz.json) | windows, linux | 43 | Keine zusätzliche Anmeldung im Profil |
 | [Hurtworld](templates/hurtworld.json) | windows, linux | 28 | Keine zusätzliche Anmeldung im Profil |
-| [Hytale](templates/hytale.json) | windows, linux | 5 | Hytale-Konto |
+| [Hytale](templates/hytale.json) | windows, linux | 25 | Hytale-Konto |
 | [Icarus](templates/icarus.json) | windows | 23 | Keine zusätzliche Anmeldung im Profil |
 | [Impostor - Among Us Server](templates/impostor.json) | windows, linux | 15 | Keine zusätzliche Anmeldung im Profil |
 | [Insurgency](templates/insurgency.json) | windows, linux | 3 | Keine zusätzliche Anmeldung im Profil |
